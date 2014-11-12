@@ -1,10 +1,7 @@
-<%= render :partial => "layouts/slider"%>
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<%#= render :partial => "layouts/slider"%>
+
 <% @products.each do |p| %>
-		<div class="col-md-4">
+<div class="col-md-4">
 
 	<p>
 		<strong>Name:</strong>
@@ -22,102 +19,84 @@
 		<strong>Category:</strong>
 		<%= p.category.name.capitalize %>
 	</p>
-	
+	<ul class="bxslider">
+								<% for img in p.images %>
+								<li>
+									<%=image_tag img.avatar.url(:original),:style=>"width:30%;" %>
+								</li>
+
+								<% end %>
+								</ul>
+	 <div class="actions">
+      <%= link_to "Add to Cart", line_items_path(:product_id => p), :method => :post %>
+    </div>
 	<table>
-			<% p.images.in_groups_of(3).each do |image| %>
-	<tr>
-					<%image.each do |img|%>
-					<% if img.try(:avatar).present? && img.image_show? %>
-	<td>
-		<button type="button" class="btn btn-lg" data-toggle="modal" data-target="#myModal">
-				<%=image_tag img.avatar.url(:small),:style=>"width:300px;height:300px;", :class=>"img-responsive" %>
-		</button>
-	</td>
-	<td>&nbsp;</td>
-	<td>&nbsp;</td>
-	<td>&nbsp;</td>
+
+		<% p.images.in_groups_of(3).each do |image| %>
+		<tr>
+			<%image.each do |img|%>
+			<% if img.try(:avatar).present? && img.image_show? %>
+			<td>
+				<a data-toggle="modal" data-target="#myModal_<%= p.id %>" 	 href="#">
+					<%=image_tag img.avatar.url(:small),:style=>"width:300px;height:300px;", :class=>"img-responsive" %>
+				</a>
+				
+				<!-- Bootstrap Modal Body -->
+				<!-- Modal -->
+				<div class="modal fade" id="myModal_<%= p.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+								<h4 class="modal-title" id="myModalLabel"><%= p.name %></h4>
+							</div>
+							<div class="modal-body">
+							
+					
+
+
+			<p>
+				<strong>Category:</strong>
+				<%= p.category.name.capitalize %>
+			</p>
+			<p>
+				<strong>Name:</strong>
+				<%= p.name.capitalize %>
+			</p>
+			<p>
+				<strong>Description:</strong>
+				<%= p.description.capitalize %>
+			</p>
+			<p>
+				<strong>Price:</strong>
+				<%= p.price %>
+			</p>
+
+
+
+							</div>
+							<div class="modal-footer">
+								<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+			</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
+			<td>&nbsp;</td>
 			<%end%>
-				<%end%>
-	</tr>
-		 <% end %>
-		</table>
+			<%end%>
+		</tr>
+		<% end %>
+	</table>
 
-	</div>
-<!-- Modal -->
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-dialog" style=".modal-dialog" >
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;
-					</button>
-						</span><span class="sr-only">Close</span>
-							<h4 class="modal-title" id="myModalLabel">Images</h4>
-				</div>
-	<p>
-		<strong>Category:</strong>
-		<%= p.category.name.capitalize %>
-	</p>
-			 <div class="modal-body">
-			 <html lang="en">
-			 <body>
-<div class="bs-example">
-		<div id="myCarousel" class="carousel slide" data-interval="3000" data-ride="carousel" style="width:400px;" >
-			<!-- Carousel indicators -->
-				<ol class="carousel-indicators">
-						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-						<li data-target="#myCarousel" data-slide-to="1"></li>
-						<li data-target="#myCarousel" data-slide-to="2"></li>
-				</ol>   
-			 <!-- Carousel items -->
-				<div class="carousel-inner">
-						<div class="active item">
-						 <h2> Slide 1</h2>
-								<div class="carousel-caption">
-									<!-- <h3>First slide label</h3> -->
-									<!-- <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p> -->
-								</div>
-						</div>
-						<div class="item">
-								<h2>Slide 2</h2>
-								<div class="carousel-caption">
-									<!-- <h3>Second slide label</h3> -->
-									<p></p>
-								</div>
-						</div>
-						<div class="item">
-								<h2>Slide 3</h2>
-								<div class="carousel-caption">
-									<!-- <h3>Third slide label</h3> -->
-									<!-- <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p> -->
-								</div>
-						</div>
-				</div>
-				<!-- Carousel nav -->
-				<a class="carousel-control left" href="#myCarousel" data-slide="prev">
-						<span class="glyphicon glyphicon-chevron-left"></span>
-				</a>
-				<a class="carousel-control right" href="#myCarousel" data-slide="next">
-						<span class="glyphicon glyphicon-chevron-right"></span>
-				</a>
-		</div>
 </div>
-<p>
-		<strong>Name:</strong>
-		<%= p.name.capitalize %>
-	</p>
-	<p>
-		<strong>Description:</strong>
-		<%= p.description.capitalize %>
-	</p>
-	<p>
-		<strong>Price:</strong>
-		<%= p.price %>
-	</p>
 
 
-</body>
-</html>
-</div>
+
 
 	<!-- <table>
 		
@@ -127,7 +106,7 @@
 					<% if img.try(:avatar).present? %>
 		<td>
 		
-				<%=image_tag img.avatar.url(:small),:style=>"width:300px;height:300px;", :class => "img-responsive" %>
+				<%= image_tag img.avatar.url(:small),:style=>"width:300px;height:300px;", :class => "img-responsive" %>
 		</td>
 	<td>&nbsp;</td>
 	<td>&nbsp;</td>
@@ -136,41 +115,44 @@
 				<%end%>
 		</tr>
 					<% end %>
-</table> -->
+				</table> -->
 				
-			</div>
-		</div>
-	</div>
-<% end %>
+	
+	<% end %>
 
-<style type="text/css">
-.modal-dialog{
-width: 80%;
-height: 100%;
-padding: 0;
-margin: 30;
-}
-</style>
+	<style type="text/css">
+		.modal-dialog{
+			width: 80%;
+			height: 100%;
+			padding: 0;
+			margin: 30;
+		}
+	</style>
 
-<style type="text/css">
-h2{
-		margin: 0;     
-		color: #666;
-		padding-top: 90px;
-		font-size: 52px;
-		font-family: "trebuchet ms", sans-serif;    
-}
-.item{
-		background: #333;    
-		text-align: center;
-		height: 300px !important;
-}
-.carousel{
-		margin-top: 20px;
-}
-.bs-example{
-	margin: 20px;
-}
-</style>
+	<style type="text/css">
+		h2{
+			margin: 0;     
+			color: #666;
+			padding-top: 90px;
+			font-size: 52px;
+			font-family: "trebuchet ms", sans-serif;    
+		}
+		.item{
+			background: #333;    
+			text-align: center;
+			height: 300px !important;
+		}
+		.carousel{
+			margin-top: 20px;
+		}
+		.bs-example{
+			margin: 20px;
+		}
+	</style>
 
+<script type="text/javascript" charset="utf-8">
+  $(function(){
+     $(".bxslider").bxSlider()
+  })
+</script>
 

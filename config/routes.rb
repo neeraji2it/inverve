@@ -1,5 +1,4 @@
 Furnitureapp::Application.routes.draw do
- 
   devise_for :admins
   devise_for :users
   # get "homes/index"
@@ -22,9 +21,7 @@ Furnitureapp::Application.routes.draw do
 #    member do
 #      get :category
 #    end
-  end
-  
-  # You can have the root of your site routed with "root"
+  end  # You can have the root of your site routed with "root"
  
   
   resources :profiles do
@@ -33,11 +30,16 @@ Furnitureapp::Application.routes.draw do
     end
   end
   
+  
   resources :homes do
     collection do
-      get :category
     end
+
   end 
+ 
+    resources :line_items
+    resources :carts
+
   
   root 'homes#index'
   # Example of regular route:

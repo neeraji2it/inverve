@@ -19,17 +19,18 @@
 <!-- <li class="dropdown"> -->
 <!-- <a class="dropdown-toggle" data-toggle="dropdown"> -->
 <li><%= link_to cat.name,home_path(cat)%></li>
-<!-- </a>
-<ul class="dropdown-menu" role="menu">
-<% Product.where("category_id = #{cat.id}").each do |product| %>
-<li><%= link_to product.name, welcome_path(product)%></li>
+
 <% end %>
-</ul>
--->
-<% end %>
+<li>
+<%= link_to("Home",homes_path)%>
+</li>
+
 <% if current_user%>
 <li>
 
+<!-- <li>
+<%= link_to "Your Cart",cart_path %>
+</li> -->
 <li>
 <%= link_to "Profile", profiles_path %>
 </li>
@@ -38,9 +39,6 @@
 </li>
 <% end %>
 <% if !current_user%>
-<li>
-<%= link_to("Home",homes_path)%>
-</li>
 <li>
 <%= link_to("Sign up", new_user_registration_path)%>
 </li>

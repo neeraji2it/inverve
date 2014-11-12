@@ -33,6 +33,7 @@
            <%= link_to "destroy", delete_img_admin_product_path(img.id, :product_id => @product.id), :method => :delete, :data => {:confirm => "Are you sure to delete"} %>
        </td>
 
+
           <td>
           <% if img.image_show == true%>
           <%= link_to 'hide',image_show_admin_product_path(:id => @product.id, :image_id =>img, :image_show =>"false"), :method => "PUT" %>

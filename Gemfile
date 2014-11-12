@@ -9,6 +9,8 @@ group :production do
 end
 
 gem 'mysql2'
+gem 'bxslider-rails'
+
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -38,7 +40,7 @@ end
 
 gem 'execjs'
 gem 'therubyracer'
-
+# gem 'acts_as_shopping_cart', '~> 0.2.1'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem "nested_form"
 gem 'devise'
