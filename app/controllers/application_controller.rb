@@ -20,6 +20,8 @@ class ApplicationController < ActionController::Base
     welcome_index_path
       end
   end
+
+  
 def current_cart
     if session[:cart_id]
       @current_cart ||= Cart.find(session[:cart_id])

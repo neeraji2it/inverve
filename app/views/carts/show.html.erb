@@ -1,4 +1,4 @@
-<table id="line_items">
+<table id="line_items" class="table">
   <tr>
     <th>Product</th>
     <th>Qty</th>
@@ -15,12 +15,12 @@
   <% end %>
   <tr>
     <td class="total price" colspan="4">
-      Total: <%= number_to_currency @cart.total_price %>
+      Total:<%= number_to_currency @cart.total_price %>
     </td>
   </tr>
 </table>
 
 <p>
-  <%= link_to "Continue Shopping", homes_path %> |
+  <%= link_to "Continue Shopping", homes_path %>|<%= link_to "Checkout","#"%>
   
 </p>
