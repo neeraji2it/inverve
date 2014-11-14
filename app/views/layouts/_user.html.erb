@@ -27,7 +27,11 @@
 
 <% if current_user%>
 <li>
-<%= link_to "My Cart",carts_path %>
+<%= link_to "Cart",carts_path %>
+</li>
+
+ <li>
+(<%= current_cart.line_items.count %>)
 </li>
 <li>
 <%= link_to "Profile", profiles_path %>
