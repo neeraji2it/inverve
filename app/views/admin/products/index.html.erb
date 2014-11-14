@@ -1,35 +1,29 @@
 <h1>Listing products</h1>
 <%= link_to 'New Product', new_admin_product_path, :class => "pull-right btn btn-primary" %>
+<%= form_tag admin_products_path, :method => 'get',:id => "products_search" do %>
+    <%= hidden_field_tag :direction, params[:direction] %>
+  <%= hidden_field_tag :sort, params[:sort] %>
+  <p>
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil %>
+  </p>
+<% end %>
+<div id="products"><%= render 'products' %></div>
 
-<div class="table-responsive">
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <!-- <th>Image url</th> -->
-      <th>Price</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.name.capitalize %></td>
-        <td><%= product.description.capitalize %></td>
-        <td><%= product.price %></td>
-        
-        <td><%= link_to 'Show', admin_product_path(product.id) %></td>
-        <td><%= link_to 'Edit', edit_admin_product_path(product.id) %></td>
-        <td><%= link_to 'Destroy', admin_product_path(product.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-</div>
-<br>
+<script type="text/javascript">
+$(function () {
+  // Sorting and pagination links.
+  $('#products th a, #products .pagination a').live('click', function () {
+      $.getScript(this.href);
+      return false;
+  });
+  
+  // Search form.
+  $('#products_search input').keyup(function() {
+    $.get($("#products_search").attr("action"), $("#products_search").serialize(), null, 'script');
+    return false;
+  });
+});
+</script>
 
 
