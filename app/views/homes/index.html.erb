@@ -1,7 +1,39 @@
 <h4>Welcome To Home Page</h4>
+
+<!-- 
+					<%= form_tag homes_path, :method => 'get',:id => "products_search" do %>
+					<p>
+						<%= text_field_tag :search, params[:search] %>
+						<%= submit_tag "Search", :name => nil %>
+					</p>
+					<% end %> -->
+					
+				<%#=@products.all%>
+					
+
+<script type="text/javascript">
+$(function () {
+  // Sorting and pagination links.
+  $('#products th a, #products .pagination a').live('click', function () {
+      $.getScript(this.href);
+      return false;
+  });
+  
+  // Search form.
+  $('#products_search input').keyup(function() {
+    $.get($("#products_search").attr("action"), $("#products_search").serialize(), null, 'script');
+    return false;
+  });
+});
+</script>
+
+
+
  <%#= render :partial => "layouts/slider"%>
  <!-- 
 <% Category.where("name is not null and category_show = #{true}").each do |cat| %>
 
 	<%= link_to cat.name, home_path(cat) %><br/>
 	<% end %>
+
+

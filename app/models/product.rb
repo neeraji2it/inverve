@@ -6,7 +6,6 @@
 	validates :price, :numericality => {:only_float => true}
 	accepts_nested_attributes_for :images, reject_if: :all_blank, :allow_destroy => true
   
-
   def self.search(search)
     if search
       where('name LIKE ?', "%#{search}%")

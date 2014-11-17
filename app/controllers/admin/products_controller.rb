@@ -69,14 +69,15 @@ class Admin::ProductsController < ApplicationController
     redirect_to admin_product_path(@product)
   end
 	private
-  def product_params
-    params.require(:product).permit(:name, :description, :price, :category_id, :images_attributes => [:id, :product_id, :avatar, :_destroy])
-  end
-   def sort_column
+  def sort_column
     Product.column_names.include?(params[:sort]) ? params[:sort] : "name"
   end
   
   def sort_direction
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
+  def product_params
+    params.require(:product).permit(:name, :description, :price, :category_id, :images_attributes => [:id, :product_id, :avatar, :_destroy])
+  end
+   
 end
