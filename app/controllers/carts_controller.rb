@@ -6,9 +6,8 @@ class CartsController < ApplicationController
     def index
       @cart = current_cart
       @products = current_cart.line_items
-      @qty = (0..10)
       quantities = []
-      (0..10).each do |qty|
+      (0..100).each do |qty|
         p qty
         quantities << qty
       end
@@ -27,7 +26,9 @@ class CartsController < ApplicationController
   end
 
   def update
+    @cart = current_cart
     @li = LineItem.find(params[:id])
+
     @li.update(:quantity => params[:quantity])
     respond_to do |format|
       format.js {
