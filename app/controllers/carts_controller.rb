@@ -2,10 +2,19 @@ class CartsController < ApplicationController
 	def show
     @cart = current_cart
   end
-  def index
-    @cart = current_cart
-    @products = current_cart.line_items
+
+    def index
+      @cart = current_cart
+      @products = current_cart.line_items
+      @qty = (0..10)
+      quantities = []
+      (0..10).each do |qty|
+        p qty
+        quantities << qty
+      end
+      @quantities = quantities
     end
+
     def destroy
     @cart = LineItem.find(params[:id])
     if @cart.destroy
@@ -14,6 +23,16 @@ class CartsController < ApplicationController
         session[:cart_id] = nil
       end
       redirect_to carts_path
+    end
+  end
+
+  def update
+    @cart = LineItem.find(params[:id])
+    @cart.update(:quantity => params[:quantity])
+    respond_to do |format|
+      format.js {
+        render :text => false
+      }
     end
   end
 end
