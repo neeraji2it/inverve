@@ -27,8 +27,8 @@ class CartsController < ApplicationController
   end
 
   def update
-    @cart = LineItem.find(params[:id])
-    @cart.update(:quantity => params[:quantity])
+    @li = LineItem.find(params[:id])
+    @li.update(:quantity => params[:quantity])
     respond_to do |format|
       format.js {
         render :text => false

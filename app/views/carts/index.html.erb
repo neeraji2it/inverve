@@ -11,7 +11,7 @@
     <tr class="<%= cycle :odd, :even %>">
       <td><%=h line_item.product.name %></td>
       <td class="qty">
-      <%= select_tag :quantity, options_for_select(@quantities), :onchange => "quantity_select(this.value, #{current_cart.id})" %>
+      <%= select_tag :quantity, options_for_select(@quantities, :selected => line_item.quantity), :onchange => "quantity_select(this.value, #{current_cart.id}, #{line_item.id})" %>
       </td>
       <td class="price"><%= number_to_currency(line_item.unit_price) %></td>
       <td class="price"><%= number_to_currency(line_item.full_price) %></td>
@@ -27,14 +27,14 @@
 </table>
 
 <script type="text/javascript">
-  function quantity_select(quantity, cart) {
+  function quantity_select(quantity, cart, line_item) {
     $.ajax({
-      url: "/carts/" + cart,
+      url: "/carts/" + line_item,
       dataType: "Script",
       method: "PUT",
       data: {
         quantity: quantity
-      },
+      }
     });
   }
 </script>
