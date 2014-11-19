@@ -1,0 +1,59 @@
+<table id="line_items" class="table">
+  <tr>
+    <th></th>
+    <th>ITEM</th>
+    <th>Qty</th>
+    <th class="price">PRICE</th>
+    <th class="price">SUBTOTAL</th>
+    <th></th>
+  </tr>
+  <% for line_item in @cart.line_items %>
+ 
+    <tr class="<%= cycle :odd, :even %>">
+    <td>
+    <% line_item.product.images.where("image_show = #{true}").each do |img| %>
+  
+                <li>
+                <% if img.try(:avatar).present? && img.image_show? %>
+                  <%=image_tag img.avatar.url(:small),:style=>"width:15%;height:160px;" %>
+                  <% end %>
+                </li>
+
+                <% end %>
+  </td>
+      <td><%=h line_item.product.name %></td>
+      <td class="quantity">
+      <%= select_tag :quantity, options_for_select(@quantities, :selected => line_item.quantity), :onchange => "quantity_select(this.value, #{current_cart.id}, #{line_item.id})" %>
+       </td>
+
+      <td class="price"><%= number_to_currency(line_item.unit_price) %></td>
+      <td class="price"><%= number_to_currency(line_item.full_price) %></td>
+      <td><%= link_to "Close", cart_path(line_item), :method => :delete, :confirm => "	Are You Sure" %></td>
+    </tr>
+    </tr> 
+  <% end %>
+  <tr>
+    <td colspan="5" >
+      ESTIMATED TOTAL: <h4><%= number_to_currency @cart.total_price %></h4>
+    </td>
+  </tr>
+</table>
+<p>
+  <%= link_to "Continue Shopping", homes_path %>|<%= link_to "Checkout","#"%>
+  
+</p>
+<script type="text/javascript">
+  function quantity_select(quantity, cart, line_item) {
+    $.ajax({
+      url: "/carts/" + line_item,
+      dataType: "Script",
+      method: "PUT",
+      data: {
+        quantity: quantity,
+        cart: cart
+      }
+    });
+          $("#btn-save_"+ line_item).show();
+  }
+  
+</script>

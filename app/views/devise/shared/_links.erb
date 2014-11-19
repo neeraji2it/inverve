@@ -1,10 +1,10 @@
 <% if !resource.is_a?(Admin) %>
 	<%- if controller_name != 'sessions' %>
-	  <%= link_to "Log in", new_session_path(resource_name) %><br />
+	  Already have an account? <%= link_to "Login!", new_session_path(resource_name) %><br />
 	<% end -%>
 
 	<%- if devise_mapping.registerable? && controller_name != 'registrations' %>
-	  <%= link_to "Sign up", new_registration_path(resource_name) %><br />
+	  Don't have an account? <%= link_to "Create One!", new_registration_path(resource_name) %><br />
 	<% end -%>
 
 	<%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>

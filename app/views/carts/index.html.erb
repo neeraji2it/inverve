@@ -1,41 +1,4 @@
- <h5>In Your Cart There Is <%= current_cart.line_items.count %>Item</h6>
- <table id="line_items" class="table">
-  <tr>
-    <th>Product</th>
-    <th>Qty</th>
-    <th class="price">Unit Price</th>
-    <th class="price">Full Price</th>
-    <th></th>
-  </tr>
-  <% for line_item in @cart.line_items %>
-    <tr class="<%= cycle :odd, :even %>">
-      <td><%=h line_item.product.name %></td>
-      <td class="qty">
-      <%= select_tag :quantity, options_for_select(@quantities, :selected => line_item.quantity), :onchange => "quantity_select(this.value, #{current_cart.id}, #{line_item.id})" %>
-      </td>
-      <td class="price"><%= number_to_currency(line_item.unit_price) %></td>
-      <td class="price"><%= number_to_currency(line_item.full_price) %></td>
-      <td><%= link_to "Close", cart_path(line_item), :method => :delete, :confirm => "	Are You Sure" %></td>
-    </tr>
-    </tr> 
-  <% end %>
-  <tr>
-    <td colspan="5" >
-      Total:<%= number_to_currency @cart.total_price %>
-    </td>
-  </tr>
-</table>
-
-<script type="text/javascript">
-  function quantity_select(quantity, cart, line_item) {
-    $.ajax({
-      url: "/carts/" + line_item,
-      dataType: "Script",
-      method: "PUT",
-      data: {
-        quantity: quantity,
-        cart: cart
-      }
-    });
-  }
-</script>
+ <h5>In Your Cart There Is <%= current_cart.line_items.count %>  Item</h5>
+ <div id="carts">
+ <%= render :partial => 'index' %>
+ </div>

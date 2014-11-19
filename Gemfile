@@ -37,7 +37,8 @@ group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
 end
-
+gem "less-rails"
+gem 'twitter-bootstrap-rails'
 gem 'execjs'
 gem 'therubyracer'
 gem 'will_paginate', '~> 3.0'
