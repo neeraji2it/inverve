@@ -15,12 +15,13 @@
   
                 <li>
                 <% if img.try(:avatar).present? && img.image_show? %>
-                  <%=image_tag img.avatar.url(:small),:style=>"width:15%;height:160px;" %>
+                  <%=image_tag img.avatar.url(:small),:style=>"width:150px;height:160px;" %>
                   <% end %>
                 </li>
 
                 <% end %>
-  </td>
+    </td>
+
       <td><%=h line_item.product.name %></td>
       <td class="quantity">
       <%= select_tag :quantity, options_for_select(@quantities, :selected => line_item.quantity), :onchange => "quantity_select(this.value, #{current_cart.id}, #{line_item.id})" %>
@@ -28,7 +29,7 @@
 
       <td class="price"><%= number_to_currency(line_item.unit_price) %></td>
       <td class="price"><%= number_to_currency(line_item.full_price) %></td>
-      <td><%= link_to "Close", cart_path(line_item), :method => :delete, :confirm => "	Are You Sure" %></td>
+      <td><%= link_to "Remove", cart_path(line_item), :method => :delete, :confirm => "	Are You Sure" %></td>
     </tr>
     </tr> 
   <% end %>
@@ -37,10 +38,11 @@
       ESTIMATED TOTAL: <h4><%= number_to_currency @cart.total_price %></h4>
     </td>
   </tr>
+
 </table>
 <p>
-  <%= link_to "Continue Shopping", homes_path %>|<%= link_to "Checkout","#"%>
-  
+  <%= link_to "< CONTINUE SHOPPING", homes_path ,class: "btn btn" %>                      
+  <%= link_to "CHECKOUT",new_order_path ,class: "pull-right btn btn"%>  
 </p>
 <script type="text/javascript">
   function quantity_select(quantity, cart, line_item) {

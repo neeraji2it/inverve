@@ -2,4 +2,4 @@
  .search input[type="submit"]{position: absolute;margin-left: 10px;  background-image: -webkit-linear-gradient(#238adb,#adb);background-image: -moz-linear-gradient(#238adb,#adb);  }
  .email input {position: relative;}
  .search input[type="text"]{height:  30px;}
- select {width: 52px;}
+select {width: 52px;}

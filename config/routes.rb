@@ -40,6 +40,7 @@ Furnitureapp::Application.routes.draw do
     resources :line_items
     resources :carts
 
+
   
   root 'homes#index'
   # Example of regular route:
