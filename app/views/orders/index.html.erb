@@ -1,0 +1,53 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">Order</div>
+  <div class="panel-body">
+    <div class="table-responsive">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+           <% if current_admin.present? %>
+           <th>Cart</th>
+           <% end %>
+           <th>First name</th>
+           <th>Last name</th>
+           <th>Address</th>
+           <th>Landmark</th>
+           <th>Pincode</th>
+           <th>City</th>
+           <th>State</th>
+           <th>Country</th>
+           <th>Phone</th>
+           <!-- <th>Ip address</th> -->
+           <th></th>
+           <th></th>
+         </tr>
+       </thead>
+       <% @orders.each do |order| %>
+       <tbody>
+        <tr>
+          <% if current_admin.present? %>
+          <td><%= order.cart_id %></td>
+          <% end %>
+          <td><%= order.first_name %></td>
+          <td><%= order.last_name %></td>
+          <td><%= order.address %></td>
+          <td><%= order.landmark %></td>
+          <td><%= order.pincode %></td>
+          <td><%= order.city %></td>
+          <td><%= order.state %></td>
+          <td><%= order.country %></td>
+          <td><%= order.phone %></td>
+          <!-- <td><%= order.ip_address %></td> -->
+          <td><%= link_to 'Show', order %></td>
+          <% if current_user.present? %> 
+          <td><%= link_to 'Edit', edit_order_path(order) %></td>
+          <% end %>
+          <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      </tbody>
+      <% end %>
+    </table>
+  </div>
+</div>
+</div>
+

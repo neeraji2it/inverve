@@ -1,60 +1,46 @@
 
-	
+<table>	
+<td>
 <%= form_for(resource, as: resource_name, url: session_path(resource_name),
   html: {class: 'form-horizontal'}) do |f| %>
-  	
-  <div class="form-group">
   <h3>Log in</h3>
 
 
-    <div class="row">
-    	<div class="col-sm-1">
-    	<%= f.label :email %>
-    </div>
+    <div class="input-group input-group-lg">
 
-    <div class="col-sm-4">
-        <%= f.email_field :email, autofocus: true , class: "form-control" %>
-    </div>
-    </div>
- </div>
+            <span class="input-group-addon">
 
-</br>
-</br>
-<div class="form-group">
-    <div class="row">
-    <div class="col-sm-1">
-    	<%= f.label :password %>
-    </div>
+              <span class="  icon-envelope"></span>
 
-    <div class="col-sm-4">
-        <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
-    </div>
-    </div>
-</div>
+            </span>
+            
+            <%= f.email_field :email, autofocus: true, class: "form-control", placeholder:"Email address"%>
+        </div>
+        <br />
 
+        <div class="input-group input-group-lg">
+
+            <span class="input-group-addon">
+
+              <span class="icon-large icon-lock"></span>
+
+            </span>
+            <%= f.password_field :password, autocomplete: "off", class: "form-control",
+             placeholder: "Password" %>
+
+        </div> 
+<br />
 <% if devise_mapping.rememberable? -%>
 
-<div class="form-group">
-<div class="row">
-	
-	
-        <%= f.check_box :remember_me %> <%= f.label :remember_me, :class => "control-label" %>
-    </div>
+  <div class="checkbox">
+    <label>
+      <input type="checkbox"> Check me out
+    </label>
 </div>
+    <% end %>
+    <br />
+<%= f.submit "Sign in", class: 'btn btn-md btn-primary' %>
+ <%= render "devise/shared/links" %>
 <% end %>
-
-<div class="form-group">
-    <div class="row">
-    	<div class="col-sm-6">
-        <%= f.submit "Sign in", class: 'btn btn-md btn-primary' %>
-    </div>
-    </div>
-</div>
-
-<div class="form-group">
-    <div class="col-sm-6">
-        <%= render "devise/shared/links" %>
-    </div>
-</div>
-
-<% end %>
+</td>
+</table>

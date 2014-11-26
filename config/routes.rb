@@ -1,4 +1,6 @@
 Furnitureapp::Application.routes.draw do
+  resources :orders
+
   devise_for :admins
   devise_for :users
   # get "homes/index"
@@ -39,7 +41,8 @@ Furnitureapp::Application.routes.draw do
  
     resources :line_items
     resources :carts
-   
+    
+    resources :orders
 
   
   root 'homes#index'

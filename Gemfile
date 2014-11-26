@@ -43,7 +43,10 @@ gem 'twitter-bootstrap-rails'
 gem 'execjs'
 gem 'therubyracer'
 gem 'will_paginate', '~> 3.0'
-# gem 'acts_as_shopping_cart', '~> 0.2.1'
+#gem 'acts_as_shopping_cart', '~> 0.2.1'
 gem "paperclip", :git => "git://github.com/thoughtbot/paperclip.git"
 gem "nested_form"
 gem 'devise'
+gem 'irbtools', '~> 1.7.0'
+gem 'countries'
+gem 'country_select'

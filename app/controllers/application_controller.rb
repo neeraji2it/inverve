@@ -17,8 +17,14 @@ class ApplicationController < ActionController::Base
      admin_products_path
      
       else resource_or_scope.is_a?(User)
-    welcome_index_path
+    homes_path
       end
+  end
+
+  def sign_in?
+    unless current_user or current_admin
+      redirect_to new_user_session_path
+    end
   end
 
   
@@ -33,5 +39,5 @@ def current_cart
     end
     @current_cart
   end
-  
+
 end

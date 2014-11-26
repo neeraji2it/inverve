@@ -1,4 +1,15 @@
+ 
  <h5>In Your Cart There Is <%= current_cart.line_items.count %>  Item</h5>
+  <%= link_to "< CONTINUE SHOPPING", homes_path ,class: "pull-right btn btn" %>
+<% unless @cart.line_items.empty? %>
+
  <div id="carts">
  <%= render :partial => 'index' %>
  </div>
+ 
+ <% end %>
+ <% if @cart.line_items.empty? %>
+   
+    <img alt="Cart" src="/assets/cart2.png">
+  </div>
+ <% end %>

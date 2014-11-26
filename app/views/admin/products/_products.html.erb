@@ -1,31 +1,30 @@
-<div class="table-responsive">
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
+
+
+    <table class="table">
+      <caption>Optional table caption.</caption>
+      <thead>
+        <tr>
+          <th>Name</th>
       <th>Description</th>
       <!-- <th>Image url</th> -->
       <th>Price</th>
       <th></th>
       <th></th>
       <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= product.name.capitalize %></td>
+        </tr>
+      </thead>
+      <tbody>
+      <% @products.each do |product| %>
+        <tr>
+          <td><%= product.name.capitalize %></td>
         <td><%= product.description.capitalize %></td>
         <td><%= product.price %></td>
         
         <td><%= link_to 'Show', admin_product_path(product.id) %></td>
         <td><%= link_to 'Edit', edit_admin_product_path(product.id) %></td>
         <td><%= link_to 'Destroy', admin_product_path(product.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-<%= will_paginate @posts %>
-</div>
-<br>
+        </tr>
+         <% end %>
+      </tbody>
+    </table>
+    <%= will_paginate @products %>

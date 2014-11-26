@@ -1,48 +1,59 @@
+
 <table id="line_items" class="table">
-  <tr>
-    <th></th>
-    <th>ITEM</th>
-    <th>Qty</th>
-    <th class="price">PRICE</th>
-    <th class="price">SUBTOTAL</th>
-    <th></th>
-  </tr>
-  <% for line_item in @cart.line_items %>
- 
-    <tr class="<%= cycle :odd, :even %>">
+  <thead>
+    <tr>
+     <th></th>
+     <th>Item</th>
+     <th>Quantity</th>
+     <th class="price">Price</th>
+     <th class="price">Total</th>
+     <th></th>
+   </tr>
+ </thead>
+ <% for line_item in @cart.line_items %>
+ <tbody>
+   <tr class="<%= cycle :odd, :even %>">
     <td>
-    <% line_item.product.images.where("image_show = #{true}").each do |img| %>
-  
-                <li>
-                <% if img.try(:avatar).present? && img.image_show? %>
-                  <%=image_tag img.avatar.url(:small),:style=>"width:150px;height:160px;" %>
-                  <% end %>
-                </li>
-
-                <% end %>
+      <% line_item.product.images.where("image_show = #{true}").each do |img| %>
+      <li>
+        <% if img.try(:avatar).present? && img.image_show? %>
+        <%=image_tag img.avatar.url(:small),:style=>"width:100%;height:100%;" %>
+        <% end %>
+      </li>
+      <% end %>
     </td>
 
-      <td><%=h line_item.product.name %></td>
-      <td class="quantity">
+    <td><%=h line_item.product.name %></td>
+    <td class="quantity">
       <%= select_tag :quantity, options_for_select(@quantities, :selected => line_item.quantity), :onchange => "quantity_select(this.value, #{current_cart.id}, #{line_item.id})" %>
-       </td>
+    </td>
 
-      <td class="price"><%= number_to_currency(line_item.unit_price) %></td>
-      <td class="price"><%= number_to_currency(line_item.full_price) %></td>
-      <td><%= link_to "Remove", cart_path(line_item), :method => :delete, :confirm => "	Are You Sure" %></td>
-    </tr>
-    </tr> 
-  <% end %>
+    <td class="price"><%= number_to_currency(line_item.unit_price) %></td>
+    <td class="price"><%= number_to_currency(line_item.full_price) %></td>
+
+    <td><%= link_to "", cart_path(line_item), :method => :delete, :confirm => "	Are You Sure",:class => "icon-large icon-remove-sign" %></td>
+  </tr>
+</tr> 
+<% end %>
+</tbody>
+<tfoot>
+
   <tr>
-    <td colspan="5" >
-      ESTIMATED TOTAL: <h4><%= number_to_currency @cart.total_price %></h4>
+    <td colspan="6" >
+      Grand Total: <h4><%= number_to_currency @cart.total_price %></h4>
     </td>
   </tr>
-
+</tfoot>
 </table>
 <p>
-  <%= link_to "< CONTINUE SHOPPING", homes_path ,class: "btn btn" %>                      
-  <%= link_to "CHECKOUT","#" ,class: "pull-right btn btn"%>  
+
+
+  <%= link_to "CHECKOUT", new_order_path ,class: "pull-right btn btn"%>
+
+
+
+
+
 </p>
 <script type="text/javascript">
   function quantity_select(quantity, cart, line_item) {
@@ -55,7 +66,7 @@
         cart: cart
       }
     });
-          $("#btn-save_"+ line_item).show();
+    // $("#btn-save_"+ line_item).show();
   }
   
 </script>

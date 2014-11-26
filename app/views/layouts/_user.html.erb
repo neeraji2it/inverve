@@ -30,17 +30,19 @@
 					<% end %>
 					</li> -->
 					<li>
-						<%= link_to "Cart",carts_path %>
+						<%= link_to "",carts_path, :class =>"icon-large icon-shopping-cart" %>
 					</li>
 					<li>
 					 <%= current_cart.line_items.count %>
 					<li>
-						<%= link_to("Home",homes_path)%>
+						<%= link_to "Home",homes_path%>
+					</li>
+
+					<li>
+					<%= link_to "Help", :class => " icon-question-sign"%>
 					</li>
 
 					<% if current_user%>
-					
-
 					<li>
 					
 					</li>
