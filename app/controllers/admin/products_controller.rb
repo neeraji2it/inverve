@@ -34,7 +34,6 @@ class Admin::ProductsController < ApplicationController
     @product = Product.find(params[:id])
     # @product.images.destroy
     # @product.images.clear
-
   end
 
   def update

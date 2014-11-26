@@ -1,9 +1,7 @@
 <h4>Welcome To Home Page</h4>
 
  <%#= render :partial => "layouts/slider"%>
-<% @categories.each do |c| %>
-<%= c.name %>
-<% end %>
+
 <% @products.each do |p| %>
 <div class="col-sm-1 col-md-3">
 	<div class="thumbnail">
