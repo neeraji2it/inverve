@@ -36,13 +36,21 @@
     </div>
     <%= f.text_field :price %>
   </div>
-  <% f.fields_for :images do |builder| %>
+  <div class="form-group">
+  <div class="col-sm-1">
+  <%= f.label :discount %><br />
+  
+  </div>
+  <%= f.text_field :discount %>
+  </div>
+
+  <% f.fields_for :images do |image| %>
     <p>
-      <%= builder.label :avatar, "Image File" %>
+      <%= image.label :avatar, "Image File" %>
       <div>
-      <%= builder.file_field :avatar %>
+      <%= image.file_field :avatar %>
       <br/>
-      <%= builder.link_to_remove "Remove", :class =>"btn btn-sm btn-danger" %>
+      <%= image.link_to_remove "Remove", :class =>"btn btn-sm btn-danger" %>
       </div>
       </p>
     <% end %>

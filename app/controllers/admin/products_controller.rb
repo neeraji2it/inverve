@@ -1,37 +1,37 @@
 class Admin::ProductsController < ApplicationController
  helper_method :sort_column, :sort_direction
  before_filter :authenticate_admin!
-  def new 
-    @product = Product.new
-    
-     if @product.images.blank?
-      @product.images.build
-     end
-     @product.images.destroy
-     @product.images.clear
-     
+ def new 
+  @product = Product.new
+
+  if @product.images.blank?
+    @product.images.build
   end
+  @product.images.destroy
+  @product.images.clear
 
-  def create
-    @product = Product.new(product_params.merge(:category_id => params[:product][:category_id]))
+end
 
-    if @product.save
-      redirect_to admin_products_path, :notice =>"You have saved."
-    else
-      render 'new'
-    end
+def create
+  @product = Product.new(product_params.merge(:category_id => params[:product][:category_id]))
+
+  if @product.save
+    redirect_to admin_products_path, :notice =>"You have saved."
+  else
+    render 'new'
   end
+end
 
-  def show
-    @product = Product.find(params[:id])
-  end
+def show
+  @product = Product.find(params[:id])
+end
 
-  def index
-      @products = Product.search(params[:search]).paginate(:page => params[:page], :per_page => 3)
-  end
+def index
+  @products = Product.search(params[:search]).paginate(:page => params[:page], :per_page => 3)
+end
 
-  def edit
-    @product = Product.find(params[:id])
+def edit
+  @product = Product.find(params[:id])
     # @product.images.destroy
     # @product.images.clear
   end
@@ -67,7 +67,16 @@ class Admin::ProductsController < ApplicationController
     @image.update_attributes(:image_show => params[:image_show])
     redirect_to admin_product_path(@product)
   end
-	private
+
+  def discount
+    @product = Product.find(params[:id])
+    @product.update_attributes
+    redirect_to admin_product_path(@product)
+  end
+
+
+  
+  private
   def sort_column
     Product.column_names.include?(params[:sort]) ? params[:sort] : "name"
   end
@@ -76,7 +85,6 @@ class Admin::ProductsController < ApplicationController
     %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
   end
   def product_params
-    params.require(:product).permit(:name, :description, :price, :category_id, :images_attributes => [:id, :product_id, :avatar, :_destroy])
+    params.require(:product).permit!
   end
-   
 end

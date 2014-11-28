@@ -1,6 +1,7 @@
 
 <table id="line_items" class="table">
   <thead>
+  <hr />
     <tr>
      <th></th>
      <th>Item</th>
@@ -17,7 +18,7 @@
       <% line_item.product.images.where("image_show = #{true}").each do |img| %>
       <li>
         <% if img.try(:avatar).present? && img.image_show? %>
-        <%=image_tag img.avatar.url(:small),:style=>"width:100%;height:100%;" %>
+        <%=image_tag img.avatar.url(:original),:style=>"width:20%;height:20%;" %>
         <% end %>
       </li>
       <% end %>
@@ -30,8 +31,9 @@
 
     <td class="price"><%= number_to_currency(line_item.unit_price) %></td>
     <td class="price"><%= number_to_currency(line_item.full_price) %></td>
+    
 
-    <td><%= link_to "", cart_path(line_item), :method => :delete, :confirm => "	Are You Sure",:class => "icon-large icon-remove-sign" %></td>
+    <td><%= link_to "close", cart_path(line_item), :method => :delete, :confirm => "	Are You Sure",:class => "icon-large icon-remove-sign" %></td>
   </tr>
 </tr> 
 <% end %>
@@ -47,8 +49,9 @@
 </table>
 <p>
 
-
+<% if @cart.total_price  %>
   <%= link_to "CHECKOUT", new_order_path ,class: "pull-right btn btn"%>
+  <% end %> 
 
 
 

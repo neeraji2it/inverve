@@ -1,6 +1,6 @@
 <h4>Welcome To Home Page</h4>
 
- <%#= render :partial => "layouts/slider"%>
+<%#= render :partial => "layouts/slider"%>
 
 <% @products.each do |p| %>
 <div class="col-sm-1 col-md-3">
@@ -11,15 +11,22 @@
 		<% if img.try(:avatar).present? && img.image_show? %>
 
 		<a data-toggle="modal" data-target="#myModal_<%= p.id %>" 	 href="#">
-		<%=image_tag img.avatar.url(:original),:style=>"width:100%;height:100%;" %>
+			<%=image_tag img.avatar.url(:original),:style=>"width:100%;height:100%;" %>
 		</a>
 
 
 		<h5><%= p.name.capitalize %></h5>
 		<hr />
 		<h3><%= p.price %></h3>
+		<%if p.discount? %>
+		<h4>offer </h4>
+		<h4><%= (p.discount) %>%</h4>
+		<% end %>
+		<hr />
+		
+		
 
-        
+
 		<div class="actions">
 			<%= link_to "Add to Cart", line_items_path(:product_id => p), :method => :post %> 
 			<i class="icon-large icon-shopping-cart"></i>
@@ -28,39 +35,39 @@
 	<table>
 	</td>
 	<!-- Modal -->
-<div class="modal fade" id="myModal_<%= p.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-      </p>
-			<p>
-				<strong>Name:</strong>
-				<%= p.name.capitalize %>
-			</p>
-			<p>
-				<strong>Description:</strong>
-				<%= p.description.capitalize %>
-			</p>
-			<p>
-				<strong>Price:</strong>
-				<%= p.price %>
-			</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
+	<div class="modal fade" id="myModal_<%= p.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+
+				</div>
+				<div class="modal-body">
+				</p>
+				<p>
+					<strong>Name:</strong>
+					<%= p.name.capitalize %>
+				</p>
+				<p>
+					<strong>Description:</strong>
+					<%= p.description.capitalize %>
+				</p>
+				<p>
+					<strong>Price:</strong>
+					<%= p.price %>
+				</p>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+			</div>
+		</div>
+	</div>
 </div>
-	<td>&nbsp;</td>
-	<td>&nbsp;</td>
-	<td>&nbsp;</td>
-	<%end%>
-	<%end%>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<%end%>
+<%end%>
 </tr>
 <% end %>
 </table>
@@ -92,34 +99,9 @@
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <%#= render :partial => "layouts/slider"%>
  <!-- 
 <% Category.where("name is not null and category_show = #{true}").each do |cat| %>
 
 	<%= link_to cat.name, home_path(cat) %><br/>
 	<% end %>
-
-
