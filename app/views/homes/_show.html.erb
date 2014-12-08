@@ -1,14 +1,15 @@
+
 <%#= render :partial => "layouts/slider"%>
 <% @products.each do |p| %>
-<div class="col-sm-1 col-md-3">
-	<div class="thumbnail">
+<div class="col-sm-6 col-md-4">	
+<div class="thumbnail">
 		<% p.images.in_groups_of(3).each do |image| %>
 		
 		<%image.each do |img|%>
 		<% if img.try(:avatar).present? && img.image_show? %>
 
 		<a data-toggle="modal" data-target="#myModal_<%= p.id %>" 	 href="#">
-		<%= image_tag img.avatar.url(:original),:style=>"width:100%;height:100%;" %>
+		<%= image_tag img.avatar.url(:original),:style=>"max-width:300px;max-height:230px;" %>
 		</a>
 
 		<h5><%= p.name.capitalize %></h5>
@@ -22,7 +23,7 @@
 		<% end %>
 
 		<div class="actions">
-			<%= link_to "Add to Cart", line_items_path(:product_id => p), :method => :post %> 
+			<%= link_to "Add to Cart", line_items_path(:product_id => p), :method => :post ,:class =>"fa fa-shopping-cart fa-lg" %> 
 			
 		</div>
 	</div>

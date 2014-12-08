@@ -10,7 +10,7 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-				<a class="navbar-brand" href="#">Home Furnishing</a>
+				<a class="navbar-brand" href="/homes">Home Furnishing</a>
 			</div>
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse container-fluid" id="bs-example-navbar-collapse-1">
@@ -30,12 +30,12 @@
 					<% end %>
 					</li> -->
 					<li>
-						<%= link_to "cart",carts_path, :class =>"icon-large icon-shopping-cart" %>
+						<%= link_to "",carts_path, :class => "fa fa-shopping-cart fa-lg" %>
 					</li>
 					<li>
-					 <%= current_cart.line_items.count %>
+					 <%#= current_cart.line_items.count %>
 					<li>
-						<%= link_to "Home",homes_path%>
+						<%= link_to "Home", homes_path%> 
 					</li>
 
 					<li>
