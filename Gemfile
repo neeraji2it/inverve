@@ -12,7 +12,9 @@ end
 gem 'mysql2'
 gem 'bxslider-rails'
 
-
+group :development do
+	gem "rails-erd"
+end
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

@@ -9,7 +9,7 @@
 		<% if img.try(:avatar).present? && img.image_show? %>
 
 		<a data-toggle="modal" data-target="#myModal_<%= p.id %>" 	 href="#">
-		<%= image_tag img.avatar.url(:original),:style=>"max-width:300px;max-height:230px;" %>
+		<%= image_tag img.avatar.url(:original),:class => "img-responsive col-lg-12" %>
 		</a>
 
 		<h5><%= p.name.capitalize %></h5>
@@ -21,6 +21,8 @@
 		<h4><%= p.discount %>%</h4>
 		<h4><%= (p.discount_price).ceil %></h4>
 		<% end %>
+
+
 
 		<div class="actions">
 			<%= link_to "Add to Cart", line_items_path(:product_id => p), :method => :post ,:class =>"fa fa-shopping-cart fa-lg" %> 
@@ -35,14 +37,14 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title" id="myModalLabel"><%= p.name.capitalize %></h4>
       </div>
       <div class="modal-body">
-      </p>
-			<p>
+    
+			<!-- <p>
 				<strong>Name:</strong>
 				<%= p.name.capitalize %>
-			</p>
+			</p> -->
 			<p>
 				<strong>Description:</strong>
 				<%= p.description.capitalize %>
@@ -51,6 +53,15 @@
 				<strong>Price:</strong>
 				<%= p.price %>
 			</p>
+			<ul class="bxslider">
+			<% p.images.in_groups_of(3).each do |image| %>
+			<%image.each do |img|%>
+			<% if img.try(:avatar).present?  %>
+			<%= image_tag img.avatar.url(:original),:style=>"max-width:300px;max-height:230px;" %>
+			<% end %>
+			<% end %>
+			<% end %>
+	        </ul>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -69,6 +80,17 @@
 
 </div>	
 <% end %>
+<script type="text/javascript">
+$(document).ready(function(){
+  $('.bxslider').bxSlider({
+    slideWidth: 300,
+    minSlides: 2,
+    maxSlides: 3,
+    moveSlides: 1,
+    slideMargin: 30
+  });
+});
+</script>
 
 
 

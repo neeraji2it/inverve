@@ -1,0 +1,46 @@
+
+<table> 
+<td>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name),
+  html: {class: 'form-horizontal'}) do |f| %>
+  <h3>Log in</h3>
+
+
+    <div class="input-group input-group-lg">
+
+            <span class="input-group-addon">
+
+              <span class="fa fa-envelope"></span>
+
+            </span>
+            
+            <%= f.email_field :email, autofocus: true, class: "form-control", placeholder:"Email address"%>
+        </div>
+        <br />
+
+        <div class="input-group input-group-lg">
+
+            <span class="input-group-addon">
+
+              <span class="fa fa-lock fa-lg"></span>
+
+            </span>
+            <%= f.password_field :password, autocomplete: "off", class: "form-control",
+             placeholder: "Password" %>
+
+        </div> 
+<br />
+<% if devise_mapping.rememberable? -%>
+
+  <div class="checkbox">
+    <label>
+      <input type="checkbox"> Check me out
+    </label>
+</div>
+    <% end %>
+    <br />
+<%= f.submit "Sign in", class: 'btn btn-md btn-primary' %>
+ <%= render "devise/shared/links" %>
+<% end %>
+</td>
+</table>

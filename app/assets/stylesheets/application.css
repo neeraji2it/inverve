@@ -12,5 +12,6 @@
 
  *= require font-awesome
  *= require_self
+ *= require bxslider
  *= require_tree .
  */
