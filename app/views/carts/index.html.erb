@@ -6,9 +6,10 @@
  <div id="carts">
  <%= render :partial => 'index' %>
  </div>
- <%= link_to "< CONTINUE SHOPPING", homes_path ,class: " btn btn-default" %>
+ 
  <% end %>
  <% if @cart.line_items.empty? %>
     <img alt="Cart" src="/assets/cart2.png"	height="30.3%" width="30.3%">
   </div>
  <% end %>
+<%= link_to "< CONTINUE SHOPPING", homes_path ,class: " btn btn-default" %>
