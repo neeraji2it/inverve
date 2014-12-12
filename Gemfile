@@ -5,8 +5,8 @@ gem 'rails', '4.0.0'
 
 # Use mysql as the database for Active Record
 group :production do
- gem 'pg'
- gem 'rails_12factor'
+	gem 'pg'
+	gem 'rails_12factor'
 end
 
 gem 'mysql2'
@@ -15,6 +15,20 @@ gem 'bxslider-rails'
 group :development do
 	gem "rails-erd"
 end
+
+group :development, :test do
+	gem 'rspec-rails', '~> 2.0'
+	gem 'factory_girl_rails'
+	gem 'rspec-collection_matchers'
+end
+group :test do 
+	gem 'faker' 
+	gem 'capybara' 
+	gem 'guard-rspec'
+	gem 'launchy' 
+end 
+
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 

@@ -8,3 +8,4 @@ class LineItem < ActiveRecord::Base
     (full_price * discount)/ 100.ceil
    end
 end
+

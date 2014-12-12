@@ -10,4 +10,5 @@ class LineItemsController < ApplicationController
 		flash[:notice] = "Added #{@product.name} to cart."
 		redirect_to carts_path
 	end
+	
 end
