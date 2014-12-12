@@ -6,6 +6,6 @@ FactoryGirl.define do
 		f.name {Faker::Commerce.product_name}
 		f.price {Faker::Commerce.price}
 		f.category_id {Faker::Commerce.department}
-		f.association :category
+
 	end
 end

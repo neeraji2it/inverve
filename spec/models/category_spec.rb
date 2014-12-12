@@ -9,4 +9,6 @@ describe Category do
 	it "is invalid without a name" do
 		FactoryGirl.build(:category, name: nil).should_not be_valid	
 	end
+
+   it {should have_many(:products)}
 end
