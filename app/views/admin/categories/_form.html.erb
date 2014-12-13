@@ -1,3 +1,5 @@
+<form role="form">
+  <div class="col-md-6">
   <%= form_for [current_admin, @category], :url => admin_categories_path do |f| %>
   <% if @category.errors.any? %>
     <div id="error_explanation">
@@ -11,18 +13,13 @@
     </div>
   <% end %>
   
-  <div class="form-group">
-  <div class="col-sm-1" >
-    <%= f.label :name %>
-    </div>
-    <%= f.text_field :name %>
+<div class="form-group">
+    <%= f.label :Category_Name %><br />
+    <%= f.text_field :name, autofocus: true, class: "form-control", placeholder:"Category Name"%>
   </div>
-    <div class="actions">
-    <div class="col-sm-1">
-    <%= f.submit class: "btn btn" %>
-    </div>
-  </p>
-  </div>
-  
-
+<div class="actions">
+  <%= f.submit class: "btn btn-default"%>
+</div>
   <% end %>
+  </div>
+  </form>

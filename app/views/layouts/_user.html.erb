@@ -33,7 +33,7 @@
 			
 			
 					<li>
-						<%= link_to "",carts_path, :class => "fa fa-shopping-cart fa-lg" %>
+						<%= link_to "",carts_path, :class => "fa fa-shopping-cart fa-lg", :id=> "#links" %>
 					</li>
 					<li>
 					 <%= current_cart.line_items.count %>
@@ -69,3 +69,7 @@
 		</div><!-- /.container-fluid -->
 	</nav>
 </header>
+
+
+
+
