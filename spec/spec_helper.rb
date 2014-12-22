@@ -3,6 +3,7 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'capybara/rspec'
+require 'capybara/rails'
 require "paperclip/matchers"
 require 'shoulda-matchers'
 
@@ -22,6 +23,8 @@ ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 RSpec.configure do |config|
   config.include Paperclip::Shoulda::Matchers
+    config.include Devise::TestHelpers, type: :controller
+
 
   
   # ## Mock Framework

@@ -35,7 +35,6 @@
     end
     @quantities = quantities
     @li = LineItem.find(params[:id])
-
     @li.update(:quantity => params[:quantity])
     respond_to do |format|
       format.js

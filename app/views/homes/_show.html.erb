@@ -1,4 +1,3 @@
-
 <%#= render :partial => "layouts/slider"%>
 <% @products.each do |p| %>
 <div class="col-sm-6 col-md-4">	
@@ -25,8 +24,7 @@
 
 
 		<div class="actions">
-			<%= link_to "Add to Cart", line_items_path(:product_id => p), :method => :post ,:class =>"fa fa-shopping-cart fa-lg" %> 
-			
+			<%= link_to "Add to Cart", line_items_path(:product_id => p), :method => :post ,:class =>"fa fa-shopping-cart fa-lg" %> 	
 		</div>
 	</div>
 	<table>

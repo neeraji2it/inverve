@@ -1,4 +1,5 @@
 class Admin::ProductsController < ApplicationController
+  
  helper_method :sort_column, :sort_direction
  before_filter :authenticate_admin!
  def new 
@@ -57,7 +58,7 @@ def edit
     @product = Product.find(params[:product_id])
     @image = @product.images.find(params[:id])
     if @image.destroy
-      redirect_to admin_product_path(@product)
+     redirect_to admin_product_path(@product)
     end
   end
   

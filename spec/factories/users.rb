@@ -6,7 +6,5 @@ FactoryGirl.define do
 		
 		f.email{Faker::Internet.email}
 		f.password{Faker::Internet.password}
-		
-	
 	end
 end

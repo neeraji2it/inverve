@@ -9,7 +9,7 @@ describe Product do
 	it "is invalid without a description" do
 		FactoryGirl.build(:product, description: nil). should_not be_valid
 	end	
-	it "is invalid without a name" do
+	it "is invalid without uniqueness of name" do
 		FactoryGirl.build(:product, name: nil).should_not be_valid
 	end
 	it "is invalid without a category_id" do

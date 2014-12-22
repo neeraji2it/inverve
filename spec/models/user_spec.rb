@@ -13,6 +13,4 @@ describe User do
 		FactoryGirl.build(:user, password: nil).should_not be_valid
 	end
 
-
-
 end
