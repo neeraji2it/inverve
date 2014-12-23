@@ -1,53 +1,69 @@
-<%= form_for(@order) do |f| %>
-  <% if @order.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
 
-      <ul>
+
+<div class="col-md-6">
+  <%= form_for(@order) do |f| %>
+  <% if @order.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
+
+    <ul>
       <% @order.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
+      <li><%= msg %></li>
       <% end %>
-      </ul>
-    </div>
+    </ul>
+  </div>
   <% end %>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
+    <%= f.text_field :first_name , autofocus: true, class: "form-control"%>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :last_name %><br>
-    <%= f.text_field :last_name %>
+    <%= f.text_field :last_name , autofocus: true, class: "form-control"%>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :address %><br>
-    <%= f.text_area :address %>
+    <%= f.text_area :address , autofocus: true, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :landmark %><br>
-    <%= f.text_area :landmark %>
+    <%= f.text_area :landmark , autofocus: true, class: "form-control"%>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :pincode %><br>
-    <%= f.text_field :pincode %>
+    <%= f.text_field :pincode , autofocus: true, class: "form-control"%>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :city %><br>
-    <%= f.text_field :city %>
+    <%= f.text_field :city , autofocus: true, class: "form-control"%>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :state %><br>
-    <%= f.text_field :state %>
+    <%= f.text_field :state , autofocus: true, class: "form-control"%>
   </div>
 <!--   <div class="field">
     <%= f.label :country %><br>
     <%= f.country_select :country, prompt: "Select a country" %>
   </div> -->
-  <div class="field">
+  <div class="form-group">
     <%= f.label :phone %><br>
-    <%= f.text_field :phone %>
+    <%= f.text_field :phone , autofocus: true, class: "form-control"%>
+  </div>
+  <div class="form-group">
+    <%= f.label :card_type %>
+    <%= f.select :card_type ,options_for_select(%w[PayU CCAvenue]),{}, autofocus: true, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :card_expires_on%>
+    <%= f.month_field :card_expires_on  , autofocus: true, class: "form-control"%>
+  </div>
+  <div class="form-group">
+    <%= f.label :card_cvv %>
+    <%= f.text_field :card_cvv , autofocus: true, class: "form-control"%>
   </div>
 
   <div class="actions">
     <%= f.submit %>
   </div>
-<% end %>
+  <% end %>
+</div>

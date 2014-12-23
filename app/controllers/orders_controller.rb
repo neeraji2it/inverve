@@ -51,7 +51,7 @@ end
     end
 
     def order_params
-      params.require(:order).permit( :first_name, :last_name, :address, :landmark, :pincode, :city, :state, :country, :phone)
+      params.require(:order).permit!
     end
 end
 

@@ -18,8 +18,7 @@
         <td><%= product.name.capitalize %></td>
         <td><%= product.description.capitalize %></td>
         <td><%= product.price %></td>
-        <td><%= number_to_percentage(product.discount) %></td>
-        
+        <td><%= number_to_percentage(product.discount) %></td>        
         <td><%= link_to 'Show', admin_product_path(product.id) %></td>
         <td><%= link_to 'Edit', edit_admin_product_path(product.id) %></td>
         <td><%= link_to 'Destroy', admin_product_path(product.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
