@@ -1,3 +1,8 @@
+
+ <% if current_user.present? %> 
+<%= link_to 'Edit', edit_order_path(@order),:class => "pull-right  btn btn-primary" %>
+<% end %>
+<%= link_to 'Back', orders_path, :class => "pull-right  btn btn-warning" %>
 <p id="notice"><%= notice %></p>
 <p>
   <strong>name:</strong>
@@ -44,12 +49,24 @@
   <%= @order.phone %>
 </p>
 
+<p>
+<strong>Card Num</strong>
+<%= @order.card_num %>
+</p>
+<p>
+<strong>Card Type</strong>
+<%= @order.card_type %>
+</p>
+<p>
+<strong>Card Exp On</strong>
+<%= @order.card_expires_on %>
+</p>
+<p>
+<strong>Card CVV</strong>
+<%= @order.card_cvv %>
+</p>
 <!-- <p>
   <strong>Ip address:</strong>
   <%= @order.ip_address %>
 </p> -->
- <% if current_user.present? %> 
-<%= link_to 'Edit', edit_order_path(@order) %> 
-|
-<% end %>
-<%= link_to 'Back', orders_path %>
+

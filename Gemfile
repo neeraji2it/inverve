@@ -57,7 +57,7 @@ group :doc do
 end
 
 gem 'execjs'
-
+gem 'activemerchant'
 gem 'therubyracer'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'

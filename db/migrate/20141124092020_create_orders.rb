@@ -12,9 +12,10 @@ class CreateOrders < ActiveRecord::Migration
       t.string :country
       t.text :phone
       t.string :ip_address
+      t.integer :card_num
       t.string :card_type
       t.date :card_expires_on
-      t.text :card_cvv
+      t.integer :card_cvv
       t.timestamps
     end
   end

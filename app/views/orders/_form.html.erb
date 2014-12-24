@@ -1,5 +1,3 @@
-
-
 <div class="col-md-6">
   <%= form_for(@order) do |f| %>
   <% if @order.errors.any? %>
@@ -50,12 +48,16 @@
     <%= f.text_field :phone , autofocus: true, class: "form-control"%>
   </div>
   <div class="form-group">
+  <%= f.label :card_num %>
+  <%= f.text_field :card_num , autofocus: true, class: "form-control"%>
+  </div>
+  <div class="form-group">
     <%= f.label :card_type %>
-    <%= f.select :card_type ,options_for_select(%w[PayU CCAvenue]),{}, autofocus: true, class: "form-control" %>
+    <%= f.select :card_type ,options_for_select(%w[PayU CCAvenue PayPal]),{}, autofocus: true, class: "form-control"  %>
   </div>
   <div class="form-group">
     <%= f.label :card_expires_on%>
-    <%= f.month_field :card_expires_on  , autofocus: true, class: "form-control"%>
+    <%= f.date_select :card_expires_on  , autofocus: true, class: "form-control"%>
   </div>
   <div class="form-group">
     <%= f.label :card_cvv %>
@@ -63,7 +65,7 @@
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn"%>
   </div>
   <% end %>
 </div>
