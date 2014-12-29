@@ -14,6 +14,7 @@ gem 'bxslider-rails'
 
 group :development do
 	gem "rails-erd"
+
 end
 
 group :development, :test do
@@ -58,6 +59,7 @@ end
 
 gem 'execjs'
 gem 'activemerchant'
+
 gem 'therubyracer'
 gem 'less-rails'
 gem 'twitter-bootstrap-rails'
@@ -70,4 +72,5 @@ gem 'devise'
 gem 'irbtools', '~> 1.7.0'
 gem 'countries'
 gem 'country_select'
+
 

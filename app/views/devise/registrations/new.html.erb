@@ -1,66 +1,70 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-3">
+      <div class="panel panel-default">
+        <div class="panel-heading"> <strong class=""><h3>Sign up</h3></strong>
+          <span style="float: right;left: -10px;position: relative;"></span>
 
-<span style="float: right;left: -10px;position: relative;"></span>
-<% if !resource.is_a?(Admin) %>
-	<h3>Sign up</h3>
+          <div class="panel-body">
+            <% if !resource.is_a?(Admin) %>
 
-	<%= form_for(resource, as: resource_name, url: registration_path(resource_name),html: {class: 'form-horizontal'}) do |f| %>
-	  <%= devise_error_messages! %>
 
-    <div class="input-group input-group-lg">
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name),html: {class: 'form-horizontal'}) do |f| %>
+            <%= devise_error_messages! %>
 
-            <span class="input-group-addon">
+            <div class="input-group input-group-lg">
 
-              <span class="fa fa-envelope"></span>
+              <span class="input-group-addon">
 
-            </span>
-            
-            <%= f.email_field :email, autofocus: true, class: "form-control", placeholder:"Email address"%>
-        </div>
-        <br />
-       
+                <span class="fa fa-envelope"></span>
 
-        <div class="input-group input-group-lg">
-
-            <span class="input-group-addon">
-
-              <span class="fa fa-lock fa-lg"></span>
-
-            </span>
-            <% if @validatable %><% end %>
-            <%= f.password_field :password, autocomplete: "off", class: "form-control",
-             placeholder: "Password" %>
-
-        </div>
-
-      <br />
-        <div class="input-group input-group-lg">
-
-            <span class="input-group-addon">
-
-              <span class="fa fa-lock fa-lg"></span>
               </span>
 
-    
-     
-      <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "re-type password",class: "form-control" %>
-     </div>
-     </div> 
+              <%= f.email_field :email, autofocus: true, class: "form-control", placeholder:"Email address"%>
+            </div>
+            <br />
 
-        <br />
+
+            <div class="input-group input-group-lg">
+
+              <span class="input-group-addon">
+
+                <span class="fa fa-lock fa-lg"></span>
+
+              </span>
+              <% if @validatable %><% end %>
+              <%= f.password_field :password, autocomplete: "off", class: "form-control",
+              placeholder: "Password" %>
+
+            </div>
+
+            <br />
+            <div class="input-group input-group-lg">
+
+              <span class="input-group-addon">
+
+                <span class="fa fa-lock fa-lg"></span>
+              </span>
+
+
+
+              <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "re-type password",class: "form-control" %>
+            </div> 
+            <br />
 
 
 <!-- 
-	  <div class="form-group">
+    <div class="form-group">
     
     <div class="email">
     <%= f.label :email %>
-	  <%= f.email_field :email, autofocus: true, placeholder:"email" %>
+    <%= f.email_field :email, autofocus: true, placeholder:"email" %>
     </div>
-	  <div class="password">
+    <div class="password">
      <%= f.label :password %>
      
      
-	    <%= f.password_field :password, autocomplete: "off",placeholder: "password" %>
+      <%= f.password_field :password, autocomplete: "off",placeholder: "password" %>
       </div>
 
       <div class="input-group input-group">
@@ -69,12 +73,12 @@
 
               <span class="icon-large icon-lock"></span>
               </span>
-	  <div class="repeat">
+    <div class="repeat">
      <%= f.label :repeat %>
      
-	    <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "re-type password" %>
+      <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "re-type password" %>
      </div>
-     </div> -->
+   </div> -->
 
 <!-- <div class="form-group">
 <div class="col-sm-2">
@@ -106,15 +110,19 @@
     <div class="col-sm-2">
     <%= f.select :gender, options_for_select(%w[Male Female]), {},{class: "form-control"} %>
     </div>
-    </div> -->
+  </div> -->
 
-    <div class="input-group input-group-lg">
-	  
+  <div class="input-group input-group-lg">
+
     <%= f.submit "SIGN UP NOW!", class: 'btn btn-success' %>
-    </div>
-
-
-	<% end %>
-	<%= render "devise/shared/links" %>
-<% end %>    
+  </div>
+  <br />
+  <% end %>
+  <%= render "devise/shared/links" %>
+  <% end %> 
+</div>
+</div>
+</div>
+</div>
+</div>   
 

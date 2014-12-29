@@ -6,7 +6,7 @@
 development:
   adapter: mysql2
   encoding: utf8
-  database: abc_development
+  database: furniture_development
   pool: 5
   username: root
   password: root
@@ -17,7 +17,7 @@ development:
 test:
   adapter: mysql2
   encoding: utf8
-  database: abc_test
+  database: furniture_test
   pool: 5
   username: root
   password: root
@@ -25,7 +25,7 @@ test:
 production:
   adapter: mysql2
   encoding: utf8
-  database: abc_production
+  database: furniture_production
   pool: 5
   username: root
   password: root

@@ -42,7 +42,6 @@ end
   def destroy
     @order.destroy
     redirect_to orders_path
-    
   end
 
   private
