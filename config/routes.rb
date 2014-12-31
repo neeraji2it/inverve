@@ -1,5 +1,5 @@
 Furnitureapp::Application.routes.draw do
-  resources :orders
+  
 
   devise_for :admins
   devise_for :users
@@ -18,6 +18,7 @@ Furnitureapp::Application.routes.draw do
         get :category_show
       end
     end
+    # resources :offers 
   end
   resources :welcome do 
 #    member do
@@ -35,6 +36,7 @@ Furnitureapp::Application.routes.draw do
   
   resources :homes do
     collection do
+      get :offers
     end
 
   end 

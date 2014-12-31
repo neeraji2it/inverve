@@ -12,8 +12,12 @@ def show
 	@products = @category.products
 end
 
+def offers
+	@products = Product.where("discount != ''")
+end
+
 private
 def product_params
-	params.require(:product).permit(:name, :description, :price, :category_id, :images_attributes => [:id, :product_id, :avatar, :_destroy])
+	params.require(:product).permit!
 end
 end

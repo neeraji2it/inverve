@@ -74,8 +74,6 @@ def edit
     @product.update_attributes
     redirect_to admin_product_path(@product)
   end
-
-
   
   private
   def sort_column
