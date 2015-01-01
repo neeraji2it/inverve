@@ -14,7 +14,7 @@ def create
 end
 
 def index
-	@categories = Category.search(params[:search]).paginate(:page => params[:page], :per_page => 3)
+	@categories = Category.search(params[:search]).paginate(:page => params[:page], :per_page => 2)
 end
 
 def edit
@@ -49,6 +49,6 @@ end
 
 private
 def category_params
-	params.require(:category).permit(:name, :category_show , :products_attributes => [:id, :name])
+	params.require(:category).permit!
 end
 end
