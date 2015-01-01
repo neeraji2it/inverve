@@ -16,6 +16,10 @@ def offers
 	@products = Product.where("discount != ''")
 end
 
+def product_flags
+	@products = Product.where("flag != ''")
+end
+
 private
 def product_params
 	params.require(:product).permit!

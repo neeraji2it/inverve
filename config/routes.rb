@@ -11,6 +11,7 @@ Furnitureapp::Application.routes.draw do
       member do
         delete :delete_img
         put :image_show
+        put :flag
       end
     end
     resources :categories do

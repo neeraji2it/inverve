@@ -74,6 +74,14 @@ def edit
     @product.update_attributes
     redirect_to admin_product_path(@product)
   end
+
+
+  def flag
+    @product = Product.find(params[:id])
+    @product.update_attributes(:flag => params[:flag])
+    redirect_to admin_product_path(@product)
+  end
+
   
   private
   def sort_column

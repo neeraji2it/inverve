@@ -1,57 +1,67 @@
 <div class="table-responsive">
-<table class="table table-striped">
-  <% if current_admin  %>
-  <%= link_to 'Back', admin_products_path, :class => "pull-right  btn btn-primary" %>
-  <% end %>
-
-  <thead>
-    <tr>
-
-      <th>Product Name</th>
-      <th>Description</th>
-      <th>Price</th>
-      <th>Category</th>
-      <th>Discount</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><%= @product.name.capitalize %></td>
-      <td><%= @product.description.capitalize %></td>
-      <td><%= @product.price %></td>
-      <td><%= @product.category.name.capitalize %></td>
-      <td><%= @product.discount %></td>
-    </tr>
-  </tbody>
-</table>
-<table>
-  <%  @product.images.in_groups_of(3).each do |image| %>
-  <tr>
-
-
-    <%image.each do |img|%>
-    <% if img.try(:avatar).present? %>
-    <td>
-      <%= image_tag img.avatar.url(:small),:style=>"width:300px;height:300px;" %>
-    </td>
-    <td>
-     <%= link_to "destroy", delete_img_admin_product_path(img.id, :product_id => @product.id), :method => :delete, :data => {:confirm => "Are you sure to delete"} %>
-   </td>
-   <td>
-    <% if img.image_show == true%>
-    <%= link_to 'hide',image_show_admin_product_path(:id => @product.id, :image_id =>img, :image_show =>"false"), :method => "PUT" %>
-    <% else %>
-    <%= link_to 'show',image_show_admin_product_path(:id => @product.id, :image_id =>img,:image_show =>"true"), :method => "PUT" %>
+  <table class="table table-striped">
+    <% if current_admin  %>
+    <%= link_to 'Back', admin_products_path, :class => "pull-right  btn btn-primary" %>
     <% end %>
-  </td>
 
-  <td>&nbsp;</td>
-  <td>&nbsp;</td>
-  <td>&nbsp;</td>
-  <%end%>
-  <%end%>
-</tr>
-<% end %>
+    <thead>
+      <tr>
+
+        <th>Product Name</th>
+        <th>Description</th>
+        <th>Price</th>
+        <th>Category</th>
+        <th>Discount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= @product.name.capitalize %></td>
+        <td><%= @product.description.capitalize %></td>
+        <td><%= @product.price %></td>
+        <td><%= @product.category.name.capitalize %></td>
+        <td><%= @product.discount %></td>
+         <td>
+      <% if @product.flag == true %>
+      <%= link_to '',flag_admin_product_path(:id => @product,:flag => "false"), :method => "PUT",:class =>"fa fa-star fa-2x" %>
+      <% else %>
+      <%= link_to '',flag_admin_product_path(:id => @product,:flag => "true"), :method => "PUT",:class =>"fa fa-star-o fa-2x" %>
+      <% end %>
+    </td> 
+      </tr>
+    </tbody>
+  </table>
+  <table>
+    <%  @product.images.in_groups_of(3).each do |image| %>
+    <tr>
+
+
+      <%image.each do |img|%>
+      <% if img.try(:avatar).present? %>
+      <td>
+        <%= image_tag img.avatar.url(:small),:style=>"width:300px;height:300px;" %>
+      </td>
+      <td>
+       <%= link_to "destroy", delete_img_admin_product_path(img.id, :product_id => @product.id), :method => :delete, :data => {:confirm => "Are you sure to delete"} %>
+     </td>
+     <td>
+      <% if img.image_show == true%>
+      <%= link_to 'hide',image_show_admin_product_path(:id => @product.id, :image_id =>img, :image_show =>"false"), :method => "PUT" %>
+      <% else %>
+      <%= link_to 'show',image_show_admin_product_path(:id => @product.id, :image_id =>img,:image_show =>"true"), :method => "PUT" %>
+      <% end %>
+    </td>
+   
+    
+
+
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <%end%>
+    <%end%>
+  </tr>
+  <% end %>
 </table>
 </div>
 

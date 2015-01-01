@@ -26,6 +26,7 @@ def show
 end
 
 def update
+	
 	@category = Category.find(params[:id])
 	if @category.update_attributes(category_params)
    redirect_to admin_categories_path
