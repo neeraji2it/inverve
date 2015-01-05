@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_cart
 
+  layout :get_layout
+
   before_filter :update_sanitized_params, if: :devise_controller?
 
     def update_sanitized_params
@@ -38,6 +40,17 @@ def current_cart
       session[:cart_id] = @current_cart.id
     end
     @current_cart
+  end
+
+  protected
+  def get_layout
+     if devise_controller? && resource_name == :admin
+    "admin"
+    elsif self.class.parent == Admin
+      "admin"
+    else
+      "application"
+    end
   end
 
 
