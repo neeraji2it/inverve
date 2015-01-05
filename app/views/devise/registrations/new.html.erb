@@ -12,45 +12,77 @@
             <%= form_for(resource, as: resource_name, url: registration_path(resource_name),html: {class: 'form-horizontal'}) do |f| %>
             <%= devise_error_messages! %>
 
+
             <div class="input-group input-group-lg">
+                <span class="input-group-addon">
 
-              <span class="input-group-addon">
+              <span class="fa fa-user fa-lg"></span>
 
-                <span class="fa fa-envelope"></span>
-
-              </span>
-
-              <%= f.email_field :email, autofocus: true, class: "form-control", placeholder:"Email address"%>
+            </span>
+              <%=f.text_field :first_name ,autofocus: true, class: "form-control", placeholder:"First Name"%>
             </div>
-            <br />
+           
+          <br />
 
+          <div class="input-group input-group-lg">
+                <span class="input-group-addon">
 
-            <div class="input-group input-group-lg">
+              <span class="fa fa-user fa-lg"></span>
 
-              <span class="input-group-addon">
-
-                <span class="fa fa-lock fa-lg"></span>
-
-              </span>
-              <% if @validatable %><% end %>
-              <%= f.password_field :password, autocomplete: "off", class: "form-control",
-              placeholder: "Password" %>
-
+            </span>
+              <%=f.text_field :last_name ,autofocus: true, class: "form-control", placeholder:"Last Name"%>
             </div>
+           
+          <br />
 
-            <br />
-            <div class="input-group input-group-lg">
+             <div class="input-group input-group-lg">
 
-              <span class="input-group-addon">
-
-                <span class="fa fa-lock fa-lg"></span>
-              </span>
-
+    
+    <%= f.select :gender, options_for_select(%w[Male Female]), {},{class: "form-control"} %>
+    </div>
+    <br />
 
 
-              <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "re-type password",class: "form-control" %>
-            </div> 
-            <br />
+
+          <div class="input-group input-group-lg">
+
+            <span class="input-group-addon">
+
+              <span class="fa fa-envelope"></span>
+
+            </span>
+
+            <%= f.email_field :email, autofocus: true, class: "form-control", placeholder:"Email address"%>
+          </div>
+          <br />
+
+
+          <div class="input-group input-group-lg">
+
+            <span class="input-group-addon">
+
+              <span class="fa fa-lock fa-lg"></span>
+
+            </span>
+            <% if @validatable %><% end %>
+            <%= f.password_field :password, autocomplete: "off", class: "form-control",
+            placeholder: "Password" %>
+
+          </div>
+
+          <br />
+          <div class="input-group input-group-lg">
+
+            <span class="input-group-addon">
+
+              <span class="fa fa-lock fa-lg"></span>
+            </span>
+
+
+
+            <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: "re-type password",class: "form-control" %>
+          </div> 
+          <br />
 
 
 <!-- 
@@ -81,18 +113,7 @@
    </div> -->
 
 <!-- <div class="form-group">
-<div class="col-sm-2">
-    <%=f.label :FirstName%>
-</div>
-    <%= f.text_field :first_name%>
-  </div>
 
-  <div class="form-group">
-  <div class="col-sm-2">
-    <%=f.label :LastName%>
-    </div>
-    <%=f.text_field :last_name%>
-  </div>
 
   <div class="form-group">
   <div class="col-sm-2">

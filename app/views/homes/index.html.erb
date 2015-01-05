@@ -1,111 +1,28 @@
-<h4>Welcome To Home Page</h4>
-<% @products.each do |p| %>
-<% if !p.discount? %>
-<div class="col-sm-6 col-md-4">	
-<div class="thumbnail">
-		<% p.images.in_groups_of(3).each do |image| %>
-		
-		<%image.each do |img|%>
-		<% if img.try(:avatar).present? && img.image_show? %>
 
-		<a data-toggle="modal" data-target="#myModal_<%= p.id %>" 	 href="#">
-		<%= image_tag img.avatar.url(:original),:class => "img-responsive col-lg-12" %>
-		</a>
+<%= form_tag homes_path, :method => 'get',:id => "products_search" do %>
 
-		<h5><%= p.name.capitalize %></h5>
-		<hr />
-		<h3><%= p.price %></h3>	
-		
-		<div class="actions">
-			<%= link_to "Add to Cart", line_items_path(:product_id => p), :method => :post ,:class =>"fa fa-shopping-cart fa-lg" %> 	
-		</div>
-	</div>
+   
+  
 
-	<table>
+  <p class="search">
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil,:class => "btn btn" %>
+  </p>
 
-	</td>
-	<!-- Modal -->
-<div class="modal fade" id="myModal_<%= p.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel"><%= p.name.capitalize %></h4>
-      </div>
-      <div class="modal-body">
-    
-			<!-- <p>
-				<strong>Name:</strong>
-				<%= p.name.capitalize %>
-			</p> -->
-			<p>
-				<strong>Description:</strong>
-				<%= p.description.capitalize %>
-			</p>
-			<p>
-				<strong>Price:</strong>
-				<%= p.price %>
-			</p>
-			<ul class="bxslider">
-			<% p.images.in_groups_of(3).each do |image| %>
-			<%image.each do |img|%>
-			<% if img.try(:avatar).present?  %>
-			<%= image_tag img.avatar.url(:original),:style=>"max-width:300px;max-height:230px;" %>
-			<% end %>
-			<% end %>
-			<% end %>
-	        </ul>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
-  </div>
-</div>
-	<td>&nbsp;</td>
-	<td>&nbsp;</td>
-	<td>&nbsp;</td>
-	<%end%>
-	<%end%>
-</tr>
 <% end %>
-</table>
-
-</div>
-<% end %>	
-<% end %>
-<div>
-	<h3>Featured Items</h3>
-	<%= render :partial => 'product_flags' %>
-</div>
 
 
+<script type="text/javascript">
+  
+  // Search form.
+  $('#products_search input').keyup(function() {
+    $.get($("#products_search").attr("action"), $("#products_search").serialize(), null, 'script');
+    return false;
+  });
 
 
 
 
+</script>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<%#= render :partial => "layouts/slider"%>
- <!-- 
-<% Category.where("name is not null and category_show = #{true}").each do |cat| %>
-
-	<%= link_to cat.name, home_path(cat) %><br/>
-	<% end %>
+<div><%= render :partial => 'index' %></div>

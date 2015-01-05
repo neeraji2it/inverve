@@ -31,6 +31,7 @@ Furnitureapp::Application.routes.draw do
   resources :profiles do
     member do
       put :update_profile
+      put :change_password
     end
   end
   

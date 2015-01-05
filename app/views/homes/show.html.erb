@@ -1,3 +1,31 @@
+ 
+<%= form_tag home_path, :method => 'get',:id => "products_search" do %>
+
+
+  <p class="search">
+    <%= text_field_tag :search, params[:search] %>
+    <%= submit_tag "Search", :name => nil,:class => "btn btn" %>
+  </p>
+
+<% end %>
+
+
+<script type="text/javascript">
+  
+  // Search form.
+  $('#products_search input').keyup(function() {
+    $.get($("#products_search").attr("action"), $("#products_search").serialize(), null, 'script');
+    return false;
+  });
+</script>
+<!-- 
+<% Category.where("name is not null and category_show = #{true}").each do |c| %>
+	<%= link_to c.name, home_path(c) %><br/>
+	<% end %>
+<% Product.where("name is not null").each do |p| %>
+        <%= link_to p.name, home_path(p) %> <br/>
+	<% end %>
+ -->
  <div id="carts">
  <%= render :partial => 'show' %>
  </div>

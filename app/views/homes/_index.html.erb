@@ -1,7 +1,6 @@
-
+<h4>Welcome To Home Page</h4>
 <% @products.each do |p| %>
-
-<% if p.flag %>
+<% if !p.discount? %>
 <div class="col-sm-6 col-md-4">	
 <div class="thumbnail">
 		<% p.images.in_groups_of(3).each do |image| %>
@@ -73,7 +72,41 @@
 </table>
 
 </div>
-<% end %>
-	
+<% end %>	
 <% end %>
 <div>
+	<h3>Featured Items</h3>
+	<%= render :partial => 'product_flags' %>
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<%#= render :partial => "layouts/slider"%>
+ <!-- 
+<% Category.where("name is not null and category_show = #{true}").each do |cat| %>
+
+	<%= link_to cat.name, home_path(cat) %><br/>
+	<% end %>
