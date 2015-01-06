@@ -1,0 +1,18 @@
+<div>
+<%= render :partial => 'carts/index' %>
+</div>
+<div class="thumbnail">
+
+<p>
+  <strong>Name:</strong>
+  <%= @order.first_name + (" ")+ @order.last_name  %>
+</p>
+<p>
+  <strong>Address:</strong>
+  <%= @order.address %>
+</p>
+<p>
+  <strong>Landmark:</strong>
+  <%= @order.landmark %>
+</p>
+</div>

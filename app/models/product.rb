@@ -2,6 +2,7 @@ class Product < ActiveRecord::Base
    has_many :images, :dependent => :destroy
    has_many :line_items
    has_many :offers
+   
    belongs_to :category
 
    validates :name, :description, :price, :category_id, presence: true 

@@ -26,12 +26,13 @@ Furnitureapp::Application.routes.draw do
 #      get :category
 #    end
   end  # You can have the root of your site routed with "root"
- 
+  
   
   resources :profiles do
     member do
       put :update_profile
       put :change_password
+      
     end
   end
   
@@ -42,11 +43,20 @@ Furnitureapp::Application.routes.draw do
     end
 
   end 
- 
-    resources :line_items
-    resources :carts
-    
-    resources :orders
+  
+  resources :line_items
+  resources :carts
+  
+  resources :orders do
+    member do
+      get :confirm
+      get :confirm_order
+    end
+    collection do 
+      get :myorder
+    end
+  end
+
 
   
   root 'homes#index'

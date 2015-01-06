@@ -1,5 +1,5 @@
 
-
+<% if current_user.present? %>
 <div class="panel panel-primary">
   <div class="panel-heading">Order</div>
   <div class="panel-body">
@@ -10,6 +10,7 @@
            <% if current_admin.present? %>
            <th>Cart</th>
            <% end %>
+           <!-- <th>Email</th> -->
            <th>First name</th>
            <th>Last name</th>
            <th>Address</th>
@@ -20,10 +21,11 @@
            <!-- <th>Country</th> -->
            <th>Phone</th>
            <!-- <th>Ip address</th> -->
-           <th>Card Number</th>
+        <!--    <th>Card Number</th>
            <th>Card Type</th>
            <th>Card Exp Date</th>
-           <th>Card CVV</th>
+           <th>Card CVV</th> -->
+           <th>COD</th>
            <th></th>
            <th></th>
            <% if current_user.present? %>
@@ -32,12 +34,14 @@
 
          </tr>
        </thead>
+
        <% @orders.each do |order| %>
        <tbody>
         <tr>
           <% if current_admin.present? %>
           <td><%= order.cart_id %></td>
           <% end %>
+
           <td><%= order.first_name %></td>
           <td><%= order.last_name %></td>
           <td><%= order.address %></td>
@@ -48,15 +52,17 @@
           <!-- <td><%= order.country %></td> -->
           <td><%= order.phone %></td>
           <!-- <td><%= order.ip_address %></td> -->
-          <td><%= order.card_num %></td>
+        <!--   <td><%= order.card_num %></td>
           <td><%= order.card_type %></td>
           <td><%= order.card_expires_on %></td>
-          <td><%= order.card_cvv %></td> 
+          <td><%= order.card_cvv %></td> -->
+          <td><%= order.cod %></td> 
           <td><%= link_to 'Show', order %></td>
           <% if current_user.present? %> 
           <td><%= link_to 'Edit', edit_order_path(order) %> <i class="fa fa-pencil-square-o fa-lg"></i></td>
           <% end %>
           <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <td><%= link_to 'Confirm', confirm_order_path(order) %></td>
         </tr>
       </tbody>
       <% end %>
@@ -64,4 +70,4 @@
   </div>
 </div>
 </div>
-
+<% end %>

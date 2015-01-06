@@ -71,7 +71,7 @@ gem 'will_paginate', '~> 3.0'
 gem "paperclip"
 gem "nested_form"
 gem 'devise'
-gem 'irbtools', '~> 1.7.0'
+# gem 'irbtools', '~> 1.7.0'
 gem 'countries'
 gem 'country_select'
 
