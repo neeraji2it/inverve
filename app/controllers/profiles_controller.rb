@@ -7,8 +7,6 @@ class ProfilesController < ApplicationController
    @user = User.find(params[:id])
  end
 
- 
-
  def update_profile
   @user = User.find(params[:id])
   if @user.update(profile_params)
@@ -20,16 +18,15 @@ end
 
 def change_password
     @user = current_user
-    @user.errors.add(:password, "is required") if params[:user].nil? or params[:user][:password].to_s.blank?
-    if @user.errors.empty? and @user.update_with_password(params[:user])
+    
+    if @user.errors.empty? and @user.update(profile_params)
+      flash[:notice] = "Your password is successfully updated."
       sign_in(:user, @user, :bypass => true)
-      respond_to do |format|
-        format.js
-      end
+      redirect_to edit_profile_path(current_user.id)
+    else
+      render :action => :edit
     end
   end
-
-
 
 private
 def profile_params

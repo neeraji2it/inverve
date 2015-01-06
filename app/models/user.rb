@@ -9,4 +9,6 @@ class User < ActiveRecord::Base
   # validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/  
   
   has_many :orders
+
+  validates :first_name, :last_name, :age, :presence => true
 end

@@ -1,5 +1,7 @@
 <%= form_for @user, :url =>  update_profile_profile_path(@user), :method=>:put do |f| %>
 
+  <%= render :partial => "error" %>
+
    <div class="panel panel-primary">
    <div class="panel-heading">Edit User Profile </div>
    <div class="panel-body">
@@ -37,10 +39,15 @@
       </td>
     </tr>
 
-
-
-
+    <%= f.submit %>
 
 </div>
 </div>
 <% end %>
+ <div class="panel panel-primary">
+   <div class="panel-heading">Change Password </div>
+   <div class="panel-body">
+   <%= render :partial => "change_password" %>
+   </div>
+   </div>
+   </div>
