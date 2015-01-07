@@ -55,7 +55,10 @@ class HomesController < ApplicationController
   end
   
   def search
-		@products = Product.search(params[:search])
+		products = Product.search(params[:search])
+    @products = products.paginate(:page => params[:page], :per_page => 8)
+    @categories = Category.all
+    @featured = Product.featured
   end
 
   private
