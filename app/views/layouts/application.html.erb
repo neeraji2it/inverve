@@ -46,7 +46,7 @@
         <div class="box-logo">
           <div class="row">
             <div class="col-xs-4 col-sm-6 col-md-6 col-lg-6">
-              <h1 id="logo"><a href="#" title="Rosara">Rosara</a> </h1>
+              <h1 id="logo"><%= link_to "Rosara", root_path, :title => "Rosara" %></h1>
             </div>
             <div class="col-xs-8 col-sm-6 col-md-6 col-lg-6 text-right"> 
               <p>
@@ -87,69 +87,8 @@
 
     <%= yield %> 
 
-    <footer>
-      <div class="box-missOut">
-        <div class="container"> 
-          <div class="row">
-            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-              <h6>Don't miss out</h6>
-              <p>Stay stylishly up-to-date with the latest news and new arrivals direct to your inbox.</p>
-            </div>
-            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-              <a href="#" title="Sign up for newsletter" data-toggle="modal" data-target="#myModal-2" class="btn btn-signup">Sign up for newsletter</a>
-            </div>
-          </div>
-
-
-        </div>
-      </div>
-      <div class="container">
-        <div class="box-contact clearfix">
-          <div class="row">
-            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" id="myModal">
-              <h6 class="heading-footer"><span class="icon-phone"></span>Contact us</h6>
-              <div class="box-contactDetail clearfix">
-                <div class="col-xs-6 col-sm-5 col-md-5 col-lg-5">Email us on</div>
-                <div class="col-xs-6 col-sm-7 col-md-7 col-lg-7"><a href="mailto:hello@abc.com" title="hello@abc.com">hello@abc.com</a></div>
-                <div class="col-xs-6 col-sm-5 col-md-5 col-lg-5">Call us on</div>
-                <div class="col-xs-6 col-sm-7 col-md-7 col-lg-7">+91-00-000-0000</div>
-              </div>  
-            </div>
-            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
-              <h6 class="heading-footer"><span class="icon-map"></span>Address</h6>
-              <p>231, Building, Rajajinagar<br> Bangalore, 560009 India</p>
-            </div>
-            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4 box-follow">
-              <h6 class="heading-footer"><span class="icon-dot"></span>Follow us</h6>
-              <ul class="list-footerSocial">
-                <li class="icon-facebook"><a title="facebook" href="#">facebook</a></li>
-                <li class="icon-twitter"><a title="twitter" href="#">twitter</a></li>
-                <li class="icon-google-plus"><a title="google plus" href="#">google plus</a></li>
-                <li class="icon-instagram"><a title="instagram" href="#">instagram</a></li>
-                <li class="icon-pinterest"><a title="pinterest" href="#">pinterest</a></li>
-              </ul>
-              <div class="link-readBlog"><a href="#" title="Read our blog">Read our blog</a></div>
-            </div>
-          </div>
-        </div>
-        <div class="box-copyright">
-          <div class="row">
-            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">&copy; 2014 The Companyname.All Rights Reserved</div>
-            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
-              <ul class="menu-footer">
-                <li><%= link_to "How to buy", how_to_buy_homes_path, :title => "How to buy" %></li>
-                <li><%= link_to "FAQ's", faq_homes_path, :title => "FAQ's" %></li>
-                <li><%= link_to "Payment", payment_homes_path, :title => "Payment" %></li>
-                <li><%= link_to "Shipment", shipment_homes_path, :title => "Shipment" %></li>
-                <li><%= link_to "My order", myorder_orders_path, :title => "My order" %></li>
-                <li><%= link_to "Terms", terms_homes_path, :title => "Terms" %></li>
-                <li><%= link_to "Return Policy", return_policy_homes_path, :title => "Return Policy" %></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <%= render :partial => "layouts/footer" %>
+    
     <!--popup---->
     <div class="modal fade modal-car" id="myModal-2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
       <div class="modal-dialog">
