@@ -74,7 +74,8 @@
               <div class="box-content" style="margin-bottom: 20px;">
                 <h3>Rs. <%= product.price %></h3>
                 <h4><%= product.name %></h4>
-                <span class="circlE"><a href="#" title="" ></a></span>
+                <span class="circlE"><%= link_to "", line_items_path(:product_id => product.id), :method => :post %>   
+</span>
               </div>
             </div>  
 
