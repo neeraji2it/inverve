@@ -1,7 +1,6 @@
 class HomesController < ApplicationController
 	def index
-		@categories = Category.search(params[:search])
-		@products = Product.search(params[:search])
+		
 	end
   
 	def category
@@ -14,7 +13,7 @@ class HomesController < ApplicationController
   def show
     @category = Category.find(params[:id])
     @categories = Category.all
-    @products = @category.products.paginate(:page => params[:page], :per_page => 1)
+    @products = @category.products.paginate(:page => params[:page], :per_page => 8)
     @featured = Product.featured
   end
 
@@ -53,6 +52,10 @@ class HomesController < ApplicationController
   
   def return_policy
     
+  end
+  
+  def search
+		@products = Product.search(params[:search])
   end
 
   private

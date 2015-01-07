@@ -57,12 +57,12 @@
 
       <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
         <div id="leftColumn" class="product-outer-box">
-        <% @products.each do |product| %>
           <div class="row">
+           <% @products.each do |product| %>
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
               <div class="box-productimg">
                 <a href="#" title="">
-                  <img alt="" title="" src="/assets/images/img-product1.png"/>                  
+                  <%= image_tag product.images.first.avatar.url, :height => "200px", :width => "222px;" %>                  
                 </a>
                 <div class="productimg-hover">
                   <ul>
@@ -71,19 +71,14 @@
                   </ul>
                 </div>
               </div>
-              <div class="box-content">
+              <div class="box-content" style="margin-bottom: 20px;">
                 <h3>Rs. <%= product.price %></h3>
                 <h4><%= product.name %></h4>
                 <span class="circlE"><a href="#" title="" ></a></span>
               </div>
-            </div>            
-          </div>
+            </div>  
 
-        
-          <%= will_paginate(@products, renderer: BootstrapPagination::Rails ) %>          
-
-
-        <div class="modal fade modal-car" id="myModal-<%= product.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div class="modal fade modal-car" id="myModal-<%= product.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>        
@@ -97,6 +92,18 @@
   </div>
 </div>
 <% end %>
+
+          </div>
+
+        
+          <div class="box-pagination">
+        <span>Items 1 to 9 of 12 total</span>
+        
+        </div>
+        <%= will_paginate(@products, renderer: BootstrapPagination::Rails ) %>        
+
+
+        
 
       </div>
     </div>

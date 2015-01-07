@@ -54,7 +54,7 @@
                 <%= link_to "Cart #{current_cart.line_items.count}", carts_path, :class => "chart", :title => "Cart" %>
               </p>
               <div class="bposi">
-                <%= form_tag homes_path, :method => 'get',:id => "products_search" do %>
+                <%= form_tag search_homes_path, :method => 'get',:id => "products_search" do %>
                   <%= text_field_tag :search, params[:search], :placeholder => "Search", :class => "input-search" %>
                   <%= submit_tag "Search", :name => nil,:class => "btn-search", :value => "" %>
                 <% end %>

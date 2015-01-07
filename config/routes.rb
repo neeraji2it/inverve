@@ -46,6 +46,7 @@ Furnitureapp::Application.routes.draw do
       get :shipment
       get :terms
       get :return_policy
+      get :search
     end
     member do
       get :single_product
