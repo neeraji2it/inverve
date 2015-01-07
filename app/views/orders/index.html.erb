@@ -59,10 +59,11 @@
           <td><%= order.cod %></td> 
           <td><%= link_to 'Show', order %></td>
           <% if current_user.present? %> 
-          <td><%= link_to 'Edit', edit_order_path(order) %> <i class="fa fa-pencil-square-o fa-lg"></i></td>
+          <td><%= link_to 'Edit', edit_order_path(order.id) %> <i class="fa fa-pencil-square-o fa-lg"></i></td>
+          <td><%= link_to 'Cancel Order', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+         <td><%= link_to 'confirm', confirm_order_path(order) %></td>
           <% end %>
-          <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          <td><%= link_to 'Confirm', confirm_order_path(order) %></td>
+          
         </tr>
       </tbody>
       <% end %>

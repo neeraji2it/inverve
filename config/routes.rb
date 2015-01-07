@@ -59,7 +59,7 @@ Furnitureapp::Application.routes.draw do
   resources :orders do
     member do
       get :confirm
-      get :confirm_order
+      get :confirm_myorder
     end
     collection do 
       get :myorder

@@ -5,7 +5,6 @@ class OrdersController < ApplicationController
 
   def index
     @orders = Order.all
-    
   end
 
   def show
@@ -21,6 +20,7 @@ class OrdersController < ApplicationController
   end
 
   def edit
+    @order = Order.find(params[:id])
   end
 
   def create
@@ -40,16 +40,18 @@ class OrdersController < ApplicationController
     
   end
 
+
+
   def destroy
     @order.destroy
-    redirect_to orders_path
+    redirect_to carts_path
   end
   def confirm
     @order = Order.find(params[:id])
     @product = Product.all
   end
 
-  def confirm_order
+  def confirm_myorder
   end
 
   def myorder
@@ -69,4 +71,3 @@ class OrdersController < ApplicationController
     params.require(:order).permit!
   end
 end
-

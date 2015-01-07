@@ -1,18 +1,74 @@
-<div>
-<%= render :partial => 'carts/index' %>
-</div>
-<div class="thumbnail">
 
+ <% if current_user.present? %> 
+<%= link_to 'Edit', edit_order_path(@order),:class => "pull-right  btn btn-primary" %>
+<% end %>
+<%= link_to 'Back', orders_path, :class => "pull-right  btn btn-warning" %>
+<p id="notice"><%= notice %></p>
 <p>
   <strong>Name:</strong>
   <%= @order.first_name + (" ")+ @order.last_name  %>
 </p>
+
+<!-- <p>
+  <strong>Last name:</strong>
+  <%= @order.last_name %>
+</p> -->
+
 <p>
   <strong>Address:</strong>
   <%= @order.address %>
 </p>
+
 <p>
   <strong>Landmark:</strong>
   <%= @order.landmark %>
 </p>
-</div>
+
+<p>
+  <strong>Pincode:</strong>
+  <%= @order.pincode %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @order.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @order.state %>
+</p>
+
+<!-- <p>
+  <strong>Country:</strong>
+  <%= @order.country %>
+</p> -->
+
+<p>
+  <strong>Phone:</strong>
+  <%= @order.phone %>
+</p>
+
+<!-- <p>
+<strong>Card Num</strong>
+<%= @order.card_num %>
+</p>
+<p>
+<strong>Card Type</strong>
+<%= @order.card_type %>
+</p>
+<p>
+<strong>Card Exp On</strong>
+<%= @order.card_expires_on %>
+</p>
+<p>
+<strong>Card CVV</strong>
+<%= @order.card_cvv %>
+</p>
+<p>
+  <strong>Ip address:</strong>
+  <%= @order.ip_address %>
+</p> -->
+
+
+<%= link_to "Confirm My Order" ,confirm_myorder_order_path, :class => "pull-right btn btn-success" %>

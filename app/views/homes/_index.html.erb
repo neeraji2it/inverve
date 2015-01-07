@@ -1,6 +1,5 @@
-<h4>Welcome To Home Page</h4>
+<h3>Welcome </h3>
 <% @products.each do |p| %>
-<% if !p.discount? %>
 <div class="col-sm-6 col-md-4">	
 <div class="thumbnail">
 		<% p.images.in_groups_of(3).each do |image| %>
@@ -14,15 +13,22 @@
 
 		<h5><%= p.name.capitalize %></h5>
 		<hr />
-		<h3><%= p.price %></h3>	
+		<h3><%= p.price %></h3>
 		
+		<%if p.discount? %>
+		<h4>offer </h4>
+		<h4><%= p.discount %>%</h4>
+		<h4><%= (p.discount_price).ceil %></h4>
+		<% end %>
+
+
+
+
 		<div class="actions">
 			<%= link_to "Add to Cart", line_items_path(:product_id => p), :method => :post ,:class =>"fa fa-shopping-cart fa-lg" %> 	
 		</div>
 	</div>
-
 	<table>
-
 	</td>
 	<!-- Modal -->
 <div class="modal fade" id="myModal_<%= p.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -71,42 +77,5 @@
 <% end %>
 </table>
 
-</div>
-<% end %>	
+</div>	
 <% end %>
-<div>
-	<h3>Featured Items</h3>
-	<%= render :partial => 'product_flags' %>
-	</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<%#= render :partial => "layouts/slider"%>
- <!-- 
-<% Category.where("name is not null and category_show = #{true}").each do |cat| %>
-
-	<%= link_to cat.name, home_path(cat) %><br/>
-	<% end %>
