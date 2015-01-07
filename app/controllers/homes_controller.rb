@@ -13,7 +13,9 @@ class HomesController < ApplicationController
   
   def show
     @category = Category.find(params[:id])
-    @products = @category.products
+    @categories = Category.all
+    @products = @category.products.paginate(:page => params[:page], :per_page => 1)
+    @featured = Product.featured
   end
 
   def offers
@@ -21,7 +23,12 @@ class HomesController < ApplicationController
   end
 
   def product_flags
-    @products = Product.where("flag != ''")
+    @products = Product.where("is_featured != ''")
+  end
+
+  def single_product
+    @product = Product.find(params[:id])
+    @images = @product.images
   end
   
   def how_to_buy

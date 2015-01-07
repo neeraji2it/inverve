@@ -74,5 +74,4 @@ gem 'devise'
 # gem 'irbtools', '~> 1.7.0'
 gem 'countries'
 gem 'country_select'
-
-
+gem 'will_paginate-bootstrap'

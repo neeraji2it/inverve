@@ -47,7 +47,9 @@ Furnitureapp::Application.routes.draw do
       get :terms
       get :return_policy
     end
-
+    member do
+      get :single_product
+    end
   end 
   
   resources :line_items

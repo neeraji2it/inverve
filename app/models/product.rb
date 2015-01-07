@@ -8,7 +8,7 @@ class Product < ActiveRecord::Base
    validates :name, :description, :price, :category_id, presence: true 
    validates :price, :numericality => {:only_float => true}
    accepts_nested_attributes_for :images, reject_if: :all_blank, :allow_destroy => true
-  
+   scope :featured, lambda {where("is_featured=?", true)}
 
   def self.search(search)
     if search
@@ -22,6 +22,8 @@ class Product < ActiveRecord::Base
    def discount_price
      self.discount.present? ? (self.price - ((self.price * discount)/ 100.ceil)) : self.price
    end
+
+
 end
 
 

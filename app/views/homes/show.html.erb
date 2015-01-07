@@ -1,32 +1,111 @@
- 
-<%= form_tag home_path, :method => 'get',:id => "products_search" do %>
+<article> 
+  <div class="container">
+    <div class="box-product">
+      <div class="row">
+      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 box-product-left">
+        <div class="box-categories">  
+          <h4>Categories</h4>       
+          <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+           <% @categories.each do |category| %>
+           <% @cat_products = category.products %>
+              <div class="panel panel-default">
+                <div class="panel-heading" role="tab" id="headingOne">
+                    <h2 class="panel-title">
+                      <a class="collapsed accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne-<%= category.id %>" aria-expanded="false" aria-controls="collapseOne" title="Bedroom">
+                        <%= category.name %>
+                      </a>
+                    </h2>
+                </div>
+              <div id="collapseOne-<%= category.id %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                <div class="panel-body">
+                  <ul>
+                    <% @cat_products.each do |product| %>
+                      <li>
+                        <%= product.name %>
+                      </li>
+                    <% end %>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <% end %>
+          </div>
+          </div>
 
 
-  <p class="search">
-    <%= text_field_tag :search, params[:search] %>
-    <%= submit_tag "Search", :name => nil,:class => "btn btn" %>
-  </p>
+          <div class="box-categories box-featurE clearfix"> 
+                <h4>Featured Products</h4>
 
+                <ul class="list-product">
+                <% @featured.each do |product| %>
+                  <li>
+                    <div class="frow frow-product">
+                      <div>
+                        <%= image_tag(product.images.first.avatar.url) %>
+                      </div> 
+                      <div>
+                        <h5><%= product.name %></h5>
+                        <h2>Rs. <%= product.price %></h2>
+                      </div>
+                    </div>
+                  </li>
+                  <% end %>
+                </ul>
+            </div>    
+        </div>
+
+
+      <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+        <div id="leftColumn" class="product-outer-box">
+        <% @products.each do |product| %>
+          <div class="row">
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+              <div class="box-productimg">
+                <a href="#" title="">
+                  <img alt="" title="" src="/assets/images/img-product1.png"/>                  
+                </a>
+                <div class="productimg-hover">
+                  <ul>
+                    <li><a href="#" title="" class="icon-zoom" data-toggle="modal" data-target="#myModal-<%= product.id %>"></a></li>
+                    <li><%= link_to '<i class="icon-open"></i>'.html_safe, single_product_home_path(product.id) %></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="box-content">
+                <h3>Rs. <%= product.price %></h3>
+                <h4><%= product.name %></h4>
+                <span class="circlE"><a href="#" title="" ></a></span>
+              </div>
+            </div>            
+          </div>
+
+        
+          <%= will_paginate(@products, renderer: BootstrapPagination::Rails ) %>          
+
+
+        <div class="modal fade modal-car" id="myModal-<%= product.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>        
+      <h6>Signup For Newsletter</h6>
+      <div class="modal-body">
+        <div class="product-img-box">
+          <%= image_tag product.images.first.avatar.url  %>
+        </div>      
+      </div>
+    </div>
+  </div>
+</div>
 <% end %>
 
+      </div>
+    </div>
 
-<script type="text/javascript">
-  
-  // Search form.
-  $('#products_search input').keyup(function() {
-    $.get($("#products_search").attr("action"), $("#products_search").serialize(), null, 'script');
-    return false;
-  });
-</script>
-<!-- 
-<% Category.where("name is not null and category_show = #{true}").each do |c| %>
-	<%= link_to c.name, home_path(c) %><br/>
-	<% end %>
-<% Product.where("name is not null").each do |p| %>
-        <%= link_to p.name, home_path(p) %> <br/>
-	<% end %>
- -->
- <div id="carts">
- <%= render :partial => 'show' %>
- </div>
- 
+    </div>
+    
+    </div>
+    <nav>
+</nav>
+  </div>
+
+</article>

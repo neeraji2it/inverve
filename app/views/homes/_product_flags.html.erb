@@ -1,7 +1,7 @@
 
 <% @products.each do |p| %>
 
-<% if p.flag %>
+<% if p.is_featured %>
 <div class="col-sm-6 col-md-4">	
 <div class="thumbnail">
 		<% p.images.in_groups_of(3).each do |image| %>

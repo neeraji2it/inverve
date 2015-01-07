@@ -78,7 +78,7 @@ def edit
 
   def flag
     @product = Product.find(params[:id])
-    @product.update_attributes(:flag => params[:flag])
+    @product.update_attributes(:is_featured => params[:is_featured])
     redirect_to admin_product_path(@product)
   end
 
