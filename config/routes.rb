@@ -40,6 +40,12 @@ Furnitureapp::Application.routes.draw do
   resources :homes do
     collection do
       get :offers
+      get :how_to_buy
+      get :faq
+      get :payment
+      get :shipment
+      get :terms
+      get :return_policy
     end
 
   end 

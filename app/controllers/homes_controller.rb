@@ -3,28 +3,53 @@ class HomesController < ApplicationController
 		@categories = Category.search(params[:search])
 		@products = Product.search(params[:search])
 	end
+  
 	def category
 		@categories = Category.where("id = '#{params[:category_id]}'")
 		respond_to do |format|
-		format.js
+      format.js
+    end
 	end
-	end
-		def show
+  
+  def show
+    @category = Category.find(params[:id])
+    @products = @category.products
+  end
 
-			@category = Category.find(params[:id])
-			@products = @category.products
-		end
+  def offers
+    @products = Product.where("discount != ''")
+  end
 
-		def offers
-			@products = Product.where("discount != ''")
-		end
+  def product_flags
+    @products = Product.where("flag != ''")
+  end
+  
+  def how_to_buy
+    
+  end
+  
+  def faq
+    
+  end
+  
+  def payment
+    
+  end
+  
+  def shipment
+    
+  end
+  
+  def terms
+    
+  end
+  
+  def return_policy
+    
+  end
 
-		def product_flags
-			@products = Product.where("flag != ''")
-		end
-
-		private
-		def product_params
-			params.require(:product).permit!
-		end
-	end
+  private
+  def product_params
+    params.require(:product).permit!
+  end
+end
