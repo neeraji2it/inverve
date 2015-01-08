@@ -40,6 +40,7 @@
       format.js
     end
   end
+  
   def discount
     @cart = current_cart
     @products = current_cart.line_items

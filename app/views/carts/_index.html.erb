@@ -1,62 +1,131 @@
-<table class="table table-bordered"> 
-    <td class="field-label col-xs-3 ">
-  <thead>
-  <hr />
-    <tr>
-     <th></th>
-     <th>Item</th>
-     <th>Quantity</th>
-     <th class="price">Price</th>
-     <th class="price">Total</th>
-     <th></th>
-  
- </thead>
+<article>
+  <div class="box-mainchart"> 
+    <div class="container">
+    <div class="box-table clearfix">
+      <div class="table-box">
+      <div class="trow">
+        <div class="tcolumn">Image</div>
+        <div class="tcolumn">Product Name</div>
+        <div class="tcolumn">Quantity</div>
+        <div class="tcolumn">Unit Price</div>
+        <div class="tcolumn">Sub Total</div>
+        <div class="tcolumn">Action</div>
+      </div>
+
  <% for line_item in @cart.line_items %>
- <tbody>
-   <tr class="<%= cycle :odd, :even %>">
-    <td>
-      <% line_item.product.images.where("image_show = #{true}").each do |img| %>
-      <li>
-        <% if img.try(:avatar).present? && img.image_show? %>
-        <%=image_tag img.avatar.url(:original),:style=>"width:40%;height:40%;" %>
-        <% end %>
-      </li>
+      <div class="trow"  id="box-contactInfo-content">
+        
+        <div class="tcolumn">
+          <%= image_tag line_item.product.images.first.avatar.url %>
+        </div>
+        <div class="tcolumn">
+          <h4><%= line_item.product.name %></h4>
+          <div class="frow frow-color">
+            <div>Color:</div>
+            <div>Brown</div> 
+          </div>
+          <div class="frow frow-color">
+            <div>Size:</div>
+            <div>12</div> 
+          </div>
+        </div>
+
+
+        <div class="tcolumn">
+        <%= select_tag :quantity, options_for_select(@quantities, :selected => line_item.quantity), :onchange => "quantity_select(this.value, #{current_cart.id}, #{line_item.id})", :class => "form-control" %>
+        </div>
+
+        <div class="tcolumn">Rs. <%= number_to_currency(line_item.unit_price) %></div>
+        <div class="tcolumn"><%= number_to_currency(line_item.full_price) %></div>
+        <div class="tcolumn">
+          
+          <%= link_to "x", cart_path(line_item), :method => :delete, :id => "box-close-contactInfo" %>
+        </div>
+
+        
+      </div>      
       <% end %>
-    </td>
+      
+      
+      </div>
+        </div> 
 
-    <td><%=h line_item.product.name %></td>
-    <td class="quantity">
-      <%= select_tag :quantity, options_for_select(@quantities, :selected => line_item.quantity), :onchange => "quantity_select(this.value, #{current_cart.id}, #{line_item.id})" %>
-    </td>
 
-    <td class="price"><%= number_to_currency(line_item.unit_price) %></td>
-    <td class="price"><%= number_to_currency(line_item.full_price) %></td>
+    <div class="box-frowdate hide-788">
+       <!-- will remove this later          -->
+     </div>  
 
-    <td><%= link_to "close", cart_path(line_item), :method => :delete, :confirm => "	Are You Sure",:class => "fa fa-close" %></td>
-  </tr>
+
+        <div class="box-continue clearfix">        
  
-<% end %>
-</tbody>
-<tfoot>
- </td>
-  <tr>
-    <td colspan="6" >
-      Grand Total: <h4><%= number_to_currency @cart.total_price %></h4>
-    </td>
-  </tr>
-</tfoot>
-</table>
-<p>
+       <%= link_to "Continue Shopping", homes_path, :class => "btn btn-sm btn-success"  %>
 
-<% if @cart.total_price  %>
-  <%= link_to "CHECKOUT >", new_order_path ,class: "pull-right btn btn-default "%>
-  <% end %> 
+      <input alt="" title="Update Shopping Cart" type="button" value="Update Shopping Cart" class="btn icon-bukect icon-update"/>     
+    </div>  
+    <div class="box-estimate">
+      <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+          <div class="box-categories">
+            <h4>Estimate Shipping &amp; Taxes</h4>
+            <div class="box-selectinput clearfix">              
+              <div class="dropdown dropdown-select">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">-- Select Your Country --<b class="arrow"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#" title="Login">lorem</a></li>
+                    <li><a href="#" title="Join us">lorem</a></li>
+                    <li><a href="#" title="Post Jobs">lorem</a></li>
+                    <li><a href="#" title="Employer Tools">lorem</a></li>
+                    <li><a href="#" title="FAQ">lorem</a></li>
+                </ul>
+            </div>            
+              <div class="dropdown dropdown-select">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">-- Select Your Region --<b class="arrow"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#" title="Login">lorem</a></li>
+                    <li><a href="#" title="Join us">lorem</a></li>
+                    <li><a href="#" title="Post Jobs">lorem</a></li>
+                    <li><a href="#" title="Employer Tools">lorem</a></li>
+                    <li><a href="#" title="FAQ">lorem</a></li>
+                </ul>
+            </div>
+              <p><input title="" type="password" placeholder="Your Postcode" class="input-post"/></p>
+              <p><input alt="" title="Get Quotes" type="submit" value="Get Quotes" class="btn btn-continue btn-get"/></p>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+          <div class="box-categories">
+            <h4>Discount Codes</h4>
+            <div class="box-selectinput clearfix">
+              <p><input title="Enter your coupon code if you have one" type="password" placeholder="Enter your coupon code if you have one." class="input-post"/></p>
+              <p><input alt="" title="Apply" type="submit" value="Apply" class="btn btn-get btn-apply"/></p>
+            </div>
+          </div>
+        </div>        
+        <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+          <div class="box-subtotal clearfix">
+            <div class="box-sub">
+              <div class="frow frow-sub">
+                <div>Subtotal:</div>
+                <div><%= number_to_currency @cart.total_price %></div>
+              </div>
+              <div class="frow frow-sub">
+                <div>Grand total:</div>
+                <div><%= number_to_currency @cart.total_price %></div>
+              </div>
+            </div>
+            </div>
+          <p>
+          <%= link_to "Proceed to Checkout", new_order_path , class: "btn btn-proceed", title: "Proceed to Checkout" %>
+          </p>  
+            
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</article>
 
-
-
-
-
-</p>
 <script type="text/javascript">
   function quantity_select(quantity, cart, line_item) {
     $.ajax({
@@ -69,7 +138,5 @@
       }
     });
     // $("#btn-save_"+ line_item).show();
-  }
-  
+  }  
 </script>
-
