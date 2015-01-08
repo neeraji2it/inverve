@@ -5,25 +5,23 @@
     <div class="row">
       <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
         <div class="box-product col-xs-12 col-sm-9 col-md-9 col-lg-9">
-         <%= image_tag @product.images.first.avatar.url, "data-zoom-image"=> "#{@product.images.first.avatar.url}" , :id => "zoom_09" %>
+         <img id="zoom_09" src="<%= @product.images.first.avatar.url %>" data-zoom-image="<%= @product.images.first.avatar.url %>" />
         </div>
-
 
       <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" id="gallery_09">
         <div class="row">
+        <% @images.each do |image| %>
           <div class="col-xs-3 col-sm-12 col-md-12 col-lg-12 box-product add_small_img">
-            <% @images.each do |image| %>
-                <%= image_tag image.avatar.url, :class => "elevatezoom-gallery" %>
-              
-            <% end %>  
+              <a href="#" class="elevatezoom-gallery active" data-image="<%= image.avatar.url %>" data-zoom-image="<%= image.avatar.url %>">
+                <img src="<%= image.avatar.url %>" />
+              </a>                       
           </div>
-          
-          <div class="col-xs-3 col-sm-12 col-md-12 col-lg-12 box-product add_small_img">
-          <a href="#" class="elevatezoom-gallery" data-image="gallery/small/img-bedsmall.jpg" data-zoom-image="/assets/images//gallery/large/img-bedbig.jpg"><img src="/assets/images//gallery/small/img-bedsmall.jpg" /></a></div>
+           <% end %> 
         </div>
       </div>
-
       </div>
+
+      
       <div class="list_price col-xs-12 col-sm-6 col-md-6 col-lg-6">
         <div class="box-rightcategory">
         <div class="box-producT">
@@ -185,40 +183,10 @@
 
 
 <script type="text/javascript">
-jQuery(document).ready(function () {
-        jQuery("#zoom_09").elevateZoom({
-            gallery : "gallery_09",
-            galleryActiveClass: "active"
-            }); 
-            
-  
-     jQuery("#select").change(function(e){
-   var currentValue = jQuery("#select").val();
-   if(currentValue == 1){    
-   smallImage = '/assets/images/gallery/small/image1.png';
-   largeImage = '/assets/images/gallery/large/image1.jpg';
-   }
-   if(currentValue == 2){    
-   smallImage = '/assets/images/gallery/small/image2.png';
-   largeImage = '/assets/images/gallery/large/image2.jpg';
-   }
-   if(currentValue == 3){    
-   smallImage = '/assets/images/gallery/small/image3.png';
-   largeImage = '/assets/images/gallery/large/image3.jpg';
-   }
-   if(currentValue == 4){    
-   smallImage = '/assets/images/gallery/small/image4.png';
-   largeImage = '/assets/images/gallery/large/image4.jpg';
-   }
-  // Example of implementing Active Class
-  jQuery('#gallery_09 a').removeClass('active').eq(currentValue-1).addClass('active');   
- 
- 
-   var ez =   jQuery('#zoom_09').data('elevateZoom');    
-   
-  ez.swaptheimage(smallImage, largeImage); 
-     
-    });
-}); 
-
+  jQuery(document).ready(function () {
+      jQuery("#zoom_09").elevateZoom({
+        gallery : "gallery_09",
+        galleryActiveClass: "active"
+      }); 
+  }); 
 </script> 
