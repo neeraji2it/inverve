@@ -517,9 +517,9 @@ input.btn-apply[type="submit"] { padding: 10px 30px }
 .box-estimate .box-categories h4 { font-size: 16px; padding: 18px 25px 20px; }
 .box-estimate .box-selectinput .select-size { color: #808080; padding: 8px 5px 8px 8px; }
 input[type="password"].input-post { width: 100%; }
-input[type="password"].input-post::-moz-placeholder {
+/*input[type="password"].input-post::-moz-placeholder {
 font-size:11px;
-}
+}*/
 input[type="password"].input-post::-webkit-input-placeholder {
 font-size:11px;
 }
@@ -589,18 +589,18 @@ input.input-post[type="password"]::-webkit-input-placeholder, input.input-mail[t
 color:#808080;
 opacity:1;
 }
-input.input-post[type="password"]::-moz-placeholder, input.input-mail[type="text"]::-moz-placeholder {
+/*input.input-post[type="password"]::-moz-placeholder, input.input-mail[type="text"]::-moz-placeholder {
 color:#808080;
 opacity:1;
-}
+}*/
 input.input-post[type="password"]:-ms-input-placeholder, input.input-mail[type="text"]:-ms-input-placeholder {
 color:#808080;
 opacity:1;
 }
-input.input-post[type="password"]input:-moz-placeholder, input.input-mail[type="text"]input:-moz-placeholder {
+/*input.input-post[type="password"]input:-moz-placeholder, input.input-mail[type="text"]input:-moz-placeholder {
 color:#808080;
 opacity:1;
-}
+}*/
 html body .input-first[type="text"]::-webkit-input-placeholder {
 text-align:center;
 }
