@@ -3,3 +3,22 @@
  <%= render :partial => 'index' %>
  </div> 
  <% end %>
+
+ <% if @cart.line_items.empty? %>
+    <div class="panel-body">
+    <div class="row">
+    <div class="col-sm-4"></div>
+      <div class="col-sm-6"><b>There are no items in this cart.</b></div> 
+      <div class="col-sm-4"></div>
+    </div>
+
+      <div class="row">
+      <div class="col-sm-4"></div>
+        <div class="col-sm-6">
+          <img alt="Cart" src="/assets/cart2.png" height="30.3%" width="30.3%">
+        </div>
+      <div class="col-sm-2"></div>
+      </div>
+    </div>
+  </div>
+ <% end %>
