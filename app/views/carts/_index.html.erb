@@ -16,7 +16,7 @@
       <div class="trow"  id="box-contactInfo-content">
         
         <div class="tcolumn">
-          <%= image_tag line_item.product.images.first.avatar.url %>
+          <%= image_tag(line_item.product.images.first.avatar.url, height: "50px", width: "50px") %>
         </div>
         <div class="tcolumn">
           <h4><%= line_item.product.name %></h4>
