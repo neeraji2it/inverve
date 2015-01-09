@@ -64,7 +64,7 @@ class OrdersController < ApplicationController
   def cancel_order
     @order = Order.find(params[:id])    
     @order.update_attributes(:status => "Cancelled")
-    redirect_to confirm_myorder_order_path(@order.id)
+    redirect_to homes_path
   end
 
   def myorder
