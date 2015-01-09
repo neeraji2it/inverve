@@ -110,16 +110,16 @@
             </div>
           </div>
           
-           <form id='myform' method='POST' action='#'>
+   <!--         <form id='myform' method='POST' action='#'>
             <ul class="list-plus">
               <li><input alt="" title="" type="button" value="-" class='qtyminus' field='quantity'/></li>
               <li><input alt="" title="" type="text" value='0' name='quantity' class="input-firsttext qty"/></li>
               <li><input alt="" title="" type="button" value="+" class='qtyplus' field='quantity'/></li>
               <li><input alt="" title="Add to Cart" type="submit" value="Add to Cart" class="btn btn-shopnow btn-addto"/></li>
             </ul>
-          </form>
+          </form> -->
 
-          <%= link_to "Add to Cart", line_items_path(:product_id => @product.id), :method => :post %>
+          <%= link_to "Add to Cart", line_items_path(:product_id => @product.id), :method => :post ,:class => "btn btn-default"%>
 
           </div>
         </div>
