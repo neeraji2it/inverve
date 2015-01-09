@@ -1,31 +1,47 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy]
-  before_filter :sign_in?
-
 
   def index
     @orders = Order.all
   end
 
+
+
   def show
 
   end
+
   def new
-    @order = Order.new
+    if current_user.present?
+      @user = current_user
+    else
+      @email = "#{SecureRandom.hex(13)}@guest.com"
+      @user = User.new(email: @email, password: SecureRandom.hex(20))
+      @user.save(validate: false)
+    end
+
+    p "************************"
+    p @user.inspect
+    p "********************"
+    
+    @order = @user.orders.first
+
+    if @order.blank?
+      @order = Order.new(user_id: @user.id)
+    end
+
     @cart = current_cart
     if @cart.line_items.empty?
       redirect_to carts_path
       return
     end
-  end
-
-  def edit
-    @order = Order.find(params[:id])
-  end
+  end 
 
   def create
     @order = current_cart.build_order(order_params)
-    @order.user_id = current_user.id
+    if current_user.present?
+      @order.user_id = current_user.id 
+    end
     @order.ip_address = request.remote_ip
     if @order.save
       redirect_to orders_path
@@ -34,13 +50,14 @@ class OrdersController < ApplicationController
     end
   end
 
-  def update
-    @order.update(order_params)
-    redirect_to orders_path
-    
+  def edit
+    @order = Order.find(params[:id])
   end
 
-
+  def update
+    @order.update(order_params)
+    redirect_to orders_path   
+  end
 
   def destroy
     @order.destroy

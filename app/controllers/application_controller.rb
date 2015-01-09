@@ -44,7 +44,7 @@ def current_cart
 
   protected
   def get_layout
-     if devise_controller? && resource_name == :admin
+     if devise_controller? && (resource_name == :admin || resource_name == :user)
     "admin"
     elsif self.class.parent == Admin
       "admin"
@@ -52,6 +52,5 @@ def current_cart
       "application"
     end
   end
-
 
 end

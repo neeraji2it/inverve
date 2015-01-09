@@ -1,5 +1,10 @@
-<div class="col-md-6">
-  <%= form_for(@order) do |f| %>
+<div class="panel-body">
+  <div class="row">
+  <div class="col-md-6">
+
+<%= link_to 'Back', orders_path ,:class => "pull-right  btn btn-primary" %>
+
+  <%= form_for @order do |f| %>
   <% if @order.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@order.errors.count, "error") %> prohibited this order from being saved:</h2>
@@ -12,6 +17,7 @@
   </div>
   <% end %>
   <div class="form-group">
+    <%= f.hidden_field :user_id, value: @user.id %>
     <%= f.label :first_name %><br>
     <%= f.text_field :first_name , autofocus: true, class: "form-control"%>
   </div>
@@ -73,4 +79,7 @@
     <%= f.submit class: "btn btn"%>
   </div>
   <% end %>
+</div>
+
+</div>
 </div>

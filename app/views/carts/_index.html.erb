@@ -65,44 +65,6 @@
     <div class="box-estimate">
       <div class="row">
         <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-          <div class="box-categories">
-            <h4>Estimate Shipping &amp; Taxes</h4>
-            <div class="box-selectinput clearfix">              
-              <div class="dropdown dropdown-select">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">-- Select Your Country --<b class="arrow"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a href="#" title="Login">lorem</a></li>
-                    <li><a href="#" title="Join us">lorem</a></li>
-                    <li><a href="#" title="Post Jobs">lorem</a></li>
-                    <li><a href="#" title="Employer Tools">lorem</a></li>
-                    <li><a href="#" title="FAQ">lorem</a></li>
-                </ul>
-            </div>            
-              <div class="dropdown dropdown-select">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">-- Select Your Region --<b class="arrow"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a href="#" title="Login">lorem</a></li>
-                    <li><a href="#" title="Join us">lorem</a></li>
-                    <li><a href="#" title="Post Jobs">lorem</a></li>
-                    <li><a href="#" title="Employer Tools">lorem</a></li>
-                    <li><a href="#" title="FAQ">lorem</a></li>
-                </ul>
-            </div>
-              <p><input title="" type="password" placeholder="Your Postcode" class="input-post"/></p>
-              <p><input alt="" title="Get Quotes" type="submit" value="Get Quotes" class="btn btn-continue btn-get"/></p>
-            </div>
-          </div>
-        </div>
-        <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-          <div class="box-categories">
-            <h4>Discount Codes</h4>
-            <div class="box-selectinput clearfix">
-              <p><input title="Enter your coupon code if you have one" type="password" placeholder="Enter your coupon code if you have one." class="input-post"/></p>
-              <p><input alt="" title="Apply" type="submit" value="Apply" class="btn btn-get btn-apply"/></p>
-            </div>
-          </div>
-        </div>        
-        <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
           <div class="box-subtotal clearfix">
             <div class="box-sub">
               <div class="frow frow-sub">
@@ -115,11 +77,19 @@
               </div>
             </div>
             </div>
+        </div>
+
+
+        <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+          
+        </div>  
+
+        <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">        
           <p>
           <%= link_to "Proceed to Checkout", new_order_path , class: "btn btn-proceed", title: "Proceed to Checkout" %>
-          </p>  
-            
-            </div>
+          </p>              
+        </div>
+
           </div>
         </div>
       </div>
