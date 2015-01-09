@@ -56,7 +56,7 @@ class OrdersController < ApplicationController
    if @order.status == "Cancel"
       @is_calcel = true
     else
-      @is_calcel = true
+      @is_calcel = false
     end
   end
   
