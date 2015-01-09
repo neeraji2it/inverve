@@ -6,29 +6,27 @@
         </div>
         <div class="panel-body">
           <%= form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-horizontal'}) do |f| %>
-          <div class="input-group input-group-lg">
-            <span class="input-group-addon">
-              <span class="fa fa-envelope"></span>
-            </span>
-            <%= f.email_field :email, autofocus: true, class: "form-control", placeholder:"Email address"%>
+              <div class="input-group input-group-lg">
+                <span class="input-group-addon">
+                  <span class="fa fa-envelope"></span>
+                </span>
+                <%= f.email_field :email, autofocus: true, class: "form-control", placeholder:"Email address"%>
+                </div>
+                <br />
+                <div class="input-group input-group-lg">
+                  <span class="input-group-addon">
+                    <span class="fa fa-lock fa-lg"></span>
+                  </span>
+                  <%= f.password_field :password, autocomplete: "off", class: "form-control",
+                      placeholder: "Password" %>
+                  </div>
+                  <br />
+                  <%= f.submit "Sign in", class: 'btn btn-md btn-primary' %>
+                    <%= render "devise/shared/links" %>
+                  <% end %>
+                  <%= link_to "Checkout As Guest", new_order_path %>
+                </div>
+              </div>
+            </div>
           </div>
-          <br />
-          <div class="input-group input-group-lg">
-            <span class="input-group-addon">
-              <span class="fa fa-lock fa-lg"></span>
-            </span>
-            <%= f.password_field :password, autocomplete: "off", class: "form-control",
-            placeholder: "Password" %>
-          </div>
-          <br />
-          <%= f.submit "Sign in", class: 'btn btn-md btn-primary' %>
-           <%= render "devise/shared/links" %>
-          <% end %>
-        </td>
-      </table>
-    </div>
-  </div>
-</div>
-</div>
-</div>
-</div>
+        </div>

@@ -5,40 +5,17 @@ class OrdersController < ApplicationController
     @orders = Order.all
   end
 
-
-
   def show
 
   end
 
   def new
-    if current_user.present?
-      @user = current_user
-    else
-      @email = "#{SecureRandom.hex(13)}@guest.com"
-      @user = User.new(email: @email, password: SecureRandom.hex(20))
-      @user.save(validate: false)
-    end
-
-    p "************************"
-    p @user.inspect
-    p "********************"
-    
-    @order = @user.orders.first
-
-    if @order.blank?
-      @order = Order.new(user_id: @user.id)
-    end
-
     @cart = current_cart
-    if @cart.line_items.empty?
-      redirect_to carts_path
-      return
-    end
+    @order = Order.new
   end 
 
   def create
-    @order = current_cart.build_order(order_params)
+    @order = current_cart.build_order(order_params.merge(:status => 'Success'))
     if current_user.present?
       @order.user_id = current_user.id 
     end
