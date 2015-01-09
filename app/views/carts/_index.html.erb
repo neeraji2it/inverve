@@ -35,8 +35,8 @@
         <%= select_tag :quantity, options_for_select(@quantities, :selected => line_item.quantity), :onchange => "quantity_select(this.value, #{current_cart.id}, #{line_item.id})", :class => "form-control" %>
         </div>
 
-        <div class="tcolumn">Rs. <%= number_to_currency(line_item.unit_price) %></div>
-        <div class="tcolumn"><%= number_to_currency(line_item.full_price) %></div>
+        <div class="tcolumn">Rs. <%= line_item.unit_price %></div>
+        <div class="tcolumn">Rs. <%= line_item.full_price %></div>
         <div class="tcolumn">
           
           <%= link_to "x", cart_path(line_item), :method => :delete, :id => "box-close-contactInfo" %>
@@ -69,11 +69,11 @@
             <div class="box-sub">
               <div class="frow frow-sub">
                 <div>Subtotal:</div>
-                <div><%= number_to_currency @cart.total_price %></div>
+                <div>Rs.<%= @cart.total_price %></div>
               </div>
               <div class="frow frow-sub">
                 <div>Grand total:</div>
-                <div><%= number_to_currency @cart.total_price %></div>
+                <div>Rs.<%= @cart.total_price %></div>
               </div>
             </div>
             </div>

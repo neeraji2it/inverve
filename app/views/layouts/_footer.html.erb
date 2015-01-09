@@ -52,7 +52,9 @@
                 <li><%= link_to "FAQ's", faq_homes_path, :title => "FAQ's" %></li>
                 <li><%= link_to "Payment", payment_homes_path, :title => "Payment" %></li>
                 <li><%= link_to "Shipment", shipment_homes_path, :title => "Shipment" %></li>
-                <li><%= link_to "My order", myorder_orders_path, :title => "My order" %></li>
+                <% if current_user %>
+                  <li><%= link_to "My order", myorder_orders_path, :title => "My order" %></li>
+                <% end %>
                 <li><%= link_to "Terms", terms_homes_path, :title => "Terms" %></li>
                 <li><%= link_to "Return Policy", return_policy_homes_path, :title => "Return Policy" %></li>
               </ul>

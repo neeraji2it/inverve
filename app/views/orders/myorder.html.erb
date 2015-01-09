@@ -1,41 +1,40 @@
 
 <article>
-	<div class="box-myorder">
+<div class="box-myorder">
 
 		<div class="container">
 			<div class="heading-spacing">
 				<h1><span>My Order</span></h1>
 			</div>
-			<div class="box-table clearfix">
-				<div class="table-box">
-				<% @all_carts.each do |cart| %>
-					<div class="trow">
-						<div class="tcolumn"><%= "ORDER - #{cart.id}" %></div>
-						<div class="tcolumn">Order Total - Rs. <%= cart.total_price %></div>
-						<div class="tcolumn">Order Date - <%= cart.created_at.strftime("%Y-%m-%d") %>	</div>
-					</div>
-					<div class="trow">
-					<% cart.line_items.each do |line_item| %>
-						<div class="tcolumn">
-						<%= image_tag(line_item.product.images.first.avatar.url, :height => "80px", :width => "100px" )%>
-						</div>
-						<div class="tcolumn">
-						<%= line_item.product.name %>
-						</div>
-						<div class="tcolumn">
-						Qty:<%= line_item.quantity %>
-						</div>
-						<div class="tcolumn">
-						Rs.<%= line_item.unit_price %>
-						</div>
-						<div class="tcolumn">
-						Delivered
-						</div>
-						<% end %>
-					</div>
-			<% 	end %>
-				</div>
-       		 </div>        	
-		</div>
-	</div>
-</article>
+
+
+<div class="table-responsive">
+	<table class="table table-bordered">
+	<% if @all_carts.present? %>
+					<% @all_carts.each do |cart| %>
+					<% if cart.present? %>
+		<tr>
+			<th><%= "ORDER - #{cart.id}" %></th>
+			<th>Order Total - Rs. <%= cart.total_price %></th>
+			<th>Order Date - <%= cart.created_at.strftime("%Y-%m-%d") %></th>
+			<th><%= link_to "Cancel My Order", cancel_order_order_path(cart.order.id), :method => "PUT", :class => "btn" %></th>
+
+		</tr>
+
+		<% cart.line_items.each do |line_item| %>
+			<tr>
+				<td><%= image_tag(line_item.product.images.first.avatar.url, :height => "80px", :width => "100px" )%></td>
+				<td><%= line_item.product.name %></td>
+				<td>Qty:<%= line_item.quantity %></td>
+				<td>Rs.<%= line_item.unit_price %></td>
+				<td><%= cart.try(:order).status %></td>
+			</tr>
+				<% end %>		
+				<% end %>
+				<% end %>
+			<% end %>
+	</table>
+</div>
+</div>
+
+	</article>

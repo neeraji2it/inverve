@@ -3,7 +3,7 @@
   <%= form_for @order do |f| %>
   <% if @order.errors.any? %>
   <div id="error_explanation">
-    <h2>Following Field Are Can't Be Blank </h2>
+    <h2>Following Fields Can't Be Blank </h2>
 
     <ul>
       <% @order.errors.full_messages.each do |msg| %>

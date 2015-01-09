@@ -7,3 +7,5 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 admin = Admin.new(:email => 'admin@gmail.com', :password => '123123123', :password_confirmation => '123123123')
 admin.save(:validate => false)
+
+#Pending, Confirmed, Delivered, Cancelled, Returned

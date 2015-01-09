@@ -20,10 +20,12 @@
                         <%= link_to "Continue Shopping", homes_path, :class => "btn" %>
                       </div>
 
-                      <% if !@is_calcel %>
+                      <% if !current_user %>
+                        <% if !@is_calcel %>
                       <div class="col-sm-6">
                         <%= link_to "Cancel My Order", cancel_order_order_path(@order.id), :method => "PUT", :class => "btn" %>
                         </div>
+                      <% end %>
                       <% end %>
                       </div>
                     </div>

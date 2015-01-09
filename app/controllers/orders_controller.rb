@@ -47,13 +47,14 @@ class OrdersController < ApplicationController
   
   def confirm
     @order = Order.find(params[:id])
-    @order.update_attributes(:status => 'Success')
+    @order.update_attributes(:status => 'Pending')
     @product = Product.all
+    session[:cart_id] = nil
   end
 
   def confirm_myorder
    @order = Order.find(params[:id]) 
-   if @order.status == "Cancel"
+   if @order.status == "Cancelled"
       @is_calcel = true
     else
       @is_calcel = false
@@ -62,7 +63,7 @@ class OrdersController < ApplicationController
   
   def cancel_order
     @order = Order.find(params[:id])    
-    @order.update_attributes(:status => "Cancel")
+    @order.update_attributes(:status => "Cancelled")
     redirect_to confirm_myorder_order_path(@order.id)
   end
 
