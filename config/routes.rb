@@ -60,9 +60,11 @@ Furnitureapp::Application.routes.draw do
     member do
       get :confirm
       get :confirm_myorder
+      match :cancel_order, via: [:get, :put]
     end
     collection do 
       get :myorder
+      get :checkout_information
     end
   end
 

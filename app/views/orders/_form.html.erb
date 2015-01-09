@@ -1,8 +1,4 @@
-<div class="panel-body">
-  <div class="row">
-  <div class="col-md-6">
-
-<%= link_to 'Back', orders_path ,:class => "pull-right  btn btn-primary" %>
+ <%#= link_to 'Back', orders_path ,:class => "pull-right  btn btn-primary" %>
 
   <%= form_for @order do |f| %>
   <% if @order.errors.any? %>
@@ -17,72 +13,40 @@
   </div>
   <% end %>
   <div class="form-group">
-<<<<<<< HEAD
-=======
-    <%#= f.hidden_field :user_id, value: @user.id %>
->>>>>>> validation in orders
-    <%= f.label :first_name %><br>
+    First Name<br>
     <%= f.text_field :first_name , autofocus: true, class: "form-control"%>
   </div>
   <div class="form-group">
-    <%= f.label :last_name %><br>
+    Last Name<br>
     <%= f.text_field :last_name , autofocus: true, class: "form-control"%>
   </div>
   <div class="form-group">
-    <%= f.label :address %><br>
+   Address<br>
     <%= f.text_area :address , autofocus: true, class: "form-control" %>
   </div>
   <div class="form-group">
-    <%= f.label :landmark %><br>
+   LandMark<br>
     <%= f.text_area :landmark , autofocus: true, class: "form-control"%>
   </div>
   <div class="form-group">
-    <%= f.label :pincode %><br>
+    Pincode<br>
     <%= f.text_field :pincode , autofocus: true, class: "form-control"%>
   </div>
   <div class="form-group">
-    <%= f.label :city %><br>
+    City<br>
     <%= f.text_field :city , autofocus: true, class: "form-control"%>
   </div>
   <div class="form-group">
-    <%= f.label :state %><br>
+    State<br>
     <%= f.text_field :state , autofocus: true, class: "form-control"%>
   </div>
-<!--   <div class="field">
-    <%= f.label :country %><br>
-    <%= f.country_select :country, prompt: "Select a country" %>
-  </div> -->
+
   <div class="form-group">
-    <%= f.label :phone %><br>
+    Phone<br>
     <%= f.text_field :phone , autofocus: true, class: "form-control"%>
   </div>
-<!--   <div class="form-group">
-  <%= f.label :card_num %>
-  <%= f.text_field :card_num , autofocus: true, class: "form-control"%>
-  </div>
-  <div class="form-group">
-    <%= f.label :card_type %>
-    <%= f.select :card_type ,options_for_select(%w[PayU ]),{}, autofocus: true, class: "form-control"  %>
-  </div>
-  <div class="form-group">
-    <%= f.label :card_expires_on%>
-    <%= f.date_select :card_expires_on  , autofocus: true, class: "form-control"%>
-  </div>
-  <div class="form-group">
-    <%= f.label :card_cvv %>
-    <%= f.text_field :card_cvv , autofocus: true, class: "form-control"%>
-  </div> -->
-  <div class="form-group">
-  <%= f.label :cod %>
-  <%= f.text_field :cod ,autofocus: true, class: "form-control"%>
-  </div>
-
 
   <div class="actions">
     <%= f.submit class: "btn btn"%>
   </div>
   <% end %>
-</div>
-
-</div>
-</div>

@@ -86,7 +86,7 @@
 
         <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">        
           <p>
-          <%= link_to "Proceed to Checkout", current_user ? new_order_path : new_user_session_path , class: "btn btn-proceed", title: "Proceed to Checkout" %>
+          <%= link_to "Proceed to Checkout", current_user ? new_order_path : checkout_information_orders_path , class: "btn btn-proceed", title: "Proceed to Checkout" %>
           </p>              
         </div>
 

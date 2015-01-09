@@ -15,13 +15,17 @@ class OrdersController < ApplicationController
   end 
 
   def create
-    @order = current_cart.build_order(order_params.merge(:status => 'Success'))
+    @order = current_cart.build_order(order_params)
     if current_user.present?
       @order.user_id = current_user.id 
+      @order.user_type = "User"
+    else
+      @order.user_type = "Guest"
     end
+
     @order.ip_address = request.remote_ip
     if @order.save
-      redirect_to orders_path
+      redirect_to confirm_order_path(@order.id)
     else
       render action: 'new'
     end
@@ -40,12 +44,26 @@ class OrdersController < ApplicationController
     @order.destroy
     redirect_to carts_path
   end
+  
   def confirm
     @order = Order.find(params[:id])
+    @order.update_attributes(:status => 'Success')
     @product = Product.all
   end
 
   def confirm_myorder
+   @order = Order.find(params[:id]) 
+   if @order.status == "Cancel"
+      @is_calcel = true
+    else
+      @is_calcel = true
+    end
+  end
+  
+  def cancel_order
+    @order = Order.find(params[:id])    
+    @order.update_attributes(:status => "Cancel")
+    redirect_to confirm_myorder_order_path(@order.id)
   end
 
   def myorder
@@ -54,6 +72,10 @@ class OrdersController < ApplicationController
     @carts = @orders.map {|order| order.try(:cart)}
     @carts.map {|cart| all_carts << cart}
     @all_carts = all_carts
+  end
+
+  def checkout_information
+
   end
 
   private
