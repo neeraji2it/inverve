@@ -10,13 +10,15 @@
 
       <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" id="gallery_09">
         <div class="row">
+        
         <% @images.each do |image| %>
           <div class="col-xs-3 col-sm-12 col-md-12 col-lg-12 box-product add_small_img">
               <a href="#" class="elevatezoom-gallery active" data-image="<%= image.avatar.url %>" data-zoom-image="<%= image.avatar.url %>">
                 <img src="<%= image.avatar.url %>" />
               </a>                       
           </div>
-           <% end %> 
+           <% end %>
+         
         </div>
       </div>
       </div>
@@ -193,3 +195,5 @@
       }); 
   }); 
 </script> 
+
+
