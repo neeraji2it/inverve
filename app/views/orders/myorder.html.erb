@@ -23,7 +23,7 @@
 
 		<% cart.line_items.each do |line_item| %>
 			<tr>
-				<td><%= image_tag(line_item.product.images.first.avatar.url, :height => "80px", :width => "100px" )%></td>
+				<td> <%= image_tag(line_item.product.images.present? ? (line_item.product.images.first.avatar.url) : "/assets/missing.png", height: "50px", width: "50px") %></td>
 				<td><%= line_item.product.name %></td>
 				<td>Qty:<%= line_item.quantity %></td>
 				<td>Rs.<%= line_item.unit_price %></td>
