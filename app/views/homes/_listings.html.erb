@@ -49,7 +49,9 @@
                   <li>
                     <div class="frow frow-product">
                       <div>
+                      <% if product.images.present? %>
                         <%= image_tag(product.images.first.avatar.url) %>
+                      <% end %>
                       </div> 
                       <div>
                         <h5><%= product.name %></h5>
@@ -75,7 +77,9 @@
             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
               <div class="box-productimg">
                 <a href="#" title="">
+                <% if product.images.present? %>
                   <%= image_tag product.images.first.avatar.url, :height => "200px", :width => "222px;" %>                  
+                <% end %>  
                 </a>
                 <div class="productimg-hover">
                   <ul>
@@ -102,7 +106,9 @@
       <h6>Signup For Newsletter</h6>
       <div class="modal-body">
         <div class="product-img-box">
+        <% if product.images.present? %>
           <%= image_tag product.images.first.avatar.url  %>
+        <% end %>
         </div>      
       </div>
     </div>
