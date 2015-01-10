@@ -1,101 +1,80 @@
+
 <article>
-  <div class="box-mainchart"> 
+  <div class="box-mainchart">
     <div class="container">
-    <div class="box-table clearfix">
-      <div class="table-box">
-      <div class="trow">
-        <div class="tcolumn">Image</div>
-        <div class="tcolumn">Product Name</div>
-        <div class="tcolumn">Quantity</div>
-        <div class="tcolumn">Unit Price</div>
-        <div class="tcolumn">Sub Total</div>
-        <div class="tcolumn">Action</div>
-      </div>
-
- <% for line_item in @cart.line_items %>
-      <div class="trow"  id="box-contactInfo-content">
-        
-        <div class="tcolumn">
-          <%= image_tag(line_item.product.images.present? ? (line_item.product.images.first.avatar.url) : "/assets/missing.png", height: "50px", width: "50px") %>
-        </div>
-        <div class="tcolumn">
-          <h4><%= line_item.product.name %></h4>
-          <div class="frow frow-color">
-            <div>Color:</div>
-            <div>Brown</div> 
+      <div class="box-table clearfix">
+        <div class="table-box">
+          <div class="trow">
+            <div class="tcolumn">Image</div>
+            <div class="tcolumn">Product Name</div>
+            <div class="tcolumn">Quantity</div>
+            <div class="tcolumn">Unit Price</div>
+            <div class="tcolumn">Sub Total</div>
+            <div class="tcolumn">Action</div>
           </div>
-          <div class="frow frow-color">
-            <div>Size:</div>
-            <div>12</div> 
-          </div>
-        </div>
-
-
-        <div class="tcolumn">
-        <%= select_tag :quantity, options_for_select(@quantities, :selected => line_item.quantity), :onchange => "quantity_select(this.value, #{current_cart.id}, #{line_item.id})", :class => "form-control" %>
-        </div>
-
-        <div class="tcolumn">Rs. <%= line_item.unit_price %></div>
-        <div class="tcolumn">Rs. <%= line_item.full_price %></div>
-        <div class="tcolumn">
-          
-          <%= link_to "x", cart_path(line_item), :method => :delete, :id => "box-close-contactInfo" %>
-        </div>
-
-        
-      </div>      
-      <% end %>
-      
-      
-      </div>
-        </div> 
-
-
-    <div class="box-frowdate hide-788">
-       <!-- will remove this later          -->
-     </div>  
-
-
-        <div class="box-continue clearfix">        
- 
-       <%= link_to "Continue Shopping", homes_path, :class => "btn btn-sm btn-success"  %>
-
-      <input alt="" title="Update Shopping Cart" type="button" value="Update Shopping Cart" class="btn icon-bukect icon-update"/>     
-    </div>  
-    <div class="box-estimate">
-      <div class="row">
-        <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
-          <div class="box-subtotal clearfix">
-            <div class="box-sub">
-              <div class="frow frow-sub">
-                <div>Subtotal:</div>
-                <div>Rs.<%= @cart.total_price %></div>
+          <% for line_item in @cart.line_items %>
+          <div class="trow" id="box-contactInfo-content">
+            <div class="tcolumn">
+            <%= image_tag(line_item.product.images.present? ? (line_item.product.images.first.avatar.url) : "/assets/coming_soon.png", height: "50px", width: "80px") %>
+            </div>
+            <div class="tcolumn">
+              <h4><%= line_item.product.name %></h4>
+              <div class="frow frow-color">
+                <div>Color:</div>
+                <div>Brown</div>
               </div>
-              <div class="frow frow-sub">
-                <div>Grand total:</div>
-                <div>Rs.<%= @cart.total_price %></div>
+              <div class="frow frow-color">
+                <div>Size:</div>
+                <div>12</div>
               </div>
             </div>
+            <div class="tcolumn">
+              <%= select_tag :quantity, options_for_select(@quantities, :selected => line_item.quantity), :onchange => "quantity_select(this.value, #{current_cart.id}, #{line_item.id})", :class => "form-control" %>
             </div>
+            <div class="tcolumn">Rs. <%= line_item.unit_price %></div>
+            <div class="tcolumn">Rs. <%= line_item.full_price %></div>
+            <div class="tcolumn">
+              <%= link_to "x", cart_path(line_item), :method => :delete, :id => "box-close-contactInfo" %>
+            </div>
+          </div>
+          <% end %>
         </div>
-
-
-        <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
-          
-        </div>  
-
-        <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">        
-          <p>
-          <%= link_to "Proceed to Checkout", current_user ? new_order_path : checkout_information_orders_path , class: "btn btn-proceed", title: "Proceed to Checkout" %>
-          </p>              
-        </div>
-
+      </div>
+      <div class="box-frowdate hide-788">
+        <!-- will remove this later -->
+      </div>
+      <div class="box-continue clearfix">
+        <%= link_to "Continue Shopping", homes_path, :class => "btn btn-sm btn-success" %>
+        <input alt="" title="Update Shopping Cart" type="button" value="Update Shopping Cart" class="btn icon-bukect icon-update"/>
+      </div>
+      <div class="box-estimate">
+        <div class="row">
+          <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+            <div class="box-subtotal clearfix">
+              <div class="box-sub">
+                <div class="frow frow-sub">
+                  <div>Subtotal:</div>
+                  <div>Rs.<%= @cart.total_price %></div>
+                </div>
+                <div class="frow frow-sub">
+                  <div>Grand total:</div>
+                  <div>Rs.<%= @cart.total_price %></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+          </div>
+          <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
+            <p>
+              <%= link_to "Proceed to Checkout", current_user ? new_order_path : checkout_information_orders_path , class: "btn btn-proceed", title: "Proceed to Checkout" %>
+            </p>
           </div>
         </div>
       </div>
+    </div>
   </div>
 </article>
-
 <script type="text/javascript">
   function quantity_select(quantity, cart, line_item) {
     $.ajax({
@@ -107,6 +86,6 @@
         cart: cart
       }
     });
-    // $("#btn-save_"+ line_item).show();
-  }  
+// $("#btn-save_"+ line_item).show();
+}
 </script>

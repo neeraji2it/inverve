@@ -26,8 +26,8 @@ end
 group :test do 
 	gem 'faker' 
 	gem 'capybara' 
-	gem 'guard-rspec'
-	gem 'launchy'
+	# gem 'guard-rspec'
+	# gem 'launchy'
 	gem 'shoulda-matchers', require: false 
 end 
 
@@ -59,7 +59,7 @@ group :doc do
 end
 
 gem 'execjs'
-gem 'activemerchant'
+# gem 'activemerchant'
 
 gem 'therubyracer'
 gem 'less-rails'
@@ -71,8 +71,8 @@ gem "paperclip"
 gem "nested_form"
 gem 'devise'
 # gem 'irbtools', '~> 1.7.0'
-gem 'countries'
-gem 'country_select'
+# gem 'countries'
+# gem 'country_select'
 gem 'will_paginate-bootstrap'
 gem 'rvm-capistrano'
 gem 'capistrano-ext'
