@@ -1,9 +1,10 @@
-<h1>Listing products</h1>
+
+
 <%= link_to 'New Product', new_admin_product_path, :class => "pull-right btn btn-info" %>
 
+<% unless @products.empty? %>
 
-
-
+<h1>Product Bucket</h1>
 <%= form_tag admin_products_path, :method => 'get',:id => "products_search" do %>
    
   
@@ -32,6 +33,9 @@ $(function () {
   });
 });
 </script>
+<% else %>
+<h4>Product Bucket is empty</h4>
+<% end %>
 
 
 

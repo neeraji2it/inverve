@@ -14,7 +14,7 @@ def create
 end
 
 def index
-	@categories = Category.search(params[:search]).paginate(:page => params[:page], :per_page => 2)
+	@categories = Category.search(params[:search]).paginate(:page => params[:page], :per_page => 25)
 end
 
 def edit

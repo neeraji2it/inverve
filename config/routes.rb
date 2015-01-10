@@ -1,6 +1,7 @@
 Furnitureapp::Application.routes.draw do
   
 
+  get "dashboards/index"
   devise_for :admins
   devise_for :users
   # get "homes/index"
@@ -19,6 +20,7 @@ Furnitureapp::Application.routes.draw do
         get :category_show
       end
     end
+    resources :dashboards
     # resources :offers 
   end
   resources :welcome do 

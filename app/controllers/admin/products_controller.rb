@@ -28,7 +28,11 @@ def show
 end
 
 def index
-  @products = Product.search(params[:search]).paginate(:page => params[:page], :per_page => 3)
+   
+  @products = Product.search(params[:search]).paginate(:page => params[:page], :per_page => 25)
+
+
+
 end
 
 def edit

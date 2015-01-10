@@ -18,9 +18,9 @@
         <td><%= link_to 'Destroy', admin_category_path(categorie.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
         <td>
         <% if categorie.category_show == true %>
-          <%= link_to 'Hide',category_show_admin_category_path(:id => categorie, :category_show => "false") %>
+          <%= link_to 'Hide',category_show_admin_category_path(:id => categorie, :category_show => "false"),data: {confirm: 'You Dont Want To Display In Home Page'} %>
         <% else %>
-          <%= link_to 'Display',category_show_admin_category_path(:id => categorie, :category_show => "true") %>
+          <%= link_to 'Display',category_show_admin_category_path(:id => categorie, :category_show => "true"),data: {confirm: 'You Want To Display In Home Page'}%>
         <% end %>
         </td>
         </tr>
