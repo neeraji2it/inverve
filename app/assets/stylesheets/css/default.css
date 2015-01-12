@@ -46,12 +46,9 @@ textarea { width: 450px; min-height: 110px; resize: none; }
 input[type=file] { padding: 4px 5px; display: inline; }
 input[type=file] + input { margin-left: 5px; }
 /*input[type=text]:active, input[type=text]:focus, input[type=password]:active, input[type=password]:focus, textarea:active, textarea:focus, textarea.form-control:active, textarea.form-control:focus, select:active, select:focus { box-shadow: inset #e8e8e8 0px 0px 2px; }*/
-input[type=submit], input[type=button], input[type=reset], button, .btn { color: #FFF; background-color: #232323; border: none; padding: 12px 14px; /*border-radius:2px;*/ font-size: 12px; text-shadow: 0px 0px 0px #FFF; }
-input[type=submit]:hover, input[type=button]:hover, input[type=reset]:hover, button:hover, 
-/*.btn:hover { background-color: #000; color: #FFF; */
-}
+input[type=submit], input[type=button], input[type=reset], button, .btn { color: #FFF; background-color: #232323; border: none; padding: 12px 14px; font-size: 12px; text-shadow: 0px 0px 0px #FFF; }
 .btn { color: #FFF; padding: 5px 18px; text-decoration: none; }
-html body a.btn:focus, html body a.btn:active, html body a.btn:hover { color: ; text-decoration: none; }
+html body a.btn:focus, html body a.btn:active, html body a.btn:hover { text-decoration: none; }
 input, input:focus, input:active, .btn:focus, .btn:active:focus, .btn.active:focus { outline: none; }
 a { color: #232024; }
 a:hover { color: #484848; }
