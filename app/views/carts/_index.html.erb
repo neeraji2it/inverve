@@ -15,7 +15,7 @@
           <% for line_item in @cart.line_items %>
           <div class="trow" id="box-contactInfo-content">
             <div class="tcolumn">
-            <%= image_tag(line_item.product.images.present? ? (line_item.product.images.first.avatar.url) : "/assets/coming_soon.png", height: "50px", width: "80px") %>
+            <%= image_tag(line_item.product.images.present? ? (line_item.product.images.first.avatar.url) : "/assets/missing.png", height: "50px", width: "80px") %>
             </div>
             <div class="tcolumn">
               <h4><%= line_item.product.name %></h4>

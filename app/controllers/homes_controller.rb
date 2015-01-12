@@ -1,5 +1,7 @@
 class HomesController < ApplicationController
 	def index
+
+    @featured = Product.featured
 		
 	end
   
