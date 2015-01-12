@@ -17,7 +17,7 @@ end
       member do
         delete :delete_img
         put :image_show
-        put :flag
+        get :flag
       end
     end
     resources :categories do
