@@ -1,19 +1,18 @@
 Furnitureapp::Application.routes.draw do
-  
 
- 
   devise_for :admins
   devise_for :users
   # get "homes/index"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   namespace :admin do
-    resources :orders do
-      collection do
-        get :guest_orders
-        get :user_orders
-      end
-    end
+resources :orders do
+  collection do
+    get :guest_orders
+    get :user_orders
+  end
+end
+
     resources :products do
       member do
         delete :delete_img
@@ -27,7 +26,10 @@ Furnitureapp::Application.routes.draw do
       end
     end
     resources :dashboards
-    # resources :offers 
+    
+
+     
+     # resources :offers 
   end
   resources :welcome do 
 #    member do
