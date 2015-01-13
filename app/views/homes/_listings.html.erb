@@ -8,15 +8,18 @@
             <h4>Categories</h4>
             <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
               <% @categories.each do |category| %>
+              <% if category.present? %>
               <% @cat_products = category.products %>
               <div class="panel panel-default">
                 <div class="panel-heading" role="tab" id="headingOne">
                   <h2 class="panel-title">
                     <a class="collapsed accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne-<%= category.id %>" aria-expanded="false" aria-controls="collapseOne" title="Bedroom">
+
                       <%= category.name %>
                     </a>
                   </h2>
                 </div>
+                <% end %>
                 <div id="collapseOne-<%= category.id %>" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
                   <div class="panel-body">
                     <ul>

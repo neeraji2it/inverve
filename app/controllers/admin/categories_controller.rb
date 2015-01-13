@@ -14,7 +14,7 @@ def create
 end
 
 def index
-	@categories = Category.search(params[:search]).paginate(:page => params[:page], :per_page => 25)
+	@categories = Category.search(params[:search]).paginate(:page => params[:page], :per_page => 25).order("created_at DESC")
 end
 
 def edit
@@ -22,6 +22,7 @@ def edit
 end
 
 def show
+	@categories = Category.search(params[:search]).paginate(:page => params[:page], :per_page => 25).order("created_at DESC")
 	@category = Category.includes(:products).find(params[:id])
 end
 

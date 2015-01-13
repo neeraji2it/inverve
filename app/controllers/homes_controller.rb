@@ -1,26 +1,24 @@
 class HomesController < ApplicationController
 	def index
-
     @featured = Product.featured
-		
-	end
+  end
   
-	def category
-		@categories = Category.where("id = '#{params[:category_id]}'")
-		respond_to do |format|
+  def category
+    @categories = Category.where("id = '#{params[:category_id]}'")
+    respond_to do |format|
       format.js
     end
-	end
+  end
   
   def show
     @category = Category.find(params[:id])
     @categories = Category.all
-    @products = @category.products.paginate(:page => params[:page], :per_page => 8)
+    @products = @category.products.paginate(:page => params[:page], :per_page => 25)
     @featured = Product.featured
   end
 
   def offers
-    
+
     @products = Product.where("discount != ''")
   end
 
@@ -34,32 +32,32 @@ class HomesController < ApplicationController
   end
   
   def how_to_buy
-    
+
   end
   
   def faq
-    
+
   end
   
   def payment
-    
+
   end
   
   def shipment
-    
+
   end
   
   def terms
-    
+
   end
   
   def return_policy
-    
+
   end
   
   def search
-		products = Product.search(params[:search])
-    @products = products.paginate(:page => params[:page], :per_page => 8)
+    products = Product.search(params[:search])
+    @products = products.paginate(:page => params[:page], :per_page => 25)
     @categories = Category.all
     @featured = Product.featured
   end
