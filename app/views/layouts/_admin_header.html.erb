@@ -28,17 +28,17 @@
           <span class="caret-inner"></span>
         </li>
         <li class="da-dropdown-divider"></li>
-        <li><a href="#">Dashboard</a></li>
+        <li><%= link_to "Dashboards", admin_dashboards_path %></li>
         <li class="da-dropdown-divider"></li>
-        <li><a href="#">Profile</a></li>
-        <li><a href="#">Settings</a></li>
-        <li><a href="#">Change Password</a></li>
+        <li><%= link_to "Profile", "#" %></li>
+        <li><%= link_to "Setting", "#" %></li>
+        <li><%= link_to "Change Password", "#" %></li>
       </ul>
     </div>
     <div id="da-header-button-container">
       <ul>
         <li class="da-header-button logout">
-          <a href="#">Logout</a>
+          <%=link_to("Log Out", destroy_admin_session_path, :method => :delete)%>
         </li>
       </ul>
     </div>
