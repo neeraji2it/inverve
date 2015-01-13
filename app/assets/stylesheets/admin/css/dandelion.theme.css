@@ -1,0 +1,9 @@
+body
+{
+	background-image:url(/assets/admin/images/bg/blueprint.png);
+}
+
+div#da-header #da-header-top
+{
+	background-image:url(/assets/admin/images/headers/carbon.png);
+}
