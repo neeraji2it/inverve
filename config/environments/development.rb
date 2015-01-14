@@ -31,12 +31,12 @@ Furnitureapp::Application.configure do
     :address              => "smtp.gmail.com",
     :port                 => 587,
     #:domain               => 'baci.lindsaar.net',
-    :user_name            => 'harshith@dine-media.com',
-    :password             => 'harshithprasad',
+    :user_name            => 'rosarahomess@gmail.com',
+    :password             => 'rosarahomess@123',
     :authentication       => 'plain',
     :enable_starttls_auto => true
   }
-    # Raise exception on mass assignment protection for Active Record models
+  # Raise exception on mass assignment protection for Active Record models
   #config.active_record.mass_assignment_sanitizer = :strict
 
   # Log the query plan for queries taking more than this (works
@@ -48,8 +48,4 @@ Furnitureapp::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
-
-  
 end
-
-
