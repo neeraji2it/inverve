@@ -1,18 +1,39 @@
 <!-- Content Area -->
 <div id="da-content-area">
-              <ul class="da-circular-stat-wrap">
-                <li class="da-circular-stat {fillColor: '#e15656', value: <%= @categoryCount %>, maxValue: <%= @categoryCount %>, label: 'Total Category'}"></li>
-                <li class="da-circular-stat {fillColor: '#a6d037', value: <%= @productCount %>, maxValue: <%= @productCount %>, label: 'Total Product'}"></li>
-                <li class="da-circular-stat {fillColor: '#ea799b', percent: false, value: <%= @userCount %>, maxValue: <%= @userCount %>, label: 'Total User'}"></li>
-                <li class="da-circular-stat {fillColor: '#fab241', value: <%= @guestOrderCount %>, maxValue: <%= @guestOrderCount %>, label: 'Total Guest Order'}"></li>
-                <li class="da-circular-stat {fillColor: '#61a5e4', percent: false, value: <%= @userOrderCount %>, maxValue: <%= @userOrderCount %>, label: 'Total User Order'}"></li>
-              </ul>
+  <ul class="da-circular-stat-wrap">
+    <li class="da-circular-stat {fillColor: '#e15656', value: <%= @categoryCount %>, maxValue: <%= @categoryCount %>, label: 'Category'}"></li>
+    <li class="da-circular-stat {fillColor: '#a6d037', value: <%= @productCount %>, maxValue: <%= @productCount %>, label: 'Product'}"></li>
+    <li class="da-circular-stat {fillColor: '#ea799b', percent: false, value: <%= @userCount %>, maxValue: <%= @userCount %>, label: 'User'}"></li>
+    <li class="da-circular-stat {fillColor: '#fab241', value: <%= @guestOrderCount %>, maxValue: <%= @guestOrderCount %>, label: 'Guest Order'}"></li>
+    <li class="da-circular-stat {fillColor: '#61a5e4', percent: false, value: <%= @userOrderCount %>, maxValue: <%= @userOrderCount %>, label: 'User Order'}"></li>
+  </ul>
 
-              <div class="grid_4">
-                <div class="da-panel-widget">
-                  <h1>Summary List</h1>
-                  
-                </div>
-              </div>
+  <div class="grid_4">
+    <div class="da-panel-widget">
+      <%= form_tag view_graph_admin_dashboards_path, :method => 'get', :remote => true do %>
+      <div class="row">
+        <div class="col-md-12 col-xs-12">
+          <%= text_field_tag "start_date", nil, :id => "start_date", :class => "datepicker" %> 
+          <%= text_field_tag "end_date", nil, :id => "end_date", :class => "datepicker" %>
+          <%= submit_tag "View Graph" %>
+        </div>
+      </div>
+      <% end %>
+      
+      <h1>Under Development</h1>
 
-            </div>
+      <div id="view_graph"></div> 
+    </div>
+  </div>
+</div>
+
+<script>
+  $(function(){
+    $(".datepicker").datepicker({
+    dateFormat: 'dd-mm-yy',
+    todayHighlight: true,
+    todayBtn: 'linked',
+    autoclose: true
+  });
+  });
+</script>

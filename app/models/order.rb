@@ -4,4 +4,8 @@ class Order < ActiveRecord::Base
   validates :first_name,:last_name,:address,:landmark,:city,:pincode,:state,presence: true
   scope :guest_orders, lambda {where(:user_type => "Guest")}
   scope :user_orders, lambda {where(:user_type => "User")}
+  
+  def self.order_count(s_date)
+    Order.where("orders.created_at=?", s_date)
+  end
 end

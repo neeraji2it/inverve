@@ -1,0 +1,36 @@
+<script type="text/javascript" charset="utf-8">
+  $(function() {
+    new Highcharts.Chart({
+      chart: {
+        renderTo: 'view_graph'
+      },
+      title: {
+        text: "title"
+      },
+      xAxis: {
+        title: {text: 'date'},
+        type: 'datetime',
+        dateTimeLabelFormats: {
+          // don't display the dummy year
+          month: '%e %b %Y'
+        }
+      },
+      yAxis: {
+        min: 0,
+        title: {text: 'No of orders Created'}
+      },
+      tooltip: {
+        formatter: function() {
+          return '<b>' + this.series.name + '</b><br/>' +
+                  Highcharts.dateFormat('%e %b %Y', this.x) + ': ' + this.y;
+        }
+      },
+      series: [{
+          name: "Order",
+          pointInterval: <%= 1.day * 1000 %>,
+          pointStart: <%= (@start_date + 1.day).to_date.beginning_of_day.to_i * 1000 %>,
+          data: <%= @order_count %>
+        }]
+    });
+  });
+</script>

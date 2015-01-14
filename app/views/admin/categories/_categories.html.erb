@@ -1,34 +1,48 @@
-<div class="table-responsive">
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th colspan="6">Name</th>
-        </tr>
-  </thead>
+<div class="grid_4">
+  <div class="da-panel collapsible">
+    <div class="da-panel-header">
+      <span class="da-panel-title">
+        <img src="/assets/admin/assets/admin/images/icons/black/16/list.png" alt="" />
+        Category Listing 
+      </span>
+    </div>
+    <div class="da-panel-content">
+      <table id="da-ex-datatable-default" class="da-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @categories.each do |categorie| %>
+            <tr>
+              <td><%= categorie.name.capitalize %></td>
+              <td class="da-icon-column">
+                <%= link_to admin_category_path(categorie.id) do %>
+                  <img src="/assets/admin/images/icons/color/magnifier.png" />
+                <% end %>
 
+                <%= link_to edit_admin_category_path(categorie.id) do %>  
+                  <img src="/assets/admin/images/icons/color/pencil.png" />
+                <% end %>
 
-  <tbody>
-    <% @categories.each do |categorie| %>
-
-      <tr>
-        <td><%= categorie.name.capitalize %></td>
-     
-        <td><%= link_to 'Show',  admin_category_path(categorie.id) %></td>
-        <td><%= link_to 'Edit', edit_admin_category_path(categorie.id) %></td>
-        <td><%= link_to 'Destroy', admin_category_path(categorie.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        <td>
-        <% if categorie.category_show == true %>
-          <%= link_to 'Hide',category_show_admin_category_path(:id => categorie, :category_show => "false"),data: {confirm: 'You Dont Want To Display In Home Page'} %>
-        <% else %>
-          <%= link_to 'Display',category_show_admin_category_path(:id => categorie, :category_show => "true"),data: {confirm: 'You Want To Display In Home Page'}%>
-        <% end %>
-        </td>
-        </tr>
-    <% end %>
-  </tbody>
-</table>
-
+                <%= link_to admin_category_path(categorie.id), method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <img src="/assets/admin/images/icons/color/cross.png" />
+                <% end %>
+              </td>
+              <td class="da-icon-column">
+                <% if categorie.category_show == true %>
+                  <%= link_to 'Hide',category_show_admin_category_path(:id => categorie, :category_show => "false"),data: {confirm: 'You Dont Want To Display In Home Page'} %>
+                <% else %>
+                  <%= link_to 'Display',category_show_admin_category_path(:id => categorie, :category_show => "true"),data: {confirm: 'You Want To Display In Home Page'}%>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </div>
-<br>
-
-<%= will_paginate(@categories, renderer: BootstrapPagination::Rails ) %>

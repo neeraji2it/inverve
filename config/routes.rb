@@ -6,12 +6,12 @@ Furnitureapp::Application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
   namespace :admin do
-resources :orders do
-  collection do
-    get :guest_orders
-    get :user_orders
-  end
-end
+    resources :orders do
+      collection do
+        get :guest_orders
+        get :user_orders
+      end
+    end
 
     resources :products do
       member do
@@ -25,16 +25,20 @@ end
         get :category_show
       end
     end
-    resources :dashboards
+    resources :dashboards do
+      collection do 
+        get :view_graph
+      end
+    end
     
 
      
-     # resources :offers 
+    # resources :offers 
   end
   resources :welcome do 
-#    member do
-#      get :category
-#    end
+    #    member do
+    #      get :category
+    #    end
   end  # You can have the root of your site routed with "root"
   
   

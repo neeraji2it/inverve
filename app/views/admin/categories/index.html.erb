@@ -1,36 +1,28 @@
-
-
 <%= link_to 'Add Category', new_admin_category_path, :class => "pull-right btn btn-info" %>
 <% unless @categories.empty? %>
-<h1>Category Bucket</h1>
+  <h1>Category</h1>
+  <%= form_tag admin_categories_path, :method => 'get',:id => "categories_search" do %>
+    <p class="search">
+      <%= text_field_tag :search, params[:search] %>
+      <%= submit_tag "Search", :name => nil,:class => "btn btn" %>
+    </p>
+  <% end %>
+  <div id="categories"><%= render 'categories' %></div>
+  <script type="text/javascript">
+    $(function() {
+      // Sorting and pagination links.
+      $('#categories th a, #categories .pagination a').live('click', function() {
+        $.getScript(this.href);
+        return false;
+      });
 
-<%= form_tag admin_categories_path, :method => 'get',:id => "categories_search" do %>
-
-<p class="search">
-  <%= text_field_tag :search, params[:search] %>
-  <%= submit_tag "Search", :name => nil,:class => "btn btn" %>
-</p>
-
-
-<% end %>
-
-<div id="categories"><%= render 'categories' %></div>
-
-<script type="text/javascript">
-  $(function () {
-  // Sorting and pagination links.
-  $('#categories th a, #categories .pagination a').live('click', function () {
-    $.getScript(this.href);
-    return false;
-  });
-  
-  // Search form.
-  $('#categories_search input').keyup(function() {
-    $.get($("#categories_search").attr("action"), $("#categories_search").serialize(), null, 'script');
-    return false;
-  });
-});
-</script>
+      // Search form.
+      $('#categories_search input').keyup(function() {
+        $.get($("#categories_search").attr("action"), $("#categories_search").serialize(), null, 'script');
+        return false;
+      });
+    });
+  </script>
 <% else %>
-<h4>Category Bucket is empty</h4>
+  <h4>Category Bucket is empty</h4>
 <% end %>
