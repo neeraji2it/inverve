@@ -1,0 +1,47 @@
+<!-- Content Area -->
+<div id="da-content-area">
+  <div class="grid_2">
+    <div class="da-panel">
+      <div class="da-panel-header">
+        <span class="da-panel-title">
+          <img src="images/icons/black/16/pencil.png" alt="" />
+          Admin Password Setting
+        </span>
+      </div>
+      <div class="da-panel-content">
+        <%= form_for(current_admin, :url => update_passcode_admin_profiles_path, :method => "PUT", :html => {:class => "da-form"}) do |f| %>
+          <% if current_admin.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(current_admin.errors.count, "error") %> prohibited this admin records from being saved.</h2>
+
+              <ul>
+                <% current_admin.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>  
+
+          <div class="da-form-row">
+            <label><%= f.label :password, "New password" %></label>
+            <div class="da-form-item large">
+              <%= f.password_field :password %>
+            </div>
+          </div>
+
+          <div class="da-form-row">
+            <label><%= f.label :password_confirmation %></label>
+            <div class="da-form-item large">
+              <%= f.password_field :password_confirmation %>
+            </div>
+          </div>
+
+          <div class="da-button-row">
+            <%= f.submit "Update Your Password", class: "da-button blue left" %>
+            </div>
+
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>

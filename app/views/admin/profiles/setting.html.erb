@@ -1,0 +1,54 @@
+<!-- Content Area -->
+<div id="da-content-area">
+  <div class="grid_2">
+    <div class="da-panel">
+      <div class="da-panel-header">
+        <span class="da-panel-title">
+          <img src="images/icons/black/16/pencil.png" alt="" />
+          Admin Profile Setting
+        </span>
+      </div>
+      <div class="da-panel-content">
+        <%= form_for(current_admin, :url => update_setting_admin_profiles_path, :method => "PUT", :html => {:class => "da-form"}) do |f| %>
+          <% if current_admin.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(current_admin.errors.count, "error") %> prohibited this admin records from being saved.</h2>
+
+              <ul>
+                <% current_admin.errors.full_messages.each do |msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>  
+
+          <div class="da-form-row">
+            <label><%= f.label :first_name %></label>
+            <div class="da-form-item large">
+              <%= f.text_field :first_name %>
+            </div>
+          </div>
+
+          <div class="da-form-row">
+            <label><%= f.label :last_name %></label>
+            <div class="da-form-item large">
+              <%= f.text_field :last_name %>
+            </div>
+          </div>
+
+          <div class="da-form-row">
+            <label><%= f.label :email %></label>
+            <div class="da-form-item large">
+              <%= f.text_field :email %>
+            </div>
+          </div>
+
+          <div class="da-button-row">
+            <%= f.submit "Update Your Profile", class: "da-button blue left" %>
+            </div>
+
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>

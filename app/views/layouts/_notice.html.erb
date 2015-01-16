@@ -1,6 +1,13 @@
-<% if notice %>
-  <strong><%= notice %></strong>
+<div class="da-panel-content">
+  <% if notice %>
+    <div class="da-message success">
+      <strong><%= notice %></strong>
+    </div>
   <% end %>
+
 <% if alert %>
-  <strong><%= alert %></strong>
-<% end %>
+  <div class="da-message error">
+          <strong><%= alert %></strong>
+    </div>
+  <% end %>
+</div>

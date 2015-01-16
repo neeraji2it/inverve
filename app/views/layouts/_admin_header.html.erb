@@ -19,7 +19,9 @@
         <img src="/assets/admin/images/admin_pic.jpg" alt="" />
       </div>
       <div id="da-user-info">
-        <%= current_admin.first_name + "" + current_admin.last_name %>
+       <% if current_admin %>
+           <%= current_admin.first_name + " " + current_admin.last_name %>
+        <% end %>
         <span class="da-user-title">Super Admin</span>
       </div>
       <ul class="da-header-dropdown">
@@ -31,8 +33,8 @@
         <li><%= link_to "Dashboards", admin_dashboards_path %></li>
         <li class="da-dropdown-divider"></li>
         <li><%= link_to "Profile", admin_profiles_path %></li>
-        <li><%= link_to "Setting", "#" %></li>
-        <li><%= link_to "Change Password", "#" %></li>
+        <li><%= link_to "Setting", setting_admin_profiles_path %></li>
+        <li><%= link_to "Change Password", edit_passcode_admin_profiles_path %></li>
       </ul>
     </div>
     <div id="da-header-button-container">

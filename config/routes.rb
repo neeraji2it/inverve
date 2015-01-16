@@ -26,7 +26,14 @@ Furnitureapp::Application.routes.draw do
       end
     end
     resources :users
-    resources :profiles
+    resources :profiles do
+      collection do 
+        get :setting
+        put :update_setting
+        get :edit_passcode
+        put :update_passcode
+      end
+    end
   end
   resources :welcome 
   resources :profiles do
