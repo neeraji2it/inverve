@@ -11,19 +11,23 @@ class Product < ActiveRecord::Base
    scope :featured, lambda {where("is_featured=?", true)}
 
   def self.search(search)
-    if search
+    if search.present?
      where('name LIKE ? ',"#{search}")
-
     else
-      Product.all
+      all
     end
   end
+  
+  def self.searching(id, search)
+    if search.present?
+     where("category_id = ? and name LIKE ?", id, "#{search}")
+    else
+     where("category_id = ?", id)
+    end
+  end
+    
 
    def discount_price
      self.discount.present? ? (self.price - ((self.price * discount)/ 100.ceil)) : self.price
    end
-
-
 end
-
-

@@ -1,9 +1,18 @@
-<h1>New product</h1>
-<%= link_to 'Back', admin_products_path, :class => "pull-right  btn btn-primary" %>
-
-<%= nested_form_for([current_admin, @product], :html => { :multipart => true }) do |f| %>
- <%= render :partial => 'form', :locals => {:f => f} %>
-<% end %>
-
-
-
+<!-- Content Area -->
+<div id="da-content-area">
+  <div class="grid_2">
+    <div class="da-panel">
+      <div class="da-panel-header">
+        <span class="da-panel-title">
+          <img src="images/icons/black/16/pencil.png" alt="" />
+          New Product
+        </span>
+      </div>
+      <div class="da-panel-content">
+        <%= nested_form_for([current_admin, @product], :html => { :multipart => true, :class => "da-form" }) do |f| %>
+          <%= render :partial => 'form', :locals => {:f => f} %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

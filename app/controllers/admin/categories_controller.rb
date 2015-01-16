@@ -1,56 +1,54 @@
 class Admin::CategoriesController < ApplicationController
-before_filter :authenticate_admin!
-def new 
-	@category = Category.new
-end
+  before_filter :authenticate_admin!
+  def new 
+    @category = Category.new
+  end
 
-def create
-	@category = Category.new(category_params)
-	if @category.save
-		redirect_to admin_categories_path, :notice => "you have saved."
-	else 
-		render action: 'new'
-	end
-end
+  def create
+    @category = Category.new(category_params)
+    if @category.save
+      redirect_to admin_categories_path, :notice => "you have saved."
+    else 
+      render action: 'new'
+    end
+  end
 
-def index
-	@categories = Category.search(params[:search]).paginate(:page => params[:page], :per_page => 2).order("created_at DESC")
-end
+  def index
+    @categories = Category.search(params[:search]).paginate(:page => params[:page], :per_page => 25).order("created_at DESC")
+  end
 
-def edit
+  def edit
     @category = Category.find(params[:id])
-end
+  end
 
-def show
-	@categories = Category.search(params[:search]).paginate(:page => params[:page], :per_page => 25).order("created_at DESC")
-	@category = Category.includes(:products).find(params[:id])
-end
+  def show
+    @products = Product.searching(params[:id], params[:search])
+  end
 
-def update
-	
-	@category = Category.find(params[:id])
-	if @category.update_attributes(category_params)
-   redirect_to admin_categories_path
-	else
-	render action: 'edit'
-	end
-end
+  def update
+    @category = Category.find(params[:id])
+    if @category.update_attributes(category_params)
+      redirect_to admin_categories_path
+    else
+      render action: 'edit'
+    end
+  end
 
-def category_show
-	@category = Category.find(params[:id])
-	@category.update_attribute(:category_show, params[:category_show])
-	redirect_to admin_categories_path
+  def category_show
+    @category = Category.find(params[:id])
+    @category.update_attribute(:category_show, params[:category_show])
+    redirect_to admin_categories_path
 	end
 	
 
-def destroy
-	@category = Category.find(params[:id])
-	@category.destroy
-	redirect_to admin_categories_path
-end
+  def destroy
+    @category = Category.find(params[:id])
+    @category.destroy
+    redirect_to admin_categories_path
+  end
 
-private
-def category_params
-	params.require(:category).permit!
-end
+  private
+  def category_params
+    params.require(:category).permit!
+  end
 end

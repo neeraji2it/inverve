@@ -1,1 +1,42 @@
-Guest Orders
+<div class="grid_4">
+  <div class="da-panel collapsible">
+    <div class="da-panel-header">
+      <span class="da-panel-title">
+        <img src="/assets/admin/images/icons/black/16/list.png" alt="" />
+        Guest Orders
+      </span>
+    </div>
+    <div class="da-panel-content">
+      <table id="da-ex-datatable-default" class="da-table">
+        <thead>
+          <tr>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Address</th>
+            <th>Landmark</th>
+            <th>Pincode</th>
+            <th>City</th>
+            <th>State</th>
+            <th>Ip Address</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |order| %>
+            <tr>
+              <td><%= order.first_name %></td>
+              <td><%= order.last_name %></td>
+              <td><%= order.address %></td>
+              <td><%= order.landmark %></td>
+              <td><%= order.pincode %></td>
+              <td><%= order.city %></td>
+              <td><%= order.state %></td>
+              <td><%= order.ip_address %></td>
+              <td><%= order.status %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>  
+</div>

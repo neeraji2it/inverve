@@ -1,25 +1,22 @@
-<form role="form">
-  <div class="col-md-6">
-  <%= form_for [current_admin, @category], :url => admin_categories_path do |f| %>
-  <% if @category.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+<% if @category.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
 
-      <ul>
+    <ul>
       <% @category.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
-      </ul>
-    </div>
-  <% end %>
-  
-<div class="form-group">
-    <%= f.label :Category_Name %><br />
+    </ul>
+  </div>
+<% end %>
+
+<div class="da-form-row">
+  <label><%= f.label :Category_Name %></label>
+  <div class="da-form-item large">
     <%= f.text_field :name, autofocus: true, class: "form-control", placeholder:"Category Name"%>
+    </div>
   </div>
-<div class="actions">
-  <%= f.submit class: "btn btn-default"%>
-</div>
-  <% end %>
-  </div>
-  </form>
+
+  <div class="da-button-row">
+    <%= f.submit class: "da-button blue left" %>
+    </div>

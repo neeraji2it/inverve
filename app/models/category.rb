@@ -6,7 +6,7 @@ class Category < ActiveRecord::Base
     if search
       where('name LIKE ?', "%#{search}%")
     else
-      Category.all
+      all
     end
   end
 end

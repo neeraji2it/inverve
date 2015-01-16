@@ -1,46 +1,32 @@
-<div class="table-responsive">
-  <table class="table table-hover">
-
-    <%= link_to 'Back', admin_categories_path, :class => "pull-right  btn btn-primary" %>
-    <h4><%= @category.name.capitalize %> Products</h4>
-    <thead>
-      <tr>
-
-        <th>Name</th>
-        <th>Description</th>
-        <th>Price</th>
-        <th>Discount</th>
-        <th>Released At</th>
-        <th>Featured</th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </thead>
-
-
-      <tbody>
-        <% @category.products.each do |product| %>
+<div class="da-panel collapsible">
+  <div class="da-panel-header">
+    <span class="da-panel-title">
+      <img src="/assets/admin/images/icons/black/16/list.png" alt="" />
+      Product Listing
+    </span>
+  </div>
+  <div class="da-panel-content">
+    <table id="da-ex-datatable-default" class="da-table">
+      <thead>
         <tr>
-         <td><%= product.name.capitalize %></td>
-         <td><%= product.description.capitalize %></td>
-         <td><%= product.price %></td>
-         <td><%= number_to_percentage(product.discount) %></td>
-         <td><%= product.created_at.strftime("%B %e,%Y %Hh-%Ss") %></td>
-         <td>
-          <% if product.is_featured == true %>
-          <%= link_to '',flag_admin_product_path(:id => product,:is_featured => false),:class =>"fa fa-star fa-2x",data: {confirm: 'You Dont Want To Add This Item As Featured'}  %>
-          <% else %>
-          <%= link_to '',flag_admin_product_path(:id => product,:is_featured => true),:class =>"fa fa-star-o fa-2x",data: {confirm: 'You Want To Add This Item As Featured'}  %>
-          <% end %>
-        </td>        
-        <td><%= link_to 'Show', admin_product_path(product.id) %></td>
-        <td><%= link_to 'Edit', edit_admin_product_path(product.id) %></td>
-        <td><%= link_to 'Destroy', admin_product_path(product.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-        </td>
-      </tr>
-      <% end %>
-
-    </tbody>
-  </table>
-</div>
-<%= will_paginate(@categories) %>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Discount</th>
+          <th>Released At</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @products.each do |product| %>
+          <tr>
+            <td><%= product.name.capitalize %></td>
+            <td><%= product.description.capitalize %></td>
+            <td><%= product.price %></td>
+            <td><%= number_to_percentage(product.discount) %></td>
+            <td><%= product.created_at.strftime("%B %e,%Y %Hh-%Ss") %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>  

@@ -1,54 +1,44 @@
 class Admin::ProductsController < ApplicationController
-  
- helper_method :sort_column, :sort_direction
- before_filter :authenticate_admin!
- def new 
-  @product = Product.new
-
-  if @product.images.blank?
-    @product.images.build
+  helper_method :sort_column, :sort_direction
+  before_filter :authenticate_admin!
+  def new 
+    @product = Product.new
+    if @product.images.blank?
+      @product.images.build
+    end
+    @product.images.destroy
+    @product.images.clear
   end
-  @product.images.destroy
-  @product.images.clear
 
-end
-
-def create
-  @product = Product.new(product_params.merge(:category_id => params[:product][:category_id]))
-
-  if @product.save
-    redirect_to admin_products_path, :notice =>"You have saved."
-  else
-    render 'new'
+  def create
+    @product = Product.new(product_params.merge(:category_id => params[:product][:category_id]))
+    if @product.save
+      redirect_to admin_products_path, :notice =>"You have saved."
+    else
+      render 'new'
+    end
   end
-end
 
-def show
-  @product = Product.find(params[:id])
-end
+  def show
+    @product = Product.find(params[:id])
+  end
 
-def index
-   
-  @products = Product.search(params[:search]).paginate(:page => params[:page], :per_page => 25).order("created_at DESC ")
+  def index
+    @products = Product.search(params[:search]).paginate(:page => params[:page], :per_page => 25).order("created_at DESC ")
+  end
 
-end
-
-def edit
-  @product = Product.find(params[:id])
-    # @product.images.destroy
-    # @product.images.clear
+  def edit
+    @product = Product.find(params[:id])
   end
 
   def update
     @product = Product.find(params[:id])
-    
     if @product.update_attributes(product_params)
       redirect_to admin_products_path
     else
       render action: 'edit'
     end
   end 
-
 
   def destroy
   	@product = Product.find(params[:id])
@@ -60,7 +50,7 @@ def edit
     @product = Product.find(params[:product_id])
     @image = @product.images.find(params[:id])
     if @image.destroy
-     redirect_to admin_product_path(@product)
+      redirect_to admin_product_path(@product)
     end
   end
   

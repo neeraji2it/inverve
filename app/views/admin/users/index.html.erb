@@ -1,0 +1,42 @@
+<div class="grid_4">
+  <div class="da-panel collapsible">
+    <div class="da-panel-header">
+      <span class="da-panel-title">
+        <img src="/assets/admin/images/icons/black/16/list.png" alt="" />
+        Users
+      </span>
+    </div>
+    <div class="da-panel-content">
+      <table id="da-ex-datatable-default" class="da-table">
+        <thead>
+          <tr>
+            <th>Profile Pic</th>
+            <th>Email</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Mobile Number</th>
+            <th>Recent Login Time</th>
+            <th>Recent Login Ip</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @users.each do |user| %>
+            <tr>
+              <td>nil</td>
+              <td><%= user.email %></td>
+              <td><%= user.first_name %></td>
+              <td><%= user.last_name %></td>
+              <td><%= user.age %></td>
+              <td><%= user.gender %></td>
+              <td><%= user.mobile_number %></td>
+              <td><%= user.current_sign_in_at %></td>
+              <td><%= user.current_sign_in_ip %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>  
+</div>

@@ -15,14 +15,16 @@
         <div class="col-md-12 col-xs-12">
           <%= text_field_tag "start_date", nil, :id => "start_date", :class => "datepicker" %> 
           <%= text_field_tag "end_date", nil, :id => "end_date", :class => "datepicker" %>
-          <%= submit_tag "View Graph" %>
+          <%= submit_tag "View orders Graph" %>
         </div>
       </div>
       <% end %>
-      
-      <h1>Under Development</h1>
 
-      <div id="view_graph"></div> 
+      <br/>
+
+      <div id="view_graph">
+        <%= render :partial => "view_graph" %>
+      </div> 
     </div>
   </div>
 </div>

@@ -6,6 +6,6 @@ class Order < ActiveRecord::Base
   scope :user_orders, lambda {where(:user_type => "User")}
   
   def self.order_count(s_date)
-    Order.where("orders.created_at=?", s_date)
+    Order.where("date(created_at)=?", s_date).count
   end
 end

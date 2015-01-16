@@ -1,44 +1,55 @@
-    
-<div class="table-responsive">
-  <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Price</th>
-        <th>Discount</th>
-        <th>Released At</th>
-        <th>Featured</th>
-        <th></th>
-        <th></th>
-        <th></th>
-        
-      </tr>
-    </thead>
-    <tbody>
-      <% @products.each do |product| %>
+<div class="da-panel collapsible">
+  <div class="da-panel-header">
+    <span class="da-panel-title">
+      <img src="/assets/admin/images/icons/black/16/list.png" alt="" />
+      Product Listing
+    </span>
 
-      <tr>
-        <td><%= product.name.capitalize %></td>
-        <td><%= product.description.capitalize %></td>
-        <td><%= product.price %></td>
-        <td><%= number_to_percentage(product.discount) %></td>
-        <td><%= product.created_at.strftime("%B %e,%Y %Hh-%Ss") %></td>
-        <td>
-          <% if product.is_featured == true %>
-            <%= link_to '',flag_admin_product_path(:id => product,:is_featured => false),:class =>"fa fa-star fa-2x",data: {confirm: 'You Dont Want To Add This Item As Featured'}  %>
-          <% else %>
-            <%= link_to '',flag_admin_product_path(:id => product,:is_featured => true),:class =>"fa fa-star-o fa-2x",data: {confirm: 'You Want To Add This Item As Featured'}  %>
-          <% end %>
-        </td>        
-        <td><%= link_to 'Show', admin_product_path(product.id) %></td>
-        <td><%= link_to 'Edit', edit_admin_product_path(product.id) %></td>
-        <td><%= link_to 'Destroy', admin_product_path(product.id), method: :delete, data: { confirm: 'Are you sure?' } %>
-        </td>
-         
-      </tr>
-      <% end %>
-    </tbody>
-  </table>
-</div>
-<%= will_paginate(@products, renderer: BootstrapPagination::Rails ) %>
+  </div>
+  <div class="da-panel-content">
+    <table id="da-ex-datatable-default" class="da-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Discount</th>
+          <th>Released At</th>
+          <th></th>
+          <th>Featured</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @products.each do |product| %>
+          <tr>
+            <td><%= product.name.capitalize %></td>
+            <td><%= product.description.capitalize %></td>
+            <td><%= product.price %></td>
+            <td><%= number_to_percentage(product.discount) %></td>
+            <td><%= product.created_at.strftime("%B %e,%Y %Hh-%Ss") %></td>
+
+            <td class="da-icon-column">
+              <%= link_to admin_product_path(product.id) do %>
+                <img src="/assets/admin/images/icons/color/magnifier.png" />
+              <% end %>
+
+              <%= link_to edit_admin_product_path(product.id) do %>  
+                <img src="/assets/admin/images/icons/color/pencil.png" />
+              <% end %>
+
+              <%= link_to admin_product_path(product.id), method: :delete, data: { confirm: 'Are you sure?' } do %>
+                <img src="/assets/admin/images/icons/color/cross.png" />
+              <% end %>
+            </td>
+            <td class="da-icon-column">
+              <% if product.is_featured == true %>
+                <%= link_to '',flag_admin_product_path(:id => product,:is_featured => false),:class =>"fa fa-star fa-2x",data: {confirm: 'You Dont Want To Add This Item As Featured'}  %>
+              <% else %>
+                <%= link_to '',flag_admin_product_path(:id => product,:is_featured => true),:class =>"fa fa-star-o fa-2x",data: {confirm: 'You Want To Add This Item As Featured'}  %>
+              <% end %>            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>  

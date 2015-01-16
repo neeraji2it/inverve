@@ -4,10 +4,11 @@ class Admin::OrdersController < ApplicationController
 	end
 
 	def guest_orders
+    @orders = Order.guest_orders
 	end
 	
 	def user_orders
-		
+		@orders = Order.user_orders
 	end
 
 end

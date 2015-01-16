@@ -5,19 +5,19 @@
         renderTo: 'view_graph'
       },
       title: {
-        text: "title"
+        text: "Order Analysis"
       },
       xAxis: {
-        title: {text: 'date'},
+        title: {text: 'Date Range'},
         type: 'datetime',
         dateTimeLabelFormats: {
           // don't display the dummy year
-          month: '%e %b %Y'
+          month: '%e %b %Y' 
         }
       },
       yAxis: {
         min: 0,
-        title: {text: 'No of orders Created'}
+        title: {text: 'No of orders'}
       },
       tooltip: {
         formatter: function() {
