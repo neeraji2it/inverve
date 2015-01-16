@@ -19,7 +19,7 @@
         <img src="/assets/admin/images/admin_pic.jpg" alt="" />
       </div>
       <div id="da-user-info">
-        Sara Fanning
+        <%= current_admin.first_name + "" + current_admin.last_name %>
         <span class="da-user-title">Super Admin</span>
       </div>
       <ul class="da-header-dropdown">
@@ -30,7 +30,7 @@
         <li class="da-dropdown-divider"></li>
         <li><%= link_to "Dashboards", admin_dashboards_path %></li>
         <li class="da-dropdown-divider"></li>
-        <li><%= link_to "Profile", "#" %></li>
+        <li><%= link_to "Profile", admin_profiles_path %></li>
         <li><%= link_to "Setting", "#" %></li>
         <li><%= link_to "Change Password", "#" %></li>
       </ul>

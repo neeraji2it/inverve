@@ -1,0 +1,56 @@
+<div id="da-content-area">     
+    <div class="grid_4">
+      <div class="da-panel-widget">
+            <h1>Admin Profile</h1>
+            <ul class="da-summary-stat">
+              <li>
+                  <a href="#">
+                        <span class="da-summary-icon" style="background-color:#e15656;">
+                            <img src="/assets/admin/images/admin_pic.jpg" alt="" />
+                        </span>
+                        <span class="da-summary-text">
+                            <span class="value"><%= current_admin.first_name + " " + current_admin.last_name %></span>
+                            <span class="label">Admin Rosara Homes </span>
+                        </span>
+                    </a>
+                </li>
+
+                <li>
+                  <a href="#">
+                        <span class="da-summary-text">
+                            <span class="value"><%= current_admin.current_sign_in_at %></span>
+                            <span class="label">You currently signed in at</span>
+                        </span>
+                    </a>
+                </li>
+
+                <li>
+                  <a href="#">
+                        <span class="da-summary-text">
+                            <span class="value"><%= current_admin.last_sign_in_at %></span>
+                            <span class="label">You last time signed in at</span>
+                        </span>
+                    </a>
+                </li>
+
+                <li>
+                  <a href="#">
+                        <span class="da-summary-text">
+                            <span class="value"><%= current_admin.current_sign_in_ip %></span>
+                            <span class="label">You currently signed in from IP</span>
+                        </span>
+                    </a>
+                </li>
+
+                <li>
+                  <a href="#">
+                        <span class="da-summary-text">
+                            <span class="value"><%= current_admin.last_sign_in_ip %></span>
+                            <span class="label">You last time signed in from IP</span>
+                        </span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>                                  
+</div>

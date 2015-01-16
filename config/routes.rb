@@ -26,13 +26,13 @@ Furnitureapp::Application.routes.draw do
       end
     end
     resources :users
+    resources :profiles
   end
   resources :welcome 
   resources :profiles do
     member do
       put :update_profile
       put :change_password
-      
     end
   end
   resources :homes do
