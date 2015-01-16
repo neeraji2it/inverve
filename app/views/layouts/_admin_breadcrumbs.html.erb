@@ -1,0 +1,51 @@
+<div id="da-header-bottom">
+  <!-- Container -->
+  <div class="da-container clearfix">
+
+    <!-- Breadcrumbs -->
+    <div id="da-breadcrumb">
+      <ul>
+        <% if params[:controller] == "admin/dashboards" %>
+          <li class="<%= params[:controller] == "admin/dashboards" ? 'active' : '' %>">
+          <a href="/admin/dashboards"><img src="/assets/admin/images/icons/black/16/home.png" alt="Home" />Dashboard</a>
+          </li>
+
+        <% elsif params[:controller] == "admin/categories" %>
+          <li>
+          <a href="/admin/dashboards"><img src="/assets/admin/images/icons/black/16/home.png" alt="Home" />Dashboard</a>
+          </li>
+        <li class="<%= (params[:controller] == "admin/categories" && (params[:action] == "index" || params[:action] == "new" || params[:action] == "edit" || params[:action] == "category_show")) ? 'active' : '' %>">
+           <a href="/admin/categories">Categories</a>
+        </li>
+
+        <% elsif params[:controller] == "admin/products" %>
+          <li>
+             <a href="/admin/dashboards"><img src="/assets/admin/images/icons/black/16/home.png" alt="Home" />Dashboard</a>
+          </li>
+        <li class="<%= (params[:controller] == "admin/products" && (params[:action] == "index" || params[:action] == "new" || params[:action] == "edit" || params[:action] == "show" || params[:action] == "flag")) ? 'active' : '' %>">
+        <a href="/admin/products">Products</a>
+        </li>
+
+        <% elsif params[:controller] == "admin/orders" %>
+          <li>
+          <a href="/admin/dashboards"><img src="/assets/admin/images/icons/black/16/home.png" alt="Home" />Dashboard</a>
+          </li>
+        <li class="<%= (params[:controller] == "admin/orders" && (params[:action] == "user_orders")) ? 'active' : '' %>">
+        <a href="/admin/orders/user_orders">User Orders</a>
+        </li>
+        <li class="<%= (params[:controller] == "admin/orders" && (params[:action] == "guest_orders")) ? 'active' : '' %>">
+        <a href="/admin/orders/guest_orders">Guest Orders</a>
+        
+        </li>
+        <% elsif params[:controller] == "admin/users" %>
+          <li>
+          <a href="/admin/dashboards"><img src="/assets/admin/images/icons/black/16/home.png" alt="Home" />Dashboard</a>
+          </li>
+        <li class="<%= (params[:controller] == "admin/users" && (params[:action] == "index")) ? 'active' : '' %>">
+        <a href="/admin/users">Users</a>
+        </li>
+        <% end %>        
+      </ul>
+    </div>
+  </div>
+</div>
