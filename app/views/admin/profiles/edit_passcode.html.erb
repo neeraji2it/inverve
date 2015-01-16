@@ -11,14 +11,15 @@
       <div class="da-panel-content">
         <%= form_for(current_admin, :url => update_passcode_admin_profiles_path, :method => "PUT", :html => {:class => "da-form"}) do |f| %>
           <% if current_admin.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(current_admin.errors.count, "error") %> prohibited this admin records from being saved.</h2>
-
-              <ul>
-                <% current_admin.errors.full_messages.each do |msg| %>
+            <div class="da-panel-content">
+              <div class="da-message warning">
+               <h2><%= pluralize(current_admin.errors.count, "error") %> prohibited this admin record from being saved.</h2>
+                <ul>
+                  <% current_admin.errors.full_messages.each do |msg| %>
                   <li><%= msg %></li>
                 <% end %>
-              </ul>
+                </ul>
+              </div>
             </div>
           <% end %>  
 

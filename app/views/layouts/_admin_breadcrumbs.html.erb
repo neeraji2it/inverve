@@ -44,6 +44,19 @@
         <li class="<%= (params[:controller] == "admin/users" && (params[:action] == "index")) ? 'active' : '' %>">
         <a href="/admin/users">Users</a>
         </li>
+        <% elsif params[:controller] == "admin/profiles" %>
+          <li>
+          <a href="/admin/dashboards"><img src="/assets/admin/images/icons/black/16/home.png" alt="Home" />Dashboard</a>
+          </li>
+        <li class="<%= (params[:controller] == "admin/profiles" && (params[:action] == "index")) ? 'active' : '' %>">
+        <a href="/admin/profiles">Profile</a>
+        </li>
+        <li class="<%= (params[:controller] == "admin/profiles" && (params[:action] == "setting")) ? 'active' : '' %>">
+        <a href="/admin/profiles/setting">Setting</a>
+        </li>
+        <li class="<%= (params[:controller] == "admin/profiles" && (params[:action] == "edit_passcode")) ? 'active' : '' %>">
+        <a href="/admin/profiles/edit_passcode">Change Password</a>
+        </li>
         <% end %>        
       </ul>
     </div>
