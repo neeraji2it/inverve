@@ -35,7 +35,7 @@ end
 protected
 def get_layout
   if devise_controller? && (resource_name == :admin || resource_name == :user)
-    "admin"
+    "login"
   elsif self.class.parent == Admin
     "admin"
   else
