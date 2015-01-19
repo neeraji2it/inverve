@@ -1,1 +1,51 @@
-this is dkfsj
+<div class="grid_4">
+  <h1>Inventory Management</h1>
+
+    <div class="da-panel collapsible">
+    <div class="da-panel-header">
+      <span class="da-panel-title">
+        <img src="/assets/admin/images/icons/black/16/list.png" alt="" />
+        Inventory Management
+      </span>
+      
+    </div>
+    <div class="da-panel-content">
+      <table id="da-ex-datatable-default" class="da-table">
+        <thead>
+          <tr>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @categories.each do |categorie| %>
+            <tr>
+              <td><%= categorie.name.capitalize %></td>
+              <td class="da-icon-column">
+                <%= link_to admin_category_path(categorie.id) do %>
+                  <img src="/assets/admin/images/icons/color/magnifier.png" />
+                <% end %>
+
+                <%= link_to edit_admin_category_path(categorie.id) do %>  
+                  <img src="/assets/admin/images/icons/color/pencil.png" />
+                <% end %>
+
+                <%= link_to admin_category_path(categorie.id), method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <img src="/assets/admin/images/icons/color/cross.png" />
+                <% end %>
+              </td>
+              <td class="da-icon-column">
+                <% if categorie.category_show == true %>
+                  <%= link_to 'Hide',category_show_admin_category_path(:id => categorie, :category_show => "false"),data: {confirm: 'You Dont Want To Display In Home Page'} %>
+                <% else %>
+                  <%= link_to 'Display',category_show_admin_category_path(:id => categorie, :category_show => "true"),data: {confirm: 'You Want To Display In Home Page'}%>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>  
+</div>
