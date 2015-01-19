@@ -77,5 +77,6 @@ gem 'will_paginate-bootstrap'
 gem 'rvm-capistrano'
 gem 'capistrano-ext'
 gem 'lazy_high_charts'
+gem 'best_in_place', github: 'aaronchi/best_in_place'
 gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
   :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'

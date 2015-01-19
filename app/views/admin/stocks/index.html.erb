@@ -15,34 +15,16 @@
           <tr>
             <th>Product Name</th>
             <th>Quantity</th>
-            <th></th>
           </tr>
         </thead>
         <tbody>
-          <% @categories.each do |categorie| %>
+          <% if @products.present? %>
+            <% @products.each do |product| %>
             <tr>
-              <td><%= categorie.name.capitalize %></td>
-              <td class="da-icon-column">
-                <%= link_to admin_category_path(categorie.id) do %>
-                  <img src="/assets/admin/images/icons/color/magnifier.png" />
-                <% end %>
-
-                <%= link_to edit_admin_category_path(categorie.id) do %>  
-                  <img src="/assets/admin/images/icons/color/pencil.png" />
-                <% end %>
-
-                <%= link_to admin_category_path(categorie.id), method: :delete, data: { confirm: 'Are you sure?' } do %>
-                  <img src="/assets/admin/images/icons/color/cross.png" />
-                <% end %>
-              </td>
-              <td class="da-icon-column">
-                <% if categorie.category_show == true %>
-                  <%= link_to 'Hide',category_show_admin_category_path(:id => categorie, :category_show => "false"),data: {confirm: 'You Dont Want To Display In Home Page'} %>
-                <% else %>
-                  <%= link_to 'Display',category_show_admin_category_path(:id => categorie, :category_show => "true"),data: {confirm: 'You Want To Display In Home Page'}%>
-                <% end %>
-              </td>
+              <td><%= product.try(:name) %></td>
+              <td><%= best_in_place product, :quantity, :type => :input, :path => [:admin, product] %></td>
             </tr>
+          <% end %>
           <% end %>
         </tbody>
       </table>
