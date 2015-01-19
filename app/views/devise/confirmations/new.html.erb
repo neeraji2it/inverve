@@ -1,35 +1,27 @@
-<table> 
-	<td>
-
-		<h2>Resend confirmation instructions</h2>
-
-		<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
-		<%= devise_error_messages! %>
-		<div class="input-group input-group-lg">
-
-			<span class="input-group-addon">
-
-				<span class="fa fa-envelope"></span>
-
-			</span>
-
-			<%= f.email_field :email, autofocus: true, class: "form-control", placeholder:"Email address"%>
+<div id="da-login-box">
+  <div id="da-login-box-header">
+      <h1>Resend confirmation</h1>
+    </div>
+    <div id="da-login-box-content">
+              
+<%= form_for(resource, as: resource_name, url: confirmation_path(resource_name), html: { method: :post }) do |f| %>
+	<div class="da-panel-content">
+    <div class="da-message warning">
+			<%= devise_error_messages! %>
 		</div>
-
-<br/>
-
-		<div class="input-group input-group-lg">
-
-
-		<%= f.submit "Resend confirmation instructions", class: "btn btn" %>
-		<% end %>
-		</div>
-<br />
-
-
-		<%= render "devise/shared/links" %>
-</td>
-</table>
-
-
-
+	</div>
+          <div id="da-login-input-wrapper">
+              <div class="da-login-input">
+                  <%= f.email_field :email, autofocus: true, id: "da-login-username", placeholder:"Email address"%>
+                </div>
+            </div>
+            <div id="da-login-button">
+              <%= f.submit "Resend confirmation", id: "da-login-submit" %>
+            </div>
+        <% end %>
+    </div>
+    <div id="da-login-box-footer">
+         <%= render "devise/shared/links" %>
+        <div id="da-login-tape"></div>
+    </div>
+</div>
