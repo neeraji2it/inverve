@@ -34,6 +34,7 @@ Furnitureapp::Application.routes.draw do
         put :update_passcode
       end
     end
+    resources :stocks
   end
   resources :welcome 
   resources :profiles do
