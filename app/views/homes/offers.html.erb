@@ -2,65 +2,70 @@
   <div class="container">
     <div class="box-product">
       <div class="row">
-      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 box-product-left">
-        <!--  -->
-<!--  -->   
+        <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3 box-product-left">
+          <!--  -->
+          <!--  -->   
         </div>
 
 
-      <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
-        <div id="leftColumn" class="product-outer-box">
-          <div class="row">
-           <% @products.each do |product| %>
-            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+        <div class="col-xs-12 col-sm-9 col-md-9 col-lg-9">
+          <div id="leftColumn" class="product-outer-box">
+            <div class="row">
+             <% @products.each do |product| %>
+             <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
               <div class="box-productimg">
                 <a href="#" title="">
                  <%= image_tag(product.images.present? ? (product.images.first.avatar.url) : "/assets/missing.png", height: "200px", width: "222px") %>                
-                </a>
-                <div class="productimg-hover">
-                  <ul>
-                    <li><a href="#" title="" class="icon-zoom" data-toggle="modal" data-target="#myModal-<%= product.id %>"></a></li>
-                    <li><%= link_to '<i class="icon-open"></i>'.html_safe, single_product_home_path(product.id) %></li>
-                  </ul>
+               </a>
+               <div class="productimg-hover">
+                <ul>
+                  <li><a href="#" title="" class="icon-zoom" data-toggle="modal" data-target="#myModal-<%= product.id %>"></a></li>
+                  <li><%= link_to '<i class="icon-open"></i>'.html_safe, single_product_home_path(product.id) %></li>
+                </ul>
+              </div>
+            </div>
+            <div class="box-content" style="margin-bottom: 20px;">
+              <h3>Rs. <%= product.price %></h3>
+              <h4><%= product.name %></h4>
+              <h5> <%= product.discount %>% Off</h5>
+              <span class="circlE"><%= link_to "", line_items_path(:product_id => product.id), :method => :post %>   
+              </span>
+            </div>
+          </div>  
+
+          <div class="modal fade modal-car" id="myModal-<%= product.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+             <div class="modal-content">
+              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+              <h6><%= product.name.capitalize %></h6>
+              <div class="modal-body">
+                <div class="product-img-box">
+                  <%= link_to image_tag(product.images.present? ? (product.images.first.avatar.url) : "/assets/missing.png", height: "200px", width: "220px"),single_product_home_path(product.id) %>
                 </div>
+                <h4>Rs. <%= product.price %></h4>
+                <% if product.discount? %>
+                <h5><%= product.discount%>% Off</h5>
+                <%end %>
+                <%= product.description%>
               </div>
-              <div class="box-content" style="margin-bottom: 20px;">
-                <h3>Rs. <%= product.price %></h3>
-                <h4><%= product.name %></h4>
-                <h5> <%= product.discount %>% Off</h5>
-                <span class="circlE"><%= link_to "", line_items_path(:product_id => product.id), :method => :post %>   
-</span>
-              </div>
-            </div>  
-
-<div class="modal fade modal-car" id="myModal-<%= product.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>        
-      <h6>Signup For Newsletter</h6>
-      <div class="modal-body">
-        <div class="product-img-box">
-          <%= image_tag(product.images.present? ? (product.images.first.avatar.url) : "/assets/missing.png", height: "200px", width: "222px") %>
-        </div>      
-      </div>
-    </div>
-  </div>
-</div>
-<% end %>
-
+            </div>
           </div>
-
-        
-               
+        </div>
+        <% end %>
 
       </div>
-    </div>
+
+      
+      
 
     </div>
-    
-    </div>
-    <nav>
-</nav>
   </div>
+
+</div>
+
+</div>
+<nav>
+</nav>
+</div>
 
 </article>
