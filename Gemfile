@@ -26,8 +26,7 @@ end
 group :test do 
 	gem 'faker' 
 	gem 'capybara' 
-	# gem 'guard-rspec'
-	# gem 'launchy'
+
 	gem 'shoulda-matchers', require: false 
 end 
 
@@ -66,13 +65,9 @@ gem 'less-rails'
 gem 'twitter-bootstrap-rails'
 gem "font-awesome-rails"
 gem 'will_paginate', '~> 3.0'
-#gem 'acts_as_shopping_cart', '~> 0.2.1'
 gem "paperclip"
 gem "nested_form"
 gem 'devise'
-# gem 'irbtools', '~> 1.7.0'
-# gem 'countries'
-# gem 'country_select'
 gem 'will_paginate-bootstrap'
 gem 'rvm-capistrano'
 gem 'capistrano-ext'
