@@ -15,7 +15,7 @@
                   <h2 class="panel-title">
                     <a class="collapsed accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne-<%= category.id %>" aria-expanded="false" aria-controls="collapseOne" title="Bedroom">
 
-                      <%= category.name %>
+                      <%= category.name.capitalize %>
                     </a>
                   </h2>
                 </div>
@@ -26,7 +26,7 @@
                       <%if @cat_products.present? %>
                       <% @cat_products.each do |product| %>
                       <li>
-                        <%= link_to product.name, single_product_home_path(product.id) %>
+                        <%= link_to product.name.capitalize, single_product_home_path(product.id) %>
                       </li>
                       <% end %>
                       <%else%>
@@ -86,7 +86,7 @@
                 </div>
                 <div class="box-content" style="margin-bottom: 20px;">
                   <h3>Rs. <%= product.price %></h3>
-                  <h4><%= product.name %></h4>
+                  <h4><%= product.name.capitalize %></h4>
                   <% if product.discount? %>
                   <h5><%= product.discount%>% Off</h5>
                   <%end %>
@@ -98,13 +98,16 @@
                 <div class="modal-dialog">
                   <div class="modal-content">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h6>Signup For Newsletter</h6>
+                    <h6><%= product.name.capitalize %></h6>
                     <div class="modal-body">
                       <div class="product-img-box">
-                        <% if product.images.present? %>
-                        <%= image_tag product.images.first.avatar.url %>
-                        <% end %>
+                        <%= link_to image_tag(product.images.present? ? (product.images.first.avatar.url) : "/assets/missing.png", height: "200px", width: "220px"),single_product_home_path(product.id) %>
                       </div>
+                      <h4>Rs. <%= product.price %></h4>
+                  <% if product.discount? %>
+                  <h5><%= product.discount%>% Off</h5>
+                  <%end %>
+                  <%= product.description%>
                     </div>
                   </div>
                 </div>
@@ -112,7 +115,7 @@
               <% end %>
             </div>
             <div class="box-pagination">
-              <span>Items 1 to 9 of 12 total</span>
+              <span>Items <%= @products.count %> total</span>
             </div>
             <%= will_paginate(@products, renderer: BootstrapPagination::Rails ) %>
           </div>

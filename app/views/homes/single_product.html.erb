@@ -1,117 +1,128 @@
 <article> 
   <div class="box-maincheckout">
     <div class="container">
-    <div class="box-category">
-    <div class="row">
-      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <div class="box-product col-xs-12 col-sm-9 col-md-9 col-lg-9">
-         <img id="zoom_09" src="<%= @product.images.present? ? (@product.images.first.avatar.url) : "/assets/missing.png" %>" data-zoom-image="<%= @product.images.present? ? (@product.images.first.avatar.url) : "/assets/missing.png" %>" />
-        </div>
-
-      <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" id="gallery_09">
+      <div class="box-category">
         <div class="row">
-        
-        <% @images.each do |image| %>
-          <div class="col-xs-3 col-sm-12 col-md-12 col-lg-12 box-product add_small_img">
-              <a href="#" class="elevatezoom-gallery active" data-image="<%= image.avatar.url %>" data-zoom-image="<%= image.avatar.url %>">
-                <img src="<%= image.avatar.url %>" />
-              </a>                       
-          </div>
-           <% end %>
-         
-        </div>
-      </div>
-      </div>
+          <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+            <div class="box-product col-xs-12 col-sm-9 col-md-9 col-lg-9">
+             <img id="zoom_09" src="<%= @product.images.present? ? (@product.images.first.avatar.url) : "/assets/missing.png" %>" data-zoom-image="<%= @product.images.present? ? (@product.images.first.avatar.url) : "/assets/missing.png" %>" />
+           </div>
 
-      
-      <div class="list_price col-xs-12 col-sm-6 col-md-6 col-lg-6">
-        <div class="box-rightcategory">
-        <div class="box-producT">
-          <span><%= link_to "Back to Category", home_path(@product.category.id) %></span>
-        </div>
-        <div class="box-producT">
-          <h4><%= @product.name %></h4>
-          <p>Availability. <span class="instock">In Stock</span> 21 item(s)  remaining to implement</p>
-          <h2>Rs. <%= @product.price %></h2>
-        </div>
-        <div class="box-producT">
-          <div class="tab-description">
-          <ul id="myTab" class="nav nav-tabs">
-            <li class="active"><a href="#description" data-toggle="tab">Description</a></li>
-            <li><a  href="#delivery" data-toggle="tab">Delivery</a></li>
-          </ul>
-          <div class="clearF"></div>
-          <div class="tab-content">
-            <div class="tab-pane active" id="description">
-              <div class="carousel slide" id="carousel-1">
-                <div class="carousel-inner alc">
-                  <div class="item active">
-                    <div class="list_carousel_tab">
-                      
-                      <p>
-                        <%= @product.description.html_safe %>
-                      </p>
-                    </div>
-                  </div>
-                  <div class="clearfix"></div>
-                </div>
+           <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" id="gallery_09">
+            <div class="row">
+
+              <% @images.each do |image| %>
+              <div class="col-xs-3 col-sm-12 col-md-12 col-lg-12 box-product add_small_img">
+                <a href="#" class="elevatezoom-gallery active" data-image="<%= image.avatar.url %>" data-zoom-image="<%= image.avatar.url %>">
+                  <img src="<%= image.avatar.url %>" />
+                </a>                       
               </div>
+              <% end %>
+
             </div>
-            <div class="tab-pane" id="delivery">
-              <div class="carousel slide" id="carousel-2">
-                <div class="carousel-inner">
-                  <div class="item active">
-                    <div class="list_carousel_tab">
-                      <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-                    </div>
-                  </div>
-                  <div class="clearfix"></div>
-                </div>
-              </div>
-            </div>
-            
           </div>
         </div>
-        </div>
-        <div class="box-producT">
-          <div class="box-select">
-          <div class="row">
-          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-          <h3>Size</h3>
-          
-              <div class="dropdown dropdown-select">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Single 180cm x 275cm<b class="arrow"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a href="#" title="Login">lorem</a></li>
-                    <li><a href="#" title="Join us">lorem</a></li>
-                    <li><a href="#" title="Post Jobs">lorem</a></li>
-                    <li><a href="#" title="Employer Tools">lorem</a></li>
-                    <li><a href="#" title="FAQ">lorem</a></li>
-                </ul>
+
+
+        <div class="list_price col-xs-12 col-sm-6 col-md-6 col-lg-6">
+          <div class="box-rightcategory">
+            <div class="box-producT">
+              <span><%= link_to "Back to Category", home_path(@product.category.id) %></span>
             </div>
-          
+            <div class="box-producT">
+              <h4><%= @product.name %></h4>
+              <p>Availability. <span class="instock">In Stock</span> 21 item(s)  remaining to implement</p>
+
+         
+              <% if @product.discount? %>
+              <h2 style="text-decoration: line-through;">Rs. <%= @product.price %></h2>
+              <h5><%= @product.discount%>% Off </h5>
+              <br/>
+              <h2>Rs. <%= @product.price-(@product.price*@product.discount/100) %></h2>
+              <% else %>
+              <h2>Rs. <%= @product.price %></h2>
+              <%end %>
+              <br/>
+              
+            </div>
+            <div class="box-producT">
+              <div class="tab-description">
+                <ul id="myTab" class="nav nav-tabs">
+                  <li class="active"><a href="#description" data-toggle="tab">Description</a></li>
+                  <li><a  href="#delivery" data-toggle="tab">Delivery</a></li>
+                </ul>
+                <div class="clearF"></div>
+                <div class="tab-content">
+                  <div class="tab-pane active" id="description">
+                    <div class="carousel slide" id="carousel-1">
+                      <div class="carousel-inner alc">
+                        <div class="item active">
+                          <div class="list_carousel_tab">
+
+                            <p>
+                              <%= @product.description.html_safe %>
+                            </p>
+                          </div>
+                        </div>
+                        <div class="clearfix"></div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="tab-pane" id="delivery">
+                    <div class="carousel slide" id="carousel-2">
+                      <div class="carousel-inner">
+                        <div class="item active">
+                          <div class="list_carousel_tab">
+                            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
+                          </div>
+                        </div>
+                        <div class="clearfix"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            <div class="box-producT">
+              <div class="box-select">
+                <div class="row">
+                  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                    <h3>Size</h3>
+
+                    <div class="dropdown dropdown-select">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown">Single 180cm x 275cm<b class="arrow"></b></a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#" title="Login">lorem</a></li>
+                        <li><a href="#" title="Join us">lorem</a></li>
+                        <li><a href="#" title="Post Jobs">lorem</a></li>
+                        <li><a href="#" title="Employer Tools">lorem</a></li>
+                        <li><a href="#" title="FAQ">lorem</a></li>
+                      </ul>
+                    </div>
+
           <!--<div class="list_select_text col-xs-2 col-sm-2 col-md-2 col-lg-2">Size:</div>
           <div class="list_select">
             <select  title="" class="col-xs-4 col-sm-4 col-md-4 col-lg-4" placeholder="">
               <option>Single 180cm x 275cm</option>
             </select>
           </div>-->
-          </div>
-          <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        </div>
+        <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
           <h3>Color</h3>
           
-            <div class="dropdown dropdown-select">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Select color<b class="arrow"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a href="#" title="Login">lorem</a></li>
-                    <li><a href="#" title="Join us">lorem</a></li>
-                    <li><a href="#" title="Post Jobs">lorem</a></li>
-                    <li><a href="#" title="Employer Tools">lorem</a></li>
-                    <li><a href="#" title="FAQ">lorem</a></li>
-                </ul>
-            </div>
+          <div class="dropdown dropdown-select">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Select color<b class="arrow"></b></a>
+            <ul class="dropdown-menu">
+              <li><a href="#" title="Login">lorem</a></li>
+              <li><a href="#" title="Join us">lorem</a></li>
+              <li><a href="#" title="Post Jobs">lorem</a></li>
+              <li><a href="#" title="Employer Tools">lorem</a></li>
+              <li><a href="#" title="FAQ">lorem</a></li>
+            </ul>
           </div>
-          
+        </div>
+
    <!--         <form id='myform' method='POST' action='#'>
             <ul class="list-plus">
               <li><input alt="" title="" type="button" value="-" class='qtyminus' field='quantity'/></li>
@@ -123,76 +134,76 @@
 
           <%= link_to "Add to Cart", line_items_path(:product_id => @product.id), :method => :post ,:class => "btn btn-default"%>
 
-          </div>
-        </div>
-        </div>
-        
-        
-        
-      </div>
-    </div>
-    </div>
-  </div>  
-  <div class="box-simliar">
-    <h1><span>Similar Items</span></h1>
-      <div class="row">
-        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-            <div class="box-bedsheetimG"> 
-              <a href="#" title=""><img alt="" title="" src="/assets/images//img-similar.png"/></a> 
-            </div>
-            <div class="box-bedsheet clearfix">
-              <a href="#" title="Shop Now" class="btn btn-shopnow">Shop Now</a>
-              <h4>Product Header</h4>             
-              <h2>jQuery300</h2>
-            </div>
-        </div>
-        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-            <div class="box-bedsheetimG"> 
-              <a href="#" title=""><img alt="" title="" src="/assets/images//img-similar.png"/></a> 
-            </div>
-            <div class="box-bedsheet clearfix">
-              <a href="#" title="Shop Now" class="btn btn-shopnow">Shop Now</a>
-              <h4>Product Header</h4>             
-              <h2>jQuery300</h2>
-            </div>
-        
-        </div>
-        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-            <div class="box-bedsheetimG"> 
-              <a href="#" title=""><img alt="" title="" src="/assets/images//img-similar.png"/></a> 
-            </div>
-            <div class="box-bedsheet clearfix">
-              <a href="#" title="Shop Now" class="btn btn-shopnow">Shop Now</a>
-              <h4>Product Header</h4>             
-              <h2>jQuery300</h2>
-            </div>
-          
-        </div>
-        <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
-            <div class="box-bedsheetimG"> 
-              <a href="#" title=""><img alt="" title="" src="/assets/images//img-similar.png"/></a> 
-            </div>
-            <div class="box-bedsheet clearfix">
-              <a href="#" title="Shop Now" class="btn btn-shopnow">Shop Now</a>
-              <h4>Product Header</h4>             
-              <h2>jQuery300</h2>
-            </div>
-          
         </div>
       </div>
+    </div>
+
+
+
+  </div>
+</div>
+</div>
+</div>  
+<div class="box-simliar">
+  <h1><span>Similar Items</span></h1>
+  <div class="row">
+    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+      <div class="box-bedsheetimG"> 
+        <a href="#" title=""><img alt="" title="" src="/assets/images//img-similar.png"/></a> 
+      </div>
+      <div class="box-bedsheet clearfix">
+        <a href="#" title="Shop Now" class="btn btn-shopnow">Shop Now</a>
+        <h4>Product Header</h4>             
+        <h2>jQuery300</h2>
+      </div>
+    </div>
+    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+      <div class="box-bedsheetimG"> 
+        <a href="#" title=""><img alt="" title="" src="/assets/images//img-similar.png"/></a> 
+      </div>
+      <div class="box-bedsheet clearfix">
+        <a href="#" title="Shop Now" class="btn btn-shopnow">Shop Now</a>
+        <h4>Product Header</h4>             
+        <h2>jQuery300</h2>
+      </div>
+
+    </div>
+    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+      <div class="box-bedsheetimG"> 
+        <a href="#" title=""><img alt="" title="" src="/assets/images//img-similar.png"/></a> 
+      </div>
+      <div class="box-bedsheet clearfix">
+        <a href="#" title="Shop Now" class="btn btn-shopnow">Shop Now</a>
+        <h4>Product Header</h4>             
+        <h2>jQuery300</h2>
+      </div>
+
+    </div>
+    <div class="col-xs-6 col-sm-3 col-md-3 col-lg-3">
+      <div class="box-bedsheetimG"> 
+        <a href="#" title=""><img alt="" title="" src="/assets/images//img-similar.png"/></a> 
+      </div>
+      <div class="box-bedsheet clearfix">
+        <a href="#" title="Shop Now" class="btn btn-shopnow">Shop Now</a>
+        <h4>Product Header</h4>             
+        <h2>jQuery300</h2>
+      </div>
+
+    </div>
+  </div>
   
-  </div>
-  </div>
-  </div>
+</div>
+</div>
+</div>
 </article>
 
 
 <script type="text/javascript">
   jQuery(document).ready(function () {
-      jQuery("#zoom_09").elevateZoom({
-        gallery : "gallery_09",
-        galleryActiveClass: "active"
-      }); 
+    jQuery("#zoom_09").elevateZoom({
+      gallery : "gallery_09",
+      galleryActiveClass: "active"
+    }); 
   }); 
 </script> 
 
