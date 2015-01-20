@@ -1,0 +1,46 @@
+<div class="box-frowdate hide-788">
+  <% for line_item in @cart.line_items %>
+    <div class="box-frowmain">
+      <div class="frow frow-image">
+        <div>Image</div>
+        <div><%= image_tag(line_item.product.images.present? ? (line_item.product.images.first.avatar.url) : "/assets/missing.png", height: "50px", width: "80px") %></div>
+      </div>
+      <div class="frow frow-image">
+        <div>Product Name</div>
+        <div>
+          <h4><%= line_item.product.name %></h4>
+          <div class="frow frow-color">
+            <div>Color:</div>
+            <div>Brown</div> 
+          </div>
+          <div class="frow frow-color">
+            <div>Size:</div>
+            <div>12</div> 
+          </div>
+        </div>
+      </div>
+      <div class="frow frow-image">
+        <div>Quantity</div>
+        <div>
+          <div class="tcolumn">
+            <div class="box-inpuT">
+              <%= select_tag :quantity, options_for_select(@quantities, :selected => line_item.quantity), :onchange => "quantity_select(this.value, #{current_cart.id}, #{line_item.id})", :class => "form-control" %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="frow frow-image">
+        <div>Unit Price</div>
+        <div>Rs. <%= line_item.unit_price %></div>
+      </div>
+      <div class="frow frow-image">
+        <div>Sub Total</div>
+        <div>Rs. <%= line_item.full_price %></div>
+      </div>
+      <div class="frow frow-image">
+        <div>Action</div>
+        <div><%= link_to "x", cart_path(line_item), :method => :delete, :id => "box-close-contactInfo" %></div>
+      </div>
+    </div>
+  <% end %>
+</div>
