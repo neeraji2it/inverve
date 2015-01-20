@@ -7,56 +7,63 @@
       <ul>
         <% if params[:controller] == "admin/dashboards" %>
           <li class="<%= params[:controller] == "admin/dashboards" ? 'active' : '' %>">
-          <a href="/admin/dashboards"><img src="/assets/admin/images/icons/black/16/home.png" alt="Home" />Dashboard</a>
+            <a href="/admin/dashboards"><img src="/assets/admin/images/icons/black/16/home.png" alt="Home" />Dashboard</a>
           </li>
 
         <% elsif params[:controller] == "admin/categories" %>
           <li>
-          <a href="/admin/dashboards"><img src="/assets/admin/images/icons/black/16/home.png" alt="Home" />Dashboard</a>
+            <a href="/admin/dashboards"><img src="/assets/admin/images/icons/black/16/home.png" alt="Home" />Dashboard</a>
           </li>
-        <li class="<%= (params[:controller] == "admin/categories" && (params[:action] == "index" || params[:action] == "new" || params[:action] == "edit" || params[:action] == "category_show")) ? 'active' : '' %>">
-           <a href="/admin/categories">Categories</a>
-        </li>
+          <li class="<%= (params[:controller] == "admin/categories" && (params[:action] == "index" || params[:action] == "new" || params[:action] == "edit" || params[:action] == "category_show")) ? 'active' : '' %>">
+            <a href="/admin/categories">Categories</a>
+          </li>
 
         <% elsif params[:controller] == "admin/products" %>
           <li>
-             <a href="/admin/dashboards"><img src="/assets/admin/images/icons/black/16/home.png" alt="Home" />Dashboard</a>
+            <a href="/admin/dashboards"><img src="/assets/admin/images/icons/black/16/home.png" alt="Home" />Dashboard</a>
           </li>
-        <li class="<%= (params[:controller] == "admin/products" && (params[:action] == "index" || params[:action] == "new" || params[:action] == "edit" || params[:action] == "show" || params[:action] == "flag")) ? 'active' : '' %>">
-        <a href="/admin/products">Products</a>
-        </li>
+          <li class="<%= (params[:controller] == "admin/products" && (params[:action] == "index" || params[:action] == "new" || params[:action] == "edit" || params[:action] == "show" || params[:action] == "flag")) ? 'active' : '' %>">
+            <a href="/admin/products">Products</a>
+          </li>
 
         <% elsif params[:controller] == "admin/orders" %>
           <li>
-          <a href="/admin/dashboards"><img src="/assets/admin/images/icons/black/16/home.png" alt="Home" />Dashboard</a>
+            <a href="/admin/dashboards"><img src="/assets/admin/images/icons/black/16/home.png" alt="Home" />Dashboard</a>
           </li>
-        <li class="<%= (params[:controller] == "admin/orders" && (params[:action] == "user_orders")) ? 'active' : '' %>">
-        <a href="/admin/orders/user_orders">User Orders</a>
-        </li>
-        <li class="<%= (params[:controller] == "admin/orders" && (params[:action] == "guest_orders")) ? 'active' : '' %>">
-        <a href="/admin/orders/guest_orders">Guest Orders</a>
-        
-        </li>
+          <li class="<%= (params[:controller] == "admin/orders" && (params[:action] == "user_orders")) ? 'active' : '' %>">
+            <a href="/admin/orders/user_orders">User Orders</a>
+          </li>
+          <li class="<%= (params[:controller] == "admin/orders" && (params[:action] == "guest_orders")) ? 'active' : '' %>">
+            <a href="/admin/orders/guest_orders">Guest Orders</a>
+
+          </li>
         <% elsif params[:controller] == "admin/users" %>
           <li>
-          <a href="/admin/dashboards"><img src="/assets/admin/images/icons/black/16/home.png" alt="Home" />Dashboard</a>
+            <a href="/admin/dashboards"><img src="/assets/admin/images/icons/black/16/home.png" alt="Home" />Dashboard</a>
           </li>
-        <li class="<%= (params[:controller] == "admin/users" && (params[:action] == "index")) ? 'active' : '' %>">
-        <a href="/admin/users">Users</a>
-        </li>
+          <li class="<%= (params[:controller] == "admin/users" && (params[:action] == "index")) ? 'active' : '' %>">
+            <a href="/admin/users">Users</a>
+          </li>
         <% elsif params[:controller] == "admin/profiles" %>
           <li>
-          <a href="/admin/dashboards"><img src="/assets/admin/images/icons/black/16/home.png" alt="Home" />Dashboard</a>
+            <a href="/admin/dashboards"><img src="/assets/admin/images/icons/black/16/home.png" alt="Home" />Dashboard</a>
           </li>
-        <li class="<%= (params[:controller] == "admin/profiles" && (params[:action] == "index")) ? 'active' : '' %>">
-        <a href="/admin/profiles">Profile</a>
-        </li>
-        <li class="<%= (params[:controller] == "admin/profiles" && (params[:action] == "setting")) ? 'active' : '' %>">
-        <a href="/admin/profiles/setting">Setting</a>
-        </li>
-        <li class="<%= (params[:controller] == "admin/profiles" && (params[:action] == "edit_passcode")) ? 'active' : '' %>">
-        <a href="/admin/profiles/edit_passcode">Change Password</a>
-        </li>
+          <li class="<%= (params[:controller] == "admin/profiles" && (params[:action] == "index")) ? 'active' : '' %>">
+            <a href="/admin/profiles">Profile</a>
+          </li>
+          <li class="<%= (params[:controller] == "admin/profiles" && (params[:action] == "setting")) ? 'active' : '' %>">
+            <a href="/admin/profiles/setting">Setting</a>
+          </li>
+          <li class="<%= (params[:controller] == "admin/profiles" && (params[:action] == "edit_passcode")) ? 'active' : '' %>">
+            <a href="/admin/profiles/edit_passcode">Change Password</a>
+          </li>
+        <% elsif params[:controller] == "admin/stocks" %>
+          <li>
+            <a href="/admin/dashboards"><img src="/assets/admin/images/icons/black/16/home.png" alt="Home" />Dashboard</a>
+          </li>
+          <li class="<%= (params[:controller] == "admin/stocks" && (params[:action] == "index" || params[:action] == "edit" || params[:action] == "update")) ? 'active' : '' %>">
+            <a href="/admin/stocks">Inventory</a>
+          </li>
         <% end %>        
       </ul>
     </div>
