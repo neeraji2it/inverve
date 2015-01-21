@@ -86,17 +86,7 @@
                     <h3>Rs. <%= product.price %></h3>
                     <h4><%= product.name.capitalize %></h4>
                     <% if product.discount? %>
-                      <span style="background-color: #0eabdf;
-    border: 1px solid #e3e3e3;
-    border-radius: 40px;
-    color: #fff;
-    display: block;
-    font-size: 16px;
-    height: 50px;
-    line-height: 50px;
-    margin: 0 84px 0 auto;
-    text-align: center;
-    width: 50px;">
+                      <span class="circleP">
                         <%= product.discount%>
                       </span>
                       <%end %>

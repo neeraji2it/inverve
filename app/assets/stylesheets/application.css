@@ -53,7 +53,7 @@ div#da-header #da-header-top #da-logo-img img {
 }
 
 /*circular offer percentage*/
-.circlP {
+.circleP {
   background-color: #0eabdf;
   border: 1px solid #e3e3e3;
   border-radius: 40px;
@@ -62,7 +62,7 @@ div#da-header #da-header-top #da-logo-img img {
   font-size: 16px;
   height: 50px;
   line-height: 50px;
-  margin: 0 84px 0 auto;
+  margin: -10px 84px 0 auto;
   text-align: center;
   width: 50px;
 }
