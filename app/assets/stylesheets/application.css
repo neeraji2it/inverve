@@ -12,7 +12,10 @@
 
  *= require font-awesome
  *= require_self
+ 
  *= require bxslider
+
+
  */
 
 .field_with_errors {
