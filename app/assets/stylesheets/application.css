@@ -46,8 +46,23 @@
 
 
 div#da-header #da-header-top #da-logo-img img {
-    background-color: white;
-    max-height: 55px;
-    max-width: 230px;
-    padding: 0 10px 1px;
+  background-color: white;
+  max-height: 55px;
+  max-width: 230px;
+  padding: 0 10px 1px;
+}
+
+/*circular offer percentage*/
+.circlP {
+  background-color: #0eabdf;
+  border: 1px solid #e3e3e3;
+  border-radius: 40px;
+  color: #fff;
+  display: block;
+  font-size: 16px;
+  height: 50px;
+  line-height: 50px;
+  margin: 0 84px 0 auto;
+  text-align: center;
+  width: 50px;
 }
