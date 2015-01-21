@@ -96,8 +96,6 @@ GEM
       railties (>= 3.0.0)
     faker (1.4.3)
       i18n (~> 0.5)
-    font-awesome-rails (4.2.0.0)
-      railties (>= 3.2, < 5.0)
     hash-deep-merge (0.1.1)
     highline (1.6.21)
     hike (1.2.3)
@@ -225,11 +223,6 @@ GEM
       polyglot (>= 0.3.1)
     turbolinks (2.5.2)
       coffee-rails
-    twitter-bootstrap-rails (2.2.8)
-      actionpack (>= 3.1)
-      execjs
-      rails (>= 3.1)
-      railties (>= 3.1)
     tzinfo (0.3.42)
     uglifier (2.5.3)
       execjs (>= 0.3.0)
@@ -258,7 +251,6 @@ DEPENDENCIES
   execjs
   factory_girl_rails
   faker
-  font-awesome-rails
   jbuilder (~> 1.2)
   jquery-rails
   lazy_high_charts
@@ -278,7 +270,6 @@ DEPENDENCIES
   shoulda-matchers
   therubyracer
   turbolinks
-  twitter-bootstrap-rails
   uglifier (>= 1.3.0)
   will_paginate (~> 3.0)
   will_paginate-bootstrap

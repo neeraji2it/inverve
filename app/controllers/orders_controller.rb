@@ -76,7 +76,7 @@ class OrdersController < ApplicationController
   end
 
   def checkout_information
-
+    @user = User.new
   end
 
   private

@@ -58,13 +58,9 @@ group :doc do
 end
 
 gem 'execjs'
-# gem 'activemerchant'
-
 gem 'therubyracer'
 
 gem 'less-rails'
-gem 'twitter-bootstrap-rails'
-gem "font-awesome-rails"
 gem 'will_paginate', '~> 3.0'
 gem "paperclip"
 gem "nested_form"

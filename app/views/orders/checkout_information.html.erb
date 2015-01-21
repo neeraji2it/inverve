@@ -1,51 +1,59 @@
 <% if !@current_user.present? %>
-<article>	
-  <div class="box-maincheckout">
-    <div class="container">
-      <div class="box-checkout">
-        <div class="box-checkoutinform">
-          <h4 class="bposi"><span class="step">Step 1</span> <span class="text-informationSpacing">Checkout Information</span></h4>
-          <div class="box-mainnew">
-            <div class="row">
-              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                <div class="box-new">
-                  <h5>New Customer ?</h5>
-                  <span>Choose your Checkout options:</span>
-                  <div class="box-contenT">
-                    <ul class="list-check">
-                      <li>
-                        <%= link_to "Checkout as a Guest", new_order_path, :class => "btn btn-sm" %>
-                      </li>
-                    </ul>	
-                    <!--<a href="#" title="Continue" class="btn btn-continue">Continue</a>-->
+  <article>	
+    <div class="box-maincheckout">
+      <div class="container">
+        <div class="box-checkout">
+          <div class="box-checkoutinform">
+            <h4 class="bposi"><span class="step">Step 1</span> <span class="text-informationSpacing">Checkout Information</span></h4>
+            <div class="box-mainnew">
+              <div class="row">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                  <div class="box-new">
+                    <h5>New Customer ?</h5>
+                    <span>Choose your Checkout options:</span>
+                    <div class="box-contenT">
+                      <ul class="list-check">
+                        <li>
+                          <%= link_to "Checkout as a Guest", new_order_path, :class => "btn btn-sm" %>
+                        </li>
+                      </ul>	
+                      <!--<a href="#" title="Continue" class="btn btn-continue">Continue</a>-->
+                    </div>
+                  </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                  <div class="box-new">
+                    <%= form_for(@user, url: user_session_path(:param1 => "orders"), :method => "POST") do |f| %>
+                      <h5>Registered Customer ?</h5>
+                      <span>Please fill the form below</span>
+                      <div class="box-contenT box-input">
+
+                        <div class="frow frow-your">
+                          <div>Your e-mail address</div>
+                          <div>
+                            <%= f.email_field :email, autofocus: true, class: "input-mail", placeholder:"yourmail@domain.com"%>
+                            </div>
+                          </div>
+
+                          <div class="frow frow-your">
+                            <div>Your Password</div>
+                            <div>
+                              <%= f.password_field :password, autocomplete: "off", id: "input-mail", :placeholder => "Enter your password" %>
+                            </div>
+                          </div>
+
+                          <p>
+                            <%= f.submit "Login", :title => "Login", :class => "btn-continue fright" %>
+                          </p>
+                        </div>
+                      <% end %>
+                    </div>
                   </div>
                 </div>
               </div>
-              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                <div class="box-new">
-                  <h5>Registered Customer ?</h5>
-                  <span>Please fill the form below</span>
-                  <div class="box-contenT box-input">
-
-                    <div class="frow frow-your">
-                      <div>Your e-mail address</div>
-                      <div><input alt="" title="" type="text" placeholder="yourmail@domain.com" class="input-mail"/></div>
-                    </div>
-
-                    <div class="frow frow-your">
-                      <div>Your Password</div>
-                      <div><input alt="" title="" type="text" placeholder="enter your password" class="input-mail"/></div>
-                    </div>
-                    <p class="forgot-content"><a href="#" title="Forgot your password">Forgot your password ?</a></p>
-                    <p><input alt="" title="Login" type="submit" value="Login" class="btn-continue fright"/></p>
-                  </div>
-                </div>
-              </div>
-            </div>
+            </div>  
           </div>
-        </div>	
-      </div>
-    </div>
-  </div>	
-</article>
-<% end %>
+        </div>
+      </div>  
+    </article>
+  <% end %>
