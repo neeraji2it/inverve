@@ -1,113 +1,42 @@
 <%= form_for @order do |f| %> 
-  <% if @order.errors.any? %>
-    <div id="error_explanation" style="width: 225px;">
-      <p>Following Fields Can't Be Blank </p>
-
-      <ul>
-        <% @order.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
-        <% end %>
-      </ul>
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+    <div class="box-new">
+      <div class="box-contenT">
+        <h4>Billing Address</h4>
+        <br/>
+        <%= render :partial => "delivery_form", locals: {:f => f} %>	
+      </div>
     </div>
-  <% end %>
-  <div class="form-group">
-    <h5>Billing Address</h5>
   </div>
 
-  <div class="form-group">
-    First Name<br>
-    <%= f.text_field :first_name , autofocus: true, class: "form-control", :id => "first_name"%>
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+    <div class="box-new">
+      <div class="box-contenT">
+        <h4>Shipping Address</h4>
+        <br/>
+        <%= render :partial => "shipping_form", locals: {:f => f} %> 
+      </div>
+    </div>
+  </div>
+
+  <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+    <div class="box-new">
+      <div class="box-contenT">
+        <p style="font-size: 22px;">
+          Delivery Method
+        </p>
+        <%= image_tag("cod1.jpg", height: "140px", width: "140px") %>
+        <br/>
+      </div>
     </div>
 
-    <div class="form-group">
-      Last Name<br>
-      <%= f.text_field :last_name , autofocus: true, class: "form-control", :id => "last_name"%>
-      </div>
-
-      <div class="form-group">
-        Address<br>
-        <%= f.text_area :address , autofocus: true, class: "form-control", :id => "address" %>
-        </div>
-
-        <div class="form-group">
-          LandMark<br>
-          <%= f.text_area :landmark , autofocus: true, class: "form-control", :id => "landmark" %>
+    <div class="box-new">
+      <div class="box-contenT">
+        <div class="actions">
+          <%= f.submit class: "btn btn"%>
           </div>
-
-          <div class="form-group">
-            Pincode<br>
-            <%= f.text_field :pincode , autofocus: true, class: "form-control", :id => "pincode"%>
-            </div>
-
-            <div class="form-group">
-              City<br>
-              <%= f.text_field :city , autofocus: true, class: "form-control", :id => "city"%>
-              </div>
-
-              <div class="form-group">
-                State<br>
-                <%= f.text_field :state , autofocus: true, class: "form-control", :id => "state" %>
-                </div>
-
-                <div class="form-group">
-                  Phone<br>
-                  <%= f.text_field :phone , autofocus: true, class: "form-control", :id => "phone"%>
-                  </div>
-
-                  <div class="form-group">
-                    <%= f.check_box :same_as_billing, :id => "same_as_billing" %>Click here if shipping address is same as billing
-                  </div>
-
-                  <div id="shipping_address">
-                    <div class="form-group">
-                      <h5>Shipping Address</h5>
-                    </div>
-
-                    <div class="form-group">
-                      Address<br>
-                      <%= f.text_area :address1 , autofocus: true, class: "form-control", :id => "address1" %>
-                      </div>
-
-                      <div class="form-group">
-                        LandMark<br>
-                        <%= f.text_area :landmark1 , autofocus: true, class: "form-control", :id => "landmark1"%>
-                        </div>
-
-                        <div class="form-group">
-                          Pincode<br>
-                          <%= f.text_field :pincode1 , autofocus: true, class: "form-control", :id => "pincode1"%>
-                          </div>
-
-                          <div class="form-group">
-                            City<br>
-                            <%= f.text_field :city1 , autofocus: true, class: "form-control", :id => "city1"%>
-                            </div>
-
-                            <div class="form-group">
-                              State<br>
-                              <%= f.text_field :state1 , autofocus: true, class: "form-control", :id => "state1"%>
-                              </div>
-
-                              <div class="form-group">
-                                Phone<br>
-                                <%= f.text_field :phone1 , autofocus: true, class: "form-control", :id => "phone1"%>
-                                </div>
-                              </div>
-
-                              <div class="actions">
-                                <%= f.submit class: "btn btn"%>
-                                </div>
-                              <% end %>
-
-                              <script type="text/javascript">
-                                $(document).ready(function() {
-                                  $('input[type="checkbox"]').click(function() {
-                                    if ($(this).is(":checked")) {
-                                      $("#shipping_address").hide();
-                                    }
-                                    else if ($(this).is(":not(:checked)")) {
-                                      $("#shipping_address").show();
-                                    }
-                                  });
-                                });
-                              </script>
+          <br/>
+        </div>
+      </div>
+    </div>
+  <% end %>

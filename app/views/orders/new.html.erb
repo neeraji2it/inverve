@@ -3,18 +3,10 @@
     <div class="container">
       <div class="box-checkout">
         <div class="box-checkoutinform">
-          <h4 class="bposi"><span class="step">Step 2</span> <span class="text-informationSpacing">Billing Information</span></h4>
+          <h4 class="bposi"><span class="step">Step 3</span> <span class="text-informationSpacing">Billing Information</span></h4>
           <div class="box-mainnew">
             <div class="row">
-              <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-                <div class="box-new">
-                  <div class="box-contenT">
-                    <%= render :partial => "form" %>	
-                    <!--<a href="#" title="Continue" class="btn btn-continue">Continue</a>-->
-                  </div>
-                </div>
-              </div>
-              
+              <%= render :partial => "form" %>
             </div>
           </div>
         </div>	
@@ -22,3 +14,16 @@
     </div>
   </div>	
 </article>
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('input[type="checkbox"]').click(function() {
+      if ($(this).is(":checked")) {
+        $("#shipping_address").hide();
+      }
+      else if ($(this).is(":not(:checked)")) {
+        $("#shipping_address").show();
+      }
+    });
+  });
+</script>
