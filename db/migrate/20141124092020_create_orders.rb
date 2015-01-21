@@ -4,6 +4,7 @@ class CreateOrders < ActiveRecord::Migration
       t.integer :cart_id
       t.string :first_name
       t.string :last_name
+      #here
       t.text :address
       t.text :landmark
       t.string :pincode
@@ -11,7 +12,9 @@ class CreateOrders < ActiveRecord::Migration
       t.string :state
       t.string :country
       t.text :phone
+      #here
       t.string :ip_address
+      
       t.integer :card_num
       t.string :card_type
       t.date :card_expires_on
