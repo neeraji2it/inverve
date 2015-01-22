@@ -1,0 +1,28 @@
+<div class="grid_4">
+  <div class="da-panel collapsible">
+    <div class="da-panel-header">
+      <span class="da-panel-title">
+        <img src="/assets/admin/images/icons/black/16/list.png" alt="" />
+        News Letter
+      </span>
+    </div>
+    <div class="da-panel-content">
+      <table id="da-ex-datatable-default" class="da-table">
+        <thead>
+          <tr>
+            <th>First name</th>
+            <th>Last name</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @news_letters.each do |news_letter| %>
+            <tr>
+              <td><%= news_letter.name %></td>
+              <td><%= news_letter.email %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>  
+</div>

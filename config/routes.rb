@@ -26,6 +26,7 @@ Furnitureapp::Application.routes.draw do
       end
     end
     resources :users
+    resources :news_letters
     resources :profiles do
       collection do 
         get :setting
