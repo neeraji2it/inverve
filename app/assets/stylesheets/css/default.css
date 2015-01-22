@@ -128,7 +128,7 @@ input[class*=col-], select[class*=col-], textarea[class*=col-] { float: none; }
 .mandatory { color: #F00; }
 .container { max-width: 1000px; margin: 0px auto; -webkit-transition: all 0.4s ease-out; -moz-transition: all 0.4s ease-out; transition: all 0.4s ease-out; }
 #logo { padding-bottom: 0px; text-align: left; background: none; }
-#logo a { display: inline-block; height: 93px; width: 224px; text-indent: -999em; background: url(/assets/logo_home.png) no-repeat 0px 0px; background-size: 223px 61px;   }
+#logo a { display: inline-block; height: 93px; width: 224px; text-indent: -999em; background: url(/assets/rosara2.png) no-repeat 0px 0px; background-size: 223px 61px;   }
 .table-box .trow { float: left; width: 100%; padding: 4px 0px; border-bottom: #D0D0D0 solid 1px; -webkit-transition: all 0.4s ease-out; -moz-transition: all 0.4s ease-out; transition: all 0.4s ease-out; }
 .table-box .trow:first-child { font-weight: bold; border-bottom: #D0D0D0 solid 2px; }
 .table-box .trow:nth-child(even), .table tr:nth-child(even) { background-color: #fff; }
