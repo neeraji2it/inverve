@@ -1,51 +1,51 @@
 <% if @order.errors.any? %>
-                  <div id="error_explanation" style="width: 225px;">
-                    <p>Following Fields Can't Be Blank </p>
+  <div id="error_explanation" style="width: 225px;">
+    <p>Following Fields Can't Be Blank </p>
 
-                    <ul>
-                      <% @order.errors.full_messages.each do |msg| %>
-                        <li><%= msg %></li>
-                      <% end %>
-                    </ul>
-                  </div>
-                <% end %>
+    <ul>
+      <% @order.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
 
 <div class="form-group">
-    First Name<br>
-    <%= f.text_field :first_name , autofocus: true, class: "form-control", :id => "first_name"%>
+  First Name<br>
+  <%= f.text_field :first_name , autofocus: true, class: "form-control", :id => "first_name"%>
+  </div>
+
+  <div class="form-group">
+    Last Name<br>
+    <%= f.text_field :last_name , autofocus: true, class: "form-control", :id => "last_name"%>
     </div>
 
     <div class="form-group">
-      Last Name<br>
-      <%= f.text_field :last_name , autofocus: true, class: "form-control", :id => "last_name"%>
+      Address<br>
+      <%= f.text_area :address , autofocus: true, class: "form-control", :id => "address" %>
       </div>
 
       <div class="form-group">
-        Address<br>
-        <%= f.text_area :address , autofocus: true, class: "form-control", :id => "address" %>
+        LandMark<br>
+        <%= f.text_area :landmark , autofocus: true, class: "form-control", :id => "landmark" %>
         </div>
 
         <div class="form-group">
-          LandMark<br>
-          <%= f.text_area :landmark , autofocus: true, class: "form-control", :id => "landmark" %>
+          Pincode<br>
+          <%= f.text_field :pincode , autofocus: true, class: "form-control", :id => "pincode"%>
           </div>
 
           <div class="form-group">
-            Pincode<br>
-            <%= f.text_field :pincode , autofocus: true, class: "form-control", :id => "pincode"%>
+            City<br>
+            <%= f.text_field :city , autofocus: true, class: "form-control", :id => "city"%>
             </div>
 
             <div class="form-group">
-              City<br>
-              <%= f.text_field :city , autofocus: true, class: "form-control", :id => "city"%>
+              State<br>
+              <%= f.text_field :state , autofocus: true, class: "form-control", :id => "state" %>
               </div>
 
               <div class="form-group">
-                State<br>
-                <%= f.text_field :state , autofocus: true, class: "form-control", :id => "state" %>
+                Phone<br>
+                <%= f.text_field :phone , autofocus: true, class: "form-control", :id => "phone"%>
                 </div>
-
-                <div class="form-group">
-                  Phone<br>
-                  <%= f.text_field :phone , autofocus: true, class: "form-control", :id => "phone"%>
-                  </div>

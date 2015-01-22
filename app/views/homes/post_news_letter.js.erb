@@ -2,5 +2,5 @@
   $(".form-error").html('<%= escape_javascript render :partial => "error" %>');
 <% else %>
   $(".newsletter").html('<%= escape_javascript render :partial => "new_news_letter" %>');
-  window.location.reload();
+  window.location.href = '<%= homes_path %>'
 <% end %>
