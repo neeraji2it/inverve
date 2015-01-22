@@ -8,9 +8,10 @@
              <img id="zoom_09" src="<%= @product.images.present? ? (@product.images.first.avatar.url(:small)) : "/assets/missing.png" %>" data-zoom-image="<%= @product.images.present? ? (@product.images.first.avatar.url(:small)) : "/assets/missing.png" %>" />
            </div>
 
+
            <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" id="gallery_09">
             <div class="row">
-
+               <div class="bxslider1" :style =>"max-width:300px;max-height:230px;">
               <% @images.each do |image| %>
               <div class="col-xs-3 col-sm-12 col-md-12 col-lg-12 box-product add_small_img">
                 <a href="#" class="elevatezoom-gallery active" data-image="<%= image.avatar.url(:small) %>" data-zoom-image="<%= image.avatar.url(:small) %>">
@@ -18,6 +19,7 @@
                 </a>                       
               </div>
               <% end %>
+              </div>
 
             </div>
           </div>
@@ -143,35 +145,37 @@
   </div>
 </div>
 </div>
-</div>  
+</div>
+
+
 <div class="box-simliar">
   <h1><span>Similar Items</span></h1>
-  <div class="bxslider">          
+            <div class="bxslider">          
 
-  <% @products.each do |product| %>
+              <% @products.each do |product| %>
+              
+              <div class="box-bedsheeT">
+                <div class="box-bedsheetimg">
+                  <%= link_to image_tag(product.images.present? ? (product.images.first.avatar.url) : "/assets/missing.png"),single_product_home_path(product.id),:style=>"max-width:300px;max-height:230px;"%>
 
-    <div class="box-bedsheeT">
-      <div class="box-bedsheetimg">
-        <%= link_to image_tag(product.images.present? ? (product.images.first.avatar.url) : "/assets/missing.png", :style=>"max-width:300px;max-height:230px;"),single_product_home_path(product.id) %>
+                </div>
+                <div class="box-bedsheet clearfix">
+                  <h5><%= product.name.capitalize %></h5>             
+                  <% if product.discount? %>
+                 
+                  
+                  <h5>Rs. <%= product.price-(product.price*product.discount/100) %></h5>
+                  <% else %>
+                  <h5>Rs. <%= product.price %></h5>
+                  <%end %>
 
-      </div>
-      <div class="box-bedsheet clearfix">
-        <h5><%= product.name.capitalize %></h5>             
-        <% if product.discount? %>
+                  
+                  <%= link_to "Watch Now" ,single_product_home_path(product.id) ,:class => "btn btn", :style => "webkitAllowFullScreen mozallowfullscreen allowFullScreen;"%> 
 
-
-        <h5>Rs. <%= product.price-(product.price*product.discount/100) %></h5>
-        <% else %>
-        <h5>Rs. <%= product.price %></h5>
-        <%end %>
-
-
-        <%= link_to "Watch Now" ,single_product_home_path(product.id) ,:class => "btn btn", :style => "webkitAllowFullScreen mozallowfullscreen allowFullScreen;"%> 
-
-      </div>
-    </div>              
-    <% end %> 
-  </div>
+                </div>
+              </div>              
+              <% end %> 
+            </div>
   
 </div>
 </div>
@@ -196,13 +200,20 @@
             speed: 3000,
             pager: false,
             autoHover: true,
-            minSlides: 3,
+            minSlides: 4,
             maxSlides: 12,
             slideMargin: 20,
-            responsive: true,
             adaptiveHeight: true  
           });
+
+          $('.bxslider1').bxSlider({
+            mode: 'vertical',
+            minSlides: 3,
+            maxSlides: 12,
+            speed: 3000,
+            slideHeight: 400,
+            pager: false
+          });
         });
+       
       </script>
-
-
