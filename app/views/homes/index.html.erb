@@ -152,7 +152,7 @@
 
             
 
-            <div class="bxslider" style="transform: translate3d(-20px, -20px, -20px);">          
+            <div class="bxslider" style="transform: translate3d(-20px, -20px, -20px); webkitAllowFullScreen mozallowfullscreen allowFullScreen;">          
 
               <% @featured.each do |product| %>
               
@@ -172,7 +172,7 @@
                   <%end %>
 
                   
-                  <%= link_to "Watch Now" ,single_product_home_path(product.id) ,:class => "btn btn"%> 
+                  <%= link_to "Watch Now" ,single_product_home_path(product.id) ,:class => "btn btn", :style => "webkitAllowFullScreen mozallowfullscreen allowFullScreen;"%> 
 
                 </div>
               </div>              
