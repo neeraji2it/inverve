@@ -6,6 +6,7 @@ protect_from_forgery with: :exception
 helper_method :current_cart
 layout :get_layout
 before_filter :update_sanitized_params, if: :devise_controller?
+before_filter :load_news_letter
 def update_sanitized_params
   devise_parameter_sanitizer.for(:sign_up) {|u| u.permit!}
 end
@@ -29,6 +30,9 @@ def current_cart
     session[:cart_id] = @current_cart.id
   end
   @current_cart
+end
+def load_news_letter
+  @news_letter ||= NewsLetter.new
 end
 protected
 def get_layout

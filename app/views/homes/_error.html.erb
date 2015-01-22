@@ -1,0 +1,13 @@
+<% if @news_letter.errors.any? %>
+  <div class="da-panel-content">
+    <div class="da-message warning">
+      <h2><%= pluralize(@news_letter.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+      <ul>
+        <% @news_letter.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>

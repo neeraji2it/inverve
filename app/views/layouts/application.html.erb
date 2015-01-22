@@ -50,20 +50,20 @@
               <h1 id="logo"><%= link_to "Rosara", root_path, :title => "Rosara" %></h1>
             </div>
             <div class="col-xs-8 col-sm-6 col-md-6 col-lg-6 text-right"> 
-             
+
               <div class="bposi">
-                
-              
+
+
                 <%= form_tag search_homes_path, :method => 'get',:id => "products_search" do %>
-                 
-  <%= link_to "Cart #{current_cart.line_items.count}", carts_path, :class => "chart", :title => "Cart" %>
+
+                  <%= link_to "Cart #{current_cart.line_items.count}", carts_path, :class => "chart", :title => "Cart" %>
                   <%= text_field_tag :search, params[:search], :placeholder => "Search", :class => "input-search" %>
                   <%= submit_tag "Search", :name => nil,:class => "btn-search", :value => "" %>
-                
+
                 <% end %>
-                
+
               </div>    
-              
+
             </div>
           </div>
         </div>
@@ -95,20 +95,5 @@
     <%= yield %> 
     <%= render :partial => "layouts/footer" %>
     
-    <!--popup---->
-    <div class="modal fade modal-car" id="myModal-2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h6>Signup For Newsletter</h6>
-          <div class="box-newsletter">        
-            <p><input type="text" placeholder="Enter your Name here" title="Name" class="input-email" /></p> 
-            <p><input type="text" placeholder="Enter your email here" title="Email" class="input-email"></p>
-            <p><button type="submit" title="Send" class="btn"><i class="fa fa-paper-plane"></i> Send</button></p>
-          </div>  
-        </div>
-      </div>      
-    </div>
   </body>
 </html>
-

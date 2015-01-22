@@ -1,0 +1,26 @@
+<!--popup---->
+<div class="modal fade modal-car" id="myModal-2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+      <h6>Signup For Newsletter</h6>
+      <div class="box-newsletter">   
+        <%= form_for @news_letter, :url => "/homes/post_news_letter", :method => "POST", :remote => true do |f| %>
+        <div class='form-error'>
+          
+        </div>
+        
+        <p>
+          <%= f.text_field :name, :class => "input-email", :id => "name", :placeholder => "Enter you Name here" %>
+        </p> 
+        <p>
+          <%= f.email_field :email, :class => "input-email", :id => "email", :placeholder => "Enter you email here" %>
+        </p>
+        <p>
+          <button type="submit" title="Send" class="btn" id="btnSubmit"><i class="fa fa-paper-plane"></i> Send</button>
+        </p>
+        <% end %>
+      </div>  
+    </div>
+  </div>      
+</div>

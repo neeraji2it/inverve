@@ -1,0 +1,6 @@
+<% if @news_letter.errors.any? %>
+  $(".form-error").html('<%= escape_javascript render :partial => "error" %>');
+<% else %>
+  $(".newsletter").html('<%= escape_javascript render :partial => "new_news_letter" %>');
+  window.location.reload();
+<% end %>

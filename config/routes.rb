@@ -53,6 +53,8 @@ Furnitureapp::Application.routes.draw do
       get :terms
       get :return_policy
       get :search
+      get :new_news_letter
+      post :post_news_letter
     end
     member do
       get :single_product

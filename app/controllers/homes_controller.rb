@@ -61,9 +61,27 @@ class HomesController < ApplicationController
     @categories = Category.all
     @featured = Product.featured
   end
+  
+  def new_news_letter
+    @news_letter = NewsLetter.new
+  end
+  
+  def post_news_letter
+    @news_letter = NewsLetter.new(news_letter_params)
+    if @news_letter.save
+      flash[:notice] = "Thanks you have been subscribed to news letter."
+    end
+    respond_to do |format|
+      format.js
+    end
+  end
 
   private
   def product_params
     params.require(:product).permit!
+  end
+  
+  def news_letter_params
+    params.require(:news_letter).permit!
   end
 end
