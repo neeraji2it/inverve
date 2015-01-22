@@ -147,24 +147,24 @@
             </div>
           </div>
 
-          <div class="box-featured box-featuredItems">
+          <div class="box-simliar">
             <h1><span>Featured Items</span></h1>
 
             
 
-            <div class="bxslider" style="transform: translate3d(-20px, -20px, -20px); webkitAllowFullScreen mozallowfullscreen allowFullScreen;">          
+            <div class="bxslider">          
 
               <% @featured.each do |product| %>
               
               <div class="box-bedsheeT">
                 <div class="box-bedsheetimg">
-                  <%= link_to image_tag(product.images.present? ? (product.images.first.avatar.url) : "/assets/missing.png"),single_product_home_path(product.id) %>
+                  <%= link_to image_tag(product.images.present? ? (product.images.first.avatar.url) : "/assets/missing.png"),single_product_home_path(product.id),:style=>"max-width:300px;max-height:230px;"%>
 
                 </div>
                 <div class="box-bedsheet clearfix">
                   <h5><%= product.name.capitalize %></h5>             
                   <% if product.discount? %>
-                  <!-- <h4 style="text-decoration: line-through;">Rs.<%#= product.price %></h4><span>-<%= product.discount%>%</span> -->
+                 
                   
                   <h5>Rs. <%= product.price-(product.price*product.discount/100) %></h5>
                   <% else %>

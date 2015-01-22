@@ -27,8 +27,11 @@ class HomesController < ApplicationController
   end
 
   def single_product
+
     @product = Product.find(params[:id])
     @images = @product.images
+    @category = @product.category
+    @products = @category.products
   end
   
   def how_to_buy
