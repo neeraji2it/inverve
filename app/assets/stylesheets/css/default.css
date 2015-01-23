@@ -313,7 +313,7 @@ html body .box-bedsheet { padding: 10px 13px 7px; }
 .box-bedsheet h2 { float: left; font-size: 30px; position: relative; font-family: 'OpenSansRegularRegular'; }
 .box-bedsheet h2 span { top: -5px; font-size: 20px; position: absolute; }
 html body .btn-shopnow { color: #FFF; float: right; border: none; box-shadow: none; margin-top: 20px; border-radius: 0px; text-transform: uppercase; padding: 7px 12px 7px 30px; font-family: Tahoma, Geneva, sans-serif; background: url(/assets/images/sprit-icon.png) no-repeat 8px -100px #212121; }
-.box-featured { padding-top: 25px; }
+.box-featured { padding-top: 35px; }
 .box-bedroom { color: #545454; text-align: center; }
 .box-bedroom h6 { color: #545454; font-size: 20px; padding-bottom: 5px; text-transform: uppercase; font-family: 'Conv_18925_HelveticaNeueLt_0'; }
 .box-bedroom p { font-size: 14px; padding-bottom: 0px; }
@@ -430,7 +430,7 @@ html body .box-select .dropdown-select a { color: #545454; }
 .box-simliar h4 { padding-bottom: 0px; line-height: 10px; }
 .box-bedsheetimG { border: 1px solid #c0c0c0; }
 html body .box-simliar h2 { font-size: 14px; padding-bottom: 0px; line-height: inherit; }
-.box-simliar { padding-bottom: 50px; }
+.box-simliar { padding-top: 38px; }
 .box-simliar .box-bedsheet { padding: 5px 0px 0px; border-top: none; }
 .box-simliar .btn-shopnow { margin-top: 0px; }
 ul.list-plus { float: left; font-size: 20px; list-style: none; }
