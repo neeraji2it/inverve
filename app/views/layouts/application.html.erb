@@ -76,24 +76,13 @@
       <div class="menu-bar">
         <div class="container">
           <div class="navbar-collapse collapse">
-            <ul class="main-navigation">
-              <% Category.where("name is not null and category_show = #{true}").each do |cat| %>
-                <li>
-                  <%= link_to cat.name, home_path(cat), :title => "#{cat.name}" %>
-                </li>
-              <% end %>
-              <li>
-                <%= link_to "Offers", offers_homes_path, :title => "Offers" %>
-              </li>
-            </ul>
+            <%= render :partial => "layouts/new_navbar" %>
           </div>
         </div>
       </div>
     </header>
-
     <%= render :partial => "layouts/notice_app" %>
     <%= yield %> 
     <%= render :partial => "layouts/footer" %>
-    
   </body>
 </html>

@@ -1,0 +1,39 @@
+<ul class="main-navigation">
+  <% Category.where("name is not null and category_show = #{true}").each do |cat| %>
+    <li class="menu-list">
+      <%= link_to cat.name, home_path(cat), :title => "#{cat.name}" %>
+      <div style=" height:350px;">
+        <% @products1 = cat.products.limit(7) %>
+        <% @products2 = cat.products.limit(7).offset(7) %>
+        <% @products3 = cat.products.limit(7).offset(14) %>
+        <div class="nav-column" >
+          <ul>
+            <% @products1.each do |product| %>
+              <li ><%= link_to product.name.capitalize, single_product_home_path(product.id) %></li>
+            <% end %>
+          </ul>
+        </div>
+
+        <div class="nav-column">
+          <ul>
+            <% @products2.each do |product| %>
+              <li ><%= link_to product.name.capitalize, single_product_home_path(product.id) %></li>
+            <% end %>
+          </ul>
+        </div>
+
+        <div class="nav-column" >
+          <ul>
+            <% @products3.each do |product| %>
+              <li ><%= link_to product.name.capitalize, single_product_home_path(product.id) %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+
+    </li>
+  <% end %>
+  <li>
+    <%= link_to "Offers", offers_homes_path, :title => "Offers" %>
+  </li>
+</ul>
