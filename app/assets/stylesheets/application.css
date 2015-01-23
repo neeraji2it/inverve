@@ -44,7 +44,7 @@
   }
 }
 
-
+/*admin logo property*/
 div#da-header #da-header-top #da-logo-img img {
   background-color: white;
   max-height: 55px;
@@ -66,3 +66,7 @@ div#da-header #da-header-top #da-logo-img img {
   text-align: center;
   width: 50px;
 }
+
+/*homes show collapsible category link property*/
+.catLink {margin-top: -10px; margin-bottom: 10px;}
+.catLink a{color: #545454;}

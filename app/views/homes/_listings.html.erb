@@ -12,8 +12,10 @@
                   <div class="panel panel-default">
                     <div class="panel-heading" role="tab" id="headingOne">
                       <h2 class="panel-title">
-                        <a class="collapsed accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne-<%= category.id %>" aria-expanded="false" aria-controls="collapseOne" title="Bedroom">
-                          <%= category.name.capitalize %>
+                        <a class="collapsed accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne-<%= category.id %>" aria-expanded="false" aria-controls="collapseOne" title="Bedroom"> 
+                          <div class="catLink">
+                            <%= link_to category.name.capitalize, home_path(category.id) %>
+                          </div>
                         </a>
                       </h2>
                     </div>
