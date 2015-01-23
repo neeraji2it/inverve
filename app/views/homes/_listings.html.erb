@@ -54,7 +54,7 @@
                     <%= link_to image_tag(product.images.present? ? (product.images.first.avatar.url(:original)) : "/assets/missing.png", height: "50px", width: "50px"),single_product_home_path(product.id) %>
                   </div>
                   <div>
-                    <h5><%=link_to product.name, single_product_home_path(product.id)%></h5>
+                    <h5><%=link_to product.name.capitalize, single_product_home_path(product.id)%></h5>
                     <h2><%= product.price %></h2>
                     <br/>
                   </div>
