@@ -158,9 +158,9 @@
               <div class="box-bedsheet clearfix">
                 <h5><%= product.name.capitalize %></h5>
                 <% if product.discount? %>
-                <h5>Rs. <%= product.price-(product.price*product.discount/100) %></h5>
+                <h5><%= number_to_currency(product.price-(product.price*product.discount/100), :unit => "Rs.") %></h5>
                 <% else %>
-                <h5>Rs. <%= product.price %></h5>
+                <h5><%= number_to_currency(product.price, :unit => "Rs.") %></h5>
                 <%end %>
                 <%= link_to "Watch Now" ,single_product_home_path(product.id) ,:class => "btn btn", :style => "webkitAllowFullScreen mozallowfullscreen allowFullScreen;"%>
               </div>

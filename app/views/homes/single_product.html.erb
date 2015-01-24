@@ -33,9 +33,7 @@
               </div>
               <div class="box-producT">
                 <h4><%= @product.name.capitalize %></h4>
-                <p>Availability. <span class="instock">In Stock</span> 21 item(s)  remaining to implement</p>
-
-
+                <p>Availability. <span class="instock">In Stock</span> <%= @product.quantity %> item(s)</p>
                 <% if @product.discount? %>
                   <h2 style="text-decoration: line-through;">Rs. <%= @product.price %></h2>
                   <h5><%= @product.discount%>% Off </h5>
