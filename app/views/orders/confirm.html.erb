@@ -3,7 +3,7 @@
     <div class="container">
       <div class="box-checkout">
         <div class="box-checkoutinform">
-          <h4 class="bposi"><span class="step">Step 3</span> <span class="text-informationSpacing">Shipping Information</span></h4>
+          <h4 class="bposi"><span class="step">Step 3</span> <span class="text-informationSpacing">Address Info, Confirm & Payment</span></h4>
           <div class="box-mainnew">
             <div class="row">
               <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
@@ -13,9 +13,7 @@
                     <%= render :partial => "confirm" %>	
                   </div>
                 </div>
-              </div>
-
-               <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
+                
                 <div class="box-new">
                   <div class="box-contenT">
                   <h4>Shipping Address</h4>
@@ -24,6 +22,48 @@
                   <% else %>
                     <%= render :partial => "shipping" %> 
                   <% end %>
+                  </div>
+                </div>
+              </div>
+
+              <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                <div class="box-new">
+                  <div class="box-order">
+                    <p style="font-size: 22px;" class="text-muted">
+                      Order Summary
+                    </p>
+                    <div class="table-responsive">
+                      <table class="table-bordered">
+                      <tr>
+                        <th>Image</th>
+                        <th>Item</th>
+                        <th>Qty</th>
+                        <th>Unit Price</th>
+                        <th>Full Price</th>
+                      </tr>
+                      <% for line_item in current_cart.line_items %>
+                      <tr>
+                        <td width="20%"><%= image_tag(line_item.product.images.present? ? (line_item.product.images.first.avatar.url) : "/assets/missing.png", height: "50px", width: "80px") %></td>
+                        <td width="40%"><%= line_item.product.name %></td>
+                        <td width="5%"><%= line_item.quantity %></td>
+                        <td width="15%">Rs. <%= line_item.unit_price %></td>
+                        <td width="20%">Rs. <%= line_item.full_price %></td>
+                      </tr>
+                      <% end %>
+                    </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="col-xs-12 col-sm-8 col-md-8 col-lg-8">
+                <div class="box-new">
+                  <div class="box-contenT">
+                    <p style="font-size: 22px;">
+                      Order Total:
+                    </p>
+                    Rs. <%= current_cart.total_price %>
+                    <br/>
                   </div>
                 </div>
               </div>
@@ -38,7 +78,9 @@
                     <br/>
                   </div>
                 </div>
-
+              </div>
+              
+              <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                 <div class="box-new">
                   <div class="box-contenT">
                     <p>

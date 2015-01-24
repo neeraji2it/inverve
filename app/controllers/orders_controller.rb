@@ -49,11 +49,11 @@ class OrdersController < ApplicationController
     @order = Order.find(params[:id])
     @order.update_attributes(:status => 'Pending')
     @product = Product.all
-    session[:cart_id] = nil
   end
 
   def confirm_myorder
    @order = Order.find(params[:id]) 
+   session[:cart_id] = nil
    if @order.status == "Cancelled"
       @is_calcel = true
     else

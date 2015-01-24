@@ -68,7 +68,8 @@ div#da-header #da-header-top #da-logo-img img {
   text-align: center;
   width: 50px;
 }
-
 /*homes show collapsible category link property*/
 .catLink {margin-top: -10px; margin-bottom: 10px;}
 .catLink a{color: #545454;}
+.box-order {margin: 15px 5px 15px 17px;}
+.btn-cart-clear {margin-left: 600px !important;}
