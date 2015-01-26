@@ -5,8 +5,8 @@
 <!-- Demo JavaScript Files -->
 <script type="text/javascript" src="/assets/admin/js/demo/demo.gallery.js"></script>
 
-<div class="grid_4">
-  <div class="da-panel collapsible">
+<div class="grid_2">
+  <div class="da-panel collapsible scrollable">
     <div class="da-panel-header">
       <span class="da-panel-title">
         <img src="/assets/admin/images/icons/black/16/list.png" alt="" />
@@ -28,7 +28,7 @@
           <tr>
             <td><%= @product.name.capitalize %></td>
             <td><%= @product.description.capitalize %></td>
-            <td><%= @product.price %></td>
+            <td><%= number_to_currency(@product.price, :unit => "Rs.") %></td>
             <td><%= @product.category.name.capitalize %></td>
             <td><%= @product.discount %></td>
           </tr>
@@ -37,6 +37,8 @@
     </div>
   </div>  
 </div>
+
+
 
 <div class="grid_4">
   <div class="da-panel">
