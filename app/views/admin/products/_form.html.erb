@@ -48,43 +48,13 @@
           </div>
         </div>
 
-        <div class="da-form-row">
-          <label>Select all color available for this product</label>
-          <% if(params[:controller] == "admin/products" && params[:action] == "new") %>
-            <div class="da-form-item large">
-              <% @colors = Color.all %>
-              <div style="height: 200px; overflow-y: scroll;">
-                <% @colors.each do |color| %>
-                  <div>
-                    <span style="display: none"><%= check_box_tag "colors[]", color.id, true %></span>
-                    <span><%= check_box_tag "color_ids[]", color.id %> </span>
-                    <span><%= color.name %></span>
-                  </div>
-                <% end %>
-              </div>
-            </div>
-          <% elsif(params[:controller] == "admin/products" && params[:action] == "edit") %>
-            <div class="da-form-item large">
-              <% @colors = @product.product_colors %>
-              <div style="height: 200px; overflow-y: scroll;">
-                <% @colors.each do |color| %>
-                  <div>
-                    <% if color.is_checked? %>
-                      <span><%= check_box_tag "color_ids[]", color.color.id, true %> </span>
-                    <% else %>
-                      <span><%= check_box_tag "color_ids[]", color.color.id %> </span>
-                    <% end %>
-                    <span><%= color.color.name %></span>
-                  </div>
-                <% end %>
-              </div>
-            </div>
-          <% end %>
-        </div>  
-
         <div style="margin-left: 25px; margin-bottom: 15px;">
+          <% @colors = Color.all %>
           <% f.fields_for :images do |image| %>
             <%= image.file_field :avatar %>
+            <div style="height: 200px; overflow-y: scroll;">
+               <%= image.select :color_id, options_for_select(@colors.map {|c| [c.name, c.id]}) %>
+            </div>
             <%= image.link_to_remove "Remove" %>
           <% end %>
 

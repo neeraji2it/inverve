@@ -1,3 +1,10 @@
+<!-- Photoswipe Plugin -->
+<script type="text/javascript" src="/assets/admin/plugins/photoswipe/lib/klass.min.js"></script>
+<script type="text/javascript" src="/assets/admin/plugins/photoswipe/js/code.photoswipe.jquery-3.0.4.min.js"></script>
+<link rel="stylesheet" href="/assets/admin/plugins/photoswipe/css/photoswipe.css" media="screen" />
+<!-- Demo JavaScript Files -->
+<script type="text/javascript" src="/assets/admin/js/demo/demo.gallery.js"></script>
+
 <div class="grid_4">
   <div class="da-panel collapsible">
     <div class="da-panel-header">
@@ -27,21 +34,52 @@
           </tr>
         </tbody>
       </table>
-
-      <% @product.images.in_groups_of(3).each do |image| %>
-        <% image.each do |img| %>
-          <% if img.try(:avatar).present? %>
-            <%= image_tag img.avatar.url(:small),:style=>"width:300px;height:300px;" %>
-            <%= link_to "destroy", delete_img_admin_product_path(img.id, :product_id => @product.id), :method => :delete, :data => {:confirm => "Are you sure to delete"} %>
-
-            <% if img.image_show == true%>
-              <%= link_to 'hide',image_show_admin_product_path(:id => @product.id, :image_id =>img, :image_show =>"false"), :method => "PUT" %>
-            <% else %>
-              <%= link_to 'show',image_show_admin_product_path(:id => @product.id, :image_id =>img,:image_show =>"true"), :method => "PUT" %>
-            <% end %>
-          <%end%>
-        <%end%>
-      <% end %>
     </div>
   </div>  
+</div>
+
+<div class="grid_4">
+  <div class="da-panel">
+    <div class="da-panel-header">
+      <span class="da-panel-title">
+        <img src="/assets/admin/images/icons/color/layout.png" alt="" />
+        <%= @product.name.titleize %> Image Gallery
+      </span>
+    </div>
+    <div class="da-panel-content with-padding">
+      <div class="da-gallery photoSwipe">
+        <ul>
+           <% @product.images.in_groups_of(3).each do |image| %>
+            <% image.each do |img| %>
+              <% if img.try(:avatar).present? %>
+          <li>
+            <a href="<%= img.avatar.url(:small) %>" class="touchTouch">
+              <img src="<%= img.avatar.url(:small) %>" alt="" width="300px" height="300px" />
+            </a>
+            <span class="da-gallery-hover" style="margin-bottom: 5px;">
+              <ul>
+                <%#*<li class="da-gallery-update" title="Hide"><a href="#">Hide</a></li>%>
+                
+                <%# if img.image_show == true%>
+                  <%#= link_to 'hide',image_show_admin_product_path(:id => @product.id, :image_id =>img, :image_show =>"false"), :method => "PUT" %>
+                <%# else %>
+                  <%#= link_to 'show',image_show_admin_product_path(:id => @product.id, :image_id =>img,:image_show =>"true"), :method => "PUT" %>
+                <%# end %>
+                
+                <li class="da-gallery-delete" title="Delete">
+                  <%= link_to "Delete", delete_img_admin_product_path(img.id, :product_id => @product.id), :method => :delete, :data => {:confirm => "Are you sure to delete"} %>
+                </li>
+              </ul>
+            </span>
+            <div style="font-weight: bold;">
+              <%= img.color.name %>
+            </div>
+          </li>
+          <% end %>
+          <% end %>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>

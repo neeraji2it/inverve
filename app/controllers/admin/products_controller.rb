@@ -1,7 +1,6 @@
 class Admin::ProductsController < ApplicationController
   helper_method :sort_column, :sort_direction
   before_filter :authenticate_admin!
-  before_action :load_colors, :only => [:edit]
   
   def new 
     @product = Product.new
@@ -13,20 +12,10 @@ class Admin::ProductsController < ApplicationController
   end
 
   def create
-    @colors = params[:colors]
     @product_colors = params[:color_ids]
     @product = Product.new(product_params.merge(:category_id => params[:product][:category_id]))
     if @product.save
-      @colors.each_with_index do |color, i|
-        @product_colors.each_with_index do |pc, j|
-          @pc = ProductColor.where(product_id: @product.id, color_id: color).first_or_initialize
-          @pc.save
-          if (i == j)
-            @pc.update_attributes(is_checked: true)
-          end
-        end
-      end
-      redirect_to admin_products_path, :notice =>"You have saved."
+      redirect_to admin_products_path, :notice =>"Product is saved successfully."
     else
       render 'new'
     end
@@ -45,18 +34,8 @@ class Admin::ProductsController < ApplicationController
   end
 
   def update
-    @colors = params[:color_ids]
     @product = Product.find(params[:id])
     if @product.update_attributes(product_params)
-      @p_colors = @product.product_colors
-      if @colors.present?
-        @p_colors.all.map {|c| c.update_attributes(is_checked: false)}
-        @colors.each_with_index do |color, i|
-          @pc = ProductColor.where(product_id: @product.id, color_id: color).first
-          @pc.is_checked = true
-          @pc.save
-        end 
-      end
       redirect_to admin_products_path
     else
       render action: 'edit'
@@ -96,19 +75,6 @@ class Admin::ProductsController < ApplicationController
     @product.update_attributes(:is_featured => params[:is_featured])
     redirect_to admin_products_path
   end
-  
-  def load_colors
-    @product = Product.find(params[:id])
-    @pcs = @product.product_colors
-    if @pcs.blank?
-      @colors = Color.all
-      @colors.each do |color|
-        @pc = ProductColor.where(product_id: @product.id, color_id: color.id).first_or_initialize
-          @pc.save
-      end
-    end
-  end
-
   
   private
  
