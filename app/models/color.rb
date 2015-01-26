@@ -1,4 +1,4 @@
 class Color < ActiveRecord::Base
   validates :name, :presence => true, :uniqueness => true
-  belongs_to :image
+  has_one :image
 end
