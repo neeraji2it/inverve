@@ -5,8 +5,9 @@
 <!-- Demo JavaScript Files -->
 <script type="text/javascript" src="/assets/admin/js/demo/demo.gallery.js"></script>
 
-<div class="grid_2">
-  <div class="da-panel collapsible scrollable">
+<div class="grid_4">
+  <%#*scrollable%>
+  <div class="da-panel collapsible">
     <div class="da-panel-header">
       <span class="da-panel-title">
         <img src="/assets/admin/images/icons/black/16/list.png" alt="" />
@@ -22,6 +23,7 @@
             <th>Price</th>
             <th>Category</th>
             <th>Discount</th>
+            <th>Color Option</th>
           </tr>
         </thead>
         <tbody>
@@ -31,6 +33,12 @@
             <td><%= number_to_currency(@product.price, :unit => "Rs.") %></td>
             <td><%= @product.category.name.capitalize %></td>
             <td><%= @product.discount %></td>
+            <td>
+              Total <%= @product.colors.count %> <br/> 
+              <% for color in @product.colors %>
+                <span style="background-color: #CCC;"><%= color.name %></span>
+              <% end %>
+            </td>
           </tr>
         </tbody>
       </table>
@@ -51,34 +59,34 @@
     <div class="da-panel-content with-padding">
       <div class="da-gallery photoSwipe">
         <ul>
-           <% @product.images.in_groups_of(3).each do |image| %>
+          <% @product.images.in_groups_of(3).each do |image| %>
             <% image.each do |img| %>
               <% if img.try(:avatar).present? %>
-          <li>
-            <a href="<%= img.avatar.url(:small) %>" class="touchTouch">
-              <img src="<%= img.avatar.url(:small) %>" alt="" width="300px" height="300px" />
-            </a>
-            <span class="da-gallery-hover" style="margin-bottom: 5px;">
-              <ul>
-                <%#*<li class="da-gallery-update" title="Hide"><a href="#">Hide</a></li>%>
-                
-                <%# if img.image_show == true%>
-                  <%#= link_to 'hide',image_show_admin_product_path(:id => @product.id, :image_id =>img, :image_show =>"false"), :method => "PUT" %>
-                <%# else %>
-                  <%#= link_to 'show',image_show_admin_product_path(:id => @product.id, :image_id =>img,:image_show =>"true"), :method => "PUT" %>
-                <%# end %>
-                
-                <li class="da-gallery-delete" title="Delete">
-                  <%= link_to "Delete", delete_img_admin_product_path(img.id, :product_id => @product.id), :method => :delete, :data => {:confirm => "Are you sure to delete"} %>
+                <li>
+                  <a href="<%= img.avatar.url(:small) %>" class="touchTouch">
+                    <img src="<%= img.avatar.url(:small) %>" alt="" width="300px" height="300px" />
+                  </a>
+                  <span class="da-gallery-hover" style="margin-bottom: 5px;">
+                    <ul>
+      <%#*<li class="da-gallery-update" title="Hide"><a href="#">Hide</a></li>%>
+
+      <%# if img.image_show == true%>
+      <%#= link_to 'hide',image_show_admin_product_path(:id => @product.id, :image_id =>img, :image_show =>"false"), :method => "PUT" %>
+      <%# else %>
+      <%#= link_to 'show',image_show_admin_product_path(:id => @product.id, :image_id =>img,:image_show =>"true"), :method => "PUT" %>
+      <%# end %>
+
+                      <li class="da-gallery-delete" title="Delete">
+                        <%= link_to "Delete", delete_img_admin_product_path(img.id, :product_id => @product.id), :method => :delete, :data => {:confirm => "Are you sure to delete"} %>
+                      </li>
+                    </ul>
+                  </span>
+                  <div style="font-weight: bold;">
+                    <%= img.color.name %>
+                  </div>
                 </li>
-              </ul>
-            </span>
-            <div style="font-weight: bold;">
-              <%= img.color.name %>
-            </div>
-          </li>
-          <% end %>
-          <% end %>
+              <% end %>
+            <% end %>
           <% end %>
         </ul>
       </div>
