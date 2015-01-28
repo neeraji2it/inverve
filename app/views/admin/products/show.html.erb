@@ -29,7 +29,7 @@
         </thead>
         <tbody>
           <tr>
-            <td><%= "#{@product.name.capitalize} (#{@product.color})" %></td>
+            <td><%= @product.name.capitalize %></td>
             <td><%= @product.description.capitalize %></td>
             <td><%= number_to_currency(@product.price, :unit => "Rs.") %></td>
             <td><%= @product.category.name.capitalize %></td>
@@ -78,9 +78,7 @@
                       </li>
                     </ul>
                   </span>
-                  <div style="font-weight: bold;">
-                    <%= img.color.name %>
-                  </div>
+                  
                 </li>
               <% end %>
             <% end %>
