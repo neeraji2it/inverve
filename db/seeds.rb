@@ -10,3 +10,5 @@
 # admin.save(:validate => false)
 #Admin.first.update_attributes(first_name: "Sara", last_name: "Fanning")
 #Pending, Confirmed, Delivered, Cancelled, Returned
+
+#later we need to remove all color + product_colors
