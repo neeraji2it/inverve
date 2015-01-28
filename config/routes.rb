@@ -1,4 +1,5 @@
 Furnitureapp::Application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   devise_for :admins
   devise_for :users, :controllers => {:sessions => "sessions"}
   namespace :admin do
@@ -8,6 +9,7 @@ Furnitureapp::Application.routes.draw do
         get :user_orders
       end
     end
+    resources :banners
     resources :products do
       member do
         delete :delete_img

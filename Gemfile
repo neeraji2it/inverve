@@ -60,7 +60,7 @@ end
 gem "font-awesome-rails"
 gem 'execjs'
 gem 'therubyracer'
-
+gem "ckeditor"
 gem 'less-rails'
 gem 'will_paginate', '~> 3.0'
 gem "paperclip"

@@ -1,0 +1,15 @@
+<table>
+  <tr class="row">
+    <td><%= f.label :image, "Banner Image:".html_safe %></td>
+    <td><%= f.file_field :image %></td>
+  </tr>
+  <tr class="row">
+    <td><%= f.label :image_description, "Image Description:".html_safe %></td>
+    <td><%= f.cktext_area :image_description, :cols => 33, :rows => 3 %></td>
+  </tr>
+  <tr class="row">
+    <td>
+      <div><%= f.submit %></div>
+    </td>
+  </tr>
+</table>

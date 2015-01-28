@@ -15,5 +15,6 @@
 //= require jquery.purr
 //= require jquery_nested_form
 //= require bxslider
+//= require ckeditor/init
 //= require best_in_place
 

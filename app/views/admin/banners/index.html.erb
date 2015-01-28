@@ -1,0 +1,20 @@
+<%= link_to "New Banner",  new_admin_banner_path  %>
+<h1>Banner Management</h1>
+
+<div class="row">
+	<td>ID</td>
+	<div class="column">Options</div>
+</div>
+<% @banner_images.each do |banner| %>
+<div class="row">
+	<div class="column"><%= banner.id %></div>
+	<div class="column"><%= image_tag banner.image %></div>
+	<div><%= banner.image_description.html_safe %></div>
+	<td><%= link_to 'Edit', edit_admin_banner_path(banner.id) %></td>
+	 <td><%= link_to 'Destroy', admin_banner_path(banner.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+</div>
+<% end %>
+</div>
+
+
+

@@ -1,0 +1,8 @@
+<h1 ><span>Edit Banner Image</span></h1>
+
+<div >
+<%= form_for @banner_image, :url => admin_banner_path(:id => @banner_image.id) do |f| %>
+	<%= render :partial => 'form', :locals => {:f => f} %>
+	<% end %>
+</div>
+

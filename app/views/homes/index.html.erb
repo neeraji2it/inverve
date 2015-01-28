@@ -25,8 +25,8 @@
 <p><a class="btn btn-newarrivals" href="#" title="New Arrivals">New Arrivals</a></p>
 </div>
 </div>
-</div> -->
-<!-- <div class="item">
+</div>
+<div class="item">
 <div class="box-homeimg"> <img src="/assets/images/banner-img.png" alt="Third slide" title=""> </div>
 <div class="container">
 <div class="box-homecontent clearfix">
@@ -153,17 +153,17 @@
             <% @featured.each do |product| %>
             <div class="box-bedsheeT">
               <div class="box-bedsheetimg">
-                <%= link_to image_tag(product.images.present? ? (product.images.first.avatar.url) : "/assets/missing.png"),single_product_home_path(product.id),:style=>"max-width:300px;max-height:230px;"%>
+                <%= link_to image_tag(product.images.present? ? (product.images.first.avatar.url) : "/assets/missing.png", :style => "width:475px;height:250px"), single_product_home_path(product.id)%>
               </div>
-              <div class="box-bedsheet clearfix">
-                <h5><%= product.name.capitalize %></h5>
-                <% if product.discount? %>
-                <h5><%= number_to_currency(product.price-(product.price*product.discount/100), :unit => "Rs.") %></h5>
-                <% else %>
-                <h5><%= number_to_currency(product.price, :unit => "Rs.") %></h5>
-                <%end %>
-                <%= link_to "Watch Now" ,single_product_home_path(product.id) ,:class => "btn btn", :style => "webkitAllowFullScreen mozallowfullscreen allowFullScreen;"%>
-              </div>
+               <div class="box-content">
+              <h3>Rs. <%= product.price %></h3>
+              <h4><%= product.name.capitalize %></h4>
+              <% if product.discount? %>
+                <span class="circleO">
+                  <%= product.discount%>%
+                </span>           
+              <% end %> 
+            </div>
             </div>
             <% end %>
           </div>
@@ -325,8 +325,8 @@
 <script type="text/javascript" charset="utf-8">
   $(function(){
     $('.bxslider').bxSlider({
-      auto: true,
-      slideWidth: 800,
+      auto: false,
+      slideWidth: 500,
       infiniteLoop: true,
       speed: 3000,
       pager: false,

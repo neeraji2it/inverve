@@ -55,7 +55,7 @@ class HomesController < ApplicationController
   def return_policy
 
   end
-  
+
   def search
     products = Product.search(params[:search])
     @products = products.paginate(:page => params[:page], :per_page => 25)
