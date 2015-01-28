@@ -18,7 +18,6 @@ class HomesController < ApplicationController
   end
 
   def offers
-
     @products = Product.where("discount != ''")
   end
 

@@ -7,7 +7,8 @@ class Admin::CategoriesController < ApplicationController
   def create
     @category = Category.new(category_params)
     if @category.save
-      redirect_to admin_categories_path, :notice => "you have saved."
+      flash[:notice] = "Category created successfully."
+      redirect_to admin_categories_path
     else 
       render action: 'new'
     end
@@ -17,17 +18,18 @@ class Admin::CategoriesController < ApplicationController
     @categories = Category.search(params[:search]).paginate(:page => params[:page], :per_page => 25).order("created_at DESC")
   end
 
-  def edit
-    @category = Category.find(params[:id])
-  end
-
   def show
     @products = Product.searching(params[:id], params[:search])
+  end
+
+  def edit
+    @category = Category.find(params[:id])
   end
 
   def update
     @category = Category.find(params[:id])
     if @category.update_attributes(category_params)
+      flash[:notice] = "Category updated successfully."
       redirect_to admin_categories_path
     else
       render action: 'edit'
@@ -43,8 +45,10 @@ class Admin::CategoriesController < ApplicationController
 
   def destroy
     @category = Category.find(params[:id])
-    @category.destroy
-    redirect_to admin_categories_path
+    if @category.destroy
+      flash[:notice] = "Category deleted successfully."     
+      redirect_to admin_categories_path
+    end
   end
 
   private

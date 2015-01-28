@@ -14,6 +14,7 @@ class Admin::ProductsController < ApplicationController
   def create
     @product = Product.new(product_params.merge(:category_id => params[:product][:category_id]))
     if @product.save
+      flash[:notice] = "Product created successfully." 
       redirect_to admin_products_path, :notice =>"Product is saved successfully."
     else
       render 'new'
@@ -35,6 +36,7 @@ class Admin::ProductsController < ApplicationController
   def update
     @product = Product.find(params[:id])
     if @product.update_attributes(product_params)
+      flash[:notice] = "Product updated successfully." 
       redirect_to admin_products_path
     else
       render action: 'edit'
@@ -43,14 +45,17 @@ class Admin::ProductsController < ApplicationController
 
   def destroy
   	@product = Product.find(params[:id])
-  	@product.destroy
-  	redirect_to admin_products_path
+    if	@product.destroy
+      flash[:notice] = "Product deleted successfully." 
+  	 redirect_to admin_products_path
+    end
   end
 
   def delete_img
     @product = Product.find(params[:product_id])
     @image = @product.images.find(params[:id])
     if @image.destroy
+      flash[:notice] = "Image is deleted successfully." 
       redirect_to admin_product_path(@product)
     end
   end
