@@ -30,7 +30,6 @@ class HomesController < ApplicationController
     @product = Product.find(params[:id])
     @images = @product.images
     @category = @product.category
-    @products = @category.products
     @similars = @category.products.where.not(id: @product.id)
   end
   

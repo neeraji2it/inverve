@@ -12,7 +12,6 @@ class Admin::ProductsController < ApplicationController
   end
 
   def create
-    @product_colors = params[:color_ids]
     @product = Product.new(product_params.merge(:category_id => params[:product][:category_id]))
     if @product.save
       redirect_to admin_products_path, :notice =>"Product is saved successfully."

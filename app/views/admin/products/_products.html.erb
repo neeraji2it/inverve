@@ -14,7 +14,7 @@
           <th>Description</th>
           <th>Price</th>
           <th>Discount</th>
-          <th>Released At</th>
+          <th>Total Qty</th>
           <th></th>
           <th>Featured</th>
         </tr>
@@ -22,12 +22,11 @@
       <tbody>
         <% @products.each do |product| %>
           <tr>
-            <td><%= product.name.capitalize %></td>
+            <td><%= "#{product.name.capitalize} (#{product.color})" %></td>
             <td><%= product.description.capitalize %></td>
             <td><%= product.price %></td>
             <td><%= number_to_percentage(product.discount) %></td>
-            <td><%= product.created_at.strftime("%B %e,%Y %Hh-%Ss") %></td>
-
+            <td><%= product.quantity %></td>
             <td class="da-icon-column">
               <%= link_to admin_product_path(product.id) do %>
                 <img src="/assets/admin/images/icons/color/magnifier.png" />

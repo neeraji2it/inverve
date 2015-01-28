@@ -20,16 +20,22 @@
               <h4><%= line_item.product.name %></h4>
               <div class="frow frow-color">
                 <div>Color:</div>
-                <div>Brown</div>
-              </div>
-              <div class="frow frow-color">
-                <div>Size:</div>
-                <div>12</div>
+                <div><%= line_item.product.color %></div>
               </div>
             </div>
+
             <div class="tcolumn">
+              <% quantities = [] %>
+                <% if(line_item.product.quantity > 0) %>
+                 <% (1..line_item.product.quantity).each do |qty| %>
+                  <% quantities << qty %>
+                 <% end %>
+               <% end %>
+
+            <%  @quantities = quantities %>
               <%= select_tag :quantity, options_for_select(@quantities, :selected => line_item.quantity), :onchange => "quantity_select(this.value, #{current_cart.id}, #{line_item.id})", :class => "form-control" %>
             </div>
+
             <div class="tcolumn">Rs. <%= line_item.unit_price %></div>
             <div class="tcolumn">Rs. <%= line_item.full_price %></div>
             <div class="tcolumn">
@@ -88,6 +94,5 @@
         cart: cart
       }
     });
-// $("#btn-save_"+ line_item).show();
 }
 </script>

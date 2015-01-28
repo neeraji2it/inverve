@@ -5,32 +5,42 @@
 
                   <div id="shipping_address">
                     <div class="form-group">
+                      First Name<br>
+                      <%= f.text_field :first_name1 , autofocus: true, class: "form-control", :id => "first_name"%>
+                    </div>
+
+                    <div class="form-group">
+                      Last Name<br>
+                      <%= f.text_field :last_name1 , class: "form-control", :id => "last_name"%>
+                    </div>
+
+                    <div class="form-group">
                       Address<br>
-                      <%= f.text_area :address1 , autofocus: true, class: "form-control", :id => "address1" %>
+                      <%= f.text_area :address1 , class: "form-control", :id => "address1" %>
                       </div>
 
                       <div class="form-group">
                         LandMark<br>
-                        <%= f.text_area :landmark1 , autofocus: true, class: "form-control", :id => "landmark1"%>
+                        <%= f.text_area :landmark1, class: "form-control", :id => "landmark1"%>
                         </div>
 
                         <div class="form-group">
                           Pincode<br>
-                          <%= f.text_field :pincode1 , autofocus: true, class: "form-control", :id => "pincode1"%>
+                          <%= f.text_field :pincode1, class: "form-control", :id => "pincode1"%>
                           </div>
 
                           <div class="form-group">
                             City<br>
-                            <%= f.text_field :city1 , autofocus: true, class: "form-control", :id => "city1"%>
+                            <%= f.text_field :city1, class: "form-control", :id => "city1"%>
                             </div>
 
                             <div class="form-group">
                               State<br>
-                              <%= f.text_field :state1 , autofocus: true, class: "form-control", :id => "state1"%>
+                              <%= f.text_field :state1, class: "form-control", :id => "state1"%>
                               </div>
 
                               <div class="form-group">
                                 Phone<br>
-                                <%= f.text_field :phone1 , autofocus: true, class: "form-control", :id => "phone1"%>
+                                <%= f.text_field :phone1, class: "form-control", :id => "phone1"%>
                                 </div>
                   </div>

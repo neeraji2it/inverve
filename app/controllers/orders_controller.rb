@@ -53,12 +53,13 @@ class OrdersController < ApplicationController
 
   def confirm_myorder
    @order = Order.find(params[:id]) 
-   session[:cart_id] = nil
+   decr_ordered_qty(@order.id)
    if @order.status == "Cancelled"
       @is_calcel = true
     else
       @is_calcel = false
     end
+    session[:cart_id] = nil
   end
   
   def cancel_order
@@ -79,6 +80,16 @@ class OrdersController < ApplicationController
     @user = User.new
   end
 
+  def decr_ordered_qty(order)
+    Order.find(order).cart.line_items.each do |li|
+      @qty = li.product.quantity
+      if ((@qty > 0 || @qty.present?) && (@qty >= li.quantity))
+        @qty1 = (@qty-li.quantity)
+        li.product.update_attributes(:quantity => @qty1)
+      end
+    end
+  end
+  
   private
   def set_order
     @order = Order.find(params[:id])

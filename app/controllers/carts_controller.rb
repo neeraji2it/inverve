@@ -7,12 +7,6 @@
   def index
     @cart = current_cart
     @products = current_cart.line_items
-    quantities = []
-    (1..10).each do |qty|
-      p qty
-      quantities << qty
-    end
-    @quantities = quantities
   end
 
   def destroy

@@ -8,7 +8,6 @@
               <img id="zoom_09" src="<%= @product.images.present? ? (@product.images.first.avatar.url(:small)) : "/assets/missing.png" %>" data-zoom-image="<%= @product.images.present? ? (@product.images.first.avatar.url(:small)) : "/assets/missing.png" %>" />
             </div>
 
-
             <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" id="gallery_09">
               <div class="row">
                 <div class="bxslider1" style="max-width:300px;max-height:230px;">
@@ -20,11 +19,9 @@
                     </div>
                   <% end %>
                 </div>
-
               </div>
             </div>
           </div>
-
 
           <div class="list_price col-xs-12 col-sm-6 col-md-6 col-lg-6">
             <div class="box-rightcategory">
@@ -33,7 +30,7 @@
               </div>
               <div class="box-producT">
                 <h4><%= @product.name.capitalize %></h4>
-                <p>Availability. <span class="instock">In Stock</span> <%= @product.quantity %> item(s)</p>
+                <p>Availability <span class="instock">In Stock</span> <%= (@product.quantity.blank? || @product.quantity == 0) ? (0) : (@product.quantity) %> item(s)</p>
                 <% if @product.discount? %>
                   <h2 style="text-decoration: line-through;">Rs. <%= @product.price %></h2>
                   <h5><%= @product.discount%>% Off </h5>
@@ -42,8 +39,9 @@
                   <% else %>
                     <h2>Rs. <%= @product.price %></h2>
                   <%end %>
+                  
+                  <h5>Color: <%= @product.color %> </h5>
                   <br/>
-
               </div>
               <div class="box-producT">
                 <div class="tab-description">
@@ -87,64 +85,18 @@
               <div class="box-producT">
                 <div class="box-select">
                   <div class="row">
-                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                      <h3>Size</h3>
-
-                      <div class="dropdown dropdown-select">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Single 180cm x 275cm<b class="arrow"></b></a>
-                        <ul class="dropdown-menu">
-                          <li><a href="#" title="Login">lorem</a></li>
-                          <li><a href="#" title="Join us">lorem</a></li>
-                          <li><a href="#" title="Post Jobs">lorem</a></li>
-                          <li><a href="#" title="Employer Tools">lorem</a></li>
-                          <li><a href="#" title="FAQ">lorem</a></li>
-                        </ul>
-                      </div>
-
-                      <!--<div class="list_select_text col-xs-2 col-sm-2 col-md-2 col-lg-2">Size:</div>
-                      <div class="list_select">
-                        <select  title="" class="col-xs-4 col-sm-4 col-md-4 col-lg-4" placeholder="">
-                          <option>Single 180cm x 275cm</option>
-                        </select>
-                      </div>-->
-                    </div>
-                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-                      <h3>Color</h3>
-
-                      <div class="dropdown dropdown-select">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Select color<b class="arrow"></b></a>
-                        <ul class="dropdown-menu">
-                          <li><a href="#" title="Login">lorem</a></li>
-                          <li><a href="#" title="Join us">lorem</a></li>
-                          <li><a href="#" title="Post Jobs">lorem</a></li>
-                          <li><a href="#" title="Employer Tools">lorem</a></li>
-                          <li><a href="#" title="FAQ">lorem</a></li>
-                        </ul>
-                      </div>
-                    </div>
-
-                    <!--         <form id='myform' method='POST' action='#'>
-                             <ul class="list-plus">
-                               <li><input alt="" title="" type="button" value="-" class='qtyminus' field='quantity'/></li>
-                               <li><input alt="" title="" type="text" value='0' name='quantity' class="input-firsttext qty"/></li>
-                               <li><input alt="" title="" type="button" value="+" class='qtyplus' field='quantity'/></li>
-                               <li><input alt="" title="Add to Cart" type="submit" value="Add to Cart" class="btn btn-shopnow btn-addto"/></li>
-                             </ul>
-                           </form> -->
-
+                  <% if(@product.quantity.blank? || @product.quantity == 0) %>
+                    No Items There In Stock.
+                  <% else %>
                     <%= link_to "Add to Cart", line_items_path(:product_id => @product.id), :method => :post ,:class => "btn btn-default"%>
-
+                  <% end %>
                   </div>
                 </div>
               </div>
-
-
-
             </div>
           </div>
         </div>
       </div>
-
 
       <h1><span>Similar Items</span></h1>
       <div class="bxslider" style="height: 300px;">          
@@ -166,7 +118,6 @@
         <% end %>
       </div>
       </article>
-
 
       <script type="text/javascript">
         jQuery(document).ready(function() {
@@ -199,7 +150,4 @@
             pager: false
           });
         });
-
       </script>
-
-

@@ -2,8 +2,7 @@ class Product < ActiveRecord::Base
    has_many :images, :dependent => :destroy
    has_many :line_items, :dependent => :destroy
    belongs_to :category
-   has_many :colors, -> {uniq}, through: :images
-   validates :name, :description, :price, :category_id, presence: true 
+   validates :name, :description, :price, :category_id, :color,  presence: true 
    validates :price, :numericality => {:only_float => true}
    accepts_nested_attributes_for :images, reject_if: :all_blank, :allow_destroy => true
    scope :featured, lambda {where("is_featured=?", true)}

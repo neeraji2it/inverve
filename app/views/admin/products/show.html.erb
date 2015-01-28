@@ -23,22 +23,19 @@
             <th>Price</th>
             <th>Category</th>
             <th>Discount</th>
-            <th>Color Option</th>
+            <th>Color</th>
+            <th>Total Qty</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td><%= @product.name.capitalize %></td>
+            <td><%= "#{@product.name.capitalize} (#{@product.color})" %></td>
             <td><%= @product.description.capitalize %></td>
             <td><%= number_to_currency(@product.price, :unit => "Rs.") %></td>
             <td><%= @product.category.name.capitalize %></td>
             <td><%= @product.discount %></td>
-            <td>
-              Total <%= @product.colors.count %> <br/> 
-              <% for color in @product.colors %>
-                <span style="background-color: #CCC;"><%= color.name %></span>
-              <% end %>
-            </td>
+            <td><%= @product.color %></td>
+            <td><%= @product.quantity %></td>
           </tr>
         </tbody>
       </table>

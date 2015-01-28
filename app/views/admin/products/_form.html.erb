@@ -49,19 +49,12 @@
         </div>
 
         <div style="margin-left: 25px; margin-bottom: 15px;">
-          <% @colors = Color.all %>
-          <% f.fields_for :images do |image| %>
-            
+          <% f.fields_for :images do |image| %>            
             <div class="da-form-row">
-              <%= image.file_field :avatar %>
-              <div class="da-form-item large" style="margin: 7px 0;">
-               <%= image.select :color_id, options_for_select(@colors.map {|c| [c.name, c.id]}) %>
-              </div>
+              <%= image.file_field :avatar %>              
               <%= image.link_to_remove "Remove" %>
-            </div>
-            
+            </div>            
           <% end %>
-
 
           <br/>
           <%= f.link_to_add "Add More Images", :images, :class =>"btn btn-primary" %>

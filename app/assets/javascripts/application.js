@@ -17,8 +17,8 @@
 //= require bxslider
 //= require best_in_place
 
-
-$(document).ready(function() {
+var $j = jQuery.noConflict(true);
+$j(document).ready(function() {
   /* Activating Best In Place */
-  jQuery(".best_in_place").best_in_place();
+  $j(".best_in_place").best_in_place();
 });
