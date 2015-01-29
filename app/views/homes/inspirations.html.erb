@@ -8,7 +8,7 @@
       <li>
         <h6><%= @advice.title.titleize %></h6>
         <p>
-           <%= image_tag @advice.avatar.url %>
+           <%= image_tag @advice.avatar.url(:thumb) %>
           <%= @advice.description.html_safe %>
         </p>
       </li>
