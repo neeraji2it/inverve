@@ -7,8 +7,9 @@
     <ul class="list-terms-content">
       <li>
         <h6><%= @advice.title.titleize %></h6>
+        <%= image_tag @advice.avatar.url(:thumb) %>
+        <br/><br/>
         <p>
-           <%= image_tag @advice.avatar.url(:thumb) %>
           <%= @advice.description.html_safe %>
         </p>
       </li>
