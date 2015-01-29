@@ -83,8 +83,12 @@
               <div class="col-xs-12 col-sm-4 col-md-4 col-lg-4">
                 <div class="box-new">
                   <div class="box-contenT">
+                    <%= form_for(@myproduct, :url => confirm_myorder_order_path(params[:id]), :method => "PUT") do |f| %>
+                      <%= f.submit "Confirm My Order" %>
+                    <% end %>
+                    
                     <p>
-                      <%= link_to "Confirm My Order", confirm_myorder_order_path, :class => "btn" %>
+                      <%#= link_to "Confirm My Order", confirm_myorder_order_path, :class => "btn" %>
                     </p>  
                     <br/>
                   </div>

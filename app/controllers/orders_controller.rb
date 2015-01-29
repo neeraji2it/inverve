@@ -46,6 +46,7 @@ class OrdersController < ApplicationController
   end
   
   def confirm
+    @myproduct = Product.new
     @order = Order.find(params[:id])
     @order.update_attributes(:status => 'Pending')
     @product = Product.all
@@ -54,18 +55,12 @@ class OrdersController < ApplicationController
   def confirm_myorder
    @order = Order.find(params[:id]) 
    decr_ordered_qty(@order.id)
-   if @order.status == "Cancelled"
-      @is_calcel = true
-    else
-      @is_calcel = false
-    end
-    session[:cart_id] = nil
+   session[:cart_id] = nil
+   redirect_to success_orders_path
   end
   
-  def cancel_order
-    @order = Order.find(params[:id])    
-    @order.update_attributes(:status => "Cancelled")
-    redirect_to homes_path
+  def success
+    
   end
 
   def myorder
