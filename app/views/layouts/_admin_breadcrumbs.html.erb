@@ -71,6 +71,13 @@
           <li class="<%= (params[:controller] == "admin/news_letters" && params[:action] == "index") ? 'active' : '' %>">
             <a href="/admin/news_letters">News Letter</a>
           </li>
+          <% elsif params[:controller] == "admin/banners" %>
+          <li>
+            <a href="/admin/dashboards"><img src="/assets/admin/images/icons/black/16/home.png" alt="Home" />Dashboard</a>
+          </li>
+          <li class="<%= (params[:controller] == "admin/banners" && params[:action] == "index" || params[:action] == "new" || params[:action == "edit"] || params[:action] == "show") ? 'active' : '' %>">
+            <a href="/admin/banners">Banners</a>
+          </li>
           <% elsif params[:controller] == "admin/advices" %>
           <li>
             <a href="/admin/dashboards"><img src="/assets/admin/images/icons/black/16/home.png" alt="Home" />Dashboard</a>
