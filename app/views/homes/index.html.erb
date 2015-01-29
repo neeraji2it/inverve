@@ -176,7 +176,7 @@
           <% @advices.each do |advice| %>
             <div class="box-bedsheeT">
               <div class="box-bedsheetimg">
-                <%= link_to image_tag(advice.avatar.present? ? (advice.avatar.url) : "/assets/missing.png", :style => "width:475px;height:250px")%>
+                <%= link_to image_tag(advice.avatar.present? ? (advice.avatar.url) : "/assets/missing.png", :style => "width:475px;height:250px"), inspirations_home_path(advice.id)%>
               </div>
               <div class="box-content">
                 <h5><%= advice.title.titleize %></h5>

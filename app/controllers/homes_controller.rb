@@ -77,6 +77,10 @@ class HomesController < ApplicationController
       format.js
     end
   end
+  
+  def inspirations
+    @advice = Advice.find(params[:id])
+  end
 
   private
   def product_params

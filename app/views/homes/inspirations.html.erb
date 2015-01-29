@@ -1,0 +1,17 @@
+<article>	
+  <div class="container">
+    <div class="heading-spacing">
+      <h1><span>Inspiration & Advices</span></h1>
+    </div>	
+    
+    <ul class="list-terms-content">
+      <li>
+        <h6><%= @advice.title.titleize %></h6>
+        <p>
+           <%= image_tag @advice.avatar.url %>
+          <%= @advice.description.html_safe %>
+        </p>
+      </li>
+    </ul>			
+  </div>		
+</article>
