@@ -1,20 +1,49 @@
-<%= link_to "New Banner",  new_admin_banner_path  %>
-<h1>Banner Management</h1>
 
-<div class="row">
-	<td>ID</td>
-	<div class="column">Options</div>
-</div>
-<% @banner_images.each do |banner| %>
-<div class="row">
-	<div class="column"><%= banner.id %></div>
-	<div class="column"><%= image_tag banner.image %></div>
-	<div><%= banner.image_description.html_safe %></div>
-	<td><%= link_to 'Edit', edit_admin_banner_path(banner.id) %></td>
-	 <td><%= link_to 'Destroy', admin_banner_path(banner.id), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-</div>
-<% end %>
-</div>
 
+<div class="da-panel collapsible">
+  <div class="da-panel-header">
+    <span class="da-panel-title">
+      <img src="/assets/admin/images/icons/black/16/list.png" alt="" />
+       Listing
+    </span>
+
+  </div>
+  <div class="da-panel-content">
+    <table id="da-ex-datatable-default" class="da-table">
+      <thead>
+        <tr>
+					<th>Banner Id</th>
+					<th>Description 1</th>
+					<th>Description 2</th>
+          <th></th>
+    
+        </tr>
+      </thead>
+      <tbody>
+   			<% @banner_images.each do |banner| %>	
+          <tr>
+				<td><%= banner.id %></td>
+				<td><%= banner.image_description.html_safe %></td>
+				<td><%= banner.smalldescription.try(:html_safe) %></td>
+            <td class="da-icon-column">
+              <%= link_to admin_banner_path(banner.id) do %>
+                <img src="/assets/admin/images/icons/color/magnifier.png" />
+              <% end %>
+
+              <%= link_to edit_admin_banner_path(banner.id) do %>  
+                <img src="/assets/admin/images/icons/color/pencil.png" />
+              <% end %>
+
+              <%= link_to admin_banner_path(banner.id), method: :delete, data: { confirm: 'Are you sure?' } do %>
+                <img src="/assets/admin/images/icons/color/cross.png" />
+              <% end %>
+            </td>
+
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>   
 
 

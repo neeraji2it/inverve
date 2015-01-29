@@ -59,6 +59,7 @@ Furnitureapp::Application.routes.draw do
       get :search
       get :new_news_letter
       post :post_news_letter
+      get :index_test
     end
     member do
       get :single_product

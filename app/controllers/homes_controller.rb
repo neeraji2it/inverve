@@ -3,6 +3,9 @@ class HomesController < ApplicationController
     @featured = Product.featured
     @advices = Advice.all
   end
+
+  def index_test
+  end
   
   def category
     @categories = Category.where("id = '#{params[:category_id]}'")

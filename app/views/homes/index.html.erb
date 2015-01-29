@@ -1,3 +1,32 @@
+
+            <div id="slider">
+              <div id="myCarddouselss" class="caroddusel slide clearfix" data-ride="carddousel">
+                <div class="carousel-innefr">
+                  <div class="bxslider1">
+                    <% @banner_images = Banner.all %>
+                    <% for image in @banner_images %>
+                    <div class="item active">
+                      <img title="" src="<%= image.image.url(:original) %>" width='1286' height="537"/>
+                      <div class="container">
+                        <div class="box-homecontent clearfix">
+                          <div class="content-banner">
+                            <h1><%= image.image_description.html_safe %></h1>
+                          </div>
+                          <div class="content-banner text-personalise"> <%= image.smalldescription.try(:html_safe)  %></div>
+                          <p style><a class="btn btn-newarrivals" href="#" title="Stay Tuned">Stay Tuned</a></p>
+                        </div>
+                      </div>
+                      <!--  </div> -->
+                    </div>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+              </div>
+
+
+<!-- 
+>>>>>>> banner is implemented
 <div id="slider">
   <div id="myCarouselss" class="carousel slide clearfix" data-ride="carousel">
     <div class="carousel-inner">
@@ -13,6 +42,7 @@
           </div>
         </div>
       </div>
+<<<<<<< HEAD
       <!-- <div class="item">
       <div class="box-homeimg"> <img src="/assets/images/banner-img.png" alt="Second slide" title=""> </div>
       <div class="container">
@@ -37,9 +67,7 @@
       </div>
       </div>
       </div> -->
-    </div>
-  </div>
-</div>
+    
 <article>
   <div class="box-whether">
     <div class="container">
@@ -96,6 +124,7 @@
                 <p>Bed linen offers</p>
                 <p>Loreum ispum is a dummy text</p>
               </div>
+
             </div>
             <div class="box-bath box-bath640"> <a href="#" title=""><img alt="" title="" src="/assets/images/img-bath.png"/></a>
               <div class="box-thirty">
@@ -105,6 +134,7 @@
               <div class="box-miss">
                 <p>Bath accessories offers</p>
                 <p>Loreum ispum is a dummy text</p>
+
               </div>
             </div>
           </div>
@@ -229,7 +259,8 @@
   </div>
 </article>
 <script type="text/javascript" charset="utf-8">
-  $(function() {
+
+  $(function(){
     $('.bxslider').bxSlider({
       auto: true,
       slideWidth: 308,
@@ -243,5 +274,19 @@
       responsive: true,
       adaptiveHeight: true
     });
+
+    $('.bxslider1').bxSlider({
+            auto: true,
+            // slideWidth: 308,
+            infiniteLoop: true,
+            speed: 4000,
+            pager: false,
+            autoHover: true,
+            minSlides: 1,
+            maxSlides: 12,
+            slideMargin: 20,
+            responsive: true,
+            adaptiveHeight: true
+          });
   });
 </script>
