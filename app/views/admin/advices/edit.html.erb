@@ -1,0 +1,18 @@
+<!-- Content Area -->
+<div id="da-content-area">
+  <div class="grid_2">
+    <div class="da-panel">
+      <div class="da-panel-header">
+        <span class="da-panel-title">
+          <img src="/assets/admin/images/icons/black/16/pencil.png" alt="" />
+          Edit Advice
+        </span>
+      </div>
+      <div class="da-panel-content">
+        <%= form_for([current_admin, @advice], :url => admin_advice_path(:id => @advice), :html => {:class => "da-form"}, :method => "PUT") do |f| %>
+          <%= render :partial => 'form', locals: {f: f} %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>

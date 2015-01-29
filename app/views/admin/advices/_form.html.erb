@@ -1,0 +1,38 @@
+<% if @advice.errors.any? %>
+  <div class="da-panel-content">
+    <div class="da-message warning">
+      <h2><%= pluralize(@advice.errors.count, "error") %> prohibited this advice from being saved:</h2>
+
+      <ul>
+        <% @advice.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>
+
+<div class="da-form-row">
+  <label><%= f.label :title %></label>
+  <div class="da-form-item large">
+    <%= f.text_field :title, autofocus: true, class: "form-control", placeholder:"Title for your Advice"%>
+    </div>
+  </div>
+
+<div class="da-form-row">
+  <label><%= f.label :description %></label>
+  <div class="da-form-item large">
+    <%= f.text_area :description, class: "form-control", placeholder:"Give your advice and inspirations"%>
+    </div>
+  </div>
+
+<div class="da-form-row">
+  <label><%= f.label :avatar %></label>
+  <div class="da-form-item large">
+    <%= f.file_field :avatar %>
+    </div>
+  </div>
+
+  <div class="da-button-row">
+    <%= f.submit class: "da-button blue left" %>
+    </div>

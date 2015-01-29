@@ -1,0 +1,12 @@
+<!-- Content Area -->
+<div id="da-content-area">
+  <div class="grid_4">
+    <%= link_to 'Add Advice', new_admin_advice_path, :class => "pull-right btn btn-info" %>
+    <br/>
+    <% unless @advices.empty? %>
+      <%= render :partial => "index" %>
+    <% else %>
+      <h4>No advices found.</h4>
+    <% end %>
+  </div>
+</div>
