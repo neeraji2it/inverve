@@ -2,6 +2,7 @@ class HomesController < ApplicationController
 	def index
     @featured = Product.featured
     @advices = Advice.all
+    @banner_images = Banner.all
   end
 
   def index_test
