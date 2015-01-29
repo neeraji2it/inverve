@@ -1,6 +1,7 @@
 class HomesController < ApplicationController
 	def index
     @featured = Product.featured
+    @advices = Advice.all
   end
   
   def category
