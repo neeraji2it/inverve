@@ -1,50 +1,12 @@
-
-
-<div class="da-panel collapsible">
-  <div class="da-panel-header">
-    <span class="da-panel-title">
-      <img src="/assets/admin/images/icons/black/16/list.png" alt="" />
-       Banner Listing
-       <%= link_to 'Add Banner', new_admin_banner_path, :class => "pull-right btn btn" %>
-    </span>
-
+<!-- Content Area -->
+<div id="da-content-area">
+  <div class="grid_4">
+    <%= link_to 'Add Banner', new_admin_banner_path, :class => "pull-right btn btn" %>
+    <br/><br/>
+    <% unless @banner_images.empty? %>
+      <%= render :partial => "index" %>
+    <% else %>
+      <h4>No banners found.</h4>
+    <% end %>
   </div>
-  <div class="da-panel-content">
-    <table id="da-ex-datatable-default" class="da-table">
-      <thead>
-        <tr>
-					<th>Banner Id</th>
-					<th>Description 1</th>
-					<th>Description 2</th>
-          <th></th>
-    
-        </tr>
-      </thead>
-      <tbody>
-   			<% @banner_images.each do |banner| %>	
-          <tr>
-				<td><%= banner.id %></td>
-				<td><%= banner.image_description.html_safe %></td>
-				<td><%= banner.smalldescription.try(:html_safe) %></td>
-            <td class="da-icon-column">
-              <%= link_to admin_banner_path(banner.id) do %>
-                <img src="/assets/admin/images/icons/color/magnifier.png" />
-              <% end %>
-
-              <%= link_to edit_admin_banner_path(banner.id) do %>  
-                <img src="/assets/admin/images/icons/color/pencil.png" />
-              <% end %>
-
-              <%= link_to admin_banner_path(banner.id), method: :delete, data: { confirm: 'Are you sure?' } do %>
-                <img src="/assets/admin/images/icons/color/cross.png" />
-              <% end %>
-            </td>
-
-          </tr>
-        <% end %>
-      </tbody>
-    </table>
-  </div>
-</div>   
-
-
+</div>

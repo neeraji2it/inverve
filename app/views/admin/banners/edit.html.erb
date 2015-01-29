@@ -1,8 +1,18 @@
-<h1 ><span>Edit Banner Image</span></h1>
-
-<div >
-<%= form_for @banner_image, :url => admin_banner_path(:id => @banner_image.id) do |f| %>
-	<%= render :partial => 'form', :locals => {:f => f} %>
-	<% end %>
-</div>
-
+<!-- Content Area -->
+<div id="da-content-area">
+  <div class="grid_2">
+    <div class="da-panel">
+      <div class="da-panel-header">
+        <span class="da-panel-title">
+          <img src="/assets/admin/images/icons/black/16/pencil.png" alt="" />
+          New Banner
+        </span>
+      </div>
+      <div class="da-panel-content">
+        <%= form_for(@banner_image, :url => admin_banner_path(:id => @banner_image.id), :html => {:class => "da-form"}) do |f| %>
+          <%= render :partial => 'form', :locals => {:f => f} %>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>

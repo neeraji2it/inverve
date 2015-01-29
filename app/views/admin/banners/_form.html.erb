@@ -1,19 +1,39 @@
-<table>
-  <tr class="row">
-    <td><%= f.label :image, "Banner Image:".html_safe %></td>
-    <td><%= f.file_field :image %></td>
-  </tr>
-  <tr class="row">
-    <td><%= f.label :image_description, "Image Description:".html_safe %></td>
-    <td><%= f.cktext_area :image_description, :cols => 33, :rows => 3 %></td>
-  </tr>
-  <tr class="row">
-  <td><%= f.label :small_description,"Image Description 2:".html_safe %></td>
-  <td><%= f.cktext_area :small_description, :cols => 33, :rows => 33, :rows => 3 %> </td>
-  </tr>
-  <tr class="row">
-    <td>
-      <div><%= f.submit %></div>
-    </td>
-  </tr>
-</table>
+<% if @banner_image.errors.any? %>
+  <div class="da-panel-content">
+    <div class="da-message warning">
+      <h2><%= pluralize(@banner_image.errors.count, "error") %> prohibited this advice from being saved:</h2>
+
+      <ul>
+        <% @banner_image.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>
+
+<div class="da-form-row">
+  <label><%= f.label :image %></label>
+  <div class="da-form-item large">
+    <%= f.file_field :image %>
+  </div>
+</div>
+
+
+<div class="da-form-row">
+  <label><%= f.label :image_description, "First Text".html_safe %></label>
+  <div class="da-form-item large">
+    <%= f.cktext_area :image_description, :cols => 33, :rows => 3 %>
+  </div>
+</div>
+
+<div class="da-form-row">
+  <label><%= f.label :small_description,"Second Text".html_safe %></label>
+  <div class="da-form-item large">
+    <%= f.cktext_area :small_description, :cols => 33, :rows => 33, :rows => 3 %>
+  </div>
+</div>
+
+<div class="da-button-row">
+  <%= f.submit class: "da-button blue left" %>
+</div>
