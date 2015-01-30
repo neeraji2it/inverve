@@ -15,7 +15,7 @@
 <div class="da-form-row">
   <label></label>
   <div class="da-form-item large">
-    <%= f.select(:category_id, Category.all.map {|c| [c.name, c.id]}, :prompt =>"Choose a Category") %>
+    <%= f.select(:sub_category_id, SubCategory.all.map {|c| [c.name, c.id]}, :prompt =>"Choose a SubCategory") %>
   </div>
 </div>
 

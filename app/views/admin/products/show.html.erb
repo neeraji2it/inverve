@@ -22,6 +22,7 @@
             <th>Description</th>
             <th>Price</th>
             <th>Category</th>
+            <th>Sub Category</th>
             <th>Discount</th>
             <th>Color / Style</th>
             <th>Total Qty</th>
@@ -32,7 +33,8 @@
             <td><%= @product.name.capitalize %></td>
             <td><%= @product.description.capitalize %></td>
             <td><%= number_to_currency(@product.price, :unit => "Rs.") %></td>
-            <td><%= @product.category.name.capitalize %></td>
+            <td><%= @product.sub_category.category.name.capitalize %></td>
+            <td><%= @product.sub_category.name.capitalize %></td>
             <td><%= @product.discount %></td>
             <td><%= @product.color %></td>
             <td><%= @product.quantity %></td>

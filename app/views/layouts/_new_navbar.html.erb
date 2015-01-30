@@ -1,35 +1,24 @@
 <ul class="main-navigation">
   <% Category.where("name is not null and category_show = #{true}").each do |cat| %>
+  <% @sub_categories = cat.sub_categories.limit(3) %>
+  
     <li class="menu-list">
       <%= link_to cat.name, home_path(cat), :title => "#{cat.name}" %>
-      <div style=" height:350px;">
-        <% @products1 = cat.products.limit(7) %>
-        <% @products2 = cat.products.limit(7).offset(7) %>
-        <% @products3 = cat.products.limit(7).offset(14) %>
-        <div class="nav-column" >
-          <ul>
-            <% @products1.each do |product| %>
-              <li ><%= link_to product.name.capitalize, single_product_home_path(product.id) %></li>
-            <% end %>
-          </ul>
-        </div>
 
-        <div class="nav-column">
-          <ul>
-            <% @products2.each do |product| %>
-              <li ><%= link_to product.name.capitalize, single_product_home_path(product.id) %></li>
-            <% end %>
-          </ul>
-        </div>
-
+      <div style="height:380px;">
+      <% @sub_categories.each do |cat1| %>                
         <div class="nav-column" >
-          <ul>
-            <% @products3.each do |product| %>
-              <li ><%= link_to product.name.capitalize, single_product_home_path(product.id) %></li>
-            <% end %>
-          </ul>
+        <ul>
+          <li><%= cat1.name %></li>
+          <% cat1.products.limit(10).each do |product| %>
+          <li>
+            <li ><%= link_to product.name.capitalize, single_product_home_path(product.id) %></li>
+          </li>
+          <% end %>
+        </ul>   
         </div>
-      </div>
+<% end %>         
+</div>
 
     </li>
   <% end %>

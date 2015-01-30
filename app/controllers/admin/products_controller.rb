@@ -12,7 +12,7 @@ class Admin::ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(product_params.merge(:category_id => params[:product][:category_id]))
+    @product = Product.new(product_params.merge(:sub_category_id => params[:product][:sub_category_id]))
     if @product.save
       flash[:notice] = "Product created successfully." 
       redirect_to admin_products_path, :notice =>"Product is saved successfully."
