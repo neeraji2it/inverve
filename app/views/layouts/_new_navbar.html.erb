@@ -3,13 +3,13 @@
   <% @sub_categories = cat.sub_categories.limit(3) %>
   
     <li class="menu-list">
-      <%= link_to cat.name, home_path(cat), :title => "#{cat.name}" %>
+      <%= link_to cat.name, "#" %>
 
       <div style="height:380px;">
       <% @sub_categories.each do |cat1| %>                
         <div class="nav-column" >
         <ul>
-          <li style="font-weight: bold;"><%= cat1.name %></li>
+          <li style="font-weight: bold;"><%= link_to cat1.name, home_path(cat1), :class=>"subcat", :title => "#{cat.name}" %></li>
           <% cat1.products.limit(10).each do |product| %>
           <li>
             <li ><%= link_to product.name.capitalize, single_product_home_path(product.id) %></li>

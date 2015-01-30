@@ -54,6 +54,7 @@
     padding: 2.5%;
   }
   .main-navigation .nav-column li{list-style-type: none;}
+
   .main-navigation .nav-column h3 {
     margin: 5px 0 10px 0;
     line-height: 18px;
@@ -73,7 +74,19 @@
     color: #666;
   }
 
-  .main-navigation .nav-column li a:hover { color: #68aa02; }
+  .main-navigation .nav-column li a.subcat {
+    display: block;
+    line-height: 26px;
+    font-family: Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 14px;
+    color: #3D4040;
+  }
+
+  .main-navigation .nav-column li a:hover { color: #F5F5F5; }
+  .main-navigation .nav-column li a.subcat:hover { color: #F5FAFA; background-color: #67DBAD; }
+
+
   @media screen and (min-width:320px ) and (max-width:768px){
     .main-navigation > .menu-list:hover > div {overflow:scroll;}
 
