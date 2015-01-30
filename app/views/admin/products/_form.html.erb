@@ -13,10 +13,16 @@
 <% end %>
 
 <div class="da-form-row">
-  <label></label>
+  <label>Choose Category</label>
   <div class="da-form-item large">
-    <%= f.select(:sub_category_id, SubCategory.all.map {|c| [c.name, c.id]}, :prompt =>"Choose a SubCategory") %>
+    <%= select_tag "category_id", options_for_select([["Select Category", ""]] + Category.all.map {|c| [c.name, c.id]}), :id => "category_id" %>
   </div>
+</div>
+
+<div class="load_subcats">
+  <% if @category.present? %>
+    <%= render :partial => "load_subcats" %>
+  <% end %>
 </div>
 
 <div class="da-form-row">
@@ -70,3 +76,17 @@
         <div class="da-button-row">
           <%= f.submit class: "da-button blue left" %>
           </div>
+
+          <script>
+            $(document).on("change", "#category_id", function() {
+              var category_id = $(this).val();
+              $.ajax({
+                url: "/admin/products/load_subcats",
+                dataType: "Script",
+                type: "GET",
+                data: {
+                  category_id: category_id
+                }
+              });
+            });
+          </script>

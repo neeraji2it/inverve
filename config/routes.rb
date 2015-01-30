@@ -16,6 +16,9 @@ Furnitureapp::Application.routes.draw do
         put :image_show
         get :flag
       end
+      collection do 
+        get :load_subcats
+      end
     end
     resources :categories do
       member do

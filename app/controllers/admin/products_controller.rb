@@ -79,6 +79,11 @@ class Admin::ProductsController < ApplicationController
     @product.update_attributes(:is_featured => params[:is_featured])
     redirect_to admin_products_path
   end
+
+  def load_subcats
+    @category = Category.find(params[:category_id])
+    @sub_categories = @category.sub_categories
+  end
   
   private
  

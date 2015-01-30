@@ -1,0 +1,6 @@
+<div class="da-form-row">
+  <label></label>
+  <div class="da-form-item large">
+    <%= select_tag :sub_category_id, options_for_select([["Select sub category"]] + @sub_categories.map {|c| [c.name, c.id]}) %>
+  </div>
+</div>
