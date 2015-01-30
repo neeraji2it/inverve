@@ -9,15 +9,15 @@ class HomesController < ApplicationController
   end
   
   def category
-    @categories = Category.where("id = '#{params[:category_id]}'")
+    @categories = SubCategory.where("id = '#{params[:category_id]}'")
     respond_to do |format|
       format.js
     end
   end
   
   def show
-    @category = Category.find(params[:id])
-    @categories = Category.all
+    @category = SubCategory.find(params[:id])
+    @categories = @category.category.sub_categories
     @products = @category.products.paginate(:page => params[:page], :per_page => 25)
     @featured = Product.featured
   end
@@ -33,7 +33,7 @@ class HomesController < ApplicationController
   def single_product
     @product = Product.find(params[:id])
     @images = @product.images
-    @category = @product.category
+    @category = @product.sub_category
     @similars = @category.products.where.not(id: @product.id)
   end
   
@@ -64,7 +64,7 @@ class HomesController < ApplicationController
   def search
     products = Product.search(params[:search])
     @products = products.paginate(:page => params[:page], :per_page => 25)
-    @categories = Category.all
+    @categories = SubCategory.all
     @featured = Product.featured
   end
   
