@@ -67,11 +67,10 @@
   .main-navigation .nav-column li a {
     display: block;
     line-height: 26px;
-
     font-family: Helvetica, Arial, sans-serif;
-    font-weight: bold;
-    font-size: 13px;
-    color: #000;
+    font-weight: normal;
+    font-size: 11px;
+    color: #666;
   }
 
   .main-navigation .nav-column li a:hover { color: #68aa02; }

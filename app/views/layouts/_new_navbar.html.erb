@@ -9,7 +9,7 @@
       <% @sub_categories.each do |cat1| %>                
         <div class="nav-column" >
         <ul>
-          <li><%= cat1.name %></li>
+          <li style="font-weight: bold;"><%= cat1.name %></li>
           <% cat1.products.limit(10).each do |product| %>
           <li>
             <li ><%= link_to product.name.capitalize, single_product_home_path(product.id) %></li>
