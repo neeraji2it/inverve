@@ -1,0 +1,31 @@
+<% if @sub_category.errors.any? %>
+  <div class="da-panel-content">
+    <div class="da-message warning">
+      <h2><%= pluralize(@sub_category.errors.count, "error") %> prohibited this sub category from being saved:</h2>
+
+      <ul>
+        <% @sub_category.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>
+
+<div class="da-form-row">
+  <label></label>
+  <div class="da-form-item large">
+    <%= f.select(:category_id, Category.all.map {|c| [c.name, c.id]}, :prompt =>"Choose a Category") %>
+  </div>
+</div>
+
+<div class="da-form-row">
+  <label><%= f.label :name %></label>
+  <div class="da-form-item large">
+    <%= f.text_field :name, class: "form-control", placeholder:"Title for your Advice"%>
+    </div>
+  </div>
+
+  <div class="da-button-row">
+    <%= f.submit class: "da-button blue left" %>
+    </div>

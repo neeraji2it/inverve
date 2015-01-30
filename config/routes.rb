@@ -21,6 +21,7 @@ Furnitureapp::Application.routes.draw do
       member do
         get :category_show
       end
+      resources :sub_categories
     end
     resources :dashboards do
       collection do 

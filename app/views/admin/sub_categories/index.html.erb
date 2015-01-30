@@ -1,0 +1,12 @@
+<!-- Content Area -->
+<div id="da-content-area">
+  <div class="grid_4">
+    <%= link_to 'Add SubCategory', new_admin_category_sub_category_path(params[:category_id]), :class => "pull-right btn btn-info" %>
+    <br/>
+    <% unless @sub_categories.blank? %>
+      <%= render :partial => "index" %>
+    <% else %>
+      <h4>No sub category found.</h4>
+    <% end %>
+  </div>
+</div>

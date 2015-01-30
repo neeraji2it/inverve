@@ -1,0 +1,36 @@
+  <div class="da-panel collapsible">
+    <div class="da-panel-header">
+      <span class="da-panel-title">
+        <img src="/assets/admin/images/icons/black/16/list.png" alt="" />
+        Sub Category Listing
+      </span>
+    </div>
+    <div class="da-panel-content">
+      <table id="da-ex-datatable-default" class="da-table">
+        <thead>
+          <tr>
+            <th>Sub Category Name</th>
+            <th>Category Name</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @sub_categories.each do |sub_category| %>
+            <tr>
+              <td><%= sub_category.name.capitalize %></td>
+              <td><%= sub_category.category.name.capitalize %></td>
+              <td class="da-icon-column">
+                <%= link_to edit_admin_category_sub_category_path(params[:category_id], sub_category.id) do %>  
+                  <img src="/assets/admin/images/icons/color/pencil.png" />
+                <% end %>
+
+                <%= link_to admin_category_sub_category_path(params[:category_id], sub_category.id), method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <img src="/assets/admin/images/icons/color/cross.png" />
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>  

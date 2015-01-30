@@ -1,0 +1,18 @@
+<!-- Content Area -->
+<div id="da-content-area">
+  <div class="grid_2">
+    <div class="da-panel">
+      <div class="da-panel-header">
+        <span class="da-panel-title">
+          <img src="/assets/admin/images/icons/black/16/pencil.png" alt="" />
+          Edit Sub Category
+        </span>
+      </div>
+      <div class="da-panel-content">
+        <%= form_for([current_admin, @sub_category], :url => admin_category_sub_category_path(params[:category_id], @sub_category.id), :html => {:class => "da-form"}, :method => "PUT") do |f| %>
+          <%= render :partial => 'form', locals: {f: f} %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>

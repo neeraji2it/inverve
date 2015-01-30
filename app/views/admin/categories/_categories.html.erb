@@ -11,8 +11,9 @@
         <thead>
           <tr>
             <th>Name</th>
-            <th></th>
-            <th></th>
+            <th>Action</th>
+            <th>Status</th>
+            <th>Sub Category</th>
           </tr>
         </thead>
         <tbody>
@@ -38,6 +39,9 @@
                 <% else %>
                   <%= link_to 'Display',category_show_admin_category_path(:id => categorie, :category_show => "true"),data: {confirm: 'You Want To Display In Home Page'}%>
                 <% end %>
+              </td>
+              <td>
+                <%= link_to "View", admin_category_sub_categories_path(categorie.id) %>
               </td>
             </tr>
           <% end %>
