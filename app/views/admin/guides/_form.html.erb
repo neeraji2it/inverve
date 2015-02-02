@@ -1,0 +1,38 @@
+<% if @guide.errors.any? %>
+  <div class="da-panel-content">
+    <div class="da-message warning">
+      <h2><%= pluralize(@guide.errors.count, "error") %> prohibited this buying guide from being saved:</h2>
+
+      <ul>
+        <% @guide.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+<% end %>
+
+<div class="da-form-row">
+  <label><%= f.label :title %></label>
+  <div class="da-form-item large">
+    <%= f.text_field :title, autofocus: true, class: "form-control", placeholder:"Title for Buying Guideline"%>
+    </div>
+  </div>
+
+<div class="da-form-row">
+  <label><%= f.label :description %></label>
+  <div class="da-form-item large">
+    <%= f.text_area :description, class: "form-control ckeditor", placeholder: "Add description here"%>
+    </div>
+  </div>
+
+<div class="da-form-row">
+  <label><%= f.label :image %></label>
+  <div class="da-form-item large">
+    <%= f.file_field :image %>
+    </div>
+  </div>
+
+  <div class="da-button-row">
+    <%= f.submit class: "da-button blue left" %>
+  </div>

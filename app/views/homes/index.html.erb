@@ -4,19 +4,19 @@
       <div class="carousel-innefr">
         <div class="bxslider1">
           <% for image in @banner_images %>
-          <div class="item active">
-            <img title="" src="<%= image.image.url(:original) %>" width='1286' height="537"/>
-            <div class="container">
-              <div class="box-homecontent clearfix">
-                <div class="content-banner">
-                  <h1><%= image.image_description.html_safe %></h1>
+            <div class="item active">
+              <img title="" src="<%= image.image.url(:original) %>" width='1286' height="537"/>
+              <div class="container">
+                <div class="box-homecontent clearfix">
+                  <div class="content-banner">
+                    <h1><%= image.image_description.html_safe %></h1>
+                  </div>
+                  <div class="content-banner text-personalise"> <%= image.small_description.try(:html_safe)  %></div>
+                  <p style><a class="btn btn-newarrivals" href="#" title="Stay Tuned">Stay Tuned</a></p>
                 </div>
-                <div class="content-banner text-personalise"> <%= image.small_description.try(:html_safe)  %></div>
-                <p style><a class="btn btn-newarrivals" href="#" title="Stay Tuned">Stay Tuned</a></p>
               </div>
+              <!--  </div> -->
             </div>
-            <!--  </div> -->
-          </div>
           <% end %>
 
         </div>
@@ -24,7 +24,7 @@
     </div>
   </div>
 <% end%>
-    
+
 <article>
   <div class="box-whether">
     <div class="container">
@@ -155,8 +155,8 @@
         </div>
       </div>
     <% end %>
-    
-      <% if @advices.present? %>
+
+    <% if @advices.present? %>
       <div class="box-featured">
         <h1><span>Inspiration & Advices</span></h1>
         <div class="bxslider">
@@ -174,28 +174,33 @@
         </div>
       </div>
     <% end %>
-    
-    <div class="box-featured">
-      <h1><span>Buying Guides</span></h1>
-      <div class="box-bedlinen">
-        <div class="row">
-          <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-            <div class="buying-leftColumn">
-              <h6>Bedlinen Buying Guide</h6>
-              <p>
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry.
-              </p>
-              <a href="#" title="Shop Best Linen" class="shop">Shop Best Linen</a> </div>
-          </div>
-          <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 img-buying">
-            <img src="/assets/images/img-buying.png" alt="" title=""/>
-          </div>
+
+    <% if @guides.present? %>
+
+      <div class="box-featured">
+        <h1><span>Buying Guides</span></h1>
+        <div class="bxslider2">
+          <% @guides.each do |guide| %>
+            <div class="box-bedlinen">
+              <div class="row">
+                <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                  <div class="buying-leftColumn">
+                    <h6><%= guide.title %></h6>
+                    <p>
+                      <%= guide.description.html_safe %>
+                    </p>
+                  </div>
+                </div>
+                <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 img-buying">
+                  <%= image_tag guide.image.url(:thumb) %>
+                </div>
+              </div>
+            </div>
+          <% end %>
         </div>
-      </div>
-    </div>
-    
+      </div> 
+    <% end %>
+
     <div class="box-featured box-features">
       <h1><span>Amazing Features</span></h1>
       <div class="row">
@@ -217,7 +222,7 @@
 </article>
 <script type="text/javascript" charset="utf-8">
 
-  $(function(){
+  $(function() {
     $('.bxslider').bxSlider({
       auto: true,
       slideWidth: 308,
@@ -233,17 +238,30 @@
     });
 
     $('.bxslider1').bxSlider({
-            auto: true,
-            // slideWidth: 308,
-            infiniteLoop: true,
-            speed: 4000,
-            pager: false,
-            autoHover: true,
-            minSlides: 1,
-            maxSlides: 12,
-            slideMargin: 20,
-            responsive: true,
-            adaptiveHeight: true
-          });
+      auto: true,
+      // slideWidth: 308,
+      infiniteLoop: true,
+      speed: 4000,
+      pager: false,
+      autoHover: true,
+      minSlides: 1,
+      maxSlides: 12,
+      slideMargin: 20,
+      responsive: true,
+      adaptiveHeight: true
+    });
+
+    $('.bxslider2').bxSlider({
+      auto: false,
+      infiniteLoop: true,
+      speed: 4000,
+      pager: false,
+      autoHover: true,
+      minSlides: 1,
+      maxSlides: 12,
+      slideMargin: 20,
+      responsive: true,
+      adaptiveHeight: true
+    });
   });
 </script>

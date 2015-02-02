@@ -43,6 +43,7 @@ Furnitureapp::Application.routes.draw do
     end
     resources :stocks
     resources :advices
+    resources :guides
   end
   resources :welcome 
   resources :profiles do

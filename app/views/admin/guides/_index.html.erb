@@ -1,0 +1,38 @@
+  <div class="da-panel collapsible">
+    <div class="da-panel-header">
+      <span class="da-panel-title">
+        <img src="/assets/admin/images/icons/black/16/list.png" alt="" />
+        Buying Guideline Listing
+      </span>
+    </div>
+    <div class="da-panel-content">
+      <table id="da-ex-datatable-default" class="da-table">
+        <thead>
+          <tr>
+            <th>Title</th>
+            <th>Image</th>
+            <th>Description</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @guides.each do |advice| %>
+            <tr>
+              <td><%= advice.title.capitalize %></td>
+              <td><%= image_tag advice.image.url(:small) %></td>
+              <td><%= advice.description.html_safe %></td>
+              <td class="da-icon-column">
+                <%= link_to edit_admin_guide_path(advice.id) do %>  
+                  <img src="/assets/admin/images/icons/color/pencil.png" />
+                <% end %>
+
+                <%= link_to admin_guide_path(advice.id), method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <img src="/assets/admin/images/icons/color/cross.png" />
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>  
