@@ -5,6 +5,7 @@
     <br/>
     <% unless @guides.empty? %>
       <%= render :partial => "index" %>
+      <%= will_paginate @categories %>
     <% else %>
       <h4>No buying guidelines found.</h4>
     <% end %>

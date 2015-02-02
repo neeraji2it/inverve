@@ -1,7 +1,7 @@
 class Admin::GuidesController < ApplicationController
   before_filter :authenticate_admin!
   def index
-    @guides = BuyingGuide.all
+    @guides = BuyingGuide.all.paginate(:page => params[:page], :per_page => 20)
   end
   
   def new
