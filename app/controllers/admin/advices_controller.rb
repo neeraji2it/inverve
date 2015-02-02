@@ -1,7 +1,7 @@
 class Admin::AdvicesController < ApplicationController
   before_filter :authenticate_admin!
   def index
-    @advices = Advice.all
+    @advices = Advice.paginate(:page => params[:page], :per_page => 20)
   end
   
   def new

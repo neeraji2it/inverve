@@ -18,32 +18,31 @@
         </thead>
         <tbody>
           <% @categories.each do |categorie| %>
-            <tr>
-              <td><%= categorie.name.capitalize %></td>
-              <td class="da-icon-column">
-                <%= link_to admin_category_path(categorie.id) do %>
-                  <img src="/assets/admin/images/icons/color/magnifier.png" />
-                <% end %>
+          <tr>
+            <td><%= categorie.name.capitalize %></td>
+            <td class="da-icon-column">s
 
-                <%= link_to edit_admin_category_path(categorie.id) do %>  
-                  <img src="/assets/admin/images/icons/color/pencil.png" />
-                <% end %>
+              <%= link_to edit_admin_category_path(categorie.id) do %>  
+              <img src="/assets/admin/images/icons/color/pencil.png" />
+              <% end %>
 
-                <%= link_to admin_category_path(categorie.id), method: :delete, data: { confirm: 'Are you sure?' } do %>
-                  <img src="/assets/admin/images/icons/color/cross.png" />
-                <% end %>
-              </td>
-              <td class="da-icon-column">
-                <% if categorie.category_show == true %>
-                  <%= link_to 'Hide',category_show_admin_category_path(:id => categorie, :category_show => "false"),data: {confirm: 'You Dont Want To Display In Home Page'} %>
-                <% else %>
-                  <%= link_to 'Display',category_show_admin_category_path(:id => categorie, :category_show => "true"),data: {confirm: 'You Want To Display In Home Page'}%>
-                <% end %>
-              </td>
-              <td>
-                <%= link_to "View", admin_category_sub_categories_path(categorie.id) %>
-              </td>
-            </tr>
+              <%= link_to admin_category_path(categorie.id), method: :delete, data: { confirm: 'Are you sure?' } do %>
+              <img src="/assets/admin/images/icons/color/cross.png" />
+              <% end %>
+            </td>
+            <td class="da-icon-column">
+              <% if categorie.category_show == true %>
+              <%= link_to 'Hide',category_show_admin_category_path(:id => categorie, :category_show => "false"),data: {confirm: 'You Dont Want To Display In Home Page'} %>
+              <% else %>
+              <%= link_to 'Display',category_show_admin_category_path(:id => categorie, :category_show => "true"),data: {confirm: 'You Want To Display In Home Page'}%>
+              <% end %>
+            </td>
+            <td>
+              <%= link_to admin_category_sub_categories_path(categorie.id) do %>
+              <img src="/assets/admin/images/icons/color/magnifier.png" />
+              <% end %>
+            </td>
+          </tr>
           <% end %>
         </tbody>
       </table>

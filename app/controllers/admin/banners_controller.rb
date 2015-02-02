@@ -1,7 +1,7 @@
 class Admin::BannersController < ApplicationController
  before_filter :authenticate_admin!
  def index
-  @banner_images = Banner.all
+  @banner_images = Banner.paginate(:page => params[:page], :per_page => 20)
 end
 
 def new

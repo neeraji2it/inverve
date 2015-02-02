@@ -15,7 +15,7 @@ class Admin::CategoriesController < ApplicationController
   end
 
   def index
-    @categories = Category.search(params[:search]).paginate(:page => params[:page], :per_page => 25).order("created_at DESC")
+    @categories = Category.search(params[:search]).paginate(:page => params[:page], :per_page => 20).order("created_at DESC")
   end
 
   def show
@@ -36,11 +36,11 @@ class Admin::CategoriesController < ApplicationController
     end
   end
 
-  def category_show
-    @category = Category.find(params[:id])
-    @category.update_attribute(:category_show, params[:category_show])
-    redirect_to admin_categories_path
-	end
+ #  def category_show
+ #    @category = Category.find(params[:id])
+ #    @category.update_attribute(:category_show, params[:category_show])
+ #    redirect_to admin_categories_path
+	# end
 	
 
   def destroy

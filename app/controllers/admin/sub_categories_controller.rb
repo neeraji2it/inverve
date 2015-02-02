@@ -2,7 +2,7 @@ class Admin::SubCategoriesController < ApplicationController
 	before_filter :authenticate_admin!
 
 	def index
-		@sub_categories = SubCategory.all
+		@sub_categories = SubCategory.paginate(:page => params[:page], :per_page => 20).order("created_at DESC")
 	end
 
 	def new

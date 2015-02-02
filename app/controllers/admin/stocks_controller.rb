@@ -2,7 +2,7 @@ class Admin::StocksController < ApplicationController
   before_filter :authenticate_admin!
 
   def index
-    @products = Product.all
+    @products = Product.paginate(:page => params[:page], :per_page => 20)
   end
 
   def edit

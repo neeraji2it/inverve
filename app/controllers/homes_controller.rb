@@ -18,7 +18,7 @@ class HomesController < ApplicationController
   def show
     @category = SubCategory.find(params[:id])
     @categories = @category.category.sub_categories
-    @products = @category.products.paginate(:page => params[:page], :per_page => 25)
+    @products = @category.products.paginate(:page => params[:page], :per_page => 20)
     @featured = Product.featured
   end
 

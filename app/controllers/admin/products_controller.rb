@@ -26,7 +26,7 @@ class Admin::ProductsController < ApplicationController
   end
 
   def index
-    @products = Product.search(params[:search]).paginate(:page => params[:page], :per_page => 25).order("created_at DESC ")
+    @products = Product.search(params[:search]).paginate(:page => params[:page], :per_page => 20).order("created_at DESC ")
   end
 
   def edit
@@ -61,7 +61,7 @@ class Admin::ProductsController < ApplicationController
   end
   
   def image_show
-    @product = Product.find(params[:id])
+    @product = Product.find(params[:id]).paginate(:page => params[:page], :per_page => 2)
     @image = @product.images.find(params[:image_id])
     @image.update_attributes(:image_show => params[:image_show])
     redirect_to admin_product_path(@product)

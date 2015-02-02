@@ -124,7 +124,8 @@
             <div class="box-pagination">
               <span>Items <%= @products.count%> total</span>
             </div>
-            <%= will_paginate(@products) %>
+            <%= will_paginate @products, renderer: BootstrapPagination::Rails %>
+          
           </div>
         </div>
         <% else %>
