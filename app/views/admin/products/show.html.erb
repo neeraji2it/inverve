@@ -31,7 +31,7 @@
         <tbody>
           <tr>
             <td><%= @product.name.capitalize %></td>
-            <td><%= @product.description.capitalize %></td>
+            <td><%= @product.description.html_safe %></td>
             <td><%= number_to_currency(@product.price, :unit => "Rs.") %></td>
             <td><%= @product.sub_category.category.name.capitalize %></td>
             <td><%= @product.sub_category.name.capitalize %></td>

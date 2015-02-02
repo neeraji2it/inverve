@@ -23,7 +23,7 @@
         <% @products.each do |product| %>
           <tr>
             <td><%= product.name.capitalize %></td>
-            <td><%= product.description.capitalize %></td>
+            <td><%= product.description.truncate(100).html_safe %></td>
             <td><%= product.price %></td>
             <td><%= number_to_percentage(product.discount) %></td>
             <td><%= product.quantity %></td>
