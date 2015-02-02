@@ -1,2 +1,81 @@
+<script type="text/javascript" src="/assets/admin/plugins/photoswipe/lib/klass.min.js"></script>
+<script type="text/javascript" src="/assets/admin/plugins/photoswipe/js/code.photoswipe.jquery-3.0.4.min.js"></script>
+<link rel="stylesheet" href="/assets/admin/plugins/photoswipe/css/photoswipe.css" media="screen" />
+<!-- Demo JavaScript Files -->
+<script type="text/javascript" src="/assets/admin/js/demo/demo.gallery.js"></script>
 
-Remaining
+<div class="grid_4">
+	<%#*scrollable%>
+	<div class="da-panel collapsible">
+		<div class="da-panel-header">
+			<span class="da-panel-title">
+				<img src="/assets/admin/images/icons/black/16/list.png" alt="" />
+				Banner Listing
+			</span>
+		</div>
+		<div class="da-panel-content">
+			<table id="da-ex-datatable-default" class="da-table">
+				<thead>
+					<tr>
+
+						<th>Banner Id</th>
+						<th>Description 1</th>
+						<th>Description 2</th>
+					</tr>
+				</thead>
+				<tbody>
+
+					<tr>
+						<td><%= @banner_image.id %></td>
+						<td><%= @banner_image.image_description.html_safe %></td>
+						<td><%= @banner_image.small_description.try(:html_safe) %></td>
+						
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>  
+</div>
+
+<div class="grid_4">
+  <div class="da-panel">
+    <div class="da-panel-header">
+      <span class="da-panel-title">
+        <img src="/assets/admin/images/icons/color/layout.png" alt="" />
+        <%= @banner_image.id%> Image Gallery
+      </span>
+    </div>
+    <div class="da-panel-content with-padding">
+      <div class="da-gallery photoSwipe">
+        <ul>
+          
+           
+           
+
+                 <%= image_tag @banner_image.image.url %>
+                  </a>
+                  <span class="da-gallery-hover" style="margin-bottom: 5px;">
+                    <ul>
+      <%#*<li class="da-gallery-update" title="Hide"><a href="#">Hide</a></li>%>
+
+      <%# if img.image_show == true%>
+      <%#= link_to 'hide',image_show_admin_product_path(:id => @product.id, :image_id =>img, :image_show =>"false"), :method => "PUT" %>
+      <%# else %>
+      <%#= link_to 'show',image_show_admin_product_path(:id => @product.id, :image_id =>img,:image_show =>"true"), :method => "PUT" %>
+      <%# end %>
+
+
+                    </ul>
+                  </span>
+                  
+                </li>
+              
+
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+

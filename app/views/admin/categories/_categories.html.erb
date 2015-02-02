@@ -20,7 +20,7 @@
           <% @categories.each do |categorie| %>
           <tr>
             <td><%= categorie.name.capitalize %></td>
-            <td class="da-icon-column">s
+            <td class="da-icon-column">
 
               <%= link_to edit_admin_category_path(categorie.id) do %>  
               <img src="/assets/admin/images/icons/color/pencil.png" />

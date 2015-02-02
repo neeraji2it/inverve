@@ -9,6 +9,7 @@ def new
 end
 
 def show
+   @banner_image = Banner.find(params[:id])
 end
 
 def create
