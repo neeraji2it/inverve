@@ -107,24 +107,37 @@
                       <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
                       <h6><%= product.name.capitalize %></h6>
                       <div class="modal-body">
+                      <div class="col-sm-4 ">
                         <div class="product-img-box">
                           <%= link_to image_tag(product.images.present? ? (product.images.first.avatar.url) : "/assets/missing.png", height: "200px", width: "220px"),single_product_home_path(product.id) %>
                         </div>
+                        </div>
+                        <div class="col-sm-8">
+                        <div style="text-align:center">
                         <h4>Rs. <%= product.price %></h4>
                         <% if product.discount? %>
-                          <h5><%= product.discount%>% Off</h5>
-                          <%end %>
+                          <span class="circlepop pop-up-float">
+                        <%= product.discount%>%
+                      </span>
+                          <%end %><br>
                           <%= product.description%>
+                          Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
+                          
+                          </div>
+                          </div>
                       </div>
                     </div>
                   </div>
                 </div>
               <% end %>
             </div>
-            <div class="box-pagination">
-              <span>Items <%= @products.count%> total</span>
+             <div class="row">
+            <div class="box-pagination responsive-pagination">
+              <span class="text-float-left">Items <%= @products.count%> total</span>
+              <span class="text-float-right"><%= will_paginate @products, renderer: BootstrapPagination::Rails %></span>
             </div>
-            <%= will_paginate @products, renderer: BootstrapPagination::Rails %>
+            </div>
+            
           
           </div>
         </div>

@@ -97,3 +97,58 @@ div#da-header #da-header-top #da-logo-img img {
   text-align: center;
   width: 58px;
 }
+.circlepop{
+  background-color: #0eabdf;
+  border: 1px solid #e3e3e3;
+  border-radius: 40px;
+  color: #fff;
+  display: block;
+  font-size: 16px;
+  height: 50px;
+  line-height: 50px;
+  width: 50px;
+  display:inline-block;
+} 
+.responsive-pagination .text-float-left{
+    
+     margin-left: 3%;
+
+}
+.text-float-left{float: left;}
+.responsive-pagination .text-float-right{
+    
+     margin-top: -44px;
+}
+.text-float-right{ float: right;}
+.single-circle{
+    margin-left: 79px;
+    margin-top: -36px;
+}
+.modal .modal-dialog {  
+    top: 187px;
+}
+.pop-up-float{
+ margin:0;
+ float: none;
+}
+@media screen and (max-width: 320px){
+.text-float-left{ clear: both; float: none;}
+.responsive-pagination{ text-align: center;}
+.text-float-right{
+    clear: both; float: none;
+}
+
+}
+@media screen and (min-width: 400px) and (max-width:850px ){
+.circleQ {
+  margin-left: 40%;
+}
+.circleP{
+margin-left: 38%;
+}
+.circleO{
+  margin-left: 40%;
+}
+
+}
+

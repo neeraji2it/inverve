@@ -63,7 +63,7 @@ class HomesController < ApplicationController
 
   def search
     products = Product.search(params[:search])
-    @products = products.paginate(:page => params[:page], :per_page => 25)
+    @products = products.paginate(:page => params[:page], :per_page => 20)
   end
   
   def new_news_letter

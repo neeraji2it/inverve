@@ -162,7 +162,7 @@ button.close:hover { background: none; }
 .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus { background-color: #333; }
 .navbar-default { background: none; }
 .modal-body { padding: 10px 0px 0px 0px; }
-.modal-content { padding: 10px 15px; }
+.modal-content { padding: 10px 15px; height: 400px; }
 .nrow { padding-bottom: 15px; }
 .nrow > div:first-child { font-weight: bold; }
 .f11 { font-size: 11px; }
@@ -641,7 +641,7 @@ ul.list-paymenttype li.icon-americanexp{ background-position:0px -1320px; }
 ul.list-paymenttype li.icon-discover{ background-position:0px -1352px; }	
 ul.list-paymenttype li.icon-mastercard{ background-position:0px -1384px; }	
 ul.list-paymenttype li.icon-visa{ background-position:0px -1416px;}
-.modal .modal-dialog{ top:125px;}			
+.modal .modal-dialog{  top: 187px;}			
 .modal .modal-dialog h6{  font-family: "OpenSansSemibold"; font-size: 16px; padding:10px 0px;}	
 .modal .modal-dialog .product-img-box{ text-align:center;}
 .box-newsletter{ padding:20px 0px;}
