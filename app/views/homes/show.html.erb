@@ -1,3 +1,20 @@
 <div>
  <%= render :partial => 'listings' %>
  </div> 
+
+ <script type="text/javascript" charset="utf-8">
+  $(function() {
+   $('.bxslider1').bxSlider({
+          auto: true,  
+          slideWidth: 300,
+          infiniteLoop: true,
+          speed: 3000,
+          pager: false,
+          autoHover: true,
+          minSlides: 1,
+          maxSlides: 7,
+          slideMargin: 20,
+          adaptiveHeight: true
+        });
+  })
+</script>

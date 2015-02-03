@@ -4,7 +4,9 @@
 			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
 			<div class="modal-body">
-				<h2 style="padding-bottom: 22px;text-align: center;  font-size:22px;"><%= product.name.capitalize %></h2>
+			<% if product.name.present?  %>
+				<h2 style="padding-bottom: 22px;text-align: center;  font-size:22px;"><%=product.name.capitalize %></h2>
+				<% end %>
 				<div class="col-md-5  ">
 					<div id="load_image-<%= product.id %>">
 						<%= render :partial => "image_load", locals: {:product => product} %>
@@ -23,8 +25,10 @@
 
 					<div class="col-md-5">
 						<div class="popup-inner" >
-							
-							<b>Color:</b> <%= product.color.capitalize %> <br>
+							<% if product.color.present?  %>
+							<b>Color:</b> <%= product.color.capitalize %>
+							<% end %>
+							 <br>
 							<span style="background-color:#adb; text-transform:uppercase; padding:2px;">cod</span>Cash on Delivery
 
 						</div>
@@ -64,7 +68,6 @@
 
 <script type="text/javascript">
   function imageload(product_id, id) {
-
   	$.ajax({
   		url: "/homes/load_image",
   		dataType: "Script",
