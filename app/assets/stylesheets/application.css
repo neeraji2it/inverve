@@ -98,7 +98,7 @@ div#da-header #da-header-top #da-logo-img img {
   width: 58px;
 }
 .circlepop{
-  background-color: #0eabdf;
+  background-color: #232323;
   border: 1px solid #e3e3e3;
   border-radius: 40px;
   color: #fff;
@@ -109,6 +109,7 @@ div#da-header #da-header-top #da-logo-img img {
   width: 50px;
   display:inline-block;
 } 
+
 .responsive-pagination .text-float-left{
     
      margin-left: 3%;
@@ -123,14 +124,55 @@ div#da-header #da-header-top #da-logo-img img {
 .single-circle{
     margin-left: 79px;
     margin-top: -36px;
+      background-color: #232323;
 }
 .modal .modal-dialog {  
-    top: 187px;
+     top: 60px;
 }
 .pop-up-float{
  margin:0;
  float: none;
 }
+.modal.in .modal-dialog2{ -webkit-transform:translate(0,0);-ms-transform:translate(0,0);transform:translate(0,0)}
+.modal .modal-dialog2{ top: 60px;}
+.modal-dialog2{ 
+    padding-bottom: 30px;
+    padding-top: 30px;
+     width: 75%;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 10px;
+    position: relative;
+    z-index: 1050;
+  }
+  .modal-content2 {
+    padding: 10px 15px;
+    z-index: 1051;
+    height: 600px;
+}
+.modal-content2 {
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+}
+.modal-content2 {
+    background-clip: padding-box;
+    background-color: #fff;
+    border: 5   px solid rgba(204, 204, 204, 0.7);
+    border-radius: 2px;
+    box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+    outline: 0 none;
+    position: relative;
+}
+.modal .modal-dialog2 {  
+     top: 10px;
+}
+.pop-right{
+  border: 1px solid #f3f3f3;
+  box-shadow: 5px 5px  #ccc;
+}
+.popup-inner{
+  padding: 10px;
+}
+
 @media screen and (max-width: 320px){
 .text-float-left{ clear: both; float: none;}
 .responsive-pagination{ text-align: center;}
