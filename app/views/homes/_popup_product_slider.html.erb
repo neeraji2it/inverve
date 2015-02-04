@@ -14,7 +14,7 @@
 					<% if product.images.present? %>
 					<div class="bxslider1">
 						<% product.images.each do |image| %>
-							<%= image_tag image.avatar.url(:small, :height => "200px", :width => "200px"), :onclick => "imageload(#{product.id}, #{image.id})" %>                     
+							<%= image_tag image.avatar.url(:small, :height => "300px", :width => "300px"), :onclick => "imageload(#{product.id}, #{image.id})" %>                     
 						<% end %>
 					</div>
 					<% end %>

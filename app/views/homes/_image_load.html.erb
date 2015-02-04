@@ -1,9 +1,9 @@
 <% if params[:action] == "load_image" %>
 	<div class="product-img-box" style="margin-bottom: 60px;">
-		<%= image_tag(@image.avatar.url, height: "200px", width: "275px") %>
+		<%= image_tag(@image.avatar.url, height: "300px", width: "350px") %>
 	</div>
 <% else %>
 	<div class="product-img-box" style="margin-bottom: 60px;">
-		<%= image_tag(product.images.present? ? (product.images.first.avatar.url) : "/assets/missing.png", height: "200px", width: "275px") %>
+		<%= image_tag(product.images.present? ? (product.images.first.avatar.url) : "/assets/missing.png", height: "300px", width: "350px") %>
 	</div>
 <% end %>
