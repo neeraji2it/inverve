@@ -7,7 +7,8 @@
 			<% if product.name.present?  %>
 				<h2 style="padding-bottom: 22px;text-align: center;  font-size:22px;"><%=product.name.capitalize %></h2>
 				<% end %>
-				<div class="col-md-5  ">
+				<div class="row">
+				<div class="col-md-4  ">
 					<div id="load_image-<%= product.id %>">
 						<%= render :partial => "image_load", locals: {:product => product} %>
 					</div>
@@ -19,8 +20,8 @@
 					</div>
 					<% end %>
 				</div>
-					<div class="col-md-12">
-				<div class="col-md-6 pop-right ">
+					<div class="col-md-8">
+				<div class="col-md-11 pop-right ">
 			
 
 					<div class="col-md-5">
@@ -52,15 +53,16 @@
 
 
 						</div>
-						<span style="left: -185px;position: absolute;top: 169px; color:#238adb; "><%= link_to "Click here to view full details",single_product_home_path(product.id)%> > </span>
+						<span class="click-text" ><%= link_to "CLICK HERE TO VIEW FULL DETAILS > ",single_product_home_path(product.id)%> </span>
 					</div>
+					 
 
 				</div>
 				
 				</div>
 			
 			</div>
-						
+					</div>	
 		</div>
 
 	</div>

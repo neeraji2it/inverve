@@ -173,6 +173,16 @@ div#da-header #da-header-top #da-logo-img img {
 .popup-inner{
   padding: 10px;
 }
+.click-text{
+    color: #238adb;
+    position: relative;
+    right: 89%;
+    top: 35px;
+  }
+    .col-md-11 {
+    width: 100%;
+}
+
 
 @media screen and (max-width: 320px){
 .text-float-left{ clear: both; float: none;}
@@ -180,8 +190,38 @@ div#da-header #da-header-top #da-logo-img img {
 .text-float-right{
     clear: both; float: none;
 }
+.modal-dialog2{
+ width: 100%;
+}
+.product-img-box img{
+    height: 160px;
+}
+.modal-content2 {
+    height: 743px;
+    }
+    .click-text {
+    right: -3%;
+}
+}
+@media screen and (max-width: 480px){
+.modal-dialog2{
+ width: 100%;
+}
+.product-img-box img{
+    height: 160px;
+}
+.modal-content2 {
+    height: 743px;
+    }
+    .click-text {
+    right: -3%;
+}
+.modal-content2{
+  height: 800px;
+}
 
 }
+
 @media screen and (min-width: 400px) and (max-width:850px ){
 .circleQ {
   margin-left: 40%;
@@ -192,6 +232,51 @@ margin-left: 38%;
 .circleO{
   margin-left: 40%;
 }
+.modal-dialog2{
+  width: 100%;
+}
 
+}
+@media screen and (min-width: 600px) and (max-width:768px ){
+    
+   .click-text {
+   left: 180px;
+}
+.row{ text-align: center;}
+.modal-content2 {
+    height: 800px;
+    overflow: auto;
+    text-align: center;
+}
+.click-text{
+     right: 95%;
+     top: 58px;
+   }
+   .col-md-4{
+    width: 100%;
+   }
+   .col-md-8{
+    width: 100%;
+   }
+    .col-md-11 {
+    width: 100%;
+  }
+  .modal-body{
+    width: 100%;
+  }
+
+}
+@media screen and (min-width:900) and (max-width:1024px){
+
+.click-text{
+     right: 95%;
+     top: 58px;
+   }
+   .col-md-5{
+    width: 50%;
+   }
+    .col-md-11{ 
+    width: 50%;
+   }
 }
 
