@@ -7,9 +7,7 @@ class LineItem < ActiveRecord::Base
     unit_price * quantity
   end
    
-   def discount
-   	
+   def discount   	
     (full_price * discount)/ 100.ceil
    end
 end
-

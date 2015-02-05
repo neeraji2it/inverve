@@ -8,6 +8,9 @@ Furnitureapp::Application.routes.draw do
         get :guest_orders
         get :user_orders
       end
+      member do
+        put :order_status
+      end
     end
     resources :banners
     resources :products do

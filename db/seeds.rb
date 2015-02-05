@@ -9,6 +9,15 @@
 # admin = Admin.new(:email => 'admin@gmail.com', :password => '123123123', :password_confirmation => '123123123')
 # admin.save(:validate => false)
 #Admin.first.update_attributes(first_name: "Sara", last_name: "Fanning")
-#Pending, Confirmed, Delivered, Cancelled, Returned
+#Pending, Success, Shipped, Cancelled, Returned
+#Possible Action for Admin Guest Order => Shipped, Returned
+#Possible Action for Admin User Order => Shipped, Returned
+#Possible Action for Guest Order => Pending, Success
+#Possible Action for User Order => Pending, Success, Cancelled
 
-#later we need to remove all color + product_colors
+#>>Pending is the status when order is created with billing && shipping information
+#but they have not confirm their order yet
+#once they confirm their order, status becomes Success
+
+
+#later we need to remove all color + product_colors 

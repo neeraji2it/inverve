@@ -55,7 +55,9 @@ class OrdersController < ApplicationController
   def confirm_myorder
    @order = Order.find(params[:id]) 
    decr_ordered_qty(@order.id)
+   @order.update_attributes(:status => "Success")
    session[:cart_id] = nil
+   flash[:notice] = "Your order is successfully placed. It will deliver soon."
    redirect_to success_orders_path
   end
   
