@@ -1,87 +1,104 @@
 <div class="modal fade modal-car" id="myModal-<%= product.id %>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-dialog2">
-		<div class="modal-content2">
-			<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+  <div class="modal-dialog2">
+    <div class="modal-content">
+      <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 
-			<div class="modal-body">
-			<% if product.name.present?  %>
-				<h2 style="padding-bottom: 22px;text-align: center;  font-size:22px;"><%=product.name.capitalize %></h2>
-				<% end %>
-				<div class="row">
-				<div class="col-md-4  ">
-					<div id="load_image-<%= product.id %>">
-						<%= render :partial => "image_load", locals: {:product => product} %>
-					</div>
-					<% if product.images.present? %>
-					<div class="bxslider1">
-						<% product.images.each do |image| %>
-							<%= image_tag image.avatar.url(:small, :height => "300px", :width => "300px"), :onclick => "imageload(#{product.id}, #{image.id})" %>                     
-						<% end %>
-					</div>
-					<% end %>
-				</div>
-					<div class="col-md-8">
-				<div class="col-md-11 pop-right ">
-			
-
-					<div class="col-md-5">
-						<div class="popup-inner" >
-							<% if product.color.present?  %>
-							<b>Color:</b> <%= product.color.capitalize %>
-							<% end %>
-							 <br>
-                                                         <% if product.product_size.present?  %>
-							<b>Size:</b> <%= product.product_size %>
-							<% end %>
-							 <br>
-							<span style="background-color:#adb; text-transform:uppercase; padding:2px;">cod</span>Cash on Delivery
-
-						</div>
-					</div>
-					<div class="col-md-7">
-						<div  class="popup-inner">
-							<h4 >MRP Rs. <span style="text-decoration:line-through;">	<%= product.price %></span></h4>
-							<span>Selling Price</span><br>
-							<span style="font-size:21px"><%= number_to_currency(product.price-(product.price * product.discount/100), :unit => "Rs.") %></span>
-							<% if product.discount? %>
-							<span class="circlepop pop-up-float">
-								<%= product.discount%>%
-							</span>
-
-							<%end %><br>
-							<% if(product.quantity.blank? || product.quantity == 0) %>
-							No Items There In Stock.
-							<% else %>
-							<%= link_to "Add to Cart", line_items_path(:product_id => product.id), :method => :post ,:class => "btn btn-default"%>
-							<% end %>
+      <div class="modal-body">
+        <% if product.name.present?  %>
+          <h2 style="padding-bottom: 22px;text-align: center;  font-size:22px;"><%=product.name.capitalize %></h2>
+        <% end %>
+        <div class="row">
+          <div class="col-md-4  ">
+            <div id="load_image-<%= product.id %>">
+              <%= render :partial => "image_load", locals: {:product => product} %>
+            </div>
+            <% if product.images.present? %>
+              <div class="bxslider-<%= product.id %>" style="height: 100px;">
+                <% product.images.each do |image| %>
+                  <%= image_tag image.avatar.url(:small, :height => "300px", :width => "300px"), :onclick => "imageload(#{product.id}, #{image.id})" %>                     
+                <% end %>
+              </div>
+            <% end %>
+          </div>
+          <div class="col-md-8">
+            <div class="col-md-11 pop-right ">
 
 
-						</div>
-						<span class="click-text" ><%= link_to "CLICK HERE TO VIEW FULL DETAILS > ",single_product_home_path(product.id)%> </span>
-					</div>
-					 
+              <div class="col-md-5">
+                <div class="popup-inner" >
+                  <% if product.color.present?  %>
+                    <b>Color:</b> <%= product.color.capitalize %>
+                  <% end %>
+                  <br>
+                  <% if product.product_size.present?  %>
+                    <b>Size:</b> <%= product.product_size %>
+                  <% end %>
+                  <br>
+                  <span style="background-color:#adb; text-transform:uppercase; padding:2px;">cod</span>Cash on Delivery
 
-				</div>
-				
-				</div>
-			
-			</div>
-					</div>	
-		</div>
+                </div>
+              </div>
+              <div class="col-md-7">
+                <div  class="popup-inner">
+                  <h4 >MRP Rs. <span style="text-decoration:line-through;">	<%= product.price %></span></h4>
+                  <span>Selling Price</span><br>
+                  <span style="font-size:21px"><%= number_to_currency(product.price-(product.price * product.discount/100), :unit => "Rs.") %></span>
+                  <% if product.discount? %>
+                    <span class="circlepop pop-up-float">
+                      <%= product.discount%>%
+                    </span>
 
-	</div>
+                  <%end %><br>
+                  <% if(product.quantity.blank? || product.quantity == 0) %>
+                    No Items There In Stock.
+                  <% else %>
+                    <%= link_to "Add to Cart", line_items_path(:product_id => product.id), :method => :post ,:class => "btn btn-default"%>
+                  <% end %>
+
+
+                </div>
+                <span class="click-text" ><%= link_to "CLICK HERE TO VIEW FULL DETAILS > ",single_product_home_path(product.id)%> </span>
+              </div>
+
+
+            </div>
+
+          </div>
+
+        </div>
+      </div>	
+    </div>
+
+  </div>
 </div>
 
 <script type="text/javascript">
   function imageload(product_id, id) {
-  	$.ajax({
-  		url: "/homes/load_image",
-  		dataType: "Script",
-  		type: "GET",
-  		data: {
-  			id: id,
-  			product_id: product_id
-  		}
-  	});
+    $.ajax({
+      url: "/homes/load_image",
+      dataType: "Script",
+      type: "GET",
+      data: {
+        id: id,
+        product_id: product_id
+      }
+    });
+  }
+</script>
+
+<script>
+  function zoomer(val) {
+    $('.bxslider-' + val).bxSlider({
+      auto: false,
+      mode: 'horizontal',
+      infiniteLoop: false,
+      speed: 3000,
+      pager: true,
+      autoHover: true,
+      minSlides: 3,
+      maxSlides: 12,
+      slideMargin: 20,
+      adaptiveHeight: true
+    });
   }
 </script>
