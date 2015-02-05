@@ -26,7 +26,7 @@
             <td><%= product.description.truncate(100).html_safe %></td>
             <td><%= product.price %></td>
             <td><%= number_to_percentage(product.discount) %></td>
-            <td><%= product.quantity %></td>
+            <td><%= (product.quantity.blank? || product.quantity == 0) ? (0) : (product.quantity) %></td>
             <td class="da-icon-column">
               <%= link_to admin_product_path(product.id) do %>
                 <img src="/assets/admin/images/icons/color/magnifier.png" />

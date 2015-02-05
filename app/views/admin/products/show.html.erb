@@ -37,15 +37,13 @@
             <td><%= @product.sub_category.name.capitalize %></td>
             <td><%= @product.discount %></td>
             <td><%= @product.color %></td>
-            <td><%= @product.quantity %></td>
+            <td><%= (@product.quantity.blank? || @product.quantity == 0) ? (0) : (@product.quantity) %></td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>  
 </div>
-
-
 
 <div class="grid_4">
   <div class="da-panel">

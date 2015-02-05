@@ -30,6 +30,10 @@
 							<b>Color:</b> <%= product.color.capitalize %>
 							<% end %>
 							 <br>
+                                                         <% if product.product_size.present?  %>
+							<b>Size:</b> <%= product.product_size %>
+							<% end %>
+							 <br>
 							<span style="background-color:#adb; text-transform:uppercase; padding:2px;">cod</span>Cash on Delivery
 
 						</div>

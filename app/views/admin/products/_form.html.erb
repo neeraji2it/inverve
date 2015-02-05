@@ -55,38 +55,45 @@
         </div>
 
         <div class="da-form-row">
-        <label><%= f.label :color, "Color / Style" %></label>
-        <div class="da-form-item large">
-          <%= f.text_field :color, class: "form-control", placeholder: "Color / Style" %>
-          </div>
-        </div>
-
-        <div style="margin-left: 25px; margin-bottom: 15px;">
-          <% f.fields_for :images do |image| %>            
-            <div class="da-form-row">
-              <%= image.file_field :avatar %>              
-              <%= image.link_to_remove "Remove" %>
-            </div>            
-          <% end %>
-
-          <br/>
-          <%= f.link_to_add "Add More Images", :images, :class =>"btn btn-primary" %>
-        </div>
-
-        <div class="da-button-row">
-          <%= f.submit class: "da-button blue left" %>
+          <label><%= f.label :color, "Color" %></label>
+          <div class="da-form-item large">
+            <%= f.text_field :color, class: "form-control", placeholder: "Color" %>
+            </div>
           </div>
 
-          <script>
-            $(document).on("change", "#category_id", function() {
-              var category_id = $(this).val();
-              $.ajax({
-                url: "/admin/products/load_subcats",
-                dataType: "Script",
-                type: "GET",
-                data: {
-                  category_id: category_id
-                }
-              });
-            });
-          </script>
+          <div class="da-form-row">
+            <label><%= f.label :product_size, "Size" %></label>
+            <div class="da-form-item large">
+              <%= f.text_field :product_size, class: "form-control", placeholder: "Size" %>
+              </div>
+            </div>
+
+            <div style="margin-left: 25px; margin-bottom: 15px;">
+              <% f.fields_for :images do |image| %>            
+                <div class="da-form-row">
+                  <%= image.file_field :avatar %>              
+                  <%= image.link_to_remove "Remove" %>
+                </div>            
+              <% end %>
+
+              <br/>
+              <%= f.link_to_add "Add More Images", :images, :class =>"btn btn-primary" %>
+            </div>
+
+            <div class="da-button-row">
+              <%= f.submit class: "da-button blue left" %>
+              </div>
+
+              <script>
+                $(document).on("change", "#category_id", function() {
+                  var category_id = $(this).val();
+                  $.ajax({
+                    url: "/admin/products/load_subcats",
+                    dataType: "Script",
+                    type: "GET",
+                    data: {
+                      category_id: category_id
+                    }
+                  });
+                });
+              </script>

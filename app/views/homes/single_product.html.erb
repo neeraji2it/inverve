@@ -32,9 +32,10 @@
               </div>
               <div class="box-producT">
                 <h4><%= @product.name.capitalize %></h4>
+                <br/>
                 <p>Availability <span class="instock">In Stock</span> <%= (@product.quantity.blank? || @product.quantity == 0) ? (0) : (@product.quantity) %> item(s)</p>
+                
                 <% if @product.discount? %>
-          
                 <span  style="text-decoration: line-through; font-size:14px ;  ">Rs. <%= @product.price %></span>
                 <span class="circleP single-circle">
                   <%= @product.discount%>%
@@ -46,8 +47,17 @@
                 <h2> <%= number_to_currency(@product.price, :unit => "Rs.") %></h2>
                 <%end %>
                 <br/>
-                <b>Color:</b> <%= @product.color.capitalize %> 
                 
+                <% if @product.product_size.present?  %>
+                <span  style="margin-right: 20px;">
+                  <b>Color:</b> <%= @product.color.capitalize %> 
+                </span>
+                <% end %>
+                  
+                <% if @product.product_size.present?  %>
+                  <b>Size:</b> <%= @product.product_size %>
+                <% end %>
+                <br/> <br/>
               </div>
               <div class="box-producT">
                 <div class="tab-description">
