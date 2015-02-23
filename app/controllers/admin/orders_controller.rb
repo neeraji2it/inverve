@@ -23,5 +23,12 @@ class Admin::OrdersController < ApplicationController
 		end
 		redirect_to guest_orders_admin_orders_path
 	end
-
+  
+  def show
+    @order = Order.find(params[:id])
+     @product = Product.all
+   @order_items = @order.cart.line_items
+#    p @order_items.inspect
+  end
+  
 end
