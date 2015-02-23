@@ -53,16 +53,22 @@
         <th><b>FullPrice</b></th>
       </tr>
       <% @order_items.each do |order_item| %>
-      <% if order_item.product.present? %>
-        <tr>
-          <td>
-            <%= image_tag(order_item.product.images.present? ? (order_item.product.images.first.avatar.url) : "/assets/missing.png", height: "50px", width: "80px") %>
-          </td>
-          <td><%= order_item.product.name %></td>
-          <td><%= order_item.quantity %></td>
-          <td>Rs. <%= order_item.unit_price %></td>
-          <td>Rs. <%= order_item.full_price %></td>
-        </tr>
+        <% if order_item.product.present? %>
+            <tr>
+              <td>
+                <%= image_tag(order_item.product.images.present? ? (order_item.product.images.first.avatar.url) : "/assets/missing.png", height: "50px", width: "80px") %>
+              </td>
+              <td><%= order_item.product.name %></td>
+              <td><%= order_item.quantity %></td>
+              <td>Rs. <%= order_item.unit_price %></td>
+              <td>Rs. <%= order_item.full_price %></td>
+            </tr>
+          <% else %>
+            <tr>
+              <td>
+                Currently no products ordered.
+              </td>
+            </tr>
         <% end %>
       <% end %>
     </table>
@@ -70,8 +76,3 @@
   </div>  
 
 </div>
-
-
-
-
-
