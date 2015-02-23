@@ -35,8 +35,12 @@
           </li>
           <li class="<%= (params[:controller] == "admin/orders" && (params[:action] == "guest_orders")) ? 'active' : '' %>">
             <a href="/admin/orders/guest_orders">Guest Orders</a>
-
           </li>
+          <% if params[:id].present? %>
+          <li class="<%= (params[:controller] == "admin/orders" && (params[:action] == "show")) ? 'active' : '' %>">
+            <a href="/admin/orders/show">View Order Details</a>
+          </li>
+          <% end %>
         <% elsif params[:controller] == "admin/users" %>
           <li>
             <a href="/admin/dashboards"><img src="/assets/admin/images/icons/black/16/home.png" alt="Home" />Dashboard</a>
