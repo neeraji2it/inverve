@@ -1,27 +1,60 @@
 <ul class="main-navigation">
   <% Category.where("name is not null and category_show = #{true}").each do |cat| %>
-  <% @sub_categories = cat.sub_categories.limit(3) %>
-  
+    
+    <% @parent_sub_categories = cat.parent_sub_categories %> 
+    <%# @sub_categories = cat.sub_categories.limit(3) %>
     <li class="menu-list">
       <%= link_to cat.name, "#" %>
-
       <div style="height:380px;">
-      <% @sub_categories.each do |cat1| %>                
-        <div class="nav-column" >
-        <ul>
-          <li style="font-weight: bold;"><%= link_to cat1.name, home_path(cat1), :class=>"subcat", :title => "#{cat.name}" %></li>
-          <% cat1.products.limit(10).each do |product| %>
-          <li>
-            <li ><%= link_to product.name.capitalize, single_product_home_path(product.id) %></li>
-          </li>
-          <% end %>
-        </ul>   
+        <% if @parent_sub_categories.present? %>
+        <% @parent_sub_categories.each do |psc| %>
+        <div class="nav-column">
+          <ul> 
+            <li style="font-weight: bold;">
+              <%= psc.name %>
+            </li>
+            
+            <% if psc.sub_categories.present? %> 
+               <%for sub_category in psc.sub_categories%>
+                <li style="font-weight: bold;">
+                   <%= link_to sub_category.name, home_path(sub_category), :class=>"subcat", :title => "#{cat.name}" %>
+                </li>
+                
+                  <% sub_category.products.limit(10).each do |product| %>
+                    <li >
+                      <%= link_to product.name.capitalize, single_product_home_path(product.id) %>
+                    </li>
+                  <% end %>
+                <%end%>
+              <% end %>
+            
+          </ul>
         </div>
-<% end %>         
-</div>
+        <%end%>
+        
+        <% else %>
+        <div class="nav-column">
+          <ul>
+            <% cat.sub_categories.each do |subcat1| %>                
+              <li style="font-weight: bold;">
+                <%= link_to subcat1.name, home_path(subcat1), :class=>"subcat", :title => "#{subcat1.name}" %>
+              </li>
+                <% subcat1.products.limit(10).each do |product| %>
 
+                <li >
+                  <%= link_to product.name.capitalize, single_product_home_path(product.id) %>
+                </li>
+
+              <% end %>
+            <% end %>   
+          </ul>   
+        </div>
+        <% end %>
+        
+        
+      </div>
     </li>
-  <% end %>
+  <% end %> 
   <li>
     <%= link_to "Offers", offers_homes_path, :title => "Offers" %>
   </li>
