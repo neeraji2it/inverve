@@ -169,7 +169,7 @@ ul.navbar-nav  li a{
   padding: 0 20px;
   position: relative;
   transition: all 0.3s ease 0s;
-  z-index: 999999;
+  z-index: 999;
 }
 
 ul.navbar-nav > li a:hover, ul.navbar-nav > li a.active { color: #FFF; border-radius: 3px; background-color: #0c0c0c; }
