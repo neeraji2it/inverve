@@ -167,7 +167,7 @@
               </div>
               <div class="box-content">
                 <h5><%= advice.title.titleize %></h5>
-                <p><%= advice.description.truncate(30) %></p>
+                <p><%= advice.description.truncate(30).html_safe %></p>
               </div>
             </div>
           <% end %>
