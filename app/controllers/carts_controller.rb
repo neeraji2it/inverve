@@ -20,7 +20,7 @@
     end
   end
 
-  def remove_all_products
+  def empty_carts
     @cart = current_cart
       if current_cart.line_items.present?
         current_cart.destroy

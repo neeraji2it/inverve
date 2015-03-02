@@ -19,4 +19,8 @@ class Order < ActiveRecord::Base
     end
   end
 
+  def is_cancelled?
+  	self.status == 'Cancelled'
+  end
+
 end

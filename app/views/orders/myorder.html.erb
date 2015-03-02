@@ -22,8 +22,6 @@
 			<% if(cart.order.status != "Returned" && cart.order.status != "Cancelled" && cart.order.status != "Shipped") %>
 			<th><%= link_to "Cancel My Order", cancel_order_order_path(cart.order.id), :method => "PUT", :class => "btn" %></th>
 			<% end %>
-0
-
 		</tr>
 
 		<% cart.line_items.each do |line_item| %>
