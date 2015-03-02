@@ -20,6 +20,15 @@
     end
   end
 
+  def remove_all_products
+    @cart = current_cart
+      if current_cart.line_items.present?
+        current_cart.destroy
+        session[:cart_id] = nil
+      end
+      redirect_to carts_path
+  end
+
   def update
     @cart = current_cart
     @products = current_cart.line_items

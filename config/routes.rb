@@ -76,7 +76,11 @@ Furnitureapp::Application.routes.draw do
     end
   end 
   resources :line_items
-  resources :carts
+  resources :carts do
+      collection do
+        delete :remove_all_products
+      end
+    end
   resources :orders do
     member do
       get :confirm
