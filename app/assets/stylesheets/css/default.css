@@ -208,7 +208,7 @@ input[type="text"].input-search { width: 51.6%; padding: 6px 34px 8px 11px; }
 @media screen and (-webkit-min-device-pixel-ratio:0) {
 input[type="text"].input-search { padding: 7px 34px 7px 11px; }
 }
-.menu-bar { border-top: 1px solid #000; border-bottom: 1px solid #000; }
+.menu-bar { border-top: 1px solid #000; border-bottom: 1px solid #000; height: 45px; }
 .menu-bar .navbar-collapse { padding: 0px; }
 ul.main-navigation { float: left; list-style: none; text-transform: uppercase; padding: 0px 0px; font-family: 'Conv_18925_HelveticaNeueLt_0'; }
 ul.main-navigation > li { float: left; }
