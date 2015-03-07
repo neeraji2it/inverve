@@ -1,237 +1,33 @@
-
-
 <ul class="nav">
-   
+   <% Category.where("name is not null and category_show = #{true}").each do |cat| %>
     <li>
-        <a href="#">Bed and Bath</a>
-        <div class="menu_sub">
-            <div class="nav-column" >
-    <h3>Home</h3>
-    <ul>
-        <li><a href="#">Pampers Diapers</a></li>
-        <li><a href="#">Huggies Diapers</a></li>
-        <li><a href="#">Seventh Generation</a></li>
-        <li><a href="#">Diapers</a></li>
-        <li><a href="#">Derbies</a></li>
-        <li><a href="#">Driving shoes</a></li>
-        <li><a href="#">Espadrilles</a></li>
-        <li><a href="#">Loafers</a></li>
-  
-    
-    </ul>
-</div>
- <div class="nav-column" >
-    <h3>Home</h3>
-    <ul>
-        <li><a href="#">Pampers Diapers</a></li>
-        <li><a href="#">Huggies Diapers</a></li>
-        <li><a href="#">Seventh Generation</a></li>
-        <li><a href="#">Diapers</a></li>
-        <li><a href="#">Derbies</a></li>
-        <li><a href="#">Driving shoes</a></li>
-        <li><a href="#">Espadrilles</a></li>
-        <li><a href="#">Loafers</a></li>
-  
-    
-    </ul>
-</div>
- 
-<div class="nav-column">
-    <h3>Home</h3>
-    <ul>
-        <li><a href="#">Driving shoes</a></li>
-        <li><a href="#">Espadrilles</a></li>
-        <li><a href="#">Loafers</a></li>
-    </ul>
- 
-    <h3>Home</h3>
-    <ul>
-        <li><a href="#">Driving shoes</a></li>
-        <li><a href="#">Espadrilles</a></li>
-        <li><a href="#">Loafers</a></li>
-    </ul>
-</div>
- 
-<div class="nav-column">
-    <h3>Home</h3>
-    <ul>
-        <li><a href="#">Pampers Diapers</a></li>
-        <li><a href="#">Huggies Diapers</a></li>
-        <li><a href="#">Seventh Generation</a></li>
-        <li><a href="#">Diapers</a></li>
-        <li><a href="#">Derbies</a></li>
-        <li><a href="#">Driving shoes</a></li>
-        <li><a href="#">Espadrilles</a></li>
-        <li><a href="#">Loafers</a></li>
-    </ul>
-</div>
- <div class="nav-column" >
-   
-   <ul>
-   <li>
-    
-     <img src="/assets/sc1.jpeg"  >   
-    </li>
-    </ul>
-    
-</div>
+        <a href="#"><%= cat.name %></a>
 
-        </div>
-    </li>
+        <% @subCategories = cat.sub_categories %>
+        <div class="menu_sub">
+        <% @subCategories.in_groups_of(5).each do |subCatGroup| %>
+                <div class="nav-column" >
+            <% subCatGroup.each do |subCat| %>
+                <ul>
+                    <li><a href="#"><%= subCat.try(:name) %></a></li>             
+                </ul>
+            <% end %>
+            </div>            
+        <% end %>
    
-    
-    <li>
-        <a href="#">Curtains</a>
-         <div class="menu_sub">
-            <div class="nav-column" >
-    <h3>Home</h3>
-    <ul>
-        <li><a href="#">Pampers Diapers</a></li>
-        <li><a href="#">Huggies Diapers</a></li>
-        <li><a href="#">Seventh Generation</a></li>
-        <li><a href="#">Diapers</a></li>
-        <li><a href="#">Derbies</a></li>
-        <li><a href="#">Driving shoes</a></li>
-        <li><a href="#">Espadrilles</a></li>
-        <li><a href="#">Loafers</a></li>
-        <li><a href="#">Pampers Diapers</a></li>
-          <li><a href="#">Pampers Diapers</a></li>
-        <li><a href="#">Huggies Diapers</a></li>
-        <li><a href="#">Seventh Generation</a></li>
-        <li><a href="#">Diapers</a></li>
-        <li><a href="#">Derbies</a></li>
-        <li><a href="#">Driving shoes</a></li>
-        <li><a href="#">Espadrilles</a></li>
-        <li><a href="#">Loafers</a></li>
-        <li><a href="#">Pampers Diapers</a></li>
-    
-    </ul>
-</div>
-</div>
-    
-    </li>
-      <li>
-        <a href="#">Furniture</a>
-    <div class="menu_sub">
-            <div class="nav-column" >
-    <h3>Home</h3>
-    <ul>
-        <li><a href="#">Pampers Diapers</a></li>
-        <li><a href="#">Huggies Diapers</a></li>
-        <li><a href="#">Seventh Generation</a></li>
-        <li><a href="#">Diapers</a></li>
-        <li><a href="#">Derbies</a></li>
-        <li><a href="#">Driving shoes</a></li>
-        <li><a href="#">Espadrilles</a></li>
-        <li><a href="#">Loafers</a></li>
-        <li><a href="#">Pampers Diapers</a></li>
-          <li><a href="#">Pampers Diapers</a></li>
-        <li><a href="#">Huggies Diapers</a></li>
-        <li><a href="#">Seventh Generation</a></li>
-        <li><a href="#">Diapers</a></li>
-        <li><a href="#">Derbies</a></li>
-        <li><a href="#">Driving shoes</a></li>
-        <li><a href="#">Espadrilles</a></li>
-        <li><a href="#">Loafers</a></li>
-        <li><a href="#">Pampers Diapers</a></li>
-    
-    </ul>
-</div>
-</div>
-    </li>
-    <li>
-        <a href="#">Cushions</a>
-    
-    </li>
-     <li>
-        <a href="#">Decor</a>
-    <div class="menu_sub">
-            <div class="nav-column" >
-    <h3>Home</h3>
-    <ul>
-        <li><a href="#">Pampers Diapers</a></li>
-        <li><a href="#">Huggies Diapers</a></li>
-        <li><a href="#">Seventh Generation</a></li>
-        <li><a href="#">Diapers</a></li>
-        <li><a href="#">Derbies</a></li>
-        <li><a href="#">Driving shoes</a></li>
-        <li><a href="#">Espadrilles</a></li>
-        <li><a href="#">Loafers</a></li>
-        <li><a href="#">Pampers Diapers</a></li>
-          <li><a href="#">Pampers Diapers</a></li>
-        <li><a href="#">Huggies Diapers</a></li>
-        <li><a href="#">Seventh Generation</a></li>
-        <li><a href="#">Diapers</a></li>
-        <li><a href="#">Derbies</a></li>
-        <li><a href="#">Driving shoes</a></li>
-        <li><a href="#">Espadrilles</a></li>
-        <li><a href="#">Loafers</a></li>
-        <li><a href="#">Pampers Diapers</a></li>
-    
-    </ul>
-</div>
-</div>
-    </li>
-     <li>
-        <a href="#">Kids</a>
-    <div class="menu_sub">
-            <div class="nav-column" >
-    <h3>Home</h3>
-    <ul>
-        <li><a href="#">Pampers Diapers</a></li>
-        <li><a href="#">Huggies Diapers</a></li>
-        <li><a href="#">Seventh Generation</a></li>
-        <li><a href="#">Diapers</a></li>
-        <li><a href="#">Derbies</a></li>
-        <li><a href="#">Driving shoes</a></li>
-        <li><a href="#">Espadrilles</a></li>
-        <li><a href="#">Loafers</a></li>
-        <li><a href="#">Pampers Diapers</a></li>
-          <li><a href="#">Pampers Diapers</a></li>
-        <li><a href="#">Huggies Diapers</a></li>
-        <li><a href="#">Seventh Generation</a></li>
-        <li><a href="#">Diapers</a></li>
-        <li><a href="#">Derbies</a></li>
-        <li><a href="#">Driving shoes</a></li>
-        <li><a href="#">Espadrilles</a></li>
-        <li><a href="#">Loafers</a></li>
-        <li><a href="#">Pampers Diapers</a></li>
-    
-    </ul>
-</div>
-</div>
-    </li>
-     <li>
-        <a href="#">Sale</a>
-    <div class="menu_sub">
-            <div class="nav-column" >
-    <h3>Home</h3>
-    <ul>
-        <li><a href="#">Pampers Diapers</a></li>
-        <li><a href="#">Huggies Diapers</a></li>
-        <li><a href="#">Seventh Generation</a></li>
-        <li><a href="#">Diapers</a></li>
-        <li><a href="#">Derbies</a></li>
-        <li><a href="#">Driving shoes</a></li>
-        <li><a href="#">Espadrilles</a></li>
-        <li><a href="#">Loafers</a></li>
-        <li><a href="#">Pampers Diapers</a></li>
-          <li><a href="#">Pampers Diapers</a></li>
-        <li><a href="#">Huggies Diapers</a></li>
-        <li><a href="#">Seventh Generation</a></li>
-        <li><a href="#">Diapers</a></li>
-        <li><a href="#">Derbies</a></li>
-        <li><a href="#">Driving shoes</a></li>
-        <li><a href="#">Espadrilles</a></li>
-        <li><a href="#">Loafers</a></li>
-        <li><a href="#">Pampers Diapers</a></li>
-    
-    </ul>
-</div>
-</div>
-    </li>
-     
+         <div class="nav-column" >
+           <ul>
+           <li style="margin-top: -50px;">
+             <img src="/assets/sc1.jpeg"  >   
+            </li>
+            </ul>
+        </div>
+        </div>
+    </li>     
+<% end %>   
 </ul>
+
+
 
 <style>
 .nav,
@@ -324,7 +120,7 @@ height: 300px;
  
 .nav .nav-column li a {
     display: block;
-    line-height: 26px;
+    line-height: 34px;
  
     font-family: Helvetica, Arial, sans-serif;
     

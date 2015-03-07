@@ -6,10 +6,10 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
    
-#admin = Admin.new(:email => 'admin@gmail.com', :password => '123123123',
-# :password_confirmation => '123123123')
-#admin.save(:validate => false)
-#Admin.first.update_attributes(first_name: "Sara", last_name: "Fanning")
+admin = Admin.new(:email => 'admin@gmail.com', :password => '123123123',
+:password_confirmation => '123123123')
+admin.save(:validate => false)
+Admin.first.update_attributes(first_name: "Sara", last_name: "Fanning")
 #Pending, Success, Shipped, Cancelled, Returned
 #Possible Action for Admin Guest Order => Shipped, Returned
 #Possible Action for Admin User Order => Shipped, Returned
@@ -21,7 +21,10 @@
 #once they confirm their order, status becomes Success
 #later we need to remove all color + product_colors 
 
-Category.find_or_create_by(:name => "Bed and bath") 
+# Category.find_or_create_by(:name => "Bed and bath")
+
+Category.find_or_create_by(:name => "Bed")
+Category.find_or_create_by(:name => "Bath")
 Category.find_or_create_by(:name => "Curtains")
 Category.find_or_create_by(:name => "Furniture")
 Category.find_or_create_by(:name => "Cushions")
@@ -29,29 +32,44 @@ Category.find_or_create_by(:name => "Decor")
 Category.find_or_create_by(:name => "Kids")
 Category.find_or_create_by(:name => "Sale")
 
+# @cat1 = Category.find_by_name('Bed and bath') 
+# ParentSubCategory.find_or_create_by(:name => "Bed linen", :category_id => @cat1.id)
+# ParentSubCategory.find_or_create_by(:name => "Bath linen", :category_id => @cat1.id)
 
-@cat1 = Category.find_by_name('Bed and bath') 
-ParentSubCategory.find_or_create_by(:name => "Bed linen", :category_id => @cat1.id)
-ParentSubCategory.find_or_create_by(:name => "Bath linen", :category_id => @cat1.id)
+# @psc1 = ParentSubCategory.find_by_name("Bed linen")
+# @psc2 = ParentSubCategory.find_by_name("Bath linen")
 
-@psc1 = ParentSubCategory.find_by_name("Bed linen")
-@psc2 = ParentSubCategory.find_by_name("Bath linen")
+# SubCategory.find_or_create_by(:name => "Bed sheets", :parent_sub_category_id => @psc1.id, :category_id => @cat1.id)
+# SubCategory.find_or_create_by(:name => "Bed in a bag",  :parent_sub_category_id => @psc1.id, :category_id => @cat1.id)
+# SubCategory.find_or_create_by(:name => "Bed covers",  :parent_sub_category_id => @psc1.id, :category_id => @cat1.id)
+# SubCategory.find_or_create_by(:name => "Comforters",  :parent_sub_category_id => @psc1.id, :category_id => @cat1.id)
+# SubCategory.find_or_create_by(:name => "Duvet covers",  :parent_sub_category_id => @psc1.id, :category_id => @cat1.id)
+# SubCategory.find_or_create_by(:name => "Diwan sets",  :parent_sub_category_id => @psc1.id, :category_id => @cat1.id)
+# SubCategory.find_or_create_by(:name => "Pillow and inserts ",  :parent_sub_category_id => @psc1.id, :category_id => @cat1.id)
+@cat1a = Category.find_by_name('Bed')
+SubCategory.find_or_create_by(:name => "Bed sheets", :category_id => @cat1a.id)
+SubCategory.find_or_create_by(:name => "Bed in a bag", :category_id => @cat1a.id)
+SubCategory.find_or_create_by(:name => "Bed covers", :category_id => @cat1a.id)
+SubCategory.find_or_create_by(:name => "Comforters", :category_id => @cat1a.id)
+SubCategory.find_or_create_by(:name => "Duvet covers", :category_id => @cat1a.id)
+SubCategory.find_or_create_by(:name => "Diwan sets", :category_id => @cat1a.id)
+SubCategory.find_or_create_by(:name => "Pillow and inserts", :category_id => @cat1a.id)
 
-SubCategory.find_or_create_by(:name => "Bed sheets", :parent_sub_category_id => @psc1.id, :category_id => @cat1.id)
-SubCategory.find_or_create_by(:name => "Bed in a bag",  :parent_sub_category_id => @psc1.id, :category_id => @cat1.id)
-SubCategory.find_or_create_by(:name => "Bed covers",  :parent_sub_category_id => @psc1.id, :category_id => @cat1.id)
-SubCategory.find_or_create_by(:name => "Comforters",  :parent_sub_category_id => @psc1.id, :category_id => @cat1.id)
-SubCategory.find_or_create_by(:name => "Duvet covers",  :parent_sub_category_id => @psc1.id, :category_id => @cat1.id)
-SubCategory.find_or_create_by(:name => "Diwan sets",  :parent_sub_category_id => @psc1.id, :category_id => @cat1.id)
-SubCategory.find_or_create_by(:name => "Pillow and inserts ",  :parent_sub_category_id => @psc1.id, :category_id => @cat1.id)
-
-SubCategory.find_or_create_by(:name => "Towels",  :parent_sub_category_id => @psc2.id, :category_id => @cat1.id)
-SubCategory.find_or_create_by(:name => "Bath robes",  :parent_sub_category_id => @psc2.id, :category_id => @cat1.id)
-SubCategory.find_or_create_by(:name => "Bath rugs",  :parent_sub_category_id => @psc2.id, :category_id => @cat1.id)
-SubCategory.find_or_create_by(:name => "Bath mats",  :parent_sub_category_id => @psc2.id, :category_id => @cat1.id)
-SubCategory.find_or_create_by(:name => "Shower curtains",  :parent_sub_category_id => @psc2.id, :category_id => @cat1.id)
-SubCategory.find_or_create_by(:name => "Bathroom accessories",  :parent_sub_category_id => @psc2.id, :category_id => @cat1.id)
-SubCategory.find_or_create_by(:name => "Mirrors",  :parent_sub_category_id => @psc2.id, :category_id => @cat1.id)
+# SubCategory.find_or_create_by(:name => "Towels",  :parent_sub_category_id => @psc2.id, :category_id => @cat1.id)
+# SubCategory.find_or_create_by(:name => "Bath robes",  :parent_sub_category_id => @psc2.id, :category_id => @cat1.id)
+# SubCategory.find_or_create_by(:name => "Bath rugs",  :parent_sub_category_id => @psc2.id, :category_id => @cat1.id)
+# SubCategory.find_or_create_by(:name => "Bath mats",  :parent_sub_category_id => @psc2.id, :category_id => @cat1.id)
+# SubCategory.find_or_create_by(:name => "Shower curtains",  :parent_sub_category_id => @psc2.id, :category_id => @cat1.id)
+# SubCategory.find_or_create_by(:name => "Bathroom accessories",  :parent_sub_category_id => @psc2.id, :category_id => @cat1.id)
+# SubCategory.find_or_create_by(:name => "Mirrors",  :parent_sub_category_id => @psc2.id, :category_id => @cat1.id)
+@cat1b = Category.find_by_name('Bath')
+SubCategory.find_or_create_by(:name => "Towels", :category_id => @cat1b.id)
+SubCategory.find_or_create_by(:name => "Bath robes", :category_id => @cat1b.id)
+SubCategory.find_or_create_by(:name => "Bath rugs", :category_id => @cat1b.id)
+SubCategory.find_or_create_by(:name => "Bath mats", :category_id => @cat1b.id)
+SubCategory.find_or_create_by(:name => "Shower curtains", :category_id => @cat1b.id)
+SubCategory.find_or_create_by(:name => "Bathroom accessories", :category_id => @cat1b.id)
+SubCategory.find_or_create_by(:name => "Mirrors", :category_id => @cat1b.id)
 
 @cat2 = Category.find_by_name('Curtains') 
 SubCategory.find_or_create_by(:name => "Window curtains", :category_id => @cat2.id)
