@@ -8,9 +8,13 @@
         <% @subCategories.in_groups_of(5).each do |subCatGroup| %>
                 <div class="nav-column" >
             <% subCatGroup.each do |subCat| %>
+                <% unless subCat.blank? %>
                 <ul>
-                    <li><a href="#"><%= subCat.try(:name) %></a></li>             
+                    <li>
+                            <%= link_to subCat.name, home_path(subCat), :class => "subcat", :title => "#{subCat.try(:name)}" %>
+                    </li>  
                 </ul>
+            <% end %>
             <% end %>
             </div>            
         <% end %>
