@@ -38,7 +38,7 @@
           </li>
           <% if params[:id].present? %>
           <li class="<%= (params[:controller] == "admin/orders" && (params[:action] == "show")) ? 'active' : '' %>">
-            <a href="/admin/orders/show">View Order Details</a>
+            <a href="#">View Order Details</a>
           </li>
           <% end %>
         <% elsif params[:controller] == "admin/users" %>

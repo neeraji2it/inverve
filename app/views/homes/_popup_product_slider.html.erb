@@ -40,7 +40,7 @@
               </div>
               <div class="col-md-7">
                 <div  class="popup-inner">
-                  <h4 >MRP Rs. <span style="text-decoration:line-through;">	<%= product.price %></span></h4>
+                  <h4 >MRP Rs. <span style="text-decoration:line-through;"> <%= product.price %></span></h4>
                   <span>Selling Price</span><br>
                   <span style="font-size:21px"><%= number_to_currency(product.price-(product.price * product.discount/100), :unit => "Rs.") %></span>
                   <% if product.discount? %>
@@ -66,7 +66,7 @@
           </div>
 
         </div>
-      </div>	
+      </div>  
     </div>
 
   </div>

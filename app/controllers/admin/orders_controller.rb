@@ -21,7 +21,8 @@ class Admin::OrdersController < ApplicationController
 			@order.update_attributes(:status => "Returned")
 			flash[:notice] = "You have changed the order status to Returned."
 		end
-		redirect_to guest_orders_admin_orders_path
+		#redirect_to guest_orders_admin_orders_path
+		redirect_to :back
 	end
   
   def show
