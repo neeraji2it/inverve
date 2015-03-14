@@ -83,8 +83,8 @@ config.i18n.fallbacks = true
     :address              => "smtp.gmail.com",
     :port                 => 587,
     #:domain               => 'baci.lindsaar.net',
-    :user_name            => 'rosarahomess@gmail.com',
-    :password             => 'rosarahomess@123',
+    :user_name            => 'rosarahomes@gmail.com',
+    :password             => 'rosarahomes@123',
     :authentication       => 'plain',
     :enable_starttls_auto => true
   }
