@@ -18,8 +18,18 @@
   </div>
 
   <div class="form-group">
-    <br>
+    Age <br>
     <%= f.text_field :age , autofocus: true, class: "form-control", :id => "age"%>
+  </div>
+
+  <div class="form-group">
+    Gender <br>
+  <%= f.select :gender, options_for_select(%w[Male Female]), {}, {class: "form-control"} %>
+  </div>
+
+  <div class="form-group">
+    Mobile Number <br>
+    <%= f.text_field :mobile_number , autofocus: true, class: "form-control", :id => "mobile_number"%>
   </div>
 
 
