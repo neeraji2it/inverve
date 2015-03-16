@@ -5,18 +5,18 @@ class Order < ActiveRecord::Base
   scope :guest_orders, lambda {where(:user_type => "Guest")}
   scope :user_orders, lambda {where(:user_type => "User")}
   
+  validate :validate_order
+
   def self.order_count(s_date)
     Order.where("date(created_at)=?", s_date).count
   end
 
- # if(params[:order][:same_as_billing] == "0" || params[:order][:first_name] == "" )
- #     @order.errors.add(:same_as_billing, "Required field")
-  #end
-
-   def billing_validation
-   	if(self.same_as_billing == "0" || self.first_name == "" )
-      errors.add(:same_as_billing, "Required field")
+  def validate_order
+    p "********************"
+    p self.same_as_billing
+    if(self.same_as_billing == false && self.city1.blank? )
+      errors.add(:same_as_billing, "Click on checkbox or fill up Shipping Address detail.").split("Same as billing")[0]
     end
-   end
+  end
 
 end
