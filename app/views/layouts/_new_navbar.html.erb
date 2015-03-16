@@ -4,35 +4,37 @@
         <a href="#"><%= cat.name %></a>
 
         <% @subCategories = cat.sub_categories %>
-        <div class="menu_sub">
-        <% @subCategories.in_groups_of(5).each do |subCatGroup| %>
-                <div class="nav-column" >
-            <% subCatGroup.each do |subCat| %>
-                <% unless subCat.blank? %>
-                <ul>
-                    <li>
-                            <%= link_to subCat.name, home_path(subCat), :class => "subcat", :title => "#{subCat.try(:name)}" %>
-                    </li>  
-                </ul>
-            <% end %>
-            <% end %>
-            </div>            
-        <% end %>
-   
-        <% if cat.avatar.present? %>    
-         <div class="nav-column" >
-           <ul>
-            <li>
-                <% if(cat.width.present? && cat.height.present?) %>
-                    <%= image_tag(cat.avatar.url(:original), width:"#{cat.width}px;", height:"#{cat.height}px;") %>
-                <% else %>
-                    <%= image_tag(cat.avatar.url(:original), width:"300px;", height:"265px;") %>   
+        <% if @subCategories.present? %>
+            <div class="menu_sub">
+            <% @subCategories.in_groups_of(5).each do |subCatGroup| %>
+                    <div class="nav-column" >
+                <% subCatGroup.each do |subCat| %>
+                    <% unless subCat.blank? %>
+                    <ul>
+                        <li>
+                                <%= link_to subCat.name, home_path(subCat), :class => "subcat", :title => "#{subCat.try(:name)}" %>
+                        </li>  
+                    </ul>
                 <% end %>
-            </li>
-            </ul>
-        </div>
+                <% end %>
+                </div>            
+            <% end %>
+            
+            <% if cat.avatar.present? %>    
+             <div class="nav-column" >
+               <ul>
+                <li>
+                    <% if(cat.width.present? && cat.height.present?) %>
+                        <%= image_tag(cat.avatar.url(:original), width:"#{cat.width}px;", height:"#{cat.height}px;") %>
+                    <% else %>
+                        <%= image_tag(cat.avatar.url(:original), width:"300px;", height:"265px;") %>   
+                    <% end %>
+                </li>
+                </ul>
+            </div>
+            <% end %>
+            </div>
         <% end %>
-        </div>
     </li>     
 <% end %>   
 </ul>
