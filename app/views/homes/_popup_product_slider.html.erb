@@ -12,13 +12,6 @@
             <div id="load_image-<%= product.id %>">
               <%= render :partial => "image_load", locals: {:product => product} %>
             </div>
-            <% if product.images.present? %>
-              <div class="bxslider-<%= product.id %>" style="height: 100px;">
-                <% product.images.each do |image| %>
-                  <%= image_tag image.avatar.url(:small, :height => "300px", :width => "300px"), :onclick => "imageload(#{product.id}, #{image.id})" %>                     
-                <% end %>
-              </div>
-            <% end %>
           </div>
           <div class="col-md-8">
             <div class="col-md-11 pop-right ">
@@ -66,6 +59,22 @@
           </div>
 
         </div>
+
+      <% if product.images.present? && product.images.size > 1 %>
+        <hr/>
+        <div class="row">
+          <div class="col-sm-12">
+
+              <div class="bxslider-<%= product.id %>" style="height: 100px;">
+                <% product.images.each do |image| %>
+                  <%= image_tag image.avatar.url(:small, :height => "300px", :width => "300px"), :onclick => "imageload(#{product.id}, #{image.id})" %>                     
+                <% end %>
+              </div>
+          </div>
+        </div>
+      <% end %>
+
+
       </div>  
     </div>
 
@@ -82,23 +91,6 @@
         id: id,
         product_id: product_id
       }
-    });
-  }
-</script>
-
-<script>
-  function zoomer(val) {
-    $('.bxslider-' + val).bxSlider({
-      auto: false,
-      mode: 'horizontal',
-      infiniteLoop: false,
-      speed: 3000,
-      pager: true,
-      autoHover: true,
-      minSlides: 3,
-      maxSlides: 12,
-      slideMargin: 20,
-      adaptiveHeight: true
     });
   }
 </script>
