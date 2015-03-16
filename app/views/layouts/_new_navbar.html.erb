@@ -22,8 +22,12 @@
         <% if cat.avatar.present? %>    
          <div class="nav-column" >
            <ul>
-           <li>
-             <%= image_tag(cat.avatar.url(:original)) %>   
+            <li>
+                <% if(cat.width.present? && cat.height.present?) %>
+                    <%= image_tag(cat.avatar.url(:original), width:"500px;", height:"265px;") %>
+                <% else %>
+                    <%= image_tag(cat.avatar.url(:original), width:"300px;", height:"265px;") %>   
+                <% end %>
             </li>
             </ul>
         </div>
@@ -163,7 +167,7 @@ height: 300px;
     height: 30px;
     width: 30px;
 }
-.nav-column ul li img{ width:550px;  height:268px;}
+/*.nav-column ul li img{ width:550px;  height:268px;}*/
 
 @media screen and (max-width: 800px)
 {
@@ -171,7 +175,7 @@ height: 300px;
     .nav > li > a {
    padding: 6px 20px; 
 }
-.nav-column ul li img{ width:160px;  height:235px;}
+/*.nav-column ul li img{ width:160px;  height:235px;}*/
 
 
 }
@@ -182,7 +186,7 @@ height: 300px;
     .nav {
     background: #fff;
 }
-.nav-column ul li img{ width:160px;  height:235px;}
+/*.nav-column ul li img{ width:160px;  height:235px;}*/
 
 .nav > li{
     clear: both;
