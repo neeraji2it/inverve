@@ -24,7 +24,7 @@
         <tbody>
           <% @users.each do |user| %>
             <tr>
-              <td>nil</td>
+              <td> <%= image_tag(user.image.present? ? user.image.url(:original) : "/assets/missing-user.png", size: '60x60') %></td>
               <td><%= user.email %></td>
               <td><%= user.first_name %></td>
               <td><%= user.last_name %></td>
