@@ -10,16 +10,20 @@
 
             <% if @images.present? && @images.size > 1 %>
             <div class="col-xs-12 col-sm-3 col-md-3 col-lg-3" id="gallery_09">
+              <div class="slid" style="position: relative; z-index: 2;">
+
               <div class="row">
-                <div class="bxslider1" style="max-width:300px;max-height:230px;">
-                  <% @images.each do |image| %>
-                  <div class="col-xs-3 col-sm-12 col-md-12 col-lg-12 box-product add_small_img">
-                    <a href="#" class="elevatezoom-gallery active" data-image="<%= image.avatar.url(:small) %>" data-zoom-image="<%= image.avatar.url(:small) %>">
-                      <img src="<%= image.avatar.url(:small) %>" />
-                    </a>                       
+                  <div class="bxslider1" style="max-width:300px;max-height:230px;">
+                    <% @images.each do |image| %>
+                    <div class="col-xs-3 col-sm-12 col-md-12 col-lg-12 box-product add_small_img">
+                      <a href="#" class="elevatezoom-gallery active" data-image="<%= image.avatar.url(:small) %>" data-zoom-image="<%= image.avatar.url(:small) %>">
+                        <img src="<%= image.avatar.url(:small) %>" />
+                      </a>                       
+                    </div>
+                    <% end %>
                   </div>
-                  <% end %>
                 </div>
+
               </div>
             </div>
             <% end %>
@@ -40,7 +44,7 @@
                 <span class="circleP single-circle">
                   <%= @product.discount%>%
                 </span>
-            
+
                 <br/>
                 <span style="font-size:21px"><%= number_to_currency(@product.price-(@product.price * @product.discount/100), :unit => "Rs.") %></span>
                 <% else %>
@@ -53,9 +57,9 @@
                   <b>Color:</b> <%= @product.color.capitalize %> 
                 </span>
                 <% end %>
-                  
+
                 <% if @product.product_size.present?  %>
-                  <b>Size:</b> <%= @product.product_size %>
+                <b>Size:</b> <%= @product.product_size %>
                 <% end %>
                 <br/> <br/>
               </div>
