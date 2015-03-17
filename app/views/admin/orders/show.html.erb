@@ -18,6 +18,7 @@
       <table id="da-ex-datatable-default" class="da-table">
         <thead>
           <tr>
+          <th>shipping Address</th>
             <th><b>First name</b> </th>
             <th><b>Last name</b> </th>
             <th><b>Address</b></th>
@@ -30,6 +31,38 @@
         </thead>
         <tbody>
           <tr>
+          <td></td>
+            <td><%= @order.first_name1.capitalize %></td>
+            <td>  <%= @order.last_name1.capitalize %></td>
+            <td> <%= @order.address1.capitalize %></td>
+            <td>  <%=  @order.landmark1.titleize%></td>
+            <td>  <%=  @order.pincode1%></td>
+            <td>  <%= @order.city1.capitalize %> || <%=  @order.state %> </td>
+            <td>  <%= @order.ip_address %></td>
+            <td>  <%= @order.status %> </td>
+          </tr>
+        </tbody>
+      </table>
+      
+    </div>
+    <div class="da-panel-content">
+      <table id="da-ex-datatable-default" class="da-table">
+        <thead>
+          <tr>
+          <th>Billing Address</th>
+            <th><b>First name</b> </th>
+            <th><b>Last name</b> </th>
+            <th><b>Address</b></th>
+            <th><b>LandMark</b></th>
+            <th><b>Pincode</b></th>
+            <th><b>City || State</b></th>
+            <th><b>Ip Address</b></th>
+            <th><b>Status</b></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+          <td></td>
             <td><%= @order.first_name.capitalize %></td>
             <td>  <%= @order.last_name.capitalize %></td>
             <td> <%= @order.address.capitalize %></td>

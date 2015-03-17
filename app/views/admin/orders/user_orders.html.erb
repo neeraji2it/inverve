@@ -26,13 +26,23 @@
           <% @orders.each do |order| %>
             <tr>
               <td><%= link_to order.id , admin_order_path(order.id) %></td>
-              <td><%= order.first_name %></td>
+              <% if order.same_as_billing == false %>
+              <td><%= order.first_name1 %></td>
+              <td><%= order.last_name1 %></td>
+              <td><%= order.address1 %></td>
+              <td><%= order.landmark1 %></td>
+              <td><%= order.pincode1 %></td>
+              <td><%= order.city1 %> ||
+               <%= order.state %></td>
+               <% else %>
+               <td><%= order.first_name %></td>
               <td><%= order.last_name %></td>
               <td><%= order.address %></td>
               <td><%= order.landmark %></td>
               <td><%= order.pincode %></td>
               <td><%= order.city %> ||
                <%= order.state %></td>
+               <% end %>
               <td><%= order.ip_address %></td>
               <td><%= order.status %></td>
               <td>

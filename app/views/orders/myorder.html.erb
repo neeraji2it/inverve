@@ -1,4 +1,3 @@
-
 <article>
 <div class="box-myorder">
 
@@ -20,7 +19,7 @@
 			<th>Order Date - <%= cart.created_at.strftime("%Y-%m-%d") %></th>
 			
 			<% if(cart.order.status != "Returned" && cart.order.status != "Cancelled" && cart.order.status != "Shipped") %>
-			<th><%= link_to "Cancel My Order", cancel_order_order_path(cart.order.id), :method => "PUT", :class => "btn" %></th>
+			<th><%= link_to "Cancel My Order", cancel_order_order_path(cart.order.id), :method => "PUT", :class => "btn" ,data: {confirm: 'Are You Sure ? To CANCEL Your Order'}%></th>
 			<% end %>
 		</tr>
 
