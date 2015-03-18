@@ -18,7 +18,8 @@
       <table id="da-ex-datatable-default" class="da-table">
         <thead>
           <tr>
-          <th>shipping Address</th>
+            <th><b style="color:#B0B0B0">Shipping Address</b> </th>
+            <th><b>Order Id</b></th>
             <th><b>First name</b> </th>
             <th><b>Last name</b> </th>
             <th><b>Address</b></th>
@@ -32,6 +33,7 @@
         <tbody>
           <tr>
           <td></td>
+            <td><%= @order.id %></td>
             <td><%= @order.first_name1.capitalize %></td>
             <td>  <%= @order.last_name1.capitalize %></td>
             <td> <%= @order.address1.capitalize %></td>
@@ -49,7 +51,7 @@
       <table id="da-ex-datatable-default" class="da-table">
         <thead>
           <tr>
-          <th>Billing Address</th>
+            <th><b style="color:#B0B0B0">Billing Address</b> </th>
             <th><b>First name</b> </th>
             <th><b>Last name</b> </th>
             <th><b>Address</b></th>
