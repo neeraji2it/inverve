@@ -35,7 +35,7 @@ class Admin::ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    if @product.update_attributes(product_params)
+    if @product.update_attributes(product_params.merge(:sub_category_id => params[:sub_category_id]))
       flash[:notice] = "Product updated successfully." 
       redirect_to admin_products_path
     else

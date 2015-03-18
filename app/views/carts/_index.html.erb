@@ -50,7 +50,7 @@
         <!-- will remove this later -->
       </div>
       <div class="box-continue clearfix">
-        <%= link_to "Continue Shopping", homes_path, :class => "btn btn-sm btn-success" %>
+        <%= link_to "Continue Shopping", homes_path, :class => "btn btn-sm" %>
         <%= link_to "Empty Shopping Cart",empty_carts_carts_path, :method => :delete, :class => "btn btn-sm btn-cart-clear" %>
       </div>
       <div class="box-estimate">
@@ -59,12 +59,8 @@
             <div class="box-subtotal clearfix">
               <div class="box-sub">
                 <div class="frow frow-sub">
-                  <div>Subtotal:</div>
-                  <div>Rs.<%= @cart.total_price %></div>
-                </div>
-                <div class="frow frow-sub">
                   <div>Grand total:</div>
-                  <div>Rs.<%= @cart.total_price %></div>
+                  <div style="font-weight:bold">Rs.<%= @cart.total_price %></div>
                 </div>
               </div>
             </div>
