@@ -20,19 +20,7 @@
                 </div>            
             <% end %>
             
-            <% if cat.avatar.present? %>    
-             <div class="nav-column" >
-               <ul>
-                <li>
-                    <% if(cat.width.present? && cat.height.present?) %>
-                        <%= image_tag(cat.avatar.url(:original), width:"#{cat.width}px;", height:"#{cat.height}px;") %>
-                    <% else %>
-                        <%= image_tag(cat.avatar.url(:original), width:"300px;", height:"265px;") %>   
-                    <% end %>
-                </li>
-                </ul>
-            </div>
-            <% end %>
+            
             </div>
         <% end %>
     </li>     
