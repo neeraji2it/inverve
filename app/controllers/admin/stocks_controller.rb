@@ -1,14 +1,10 @@
 class Admin::StocksController < ApplicationController
   before_filter :authenticate_admin!
-
   def index
     @products = Product.paginate(:page => params[:page], :per_page => 20)
   end
-
   def edit
-
   end
-
   def update
     respond_to do |format|
       if @product.update(product_params)
@@ -20,10 +16,9 @@ class Admin::StocksController < ApplicationController
       end
     end
   end
-
-   private
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def product_params
-      params.require(:product).permit!
-    end
+  private
+# Never trust parameters from the scary internet, only allow the white list through.
+def product_params
+  params.require(:product).permit!
+end
 end

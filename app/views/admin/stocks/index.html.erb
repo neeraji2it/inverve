@@ -1,15 +1,11 @@
-
-
 <div class="grid_4">
   <h1>Inventory Management</h1>
-
-    <div class="da-panel collapsible">
+  <div class="da-panel collapsible">
     <div class="da-panel-header">
       <span class="da-panel-title">
         <img src="/assets/admin/images/icons/black/16/list.png" alt="" />
         Inventory Management
       </span>
-      
     </div>
     <div class="da-panel-content">
       <table id="da-ex-datatable-default" class="da-table">
@@ -21,24 +17,23 @@
         </thead>
         <tbody>
           <% if @products.present? %>
-            <% @products.each do |product| %>
-            <tr>
-              <td><%= product.try(:name) %></td>
-              <td><%= best_in_place product, :quantity, :type => :input, :path => [:admin, product] %></td>
-            </tr>
+          <% @products.each do |product| %>
+          <tr>
+            <td><%= product.try(:name) %></td>
+            <td><%= best_in_place product, :quantity, :type => :input, :path => [:admin, product] %></td>
+          </tr>
           <% end %>
           <% end %>
         </tbody>
       </table>
     </div>
-  </div>  
+  </div>
 </div>
-
 <script type="text/javascript">
   var $j = jQuery.noConflict(true);
-$j(document).ready(function() {
-  /* Activating Best In Place */
-  $(".best_in_place").best_in_place();
-});
+  $j(document).ready(function() {
+    /* Activating Best In Place */
+    $(".best_in_place").best_in_place();
+  });
 </script>
-<%= will_paginate @products  %>
+<%= will_paginate @products %>
