@@ -6,7 +6,7 @@
 <script type="text/javascript" src="/assets/admin/js/demo/demo.gallery.js"></script>
 
 <div class="grid_4">
-<%#*scrollable%>
+  <%#*scrollable%>
   <div class="da-panel collapsible">
     <div class="da-panel-header">
       <span class="da-panel-title">
@@ -14,6 +14,7 @@
         Order Summery
       </span>
     </div>
+    <% if @order.address1 != @order.address && @order.same_as_billing == false %>
     <div class="da-panel-content">
       <table id="da-ex-datatable-default" class="da-table">
         <thead>
@@ -32,7 +33,7 @@
         </thead>
         <tbody>
           <tr>
-          <td></td>
+            <td></td>
             <td><%= @order.id %></td>
             <td><%= @order.first_name1.capitalize %></td>
             <td>  <%= @order.last_name1.capitalize %></td>
@@ -47,6 +48,7 @@
       </table>
       
     </div>
+    
     <div class="da-panel-content">
       <table id="da-ex-datatable-default" class="da-table">
         <thead>
@@ -54,6 +56,7 @@
             <th><b style="color:#B0B0B0">Billing Address</b> </th>
             <th><b>First name</b> </th>
             <th><b>Last name</b> </th>
+            <th><b>Email Id</b></th>
             <th><b>Address</b></th>
             <th><b>LandMark</b></th>
             <th><b>Pincode</b></th>
@@ -64,9 +67,10 @@
         </thead>
         <tbody>
           <tr>
-          <td></td>
+            <td></td>
             <td><%= @order.first_name.capitalize %></td>
             <td>  <%= @order.last_name.capitalize %></td>
+            <td><%= @order.email %></td>
             <td> <%= @order.address.capitalize %></td>
             <td>  <%=  @order.landmark.titleize%></td>
             <td>  <%=  @order.pincode%></td>
@@ -78,6 +82,45 @@
       </table>
       
     </div>
+    <% else %>
+
+    <div class="da-panel-content">
+      <table id="da-ex-datatable-default" class="da-table">
+        <thead>
+          <tr>
+            <th><b style="color:#B0B0B0">Billing And Shipping Address</b> </th>
+            <th><b>Order Id</b></th>
+            <th><b>First name</b> </th>
+            <th><b>Last name</b> </th>
+            <th><b>Email Id</b></th>
+            <th><b>Address</b></th>
+            <th><b>LandMark</b></th>
+            <th><b>Pincode</b></th>
+            <th><b>City || State</b></th>
+            <th><b>Ip Address</b></th>
+            <th><b>Status</b></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td><%= @order.id %></td>
+            <td><%= @order.first_name.capitalize %></td>
+            <td>  <%= @order.last_name.capitalize %></td>
+            <td><%= @order.email %></td>
+            <td> <%= @order.address.capitalize %></td>
+            <td>  <%=  @order.landmark.titleize%></td>
+            <td>  <%=  @order.pincode%></td>
+            <td>  <%= @order.city.capitalize %> || <%=  @order.state %> </td>
+            <td>  <%= @order.ip_address %></td>
+            <td>  <%= @order.status %> </td>
+          </tr>
+        </tbody>
+      </table>
+      
+    </div>
+
+    <% end %>
     <% if @order_items.present? %>
     <table id="da-ex-datatable-default" class="da-table">
       <tr>
@@ -88,23 +131,23 @@
         <th><b>FullPrice</b></th>
       </tr>
       <% @order_items.each do |order_item| %>
-        <% if order_item.product.present? %>
-            <tr>
-              <td>
-                <%= image_tag(order_item.product.images.present? ? (order_item.product.images.first.avatar.url) : "/assets/missing.png", height: "50px", width: "80px") %>
-              </td>
-              <td><%= order_item.product.name %></td>
-              <td><%= order_item.quantity %></td>
-              <td>Rs. <%= order_item.unit_price %></td>
-              <td>Rs. <%= order_item.full_price %></td>
-            </tr>
-          <% else %>
-            <tr>
-              <td>
-                Currently no products ordered.
-              </td>
-            </tr>
-        <% end %>
+      <% if order_item.product.present? %>
+      <tr>
+        <td>
+          <%= image_tag(order_item.product.images.present? ? (order_item.product.images.first.avatar.url) : "/assets/missing.png", height: "50px", width: "80px") %>
+        </td>
+        <td><%= order_item.product.name %></td>
+        <td><%= order_item.quantity %></td>
+        <td>Rs. <%= order_item.unit_price %></td>
+        <td>Rs. <%= order_item.full_price %></td>
+      </tr>
+      <% else %>
+      <tr>
+        <td>
+          Currently no products ordered.
+        </td>
+      </tr>
+      <% end %>
       <% end %>
     </table>
     <% end %>

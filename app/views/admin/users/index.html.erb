@@ -28,9 +28,21 @@
               <td><%= user.email %></td>
               <td><%= user.first_name %></td>
               <td><%= user.last_name %></td>
+              <% if user.age.blank? %>
+              <td>need updated</td>
+              <% else %>
               <td><%= user.age %></td>
+              <% end %>
+              <% if  user.gender.blank?%>
+              <td>need updated</td>
+              <% else %>
               <td><%= user.gender %></td>
+              <% end %>
+              <% if user.mobile_number.blank? %>
+              <td>need updated</td>
+              <% else %>
               <td><%= user.mobile_number %></td>
+              <% end %>
               <td><%= user.current_sign_in_at %></td>
               <td><%= user.current_sign_in_ip %></td>
             </tr>

@@ -1,10 +1,22 @@
 class Order < ActiveRecord::Base
 	belongs_to :cart
   belongs_to :user
-  validates :first_name,:last_name,:address,:landmark,:city,:pincode,:state,:phone, presence: true
+  validates :first_name,:last_name,:address,:landmark,:city,:pincode,:state, presence: true
   scope :guest_orders, lambda {where(:user_type => "Guest")}
   scope :user_orders, lambda {where(:user_type => "User")}
-  
+  validates :phone,:presence => true,
+                 :numericality => true,
+                 :length => { :minimum => 10 ,:maximum => 10 }
+  validates :pincode,:presence => true,
+                 :numericality => true,
+                 :length => { :minimum => 6 ,:maximum => 6 }
+  validates_format_of :email,:with => /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/ ,:presence => true
+  validates :phone1,:allow_blank => true,
+                 :numericality => true,
+                 :length => { :minimum => 10 ,:maximum => 10 }
+  validates :pincode1,:allow_blank => true,
+                 :numericality => true,
+                 :length => { :minimum => 6 ,:maximum => 6 }
   validate :validate_order
 
   def self.order_count(s_date)

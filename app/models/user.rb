@@ -10,5 +10,8 @@ class User < ActiveRecord::Base
   
   has_many :orders
 
-  validates :first_name, :last_name, :presence => true
+  validates :first_name, :last_name,  :presence => true
+  validates :mobile_number,:allow_blank => true,
+                 :numericality => true,
+                 :length => { :minimum => 10 ,:maximum => 10 }
 end

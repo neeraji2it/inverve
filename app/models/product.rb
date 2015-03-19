@@ -7,6 +7,7 @@ class Product < ActiveRecord::Base
    validates :price, :numericality => {:only_float => true}
    accepts_nested_attributes_for :images, reject_if: :all_blank, :allow_destroy => true
    scope :featured, lambda {where("is_featured=?", true)}
+   
 
   def self.search(search)
     if search.present?
