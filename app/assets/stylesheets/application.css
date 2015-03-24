@@ -285,3 +285,7 @@ margin-left: 38%;
   overflow: scroll;
 }
 }
+
+.scroll-images {
+  overflow-y: scroll;
+}
