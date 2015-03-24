@@ -1,0 +1,65 @@
+<div class="grid_4">
+
+  <div class="da-panel collapsible">
+    <div class="da-panel-header">
+      <span class="da-panel-title">
+        <img src="/assets/admin/images/icons/black/16/list.png" alt="" />
+        User Orders
+      </span>
+    </div>
+    <div class="da-panel-content">
+      <table id="da-ex-datatable-default" class="da-table">
+        <thead>
+          <tr>
+            <th>Order Id</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Address</th>
+            <th>Landmark</th>
+            <th>Pincode</th>
+            <th>City || State</th>
+            <th>Ip Address</th>
+            <th>Status</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |order| %>
+            <tr>
+              <td><%= link_to order.id , admin_order_path(order.id) %></td>
+              <% if order.same_as_billing == false %>
+              <td><%= order.first_name1 %></td>
+              <td><%= order.last_name1 %></td>
+              <td><%= order.address1 %></td>
+              <td><%= order.landmark1 %></td>
+              <td><%= order.pincode1 %></td>
+              <td><%= order.city1 %> ||
+               <%= order.state %></td>
+               <% else %>
+               <td><%= order.first_name %></td>
+              <td><%= order.last_name %></td>
+              <td><%= order.address %></td>
+              <td><%= order.landmark %></td>
+              <td><%= order.pincode %></td>
+              <td><%= order.city %> ||
+               <%= order.state %></td>
+               <% end %>
+              <td><%= order.ip_address %></td>
+              <td><%= order.status %></td>
+              <td>
+                <% if order.status == "Success" %>
+                  <%= link_to "Shipping", order_status_admin_order_path(order.id, :parm => "Shipped"), :method => "PUT" %>
+                <% elsif order.status == "Shipped" %>  
+                  <%= link_to "Return", order_status_admin_order_path(order.id, :parm => "Returned"), :method => "PUT" %>
+                <% end %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>  
+</div>
+
+
+<%= will_paginate @orders%>

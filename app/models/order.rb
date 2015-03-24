@@ -35,4 +35,12 @@ class Order < ActiveRecord::Base
   	self.status == 'Cancelled'
   end
 
+  def self.search(search)
+  if search
+    where('id LIKE ?', "%#{search}%")
+  else
+    Order.all
+  end
+end
+
 end
