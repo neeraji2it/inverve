@@ -3,7 +3,12 @@
     <div class="container">
       <div class="box-checkout">
         <div class="box-checkoutinform">
-          <h4 class="bposi"><span class="step">Step 3</span> <span class="text-informationSpacing">Billing & Shipping Address</span></h4>
+        <% if current_user.present? %>
+          <h4 class="bposi"><span class="step">Step 1</span> <span class="text-informationSpacing">Billing & Shipping Address</span></h4>
+         
+          <% else %>
+          <h4 class="bposi"><span class="step">Step 2</span> <span class="text-informationSpacing">Billing & Shipping Address</span></h4>
+          <% end %>
           <div class="box-mainnew">
             <div class="row">
               <%= render :partial => "form" %>

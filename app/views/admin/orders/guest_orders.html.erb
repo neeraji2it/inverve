@@ -1,7 +1,7 @@
 <div class="grid_4">
 <%= form_tag guest_orders_admin_orders_path, :method => 'get', :id => "guest_orders_search" do %>
   <p>
-    <%= text_field_tag :search, params[:search] %>
+    <%= text_field_tag :search, params[:search], :placeholder => "Search By Order Id" %>
     <%= submit_tag "Search", :id => nil %>
   </p>
 <% end %>
@@ -20,6 +20,6 @@ $(function() {
 });
 </script>
 <% else %>
-<p> Invalid Order Id </p>
+<h4> Invalid Order Id. </h4>
 <% end %>
 </div>

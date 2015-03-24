@@ -1,7 +1,7 @@
 <div class="grid_4">
-<%= form_tag user_orders_admin_orders_path, :method => 'get', :id => "orders_search" do %>
+<%= form_tag user_orders_admin_orders_path, :method => 'get', :id => "users_orders_search" do %>
   <p>
-    <%= text_field_tag :search, params[:search] %>
+    <%= text_field_tag :search, params[:search], :placeholder => "Search By Order Id"%>
     <%= submit_tag "Search", :id => nil %>
   </p>
 <% end %>
@@ -9,17 +9,17 @@
     <div id="products"><%= render :partial => 'user_orders' %></div>
 <script type="text/javascript">
 $(function() {
-  $("#orders th a, #orders .pagination a").live("click", function() {
+  $("#users_orders th a, #users_orders .pagination a").live("click", function() {
     $.getScript(this.href);
     return false;
   });
-  $("#orders_search input").keyup(function() {
-    $.get($("#orders_search").attr("action"), $("#orders_search").serialize(), null, "script");
+  $("#user_orders_search input").keyup(function() {
+    $.get($("#users_orders_search").attr("action"), $("#users_orders_search").serialize(), null, "script");
     return false;
   });
 });
 </script>
 <% else %>
-<p>Invalid Order Id </p>
+<h4>Invalid Order Id. </h4>
 <% end %>
 </div>
