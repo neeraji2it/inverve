@@ -14,7 +14,7 @@
 					<% if cart.present? %>
 		<tr>
 		<th></th>
-			<th><%= "ORDER - #{cart.id}" %></th>
+			<th><%= "ORDER - #{cart.order.id}" %></th>
 			<th>Order Total - Rs. <%= cart.total_price %></th>
 			<th>Order Date - <%= cart.created_at.strftime("%Y-%m-%d") %></th>
 			

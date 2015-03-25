@@ -97,16 +97,6 @@ class OrdersController < ApplicationController
     end
   end
   
-def cancel_order
-    @order = Order.find(params[:id])
-    if @order.update_attributes(status: 'Cancelled')
-      flash[:notice] = "Your order has been cancelled."
-      redirect_to myorder_orders_path
-    else
-      flash[:notice] = "Unprocessable entity."
-    end
-  end
-  
   private
   def set_order
     @order = Order.find(params[:id])
