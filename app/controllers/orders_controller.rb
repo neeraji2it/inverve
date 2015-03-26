@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show, :edit, :update, :destroy, :cancel_order, :confirm_myorder]
-
+  before_action :check_order_exists, only: [:checkout_information, :new, :create, :confirm]
   def index
     @orders = Order.all
   end
@@ -98,10 +98,21 @@ class OrdersController < ApplicationController
   
   private
   def set_order
-    @order = Order.find(params[:id])
+    order
+  end
+
+  def check_order_exists 
+    if current_cart.line_items.blank?
+      redirect_to homes_path
+    end
+  end
+
+  def order
+     @order = Order.find(params[:id])
   end
 
   def order_params
     params.require(:order).permit!
   end
+
 end
