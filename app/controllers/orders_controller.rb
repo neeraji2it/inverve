@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: [:show, :edit, :update, :destroy]
+  before_action :set_order, only: [:show, :edit, :update, :destroy, :cancel_order, :confirm_myorder]
 
   def index
     @orders = Order.all
@@ -32,7 +32,7 @@ class OrdersController < ApplicationController
   end
 
   def edit
-    @order = Order.find(params[:id])
+   
   end
 
   def update
@@ -88,7 +88,6 @@ class OrdersController < ApplicationController
   end
 
   def cancel_order
-    @order = Order.find(params[:id])
     if @order.update_attributes(status: 'Cancelled')
       flash[:notice] = "Your order has been cancelled."
       redirect_to myorder_orders_path
