@@ -12,15 +12,13 @@
                     <% unless subCat.blank? %>
                     <ul>
                         <li>
-                                <%= link_to subCat.name, home_path(subCat), :class => "subcat", :title => "#{subCat.try(:name)}" %>
+                            <%= link_to subCat.name, home_path(subCat), :class => "subcat", :title => "#{subCat.try(:name)}" %>
                         </li>  
                     </ul>
                 <% end %>
                 <% end %>
                 </div>            
-            <% end %>
-            
-            
+            <% end %>             
             </div>
         <% end %>
     </li>     
@@ -47,7 +45,7 @@
  
 .nav li { list-style: none; }
 .nav {
-    display: inline-block;
+        
     position: relative;
     cursor: default;
     
@@ -77,39 +75,44 @@
 .nav > li > .menu_sub {
     position: absolute;
     display: inline-block;
-    width: 100%;
+    width: auto;
     top: 45px;
-    left: 0;
+    left: auto;
     background-color: #fbfbfb;
     opacity: 0;
     visibility: hidden;
     overflow: hidden;
     z-index: 9999;
+    border: 2px solid #ccc;
+    height: auto;
 
 }
 .nav > li:hover > .menu_sub {
   opacity: 1;
 visibility: visible;
 overflow: auto;
-border: 2px solid #ccc;
-height: 300px;
+
+
  -webkit-transition: all .7s ease;
     -moz-transition: all .7s ease;
     -o-transition: all .7s ease;
     -ms-transition: all .7s ease;
-    transition: all .7s ease;
+    transition: all .7s ease
 
 }
 .nav .nav-column {
     float: left;
-    width: auto;
-    padding: 1.5%;
+    width: 153px;
+    padding: 10px;
+    position: relative;
+    left: 0;    
+    top: 0;
+    display: inline-block;
 }
  
 .nav .nav-column h3 {
     margin: 15px 0 5px 0;
     line-height: 10px;
- 
     font-family: Helvetica, Arial, sans-serif;
     font-weight: bold;
     font-size: 14px;
@@ -129,7 +132,8 @@ height: 300px;
     color: #727575;
 }
  
-.nav .nav-column li a:hover { color: #666666; }
+.nav .nav-column li a:hover { color: #ba5a02; } 
+.subcat:hover{ color: #ba5a02}
 ::-webkit-scrollbar{
     width: 8px;
     height: 10px;
@@ -152,6 +156,7 @@ height: 300px;
     -webkit-box-shadow: 0 1px 1px rgb(0,0,0);
     background: -webkit-linear-gradient(rgb(200,200,200), rgb(150,150,150));*/
 }
+
 
 ::-webkit-scrollbar-track-piece {
     height: 30px;
