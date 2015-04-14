@@ -187,12 +187,15 @@
                   <div class="buying-leftColumn">
                     <h6><%= guide.title %></h6>
                     <p>
-                      <%= guide.description.html_safe %>
+                      <%= guide.description.truncate(300).html_safe %>
+                    </p>
+                    <p>
+                      <%= link_to "View More", guide_home_path(guide) %>
                     </p>
                   </div>
                 </div>
                 <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5 img-buying">
-                  <%= image_tag guide.image.url(:thumb) %>
+                  <%= image_tag guide.image.url(:thumb),:style => "width:700px;height:260px" %>
                 </div>
               </div>
             </div>

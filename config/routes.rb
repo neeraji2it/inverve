@@ -73,6 +73,7 @@ Furnitureapp::Application.routes.draw do
     member do
       get :single_product
       get :inspirations
+      get :guide
     end
   end 
   resources :line_items

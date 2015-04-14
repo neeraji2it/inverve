@@ -1,0 +1,19 @@
+<article> 
+  <div class="container">
+    <div class="heading-spacing">
+      <h1><span>Buying Guides</span></h1>
+    </div>  
+    
+    <ul class="list-terms-content">
+      <li>
+        <h6><%= @guide.title.titleize %></h6>
+        <%= image_tag @guide.image.url(:thumb) %>
+        <br/><br/>
+        <p>
+          <%= @guide.description.html_safe %>
+        </p>
+      </li>
+    </ul>     
+  </div>    
+
+</article>

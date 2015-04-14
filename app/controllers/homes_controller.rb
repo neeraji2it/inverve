@@ -39,6 +39,10 @@ def single_product
   @similars = @category.products.where.not(id: @product.id)
 end
 
+def guide
+  @guide = BuyingGuide.find(params[:id])
+end
+
 def how_to_buy
 
 end
