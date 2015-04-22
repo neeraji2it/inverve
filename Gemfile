@@ -5,7 +5,6 @@ gem 'rails', '4.0.0'
 
 # Use mysql as the database for Active Record
 group :production do
-	gem 'pg'
 	gem 'rails_12factor'
 end
 
@@ -22,6 +21,7 @@ group :development, :test do
 	gem 'rspec-rails', '~> 2.0'
 	gem 'factory_girl_rails'
 	gem 'rspec-collection_matchers'
+  gem "capistrano-rails"
 end
 group :test do 
 	gem 'faker' 
@@ -67,8 +67,9 @@ gem "paperclip"
 gem "nested_form"
 gem 'devise'
 gem 'will_paginate-bootstrap'
-gem 'rvm-capistrano'
+gem 'capistrano-rvm'
 gem 'capistrano-ext'
+gem 'capistrano-bundler', '~> 1.1.2'
 gem 'net-ssh', '2.7.0'
 gem 'lazy_high_charts'
 gem 'best_in_place', github: 'aaronchi/best_in_place'
