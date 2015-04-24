@@ -10,6 +10,7 @@
       <thead>
         <tr>
           <th>Banner Id</th>
+          <th>Banner Image</th>
           <th>First Text</th>
           <th>Second Text</th>
           <th></th>
@@ -20,6 +21,7 @@
         <% @banner_images.each do |banner| %> 
           <tr>
         <td><%= banner.id %></td>
+        <td><%= image_tag(banner.image.url(:thumb), height: "60", width: "80") %></td>
         <td><%= banner.image_description.html_safe %></td>
         <td><%= banner.small_description.try(:html_safe) %></td>
             <td class="da-icon-column">
