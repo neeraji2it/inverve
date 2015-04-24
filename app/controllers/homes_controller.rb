@@ -17,9 +17,9 @@ class HomesController < ApplicationController
   end
   
   def show
-   @category = SubCategory.find(params[:id])
-   @categories = @category.category.sub_categories
-   @products = @category.products.paginate(:page => params[:page], :per_page => 20)
+   @sub_category = SubCategory.find(params[:id])
+   @categories = @sub_category.category.sub_categories
+   @products = @sub_category.products.paginate(:page => params[:page], :per_page => 20)
    @featured = Product.featured
  end
 
@@ -35,8 +35,8 @@ end
 def single_product
   @product = Product.find(params[:id])
   @images = @product.images
-  @category = @product.sub_category
-  @similars = @category.products.where.not(id: @product.id)
+  @sub_category = @product.sub_category
+  @similars = @sub_category.products.where.not(id: @product.id)
 end
 
 def guide
@@ -79,7 +79,7 @@ end
 def post_news_letter
   @news_letter = NewsLetter.new(news_letter_params)
   if @news_letter.save
-    flash[:notice] = "Thanks you have been subscribed to news letter."
+    flash[:notice] = "Thanks, you have been subscribed to news letter."
   end
   respond_to do |format|
     format.js
