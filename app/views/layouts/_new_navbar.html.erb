@@ -1,5 +1,5 @@
 <ul class="nav">
-   <% Category.where("name is not null and category_show = #{true}").each do |cat| %>
+   <% Category.where("name is not null and category_show = #{true}").includes(:sub_categories).each do |cat| %>
     <li>
         <a href="#"><%= cat.name %></a>
 
