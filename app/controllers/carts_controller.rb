@@ -1,11 +1,10 @@
-  class CartsController < ApplicationController
-   def show
-   
-    @cart = current_cart
+class CartsController < ApplicationController
+  before_action :load_cart, except: [:destroy]
+
+  def show
   end
 
   def index
-    @cart = current_cart
     @products = current_cart.line_items
   end
 
@@ -21,23 +20,15 @@
   end
 
   def empty_carts
-    @cart = current_cart
-      if current_cart.line_items.present?
-        current_cart.destroy
-        session[:cart_id] = nil
-      end
-      redirect_to carts_path
+    if current_cart.line_items.present?
+      current_cart.destroy
+      session[:cart_id] = nil
+    end
+    redirect_to carts_path
   end
 
   def update
-    @cart = current_cart
     @products = current_cart.line_items
-    quantities = []
-    (1..10).each do |qty|
-      p qty
-      quantities << qty
-    end
-    @quantities = quantities
     @li = LineItem.find(params[:id])
     @li.update(:quantity => params[:quantity])
     respond_to do |format|
@@ -46,7 +37,11 @@
   end
   
   def discount
-    @cart = current_cart
     @products = current_cart.line_items
+  end
+
+  private
+  def load_cart
+    @cart = current_cart
   end
 end

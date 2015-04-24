@@ -7,19 +7,23 @@ helper_method :current_cart
 layout :get_layout
 before_filter :update_sanitized_params, if: :devise_controller?
 before_filter :load_news_letter
+
 def update_sanitized_params
   devise_parameter_sanitizer.for(:sign_up) {|u| u.permit!}
 end
+
 def after_sign_in_path_for(resource_or_scope)
   if resource_or_scope.is_a?(Admin)
     admin_dashboards_path
   end
 end
+
 def sign_in?
   unless current_user or current_admin
     redirect_to new_user_session_path
   end
 end
+
 def current_cart
   if session[:cart_id]
     @current_cart ||= Cart.find(session[:cart_id])
@@ -31,9 +35,11 @@ def current_cart
   end
   @current_cart
 end
+
 def load_news_letter
   @news_letter ||= NewsLetter.new
 end
+
 protected
 def get_layout
   if devise_controller? && (resource_name == :admin || resource_name == :user)

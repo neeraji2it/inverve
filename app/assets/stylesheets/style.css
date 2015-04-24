@@ -19,12 +19,8 @@ padding: 7px;
 border-top-right-radius:1em;
 border-bottom-right-radius:1em;
 width: 226px;
-
-
-
 }
 
 .input-group-addon, .input-group-btn {
     width: auto;
-  
 }

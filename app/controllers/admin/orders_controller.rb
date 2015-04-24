@@ -29,7 +29,6 @@ class Admin::OrdersController < ApplicationController
     @order = Order.find(params[:id])
      @product = Product.all
    @order_items = @order.cart.line_items
-#    p @order_items.inspect
   end
   
 end
