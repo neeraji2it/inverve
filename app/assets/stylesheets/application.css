@@ -293,3 +293,5 @@ margin-left: 38%;
 #slider .bx-wrapper .bx-controls-direction a {display: none;}
 #slider .bx-wrapper { margin: 0px auto 60px; padding: 1px; position: relative; }
 #slider .bx-wrapper .bx-viewport {background: none repeat scroll 0 0 #fff; border: 5px solid #fff; box-shadow: 0 0 5px #ccc; left: 0px;}
+
+.guide-desc { margin-bottom: 15px; height: 100px; width: 520px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }

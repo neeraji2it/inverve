@@ -179,11 +179,11 @@
                 <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
                   <div class="buying-leftColumn">
                     <h6><%= guide.title %></h6>
+                    <div class="guide-desc">
+                      <%= guide.description.html_safe %>
+                    </div>
                     <p>
-                      <%= guide.description.truncate(300).html_safe %>
-                    </p>
-                    <p>
-                      <%= link_to "View More", guide_home_path(guide) %>
+                      <%= link_to "View More", guide_home_path(guide), :class => "btn btn-sm btn-primary" %>
                     </p>
                   </div>
                 </div>
