@@ -1,26 +1,20 @@
 <% if @banner_images.present? %>
   <div id="slider">
-    <div id="myCarddouselss" class="caroddusel slide clearfix" data-ride="carddousel">
-      <div class="carousel-innefr">
-        <div class="bxslider1">
-          <% for image in @banner_images %>
-            <div class="item active">
-              <img title="" src="<%= image.image.url(:original) %>" width='1286' height="537"/>
-              <div class="container">
-                <div class="box-homecontent clearfix">
-                  <div class="content-banner">
-                    <h1><%= image.image_description.html_safe %></h1>
-                  </div>
-                  <div class="content-banner text-personalise"> <%= image.small_description.try(:html_safe)  %></div>
-                  <p style><a class="btn btn-newarrivals" href="#" title="Stay Tuned">Stay Tuned</a></p>
-                </div>
+    <div class="bxslider1">
+      <% for image in @banner_images %>
+        <div class="item active">
+          <img title="" src="<%= image.image.url(:original) %>" width='1294' height="537"/>
+          <div class="container">
+            <div class="box-homecontent clearfix">
+              <div class="content-banner">
+                <h1><%= image.image_description.html_safe %></h1>
               </div>
-              <!--  </div> -->
+              <div class="content-banner text-personalise"> <%= image.small_description.try(:html_safe)  %></div>
+              <p style><a class="btn btn-newarrivals" href="#" title="Stay Tuned">Stay Tuned</a></p>
             </div>
-          <% end %>
-
+          </div>
         </div>
-      </div>
+      <% end %>
     </div>
   </div>
 <% end%>
@@ -223,8 +217,8 @@
     </div>
   </div>
 </article>
-<script type="text/javascript" charset="utf-8">
 
+<script type="text/javascript" charset="utf-8">
   $(function() {
     $('.bxslider').bxSlider({
       auto: true,
@@ -242,7 +236,6 @@
 
     $('.bxslider1').bxSlider({
       auto: true,
-      // slideWidth: 308,
       infiniteLoop: true,
       speed: 4000,
       pager: false,

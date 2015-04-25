@@ -17,4 +17,3 @@
 //= require bxslider
 //= require ckeditor/init
 //= require best_in_place
-
