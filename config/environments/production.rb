@@ -88,4 +88,7 @@ config.i18n.fallbacks = true
     :authentication       => 'plain',
     :enable_starttls_auto => true
   }
+  
+  #server options
+  Paperclip.options[:command_path] = "/usr/local/bin"
 end
