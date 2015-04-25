@@ -1,6 +1,6 @@
 <% if @banner_images.present? %>
   <div id="slider">
-    <div class="bxslider1">
+    <div class="bxslider-banner">
       <% for image in @banner_images %>
         <div class="item active">
           <img title="" src="<%= image.image.url(:original) %>" width='1294' height="537"/>
@@ -160,8 +160,8 @@
                 <%= link_to image_tag(advice.avatar.present? ? (advice.avatar.url) : "/assets/missing.png", :style => "width:475px;height:250px"), inspirations_home_path(advice.id)%>
               </div>
               <div class="box-content">
-                <h5><%= advice.title.titleize %></h5>
-                <p><%= advice.description.truncate(30).html_safe %></p>
+                <p><%= advice.title.titleize.truncate(20) %></p>
+                <p><%= link_to "View More", inspirations_home_path(advice.id), :class => "btn btn-sm btn-primary"%></p>
               </div>
             </div>
           <% end %>
@@ -170,10 +170,9 @@
     <% end %>
 
     <% if @guides.present? %>
-
       <div class="box-featured">
         <h1><span>Buying Guides</span></h1>
-        <div class="bxslider2">
+        <div class="bxslider-buying-guides">
           <% @guides.each do |guide| %>
             <div class="box-bedlinen">
               <div class="row">
@@ -221,7 +220,6 @@
 <script type="text/javascript" charset="utf-8">
   $(function() {
     $('.bxslider').bxSlider({
-      auto: true,
       slideWidth: 308,
       infiniteLoop: true,
       speed: 4000,
@@ -234,7 +232,7 @@
       adaptiveHeight: true
     });
 
-    $('.bxslider1').bxSlider({
+    $('.bxslider-banner').bxSlider({
       auto: true,
       infiniteLoop: true,
       speed: 4000,
@@ -247,7 +245,7 @@
       adaptiveHeight: true
     });
 
-    $('.bxslider2').bxSlider({
+    $('.bxslider-buying-guides').bxSlider({
       auto: false,
       infiniteLoop: true,
       speed: 4000,
