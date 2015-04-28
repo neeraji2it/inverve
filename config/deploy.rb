@@ -1,8 +1,8 @@
 # config valid only for current version of Capistrano
 lock '3.4.0'
 
-set :application, 'Rosara'
-set :repo_url, 'git@github.com:neeraji2it/homefurnishing.git'
+set :application, 'Inverve'
+set :repo_url, 'git@github.com:neeraji2it/inverve.git'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp

@@ -61,17 +61,16 @@
 #   }
 
 
-role :app, %w{root@63.142.250.68}
-role :web, %w{root@63.142.250.68}
-role :db, %w{root@63.142.250.68}
+role :app, %w{root@63.142.250.75}
+role :web, %w{root@63.142.250.75}
+role :db, %w{root@63.142.250.75}
 # Extended Server Syntax
 # ======================
 # This can be used to drop a more detailed server definition into the
 # server list. The second argument is a, or duck-types, Hash and is
 # used to set extended properties on the server.
-server '63.142.250.68', user: 'root', roles: %w{web app db}
-set :domain, '63.142.250.68'
-set :deploy_to, '/var/www/html/rosarahomes.com/public_html'
-set :branch, 'master'
+server '63.142.250.75', user: 'root', roles: %w{web app db}
+set :domain, '63.142.250.75'
+set :deploy_to, '/var/www/html/inverve.com/public_html'
 set :deploy_user, 'root'
 set :log_level, :debug
