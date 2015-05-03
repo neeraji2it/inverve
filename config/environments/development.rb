@@ -31,8 +31,8 @@ Furnitureapp::Application.configure do
     :address              => "smtp.gmail.com",
     :port                 => 587,
     #:domain               => 'baci.lindsaar.net',
-    :user_name            => 'rosarahomess@gmail.com',
-    :password             => 'rosarahomess@123',
+    :user_name            => 'inverve@gmail.com',
+    :password             => 'inverve@123',
     :authentication       => 'plain',
     :enable_starttls_auto => true
   }
