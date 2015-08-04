@@ -12,7 +12,7 @@ class Admin::ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.new(product_params.merge(:cat_id => params[:category_id], :sub_category_id => params[:sub_category_id]))
+    @product = Product.new(product_params.merge(:sub_category_id => params[:sub_category_id]))
     if @product.save
       flash[:notice] = "Product created successfully." 
       redirect_to admin_products_path, :notice =>"Product is saved successfully."
@@ -35,9 +35,6 @@ class Admin::ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    if params[:category_id].present?
-      @product.cat_id = params[:category_id]
-    end
     if params[:sub_category_id].present?
       @product.sub_category_id = params[:sub_category_id]
     end
