@@ -15,7 +15,7 @@
 <div class="da-form-row">
   <label>Choose Category</label>
   <div class="da-form-item large">
-    <%= select_tag "category_id", options_for_select([["Select Category", ""]] + Category.all.map {|c| [c.name, c.id]}), :id => "category_id" %>
+    <%= f.select :cat_id, options_for_select([["Select Category", ""]] + Category.all.map {|c| [c.name, c.id]}, :selected => f.object.cat_id) %>
   </div>
 </div>
 
@@ -85,7 +85,7 @@
               </div>
 
               <script>
-                $(document).on("change", "#category_id", function() {
+                $(document).on("change", "#product_cat_id", function() {
                   var category_id = $(this).val();
                   $.ajax({
                     url: "/admin/products/load_subcats",
