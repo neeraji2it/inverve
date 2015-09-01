@@ -1,0 +1,53 @@
+    <% if @similars.present? %>
+        <h1><span>Similar Items</span></h1>
+        <div class="bxslider">          
+          <% @similars.each do |product| %>
+            <div class="box-bedsheeT">
+              <div class="box-bedsheetimg">
+                <%= link_to image_tag(product.images.present? ? (product.images.first.avatar.url) : "/assets/missing.png", :style => "width:310px;height:250px"),single_product_home_path(product.id)%>
+              </div>
+              <div class="box-content">
+                <h3>Rs. <%= product.price %></h3>
+                <h4><%= product.name.capitalize %></h4>
+                <% if product.discount? %>
+                  <span class="circleQ">
+                    <%= product.discount%>%
+                  </span>           
+                <% end %> 
+              </div>
+            </div>
+          <% end %>
+        </div>
+      <% end %>
+      </article>
+
+      <script type="text/javascript">
+        jQuery(document).ready(function() {
+          jQuery("#zoom_09").elevateZoom({
+            gallery: "gallery_09",
+            galleryActiveClass: "active"
+          });
+        });
+      </script> 
+      <script type="text/javascript" charset="utf-8">
+        $(function() {
+          $('.bxslider').bxSlider({
+            auto: true,
+            slideWidth: 308,
+            infiniteLoop: true,
+            speed: 5000,
+            pager: false,
+            autoHover: true,
+            minSlides: 3,
+            maxSlides: 12,
+            slideMargin: 20,
+            adaptiveHeight: true
+          });
+        });
+      </script>
+      <style>
+        .bx-wrapper .bx-controls-direction a{z-index: 0;}
+        .margn-tp{ margin-top: 20px;}
+        .img-thmb{width: 75px}
+        .img-brder {margin-bottom: 30px;}
+      </style>
