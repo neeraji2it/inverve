@@ -32,10 +32,19 @@ def product_flags
   @products = Product.where("is_featured != ''")
 end
 
+# def single_product
+#   @product = Product.find(params[:id])
+#   @images = @product.images
+#   @sub_category = @product.sub_category
+#   @similars = @sub_category.products.where.not(id: @product.id)
+# end
+
+
+
 def single_product
   @product = Product.find(params[:id])
   @images = @product.images
-  @sub_category = @product.sub_category
+  @sub_category = @product.sub_category.present? ? (@product.sub_category) : @product.category
   @similars = @sub_category.products.where.not(id: @product.id)
 end
 
