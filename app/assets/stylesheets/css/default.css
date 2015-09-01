@@ -586,7 +586,7 @@ html body .frow-image > div + div { margin-left: 110px; }
 .product-outer-box [class*="col-"]:hover .box-content { box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.2); }
 .product-outer-box [class*="col-"]:hover .box-content { background-color: #fff; }
 .product-outer-box [class*="col-"]:hover .productimg-hover { -ms-transform: scale(1); -webkit-transform: scale(1); transform: scale(1); -moz-opacity: 1; -khtml-opacity: 1; opacity: 1; }
-.productimg-hover { -ms-transform: scale(0); -webkit-transform: scale(0); transform: scale(0); -moz-opacity: 0; -khtml-opacity: 0; opacity: 0; -webkit-transition: all 0.5s ease-out; -moz-transition: all 0.5s ease-out; transition: all 0.5s ease-out; background-color: rgba(255,255,255,0.8); position: absolute; top: 25%; left: 25%; padding: 20px; }
+.productimg-hover { -ms-transform: scale(0); -webkit-transform: scale(0); transform: scale(0); -moz-opacity: 0; -khtml-opacity: 0; opacity: 0; -webkit-transition: all 0.5s ease-out; -moz-transition: all 0.5s ease-out; transition: all 0.5s ease-out; background-color: rgba(255,255,255,0.8); position: absolute; top: 35%; left: 34%; padding: 20px; }
 .productimg-hover ul { list-style: none; padding: 0px; margin: 0px; }
 .productimg-hover ul li { float: left; margin-right: 1px; }
 .productimg-hover ul li a { float: left; width: 34px; height: 34px; display: block; background: url(/assets/images/sprit-icon.png) no-repeat center -1120px rgba(29,29,29,0.5); }
