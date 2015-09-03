@@ -2,7 +2,7 @@ class Product < ActiveRecord::Base
    has_many :images, :dependent => :destroy
    has_many :line_items, :dependent => :destroy
    belongs_to :sub_category
-   belongs_to :category
+   belongs_to :category, :foreign_key => :cat_id
    validates :name,:cat_id, :description, :price, :sub_category_id, :color, :product_size,  presence: true 
    validates :name, :uniqueness => {:case_sensitive => false}
    validates :price, :numericality => {:only_float => true}

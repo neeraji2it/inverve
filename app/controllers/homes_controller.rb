@@ -11,16 +11,23 @@ class HomesController < ApplicationController
   
   def category
     @categories = SubCategory.where("id = '#{params[:category_id]}'")
+    @categories = Category.where("id = '#{params[:category_id]}'")
     respond_to do |format|
       format.js
     end
   end
   
   def show
-   @sub_category = params[:category_id].present? ? Category.find(params[:category_id]) : SubCategory.find(params[:id])
-   @categories = params[:category_id].present? ? @sub_category.sub_categories : @sub_category.category.sub_categories
-   @products = @sub_category.products.paginate(:page => params[:page], :per_page => 20)
+  # @sub_category = params[:category_id].present? ? Category.find(params[:category_id]) : SubCategory.find(params[:id])
+   # @categories = params[:category_id].present? ? @sub_category.sub_categories : @sub_category.category.sub_categories
+   # @products = @sub_category.products.paginate(:page => params[:page], :per_page => 20)
+   # @featured = Product.featured
+
+    @categories = Category.where("id = '#{params[:category_id]}'")
+@category = Category.find(params[:id])
+   @products = @category.products.paginate(:page => params[:page], :per_page => 20)
    @featured = Product.featured
+
  end
 
 
@@ -35,8 +42,8 @@ end
 def single_product
   @product = Product.find(params[:id])
   @images = @product.images
-  # @sub_category = @product.sub_category
-  # @similars = @sub_category.products.where.not(id: @product.id)
+  @category = @product.category
+  @similars = @category.products.where.not(id: @product.id)
 end
 
 def guide
