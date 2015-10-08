@@ -30,9 +30,15 @@ class HomesController < ApplicationController
 
  end
 
-
+  
   def offers
-    @products = Product.where("discount != ''").paginate(:page => params[:page], :per_page => 20)
+   @products = Product.where("discount != ''").paginate(:page => params[:page], :per_page => 20)
+    #  if params.has_key?(:param1) && params.has_key?(:param2)
+    #   category_id = params[:param1]
+    #   discount = params[:param2]
+    #   @products = Product.offer(category_id, discount).paginate(:page => params[:page], :per_page => 20)
+    # end
+
   end
 
 def product_flags

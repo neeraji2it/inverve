@@ -8,7 +8,7 @@
 
 
             <div class="box-product col-xs-12 col-sm-12 col-md-12 col-lg-12 " style=" width:100%">
-              <img id="zoom_09" style="width:100%" src="<%= @product.images.present? ? (@product.images.first.avatar.url) : "/assets/missing.png" %>" data-zoom-image="<%= @product.images.present? ? (@product.images.first.avatar.url(:original)) : "/assets/missing.png" %>" />
+              <img id="zoom_09" style="width:60%" src="<%= @product.images.present? ? (@product.images.first.avatar.url) : "/assets/missing.png" %>" data-zoom-image="<%= @product.images.present? ? (@product.images.first.avatar.url(:original)) : "/assets/missing.png" %>" />
             </div>
 
             <% if @images.present? && @images.size > 1 %>
@@ -103,3 +103,22 @@
           </div>
         </div>
       </div>
+
+
+
+
+<style>
+        .tab-description .tab-content {
+font-size: 15px;
+color: #646464;
+/* line-height: 28px; */
+padding: 16px 19px 0px 19px;
+border: 1px solid golden;
+/* border-right: 1px solid #ddd; */
+/* border-bottom: 1px solid #ddd; */
+background-color: #ffffff;
+border: 1px solid goldenrod;
+text-align: left;
+cursor: pointer;
+}
+</style>

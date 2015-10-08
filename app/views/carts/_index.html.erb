@@ -51,7 +51,7 @@
       </div>
       <div class="box-continue clearfix">
         <%= link_to "Continue Shopping", homes_path, :class => "btn btn-sm" %>
-        <%= link_to "Empty Shopping Cart",empty_carts_carts_path, :method => :delete, :class => "btn btn-sm btn-cart-clear" %>
+        <%#= link_to "Empty Shopping Cart",empty_carts_carts_path, :method => :delete, :class => "btn btn-sm btn-cart-clear" %>
       </div>
       <div class="box-estimate">
         <div class="row">
@@ -69,7 +69,7 @@
           </div>
           <div class="col-xs-6 col-sm-4 col-md-4 col-lg-4">
             <p>
-              <%= link_to "Proceed to Checkout", current_user ? new_order_path : checkout_information_orders_path , class: "btn btn-proceed", title: "Proceed to Checkout" %>
+              <%= link_to "Proceed to Checkout", current_user ? new_order_path : checkout_information_orders_path , class: "btn btn-proceed", :id => "proceed_btn", title: "Proceed to Checkout" %>
             </p>
           </div>
         </div>
@@ -92,3 +92,14 @@
     });
 }
 </script>
+
+<style>
+ #proceed_btn{
+    background-color: grey !important;
+    padding: 14px;
+    border-radius: 1px;
+    box-shadow: 0px 0px 1px 0px rgb(101, 102, 101);
+    border: 1px solid transparent;
+    cursor: pointer;
+  }
+</style>

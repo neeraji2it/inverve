@@ -20,15 +20,15 @@
       <div class="topbar clearfix">
         <div class="container">
           <ul class="menu-signup">
-            <li class="icon-help">
+            <!-- <li class="icon-help">
               <a href="#" title="Help"><span>Help</span></a>
-            </li>
+            </li> -->
             <% if !current_user %>
               <li class="icon-up">
-                <%= link_to "Sign up", new_user_registration_path %>
+                <%= link_to "Signup", new_user_registration_path %>
               </li>
               <li class="icon-in">
-                <%= link_to "Sign in", new_user_session_path %>
+                <%= link_to "Login", new_user_session_path %>
               </li>
             <% end %>
 
@@ -56,7 +56,7 @@
 
                 <%= form_tag search_homes_path, :method => 'get',:id => "products_search" do %>
 
-                  <%= link_to "Cart #{current_cart.line_items.count}", carts_path, :class => "chart", :title => "Cart" %>
+                  <%= link_to "Cart #{current_cart.line_items.count}", carts_path, :class => "chart changecolor ", :title => "Cart" %>
                   <%= text_field_tag :search, params[:search], :placeholder => "Search", :class => "input-search" %>
                   <%= submit_tag "Search", :name => nil,:class => "btn-search", :value => "" %>
 
@@ -86,3 +86,9 @@
     <%= render :partial => "layouts/footer" %>
   </body>
 </html>
+
+<style>
+.changecolor {
+  color:#C29D12;
+}
+</style>

@@ -7,8 +7,9 @@
         <%image.each do |img|%>
           <% if img.try(:avatar).present? && img.image_show? %>
 
-            <a data-toggle="modal" data-target="#myModal_<%= p.id %>" 	 href="#">
-              <%= image_tag img.avatar.url(:original),:class => "img-responsive col-lg-12" %>
+<!--             <a data-toggle="modal" data-target="#myModal_<%= p.id %>" 	 href="#">
+ -->             
+  <%= image_tag img.avatar.url(:original),:class => "img-responsive col-lg-12" %>
             </a>
 
             <h5><%= p.name.capitalize %></h5>

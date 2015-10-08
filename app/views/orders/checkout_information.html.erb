@@ -8,7 +8,7 @@
             <div class="box-mainnew">
               <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                  <div class="box-new">
+                  <div class="box-new customer-box">
                     <h5>New Customer ?</h5>
                     <span>Choose your Checkout options:</span>
                     <div class="box-contenT">
@@ -22,7 +22,7 @@
                   </div>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
-                  <div class="box-new">
+                  <div class="box-new customer-box ">
                     <%= form_for(@user, url: user_session_path(:param1 => "orders"), :method => "POST") do |f| %>
                       <h5>Registered Customer ?</h5>
                       <span>Please fill the form below</span>
@@ -38,7 +38,7 @@
                           <div class="frow frow-your">
                             <div>Your Password</div>
                             <div>
-                              <%= f.password_field :password, autocomplete: "off", id: "input-mail", :placeholder => "Enter your password" %>
+                              <%= f.password_field :password, autocomplete: "off", class: "input-mail", :placeholder => "Enter your password" %>
                             </div>
                           </div>
 
@@ -57,3 +57,20 @@
       </div>  
     </article>
   <% end %>
+
+
+    <style>
+.input-mail
+{
+  width: 230px;
+height: 32px;
+}
+
+.customer-box
+{
+  width: 423px;
+  height: 213px;
+  border: 1px solid goldenrod;
+}
+
+  </style>

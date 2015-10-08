@@ -21,7 +21,7 @@ q:before, q:after { content: ''; }
 abbr, acronym { border: 0; font-variant: normal; }
 sup { vertical-align: text-top; }
 sub { vertical-align: text-bottom; }
-input, select, textarea, button { font-family: Tahoma, Geneva, sans-serif; direction: ltr; color: #000; font-size: 12px; margin: 0em; margin: 0px; }
+input, select, textarea, button { font-family: Tahoma, Geneva, sans-serif; direction: ltr; color: #000; font-size: 14px; margin: 0em; margin: 0px; }
 input, button { overflow: visible; }
 select option { padding-left: 4px; }
 p { margin: 0px; padding-bottom: 15px; }
@@ -227,17 +227,20 @@ html body .btn-signup { float: right; color: #000; margin-top: 3px; font-size: 1
 .box-contactDetail [class*="col-"]:nth-child(2), .box-contactDetail [class*="col-"]:nth-child(4) { padding-left: 0px; }
 ul.list-footerSocial { padding: 0px; list-style: none; display: inline-block; }
 ul.list-footerSocial li { float: left; margin-left: 6px; }
-ul.list-footerSocial li a { width: 18px; height: 18px; display: block; text-indent: -999em; }
-ul.list-footerSocial > li.icon-facebook a { background: url(/assets/images/sprit-icon.png) no-repeat 0px -276px; }
-ul.list-footerSocial > li.icon-facebook a:hover { background-position: 0px -315px; }
-ul.list-footerSocial > li.icon-twitter a { background: url(/assets/images/sprit-icon.png) no-repeat 0px -353px; }
-ul.list-footerSocial > li.icon-twitter a:hover { background-position: 0px -390px; }
-ul.list-footerSocial > li.icon-google-plus a { background: url(/assets/images/sprit-icon.png) no-repeat scroll 0px -427px; }
-ul.list-footerSocial > li.icon-google-plus a:hover { background-position: 0px -468px; }
-ul.list-footerSocial > li.icon-instagram a { background: url(/assets/images/sprit-icon.png) no-repeat scroll 0px -507px; }
-ul.list-footerSocial > li.icon-instagram a:hover { background-position: 0px -546px; }
-ul.list-footerSocial > li.icon-pinterest a { background: url(/assets/images/sprit-icon.png) no-repeat scroll 0px -584px; }
-ul.list-footerSocial > li.icon-pinterest a:hover { background-position: 0px -621px; }
+/*ul.list-footerSocial li a { width: 18px; height: 18px; display: block; text-indent: -999em; }*/
+
+ul.list-footerSocial li a img:hover{opacity: 0.8; }
+
+/*ul.list-footerSocial > li.icon-facebook a { background: url(/assets/images/sprit-icon.png) no-repeat 0px -276px; }*/
+/*ul.list-footerSocial > li.icon-facebook a:hover { background-position: 0px -315px; }*/
+/*ul.list-footerSocial > li.icon-twitter a { background: url(/assets/images/sprit-icon.png) no-repeat 0px -353px; }*/
+/*ul.list-footerSocial > li.icon-twitter a:hover { background-position: 0px -390px; }*/
+/*ul.list-footerSocial > li.icon-google-plus a { background: url(/assets/images/sprit-icon.png) no-repeat scroll 0px -427px; }*/
+/*ul.list-footerSocial > li.icon-google-plus a:hover { background-position: 0px -468px; }*/
+/*ul.list-footerSocial > li.icon-instagram a { background: url(/assets/images/sprit-icon.png) no-repeat scroll 0px -507px; }*/
+/*ul.list-footerSocial > li.icon-instagram a:hover { background-position: 0px -546px; }*/
+/*ul.list-footerSocial > li.icon-pinterest a { background: url(/assets/images/sprit-icon.png) no-repeat scroll 0px -584px; }*/
+/*ul.list-footerSocial > li.icon-pinterest a:hover { background-position: 0px -621px; }*/
 .link-readBlog { padding: 13px 10px 10px; transform: rotate(-9deg); -ms-transform: rotate(-9deg); -webkit-transform: rotate(-9deg); transform: rotate(-9deg); }
 .link-readBlog a { font-size: 16px; font-weight: bold; padding: 0px 22px; text-decoration: none; font-family: 'PristinaRegular'; background: url(/assets/images/sprit-icon.png) no-repeat 115px -650px; }
 ul.menu-footer { float: right; padding: 0px; list-style: none; }
@@ -580,7 +583,8 @@ html body .frow-image > div:first-child { width: 93px; }
 html body .frow-image { padding-top: 15px; }
 html body .frow-image > div + div { margin-left: 110px; }
 .box-product #leftColumn .box-content h4 { line-height: 12px; padding-bottom: 12px; }
-.box-productimg { position: relative; }
+.box-productimg { position: relative; border: 1px solid goldenrod; }
+
 .product-outer-box [class*="col-"], .box-content { -webkit-transition: all 0.5s ease-out; -moz-transition: all 0.5s ease-out; transition: all 0.5s ease-out; }
 .product-outer-box [class*="col-"]:hover .box-productimg { box-shadow: 0px -3px 15px 0px rgba(0,0,0,0.2); }
 .product-outer-box [class*="col-"]:hover .box-content { box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.2); }

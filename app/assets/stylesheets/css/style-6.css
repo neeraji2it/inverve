@@ -26,7 +26,8 @@
     float: left;
 }
 .nav > li > a {
-    
+    color: #c29d12;
+
      display: block;
     font-family: Helvetica,Arial,sans-serif;
     font-size: 12px;
