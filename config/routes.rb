@@ -3,6 +3,21 @@ Furnitureapp::Application.routes.draw do
   devise_for :admins
   devise_for :users, :controllers => {:sessions => "sessions"}
   namespace :admin do
+    resources :offer_managers do 
+      collection do 
+        put :offer_go
+        put :offer_first
+        put :offer_second
+        put :offer_third
+        put :offer_fourth
+        put :offer_fifth
+        put :offer_sixth
+        put :offer_seventh
+        put :offer_eighth
+      end
+    end
+
+    
     resources :orders do
       collection do
         get :guest_orders

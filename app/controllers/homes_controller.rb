@@ -4,6 +4,7 @@ class HomesController < ApplicationController
     @advices = Advice.all
     @banner_images = Banner.all
     @guides = BuyingGuide.all
+    offer_collections
   end
 
   def index_test
@@ -32,13 +33,13 @@ class HomesController < ApplicationController
 
   
   def offers
-   @products = Product.where("discount != ''").paginate(:page => params[:page], :per_page => 20)
-    #  if params.has_key?(:param1) && params.has_key?(:param2)
-    #   category_id = params[:param1]
-    #   discount = params[:param2]
-    #   @products = Product.offer(category_id, discount).paginate(:page => params[:page], :per_page => 20)
-    # end
-
+   if params.has_key?(:param1) && params.has_key?(:param2)
+      category_id = params[:param1]
+    #  @sub_category = Category.find(category_id)
+      discount = params[:param2]
+      @products = Product.offer(category_id, discount).paginate(:page => params[:page], :per_page => 20)
+    end
+  
   end
 
 def product_flags

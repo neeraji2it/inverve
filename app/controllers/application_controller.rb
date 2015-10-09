@@ -40,6 +40,18 @@ def load_news_letter
   @news_letter ||= NewsLetter.new
 end
 
+def offer_collections
+  @offer_go = OfferCollection.first_or_initialize
+  #  @offer_first = CollectionFirst.first_or_initialize
+  # @offer_second = CollectionSecond.first_or_initialize
+  # @offer_third = CollectionThird.first_or_initialize
+  # @offer_fourth = CollectionFourth.first_or_initialize
+  # @offer_fifth = CollectionFifth.first_or_initialize
+  # @offer_sixth = CollectionSixth.first_or_initialize
+  # @offer_seventh = CollectionSeventh.first_or_initialize
+  # @offer_eighth = CollectionEighth.first_or_initialize
+end 
+
 protected
 def get_layout
   if devise_controller? && (resource_name == :admin || resource_name == :user)

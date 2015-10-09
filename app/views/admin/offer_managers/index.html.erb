@@ -1,0 +1,38 @@
+<div class="grid_2">
+    <div class="da-panel">
+      <div class="da-panel-header">
+        <span class="da-panel-title">
+          <img src="/assets/admin/images/icons/black/16/pencil.png" alt="" />
+          Content Manager for GO-Section
+        </span>
+      </div>
+      <div class="da-panel-content">
+        <%= form_for @offer_go, :url => offer_go_admin_offer_managers_path, :method => 'PUT', :html => {:class => "da-form"} do |f| %>
+          <div class="da-form-row">
+             <label><%= f.label :go_text %></label>
+            <div class="da-form-item large">
+              <%= f.text_area :go_text, class: "form-control ckeditor" %> 
+            </div>
+          </div>
+
+          <div class="da-form-row">
+          <label><%= f.label :go_percent %></label>
+            <div class="da-form-item large">
+              <%= f.text_field :go_percent, class: "form-control" %> 
+            </div>
+          </div>
+
+          <div class="da-form-row">
+          <label><%= f.label :go_parent %></label>
+            <div class="da-form-item large">
+              <%= f.select :go_parent, options_for_select(Category.all.map {|cat| [cat.name, cat.id]}, :selected => f.object.go_parent) %>
+            </div>
+          </div>
+
+          <div class="da-button-row">
+            <%= f.submit "Offer Go", class: "da-button blue left" %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>

@@ -30,4 +30,11 @@ class Product < ActiveRecord::Base
    def discount_price
      self.discount.present? ? (self.price - ((self.price * discount)/ 100.ceil)) : self.price
    end
+   
+  def self.offer(category, discount)
+      if discount.present? and category.present?
+        where("discount=? and cat_id=?", discount, category)
+      end
+   end
+
 end
